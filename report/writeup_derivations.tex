@@ -53,7 +53,7 @@ V(i) = \frac{\lambda \beta V(i+1) + (1-\lambda)v}{1-(1-\lambda)\beta}
 
 \begin{theorem} A phase transition occurs after the consumer makes $i_0$ visits to firm $B$, which evaluates to:
 \begin{align*}
-i_0 &= k - \left\lceil{\log_{\frac{1}{\beta}}\left(\frac{R\beta(1-\beta)}{v} \right)}\right\rceil \\
+i_0 &= k - \left\lfloor \log_{\beta}\left(\frac{v}{R(1-\beta)}\right)\right\rfloor \\
 &\equiv k-\Delta
 \end{align*}
 \end{theorem}
@@ -77,10 +77,9 @@ V(i_0) = \beta V(i_0+1) = \cdots = \beta^{k-i_0}V(k) = \beta^{k-i_0}R
 Thus, we have the following:
 \begin{gather*}
 \beta^{k-i_0} \le \frac{v}{R\beta(1-\beta)} < \beta^{k-(i_0+1)} \\ 
-\iff \left(\frac{1}{\beta}\right)^{k-i_0} \ge \frac{R\beta(1-\beta)}{v} > \left(\frac{1}{\beta}\right)^{k-(i_0+1)} \\ 
-\iff k-i_0 \ge \log_{\frac{1}{\beta}}\left(\frac{R\beta(1-\beta)}{v} \right) > k-(i_0+1) \\
-\iff i_0 + 1 > k - \log_{\frac{1}{\beta}}\left(\frac{R\beta(1-\beta)}{v} \right) \ge i_0\\
-\iff i_0 = k - \left\lceil \log_{\frac{1}{\beta}}\left(\frac{R\beta(1-\beta)}{v} \right) \right\rceil \equiv k-\Delta
+\iff k-i_0 \ge \log_{\beta}\left(\frac{v}{R\beta(1-\beta)} \right) > k-(i_0+1) \\
+\iff i_0 \le k - \log_{\beta}\left(\frac{v}{R(1-\beta)} \right) + 1 < i_0 + 1\\
+\iff i_0 = k - \left\lfloor \log_{\beta}\left(\frac{v}{R(1-\beta)}\right) \right\rfloor \equiv k-\Delta
 \end{gather*}
 \end{proof}
 
