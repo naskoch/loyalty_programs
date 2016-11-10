@@ -121,5 +121,67 @@ Now we assume the look-ahead factor of a customer is drawn from some distributio
 \end{equation*}
 Assuming a customer look-ahead distribution and a fixed reward size, $R$, we want to choose a $k$ to maximize the revenue per reward cycle. That is we want to maximize the quantity given by revenue of $B$ during the $k$ visits over the total number of purchases (at both $A$ and $B$) to reach $k$ visits at $B$. For simplicity we assume $p^+ = 1$, so the revenue of $B$ per reward cycle is $k-R$. The expected total number of purchases per reward cycle is $\frac{i_0(t)}{\lambda}+(k-i_0(t))$, where the first term represents the expected number of visits needed to reach the phase transition with exogonous visits to $B$ and the second term is just the remaining visits to $B$ to receive the reward. \\
 
-Note that we can think of the length of the reward cycle as a random variable: length of cycle = $\tau+k-i_0(t)$ where $\tau$ is a random variable representing the number of visits needed to hit the phase transition $E(\tau) = \frac{i_0(t)}{\lambda}$. Ideally, we like to maximize the following obje
+Note that we can think of the length of the reward cycle as a random variable: length of cycle = $\tau+k-i_0(t)$ where $\tau$ is a random variable representing the number of visits needed to hit the phase transition and $E(\tau) = \frac{i_0(t)}{\lambda}$. Ideally, we would like to maximize the following objective function over $k$: $E_{\tau,t}\left(\frac{k-R}{\tau+k-i_0(t)} \right)$. We have some expressions for this objective function (which I can write up later or in separate document), but for now we will focus on a simpler objective: $E_t\left(\frac{k-R}{E_{\tau}(\tau+k-i_0(t)}\right) = E_t\left(\frac{k-R}{i_0(t)/\lambda+k-i_0(t)} \right)$. We hope that this change still models reality well (maybe we can prove this for further justification?). \\
+
+In this section, we focus on a very simple threshold distribution given by the following.
+\begin{equation*}
+  i_0(t)=\begin{cases}
+    t_1\geq \Delta, & \text{wp } p,\\
+    t_0 < \Delta, & \text{wp } 1-p.
+  \end{cases}
+\end{equation*}
+
+\begin{lemma}
+The objective function for the above look-ahead distribution is given by:
+\begin{equation*}
+f(k) = \frac{\lambda (k-R)p}{k-(1-\lambda)\Delta}+\frac{\lambda (k-R)(1-p)}{k-(1-\lambda)t_0}
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+\begin{align*}
+E_t\left(\frac{k-R}{\frac{i_0(t)}{\lambda}+k-i_0(t)} \right) &= \frac{(k-R)p}{\frac{i_0}{\lambda}+k-i_0}+\frac{(k-R)(1-p)}{\frac{k-t_0}{\lambda}+k-(k-t-0)} \\
+&= \frac{\lambda(k-R)p}{i_0+\lambda(k-i_0)}+\frac{\lambda(k-R)(1-p)}{k-t_0+t_0\lambda} \\
+&= \frac{\lambda(k-R)p}{k-\Delta+\lambda(\Delta)}+\frac{\lambda(k-R)(1-p)}{k-t_0+t_0\lambda} \\
+&= \frac{\lambda (k-R)p}{k-(1-\lambda)\Delta}+\frac{\lambda (k-R)(1-p)}{k-(1-\lambda)t_0} \equiv f(k)
+\end{align*}
+\end{proof}
+
+We wish to maximize this objective function for $k>\Delta$ (otherwise $i_0$ would be negative). Next, we will characterize the conditions under which we can maximize the function and what the maxima are.
+
+\begin{lemma}
+If $(1-\lambda)t_0 \leq R \leq (1-\lambda)\Delta$, the above objective function has real-valued critical points.
+\end{lemma}
+
+\begin{proof}
+First we differentiate $f(k)$.
+\begin{align*}
+\frac{df}{dk} &= \frac{\lambda(k-(1-\lambda)\Delta)-\lambda(k-R)p}{(k-(1-\lambda)\Delta)^2}+\frac{\lambda(1-p)(k-(1-\lambda)t_0)-\lambda(k-R)(1-p)}{(k-(1-\lambda)t_0)^2} \\
+&= \frac{\lambda p(R-(1-\lambda)\Delta)}{(k-(1-\lambda)\Delta)^2} + \frac{\lambda(1-p)(R-(1-\lambda)t_0)}{(k-(1-\lambda)t_0)^2}
+\end{align*}
+Setting equal to zero and solving for $k$ we get the following. Let $c_1 = R-(1-\lambda)\Delta$ and $c_2 = R-(1-\lambda)t_0$.
+\begin{gather*}
+pc_1(k-(1-\lambda)t_0)^2 = -(1-p)c_2(k-(1-\lambda)R)^2 \\
+\iff (pc_1)k^2-(2pc_1(1-\lambda))k+(pc_1(1-\lambda)^2t_0^2 = (-(1-p)c_2)k^2+(2(1-p)(1-\lambda)c_2\Delta)k-((1-p)c_2(1-\lambda)^2\Delta^2) \\
+\iff (pc_1+(1-p)c_2)k^2-2(1-\lambda)(pc_1t_0+(1-p)c_2\Delta)k+(1-\lambda)^2(pc_1t_0^2+(1-p)c_2\Delta^2) = 0
+\end{gather*}
+For the above to have real-valued solutions, we need:
+\begin{gather*}
+4(1-\lambda)^2(pc_1t_0+(1-p)c_2\Delta)^2 - 4(pc_1+(1-p)c_2)(1-\lambda)^2(pc_1t_0^2+(1-p)c_2\Delta^2) \geq 0 \\
+\iff p^2c_1^2t_0^2+(1-p)^2c_2^2\Delta^2+2p(1-p)c_1c_2t_0\Delta - p^2c_1^2t_0^2+(1-p)^2c_2^2\Delta^2+p(1-p)c_1c_2t_0^2+p(1-p)c_1c_2\Delta^2 \geq 0 \\
+\iff p(1-p)c_1c_2(2t_0\Delta-\Delta^2-t_0^2) \geq 0 \\
+\iff -p(1-p)c_1c_2(t_0-\Delta)^2 \geq 0 \\
+\iff -p(1-p)c_1c_2 \geq 0 \\
+\iff c_1c_2 \leq 0
+\end{gather*}
+The constraint that $c_1c_2 \leq 0$ means $(R-(1-\lambda)\Delta)(R-(1-\lambda)t_0) \leq 0$. Because $R \geq 0$, $(1-\lambda) \geq 0$ and $t_0 < \Delta$, we also have that $(R-(1-\lambda)\Delta) < (R-(1-\lambda)t_0)$. So we must have:
+\begin{gather*}
+(R-(1-\lambda)\Delta) \leq 0 \leq (R-(1-\lambda)t_0) \\
+\iff (1-\lambda)t_0 \leq R \leq (1-\lambda)\Delta
+\end{gather*}
+\end{proof}
+
+Note that $\Delta$ depends on $R$, so the above inequality is more complicated than as written. TODO - see if we can get a nice inequality for $R$ not in terms of $\Delta$. (Can also add a sample plot here). \\
+
+Now need to check that this is actually a maximum.
 \end{document}

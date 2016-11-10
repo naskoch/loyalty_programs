@@ -32,16 +32,16 @@ def solve_thresh(lam, R, delta, t0, p):
 
 v = 0.1
 lam = 0.05
-beta = 0.9
-R = v*20.
+beta = 0.1
+R = 15.*v
 
 delta = compute_delta(v, R, beta)
+print delta
 
 p = np.random.rand()
 t0 = 0
 
-#k = range(1,3*int(delta)+1)
-k = np.linspace(-10.*delta,10.*delta)
+k = np.linspace(delta,10.*delta)
 rev_rate = [rev_rate_thresh(j, lam, beta, R, delta, t0, p) for j in k]
 
 f1 = plt.figure()
@@ -50,7 +50,5 @@ plt.xlabel('k')
 plt.ylabel('revenue rate')
 
 print solve_thresh(lam, R, delta, t0, p)
-print rev_rate_thresh((1.-lam)*delta, lam, beta, R, delta, t0, p)
-
 
 plt.show()
