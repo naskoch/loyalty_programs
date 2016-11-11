@@ -184,4 +184,33 @@ The constraint that $c_1c_2 \leq 0$ means $(R-(1-\lambda)\Delta)(R-(1-\lambda)t_
 Note that $\Delta$ depends on $R$, so the above inequality is more complicated than as written. TODO - see if we can get a nice inequality for $R$ not in terms of $\Delta$. (Can also add a sample plot here). \\
 
 Now need to check that this is actually a maximum.
+
+\section{Question that we need to answer}
+
+Here is something that is concerning me. Look at the objective function again.
+\begin{equation*}
+f(k) = \frac{\lambda p (k-R)}{k-(1-\lambda)\Delta} + \frac{\lambda (1-p) (k-R)}{k-(1-\lambda)t_0}
+\end{equation*}
+We want to maximize this function over values of $k$ greater than $\Delta$. We know that $t_0 < \Delta$ so the denominator of the first term will always be less than that of the second term. Note even more that when $k$ is really close to $\Delta$ the first term dominates and will be really large. Obviously, when $k = (1-\lambda)\Delta < \Delta$, $f(k)$ will be infinite (as long as $R \neq (1-\lambda)\Delta$). And as $k$ increases from here, $f$ will decrease. I believe this objective function will always be maximized at $k=\Delta$ unless $R$ is also very close to $\Delta$ - which as we've seen on restrictions on $R$, may not be possible. We may need to tweek our objective function. \\
+
+Some futher investigation on restrictions on $R$ to get a maximum from critical point. First we look at the second derivative of $f$.
+\begin{equation*}
+f''(k) = -\frac{2\lambda p (R-(1-\lambda)\Delta)}{(k-(1-\lambda)\Delta)^3}-\frac{2\lambda(1-p)(R-(1-\lambda)t_0)}{(k-(1-\lambda)t_0)^3}
+\end{equation*}
+We know the denominators will always be positive on our domain. We also know that for a critical point to be real we must have $(R-(1-\lambda)\Delta) \leq 0 \leq (R-(1-\lambda)t_0)$. So for a real-valued critical point to be a maximum, we must have:
+\begin{gather*}
+-\frac{2\lambda p (R-(1-\lambda)\Delta)}{(k-(1-\lambda)\Delta)^3}-\frac{2\lambda(1-p)(R-(1-\lambda)t_0)}{(k-(1-\lambda)t_0)^3} < 0 \\
+\iff \frac{2\lambda p |R-(1-\lambda)\Delta|}{(k-(1-\lambda)\Delta)^3} < \frac{2\lambda (1-p)(R-(1-\lambda)t_0)}{(k-(1-\lambda)t_0)^3}
+\end{gather*}
+Again, the denominator of the first term will always be smaller than that of the second term, so will be difficult (more restrictions on $R$ and $\Delta$) for above to be true. \\
+
+Furthermore, we need the critical point of $f$ to be greater than $\Delta$. The critical points of $f$ are given by:
+\begin{equation*}
+x = \frac{(1-\lambda)(pc_1t_0+(1-p)c_2\Delta) \pm (1-\lambda)|t_0-\Delta|(-p(1-p)c_1c_2)^{\frac{1}{2}}}{pc_1+(1-p)c_2}
+\end{equation*}
+And we need:
+\begin{equation*}
+\frac{(1-\lambda)(pc_1t_0+(1-p)c_2\Delta) + (1-\lambda)|t_0-\Delta|(-p(1-p)c_1c_2)^{\frac{1}{2}}}{pc_1+(1-p)c_2} \geq \Delta
+\end{equation*}
+Again, this gives more restrictions on $R$ and $\Delta$. I still need to solve for all these restrictions, but I wanted to write this up so far to let you know a concern.
 \end{document}

@@ -21,24 +21,25 @@ def compute_delta(v, R, beta):
 def solve_thresh(lam, R, delta, t0, p):
 	# solve for critical points of rev_rate_thresh function
 
-	val1 = R-(1.-lam)*delta
+	val1 = R-(1.-lam)*float(delta)
 	val2 = R-(1.-lam)*t0
 
 	a = p*val1+(1.-p)*val2
-	b = -2*(1.-lam)*(p*val1*t0+(1.-p)*val2*delta)
-	c = ((1.-lam)**2)*(p*val1*(t0**2)+(1.-p)*val2*(delta**2))
+	b = -2*(1.-lam)*(p*val1*t0+(1.-p)*val2*float(delta))
+	c = ((1.-lam)**2)*(p*val1*(t0**2)+(1.-p)*val2*(float(delta)**2))
 
 	return np.roots([a, b, c])
 
 v = 0.1
 lam = 0.05
-beta = 0.1
-R = 15.*v
+beta = 0.9
+R = 1.75
 
 delta = compute_delta(v, R, beta)
 print delta
 
-p = np.random.rand()
+#p = np.random.rand()
+p = 0.9
 t0 = 0
 
 k = np.linspace(delta,10.*delta)
@@ -50,5 +51,13 @@ plt.xlabel('k')
 plt.ylabel('revenue rate')
 
 print solve_thresh(lam, R, delta, t0, p)
+
+r = np.linspace((1-lam)*t0,(1-lam)*float(delta))
+root = [max(solve_thresh(lam, j, compute_delta(v, j, beta), t0, p)) for j in r]
+
+f2 = plt.figure()
+plt.plot(r, root)
+plt.xlabel('R')
+plt.ylabel('max critical point')
 
 plt.show()
