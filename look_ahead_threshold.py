@@ -32,7 +32,7 @@ def solve_thresh(lam, R, delta, t0, p):
 
 v = 0.1
 beta = 0.8
-R = 37.6*v
+R = 30.*v
 
 delta = compute_delta(v, R, beta)
 print delta
@@ -56,6 +56,10 @@ plt.ylabel('revenue rate')
 print solve_thresh(lam, R, delta, t0, p)
 
 print (lam*p*(R-(1.-lam)*delta))/((lam*delta)**2)+(lam*(1.-p)*R)/(delta**2)
+
+print (1.-lam)*delta
+print ((1.-lam)*(1.-p)*R*delta)/(p*(R-(1.-lam)*delta)+(1.-p)*R)
+print delta
 
 r = np.linspace((1-lam)*t0,(1-lam)*float(delta))
 root = [max(solve_thresh(lam, j, delta, t0, p)) for j in r]
