@@ -191,7 +191,7 @@ Here is something that is concerning me. Look at the objective function again.
 \begin{equation*}
 f(k) = \frac{\lambda p (k-R)}{k-(1-\lambda)\Delta} + \frac{\lambda (1-p) (k-R)}{k-(1-\lambda)t_0}
 \end{equation*}
-We want to maximize this function over values of $k$ greater than $\Delta$. We know that $t_0 < \Delta$ so the denominator of the first term will always be less than that of the second term. Note even more that when $k$ is really close to $\Delta$ the first term dominates and will be really large. Obviously, when $k = (1-\lambda)\Delta < \Delta$, $f(k)$ will be infinite (as long as $R \neq (1-\lambda)\Delta$). And as $k$ increases from here, $f$ will decrease. I believe this objective function will always be maximized at $k=\Delta$ unless $R$ is also very close to $\Delta$ - which as we've seen on restrictions on $R$, may not be possible. We may need to tweek our objective function. \\
+We want to maximize this function over values of $k$ greater than $\Delta$. We know that $t_0 < \Delta$ so the denominator of the first term will always be less than that of the second term. Note even more that when $k$ is really close to $\Delta$ the first term dominates and will be really large. Obviously, when $k = (1-\lambda)\Delta < \Delta$, $f(k)$ will be infinite (as long as $R \neq \Delta$). And as $k$ increases from here, $f$ will decrease. I believe this objective function will always be maximized at $k=\Delta$ unless $R$ is also very close to $\Delta$ - which as we've seen on restrictions on $R$, may not be possible. We may need to tweek our objective function. \\
 
 Some futher investigation on restrictions on $R$ to get a maximum from critical point. First we look at the second derivative of $f$.
 \begin{equation*}
@@ -213,4 +213,61 @@ And we need:
 \frac{(1-\lambda)(pc_1t_0+(1-p)c_2\Delta) + (1-\lambda)|t_0-\Delta|(-p(1-p)c_1c_2)^{\frac{1}{2}}}{pc_1+(1-p)c_2} \geq \Delta
 \end{equation*}
 Again, this gives more restrictions on $R$ and $\Delta$. I still need to solve for all these restrictions, but I wanted to write this up so far to let you know a concern.
+
+\section{When should a store offer a reward?}
+
+Notice the revenue rate function $f(k)$, fixing $\beta$, $t_0$, $p$, $R$ and $\lambda$, approaches $\lambda$ as $k \rightarrow \infty$. This limit makes sense, as $k$ approaching $\infty$ means that no reward will be given, so all visits to $B$ will be exogenous, with a revenue rate of $\lambda$. One question that we may find interesting is when it is impossible to beat the revenue rate of $\lambda$ (supposing $R$ is fixed) and thus not offer a reward at all. Even if fixing $R$ is not very realistic, understanding the objective function as a function of $\lambda$ may give us insight into what to set $R$. \\
+
+Let's fix $\beta$, $p$, $R$ and let $t_0 = 0$ for now (for simplicity - can go in later and add more general case next). We wish to find the set of $\lambda \in [0,1]$ such that $f(k) \leq \lambda$ on $k \geq \Delta$: the $\lambda$'s for which we can not beat revenue rate of $\lambda$. I believe that there will always be some $\lambda_0$ such that for all $\lambda < \lambda_0$, we can increase the revenue rate by offering a reward and for all $\lambda \geq \lambda_0$, we cannot increase the revenue rate by offering a reward. (Note: I have not finished with the full proof of this yet, but going to write-up some ideas so far). \\
+
+\begin{lemma} Fix $R > 0$, $\beta$, $p$, $v$ and $t_0 = 0$. Then $f(\Delta) \leq \lambda$ if and only if $\lambda \geq \frac{p(\Delta-R)}{\Delta-(\Delta-R)(1-p)}$. Note that when equality holds in the second inequality, it does in the first as well. \end{lemma}
+\begin{proof}
+We have:
+\begin{align*}
+f(\Delta) &= \frac{\lambda p (\Delta-R)}{\Delta-(1-\lambda)\Delta}+\frac{\lambda (1-p)(\Delta-R)}{\Delta} \\
+&= \frac{p(\Delta-R)}{\Delta}+\frac{\lambda(1-p)(\Delta-R)}{\Delta} \\
+&= \frac{(\Delta-R)(\lambda(1-p)+p)}{\Delta}
+\end{align*}
+Then:
+\begin{gather*}
+\frac{(\Delta-R)(\lambda(1-p)+p)}{\Delta} \leq \lambda \\
+\iff \lambda-\frac{(\Delta-R)\lambda(1-p)}{\Delta} \geq \frac{p(\Delta-R)}{\Delta} \\
+\iff \lambda \left(\frac{\Delta-(\Delta-R)(1-p)}{\Delta}\right) \geq \frac{p(\Delta-R)}{\Delta} \\
+\iff \lambda \geq \frac{p(\Delta-R)}{\Delta-(\Delta-R)(1-p)}
+\end{gather*}
+Note for the last step above, we need $\Delta-(\Delta-R)(1-p) > 0$. But because $\Delta, R, (1-p) \geq 0$ then if $(\Delta-R) \leq 0$, the condition will always be satisfied (if $(\Delta-R) = 0$, $\Delta = R > 0$ and value is positive). And if $(\Delta-R) > 0$, $(1-p)(\Delta-R) \leq (\Delta-R) < \Delta$, so $\Delta-(\Delta-R)(1-p) > 0$.
+\end{proof}
+
+I believe the above threshold $\frac{p(\Delta-R)}{\Delta-(\Delta-R)(1-p)}$ is our desired $\lambda_0$. To show this we need to show that $f(\Delta)$ is a necessary and sufficient condition for $f(k)$ not exceeding $\lambda$ on $k \geq \Delta$. Clearly it is a necessary condition, so we just need to show it is sufficient. I believe the best way to do this is to show that for these $\lambda$, no critical points that are maxima exist in the range $[\Delta, \infty)$. If this is the case, then the max will occur at the the endpoints, which we have already argued will not be greater than $\lambda$. First we prove the following lemma which may be useful in other contexts as well. \\
+
+\begin{lemma} The objective function $f(k)$ (when $t_0 = 0$) has at most one real-valued critical point greater than $\Delta$. \end{lemma}
+\begin{proof}
+First note that we need $R-(1-\lambda)\Delta \leq 0 \leq R-(1-\lambda)t_0 = R$ for $f'$ to have real roots. The roots of $f'$ are given by:
+\begin{equation*}
+x = \frac{(1-\lambda)((1-p)R\Delta) \pm (1-\lambda)\Delta(-p(1-p)(R-(1-\lambda)\Delta)R)^{\frac{1}{2}}}{p(R-(1-\lambda)\Delta)+(1-p)R} \equiv C\pm D
+\end{equation*}
+We will show that $C = 
+\frac{(1-\lambda)((1-p)R\Delta)}{p(R-(1-\lambda)\Delta)+(1-p)R} \leq \Delta$. Then $f'$ has at most one root great than $\Delta$; because if $C \leq \Delta$, for every $D$ it is not possible for both $C+D$ and $C-D$ to be greater than $\Delta$. Note that $(1-\lambda)(1-p)R\Delta \geq 0$ and $p(R-(1-\lambda)\Delta) \leq 0$. If $p(R-(1-\lambda)\Delta)+(1-p)R < 0$, then $C < 0 \leq \Delta$ and we are done. If $p(R-(1-\lambda)\Delta)+(1-p)R > 0$, then we have the following:
+\begin{align*}
+\frac{(1-\lambda)((1-p)R\Delta)}{p(R-(1-\lambda)\Delta)+(1-p)R} &\leq \frac{(1-\lambda)((1-p)R\Delta)}{(1-p)R} \\
+&= (1-\lambda)\Delta \leq \Delta
+\end{align*}
+Finally, we need that the denominator is non-zero. So we need $R \neq p(1-\lambda)\Delta$. But we already have for real roots that $R \geq (1-\lambda)\Delta$. So for $p < 1$, we have a non-zero denominator.
+\end{proof}
+
+The above lemma is true for all choices of parameters, so I believe it is very useful in understanding our current objective function. Now we must prove that $f(\Delta) \leq \lambda$ is a sufficient condition the maximum of $f$ on $k\geq \Delta$ being no greater than $\lambda$.
+
+\begin{lemma}
+Fix $R > 0$, $\beta$, $p$, $v$ and $t_0 = 0$. If $f(\Delta) \leq \lambda$, then $f(k) \leq \lambda$, $\forall k \geq \Delta$. 
+\end{lemma}
+
+\begin{proof}
+We have that $f(\Delta) \leq \lambda$ and $f(k) \rightarrow \lambda$ as $k \rightarrow \infty$. Then if we show that no strict maximum occurs on the interval $(\Delta, \infty)$, we have shown the claim. We will break the proof down in cases based on the sign on the derivative of $f$ at delta. \\
+
+\textbf{Case 1:} $(f'(\Delta) = 0)$ For the derivative of $f$ at $\Delta$ to be zero, no critical points of $f$ may occur after $\Delta$. To see this, we make use of our previous lemma; if $\Delta$ is the larger of the two roots of $f'$ then we are done, and by the previous result, if it is the smaller of the two roots, it must be the case that both roots are actually $\Delta$. Because no critical points occur after $\Delta$, there are no strict maximum in the interval $(\Delta, \infty)$. \\
+
+\textbf{Case 2:} $(f'(\Delta) < 0)$ By our previous lemma, only one critical point may occur after $\Delta$, so by the negative sign of $f'(\Delta)$, that critical point may only be a minimum. \\
+
+\textbf{Case 3:} $(f'(\Delta) > 0)$ (NOT COMPLETED YET, so here are some notes) Here we want to show that in fact no critical points occur after $\Delta$, so no strict maximum may occur on the interval of interest. I am still working on this proof - I think it won't take too much longer. I am not certain whether I will need to make use of the fact that $f(\Delta) \leq \lambda$ for the proof. If I do not need that fact, then this lemma essentially also shows that for any choice of parameters, the maximum of $f$ will either occur at $\Delta$ or be $\lambda$ - this would mean that we need to find a new objective function.
+\end{proof}
 \end{document}

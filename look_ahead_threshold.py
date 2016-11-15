@@ -31,18 +31,21 @@ def solve_thresh(lam, R, delta, t0, p):
 	return np.roots([a, b, c])
 
 v = 0.1
-lam = 0.05
-beta = 0.9
-R = 1.75
+beta = 0.8
+R = 37.6*v
 
 delta = compute_delta(v, R, beta)
 print delta
 
 #p = np.random.rand()
-p = 0.9
+p = 0.1
 t0 = 0
 
-k = np.linspace(delta,10.*delta)
+lam = p*(delta-R)/(delta-(delta-R)*(1.-p))*2.5
+print lam
+print rev_rate_thresh(delta, lam, beta, R, delta, t0, p)
+
+k = np.linspace(delta,1.5*delta)
 rev_rate = [rev_rate_thresh(j, lam, beta, R, delta, t0, p) for j in k]
 
 f1 = plt.figure()
@@ -52,8 +55,10 @@ plt.ylabel('revenue rate')
 
 print solve_thresh(lam, R, delta, t0, p)
 
+print (lam*p*(R-(1.-lam)*delta))/((lam*delta)**2)+(lam*(1.-p)*R)/(delta**2)
+
 r = np.linspace((1-lam)*t0,(1-lam)*float(delta))
-root = [max(solve_thresh(lam, j, compute_delta(v, j, beta), t0, p)) for j in r]
+root = [max(solve_thresh(lam, j, delta, t0, p)) for j in r]
 
 f2 = plt.figure()
 plt.plot(r, root)
