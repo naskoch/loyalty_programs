@@ -32,16 +32,16 @@ def solve_thresh(lam, R, delta, t0, p):
 
 v = 0.1
 beta = 0.8
-R = 30.*v
+R = 33.*v
 
 delta = compute_delta(v, R, beta)
 print delta
 
 #p = np.random.rand()
-p = 0.1
+p = 0.4
 t0 = 0
 
-lam = p*(delta-R)/(delta-(delta-R)*(1.-p))*2.5
+lam = p*(delta-R)/(delta-(delta-R)*(1.-p))
 print lam
 print rev_rate_thresh(delta, lam, beta, R, delta, t0, p)
 
@@ -61,6 +61,9 @@ print (1.-lam)*delta
 print ((1.-lam)*(1.-p)*R*delta)/(p*(R-(1.-lam)*delta)+(1.-p)*R)
 print delta
 
+lams = np.linspace(lam,0.99)
+C = [((1.-l)*(1.-p)*R*delta)/(p*(R-(1.-l)*delta)+(1.-p)*R) for l in lams]
+
 r = np.linspace((1-lam)*t0,(1-lam)*float(delta))
 root = [max(solve_thresh(lam, j, delta, t0, p)) for j in r]
 
@@ -68,5 +71,10 @@ f2 = plt.figure()
 plt.plot(r, root)
 plt.xlabel('R')
 plt.ylabel('max critical point')
+
+f3 = plt.figure()
+plt.plot(lams, C)
+plt.xlabel('lambda')
+plt.ylabel('C')
 
 plt.show()

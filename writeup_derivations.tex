@@ -238,38 +238,63 @@ Then:
 Note for the last step above, we need $\Delta-(\Delta-R)(1-p) > 0$. But because $\Delta, R, (1-p) \geq 0$ then if $(\Delta-R) \leq 0$, the condition will always be satisfied (if $(\Delta-R) = 0$, $\Delta = R > 0$ and value is positive). And if $(\Delta-R) > 0$, $(1-p)(\Delta-R) \leq (\Delta-R) < \Delta$, so $\Delta-(\Delta-R)(1-p) > 0$.
 \end{proof}
 
-I believe the above threshold $\frac{p(\Delta-R)}{\Delta-(\Delta-R)(1-p)}$ is our desired $\lambda_0$. To show this we need to show that $f(\Delta)$ is a necessary and sufficient condition for $f(k)$ not exceeding $\lambda$ on $k \geq \Delta$. Clearly it is a necessary condition, so we just need to show it is sufficient. I believe the best way to do this is to show that for these $\lambda$, no critical points that are maxima exist in the range $[\Delta, \infty)$. If this is the case, then the max will occur at the the endpoints, which we have already argued will not be greater than $\lambda$. First we prove the following lemma which may be useful in other contexts as well. \\
+I believe the above threshold $\frac{p(\Delta-R)}{\Delta-(\Delta-R)(1-p)}$ is our desired $\lambda_0$. To show this we need to show that $f(\Delta)$ is a necessary and sufficient condition for $f(k)$ not exceeding $\lambda$ on $k \geq \Delta$. Clearly it is a necessary condition, so we just need to show it is sufficient. I believe the best way to do this is to show that for these $\lambda$, no critical points that are maxima exist in the range $[\Delta, \infty)$. If this is the case, then the max will occur at the the endpoints, which we have already argued will not be greater than $\lambda$. First we prove some lemmas about the roots of $f'$, assuming they are real-valued. \\
 
-\begin{lemma} The objective function $f(k)$ (when $t_0 = 0$) has at most one real-valued critical point greater than $\Delta$. \end{lemma}
+\begin{lemma}
+If $p(R-(1-\lambda)\Delta)+(1-p)R > 0$, the objective function $f(k)$ (when $t_0 = 0$) has at least one real-valued critical point with value at least $(1-\lambda)\Delta$.
+\end{lemma}
 \begin{proof}
 First note that we need $R-(1-\lambda)\Delta \leq 0 \leq R-(1-\lambda)t_0 = R$ for $f'$ to have real roots. The roots of $f'$ are given by:
 \begin{equation*}
 x = \frac{(1-\lambda)((1-p)R\Delta) \pm (1-\lambda)\Delta(-p(1-p)(R-(1-\lambda)\Delta)R)^{\frac{1}{2}}}{p(R-(1-\lambda)\Delta)+(1-p)R} \equiv C\pm D
 \end{equation*}
 We will show that $C = 
-\frac{(1-\lambda)((1-p)R\Delta)}{p(R-(1-\lambda)\Delta)+(1-p)R} \leq \Delta$. Then $f'$ has at most one root great than $\Delta$; because if $C \leq \Delta$, for every $D$ it is not possible for both $C+D$ and $C-D$ to be greater than $\Delta$. Note that $(1-\lambda)(1-p)R\Delta \geq 0$ and $p(R-(1-\lambda)\Delta) \leq 0$. If $p(R-(1-\lambda)\Delta)+(1-p)R < 0$, then $C < 0 \leq \Delta$ and we are done. If $p(R-(1-\lambda)\Delta)+(1-p)R > 0$, then we have the following:
+\frac{(1-\lambda)((1-p)R\Delta)}{p(R-(1-\lambda)\Delta)+(1-p)R} \geq (1-\lambda) \Delta$. Then $f'$ has at most one root less than $(1-\lambda)\Delta$; because if $C \geq (1-\lambda)\Delta$, for every $D$ it is not possible for both $C+D$ and $C-D$ to be less than $(1-\lambda)\Delta$. Note that $(1-\lambda)(1-p)R\Delta \geq 0$ and $p(R-(1-\lambda)\Delta) \leq 0$ and by assumption, the denominator of $C$ is positive as well. Therefore, we have:
 \begin{align*}
-\frac{(1-\lambda)((1-p)R\Delta)}{p(R-(1-\lambda)\Delta)+(1-p)R} &\leq \frac{(1-\lambda)((1-p)R\Delta)}{(1-p)R} \\
-&= (1-\lambda)\Delta \leq \Delta
+C &= \frac{(1-\lambda)(1-p)R\Delta}{p(R-(1-\lambda)\Delta)+(1-p)R} \\
+&\geq \frac{(1-\lambda)(1-p)R\Delta}{(1-p)R} = (1-\lambda)\Delta
 \end{align*}
+because $(1-p)R \geq (1-p)R+p(R-(1-\lambda)\Delta) > 0$.
+\end{proof}
+
+Note that the above lemma applies to any choice of parameters as long as that denominator is positive. Hopefully we can use it to understand the objective function in more general settings as well.
+
+\begin{lemma} If $\lambda \geq \frac{p(\Delta-R)}{\Delta-(\Delta-R)(1-p)}$, the objective function $f(k)$ (when $t_0 = 0$) has at most one real-valued critical point greater than $\Delta$. \end{lemma}
+\begin{proof}
+Again note that we need $R-(1-\lambda)\Delta \leq 0 \leq R-(1-\lambda)t_0 = R$ for $f'$ to have real roots. The roots of $f'$ are given by:
+\begin{equation*}
+x = \frac{(1-\lambda)((1-p)R\Delta) \pm (1-\lambda)\Delta(-p(1-p)(R-(1-\lambda)\Delta)R)^{\frac{1}{2}}}{p(R-(1-\lambda)\Delta)+(1-p)R} \equiv C\pm D
+\end{equation*}
+We will show that $C = 
+\frac{(1-\lambda)((1-p)R\Delta)}{p(R-(1-\lambda)\Delta)+(1-p)R} \leq \Delta$. Then $f'$ has at most one root great than $\Delta$; because if $C \leq \Delta$, for every $D$ it is not possible for both $C+D$ and $C-D$ to be greater than $\Delta$. Note that $(1-\lambda)(1-p)R\Delta \geq 0$ and $p(R-(1-\lambda)\Delta) \leq 0$. If $p(R-(1-\lambda)\Delta)+(1-p)R < 0$, then $C < 0 \leq \Delta$ and we are done. So we focus on the case that $p(R-(1-\lambda)\Delta)+(1-p)R > 0$. \\
+
+We will think of $C$ as a function of $\lambda$.First we show that for $\lambda' = \frac{p(\Delta-R)}{\Delta-(\Delta-R)(1-p)}$, $C(\lambda') = \Delta$. It is a straightforward computation to see that $(1-\lambda') = \frac{R}{\Delta-(\Delta-R)(1-p)}$. And we have:
+\begin{align*}
+C(\lambda') &= \frac{(1-\lambda')(1-p)R\Delta}{p(R-(1-\lambda')\Delta)+(1-p)R} \\
+&= \frac{(1-p)R^2\Delta}{\Delta-(\Delta-R)(1-p)} \cdot \frac{1}{p\left(R-\frac{R\Delta}{\Delta-(\Delta-R)(1-p)} \right)+(1-p)R} \\
+&= \frac{(1-p)R^2\Delta}{\Delta-(\Delta-R)(1-p)} \cdot \frac{1}{\left(\frac{-pR(\Delta-R)(1-p)}{\Delta-(\Delta-R)(1-p)} \right)+(1-p)R} \\
+&= \frac{(1-p)R^2\Delta}{-pR(\Delta-R)(1-p)+(1-p)R(\Delta-(\Delta-R)(1-p)))} \\
+&= \frac{(1-p)R^2\Delta}{(1-p)R\Delta-(pR(\Delta-R)(1-p)+(1-p)R(\Delta-R)(1-p))} \\
+&= \frac{(1-p)R^2\Delta}{(1-p)R\Delta-(1-p)R(\Delta-R)} = \frac{(1-p)R^2\Delta}{(1-p)R^2} = \Delta
+\end{align*}
+Next notice that when the denominator is positive, $C$ is a decreasing function in $\lambda < 1$; increasing $\lambda$ decreases the value of the nominator and increases the value of the denominator (the first term becomes less negative so the whole thing becomes more positive). So by these two facts, $C(\lambda) \leq \Delta$ for $\lambda \geq \lambda'$ as defined above. \\
+
 Finally, we need that the denominator is non-zero. So we need $R \neq p(1-\lambda)\Delta$. But we already have for real roots that $R \geq (1-\lambda)\Delta$. So for $p < 1$, we have a non-zero denominator.
 \end{proof}
 
-NOTE: THIS PROOF IS ACTUALLY WRONG, IT ACTUALLY SHOWS $C \geq (1-\lambda)\Delta$. STILL NEED TO SHOW $C \leq \Delta$. I will continue working on this. \\
-
-The above lemma is true for all choices of parameters, so I believe it is very useful in understanding our current objective function. Now we must prove that $f(\Delta) \leq \lambda$ is a sufficient condition the maximum of $f$ on $k\geq \Delta$ being no greater than $\lambda$.
+Now we must prove that $f(\Delta) \leq \lambda$ is a sufficient condition the maximum of $f$ on $k\geq \Delta$ being no greater than $\lambda$.
 
 \begin{lemma}
 Fix $R > 0$, $\beta$, $p$, $v$ and $t_0 = 0$. If $f(\Delta) \leq \lambda$, then $f(k) \leq \lambda$, $\forall k \geq \Delta$. 
 \end{lemma}
 
 \begin{proof}
-We have that $f(\Delta) \leq \lambda$ and $f(k) \rightarrow \lambda$ as $k \rightarrow \infty$. Then if we show that no strict maximum occurs on the interval $(\Delta, \infty)$, we have shown the claim. We will break the proof down in cases based on the sign on the derivative of $f$ at delta. \\
+We have that $f(\Delta) \leq \lambda$ and $f(k) \rightarrow \lambda$ as $k \rightarrow \infty$. Then if we show that no strict maximum occurs on the interval $(\Delta, \infty)$, we have shown the claim. We will break the proof down in cases based on the sign on the derivative of $f$ at delta. Note that because $f(\lambda) \leq \Delta$, we have a $\lambda$ such that our previous lemma applies. \\
 
 \textbf{Case 1:} $(f'(\Delta) = 0)$ For the derivative of $f$ at $\Delta$ to be zero, no critical points of $f$ may occur after $\Delta$. To see this, we make use of our previous lemma; if $\Delta$ is the larger of the two roots of $f'$ then we are done, and by the previous result, if it is the smaller of the two roots, it must be the case that both roots are actually $\Delta$. Because no critical points occur after $\Delta$, there are no strict maximum in the interval $(\Delta, \infty)$. \\
 
 \textbf{Case 2:} $(f'(\Delta) < 0)$ By our previous lemma, only one critical point may occur after $\Delta$, so by the negative sign of $f'(\Delta)$, that critical point may only be a minimum. \\
 
-\textbf{Case 3:} $(f'(\Delta) > 0)$ (NOT COMPLETED YET, so here are some notes) Here we want to show that in fact no critical points occur after $\Delta$, so no strict maximum may occur on the interval of interest. I am still working on this proof - I think it won't take too much longer. I am not certain whether I will need to make use of the fact that $f(\Delta) \leq \lambda$ for the proof. If I do not need that fact, then this lemma essentially also shows that for any choice of parameters, the maximum of $f$ will either occur at $\Delta$ or be $\lambda$ - this would mean that we need to find a new objective function.
+\textbf{Case 3:} $(f'(\Delta) > 0)$ (NOT COMPLETED YET, so here are some notes) Here we want to show that in fact no critical points occur after $\Delta$, so no strict maximum may occur on the interval of interest. I am still working on this proof - I think it won't take too much longer. 
 \end{proof}
 \end{document}
