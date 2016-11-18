@@ -26,7 +26,14 @@ def sample_look_ahead(t0, t1, p, n):
 			t[k] = t0
 	return t
 
-def compute_delta(v, R, beta, lam):
+def sample_lam(n, b):
+	# sample a lambda for the n customers
+	# uniform from (0,b)
+
+	lam = [b*np.random.rand() for j in range(n)]
+	return lam
+
+def compute_delta(v, R, beta):
 	# compute delta (related to phase transition) for 
 	# duopoly where reward is R, discouting is beta and 
 	# price difference is v
@@ -62,7 +69,7 @@ def sim_one_purchase(V, i0, lam, k):
 	P = np.zeros((n,1))
 	for j in range(len(V)):
 		q = np.random.rand()
-		if q <= lam:
+		if q <= lam[j]:
 			P[j] = 1
 			if V[j] < k-1:
 				V[j] += 1
@@ -85,11 +92,12 @@ def sim_one_purchase(V, i0, lam, k):
 					num_R += 1
 	return V, P, num_a, num_b, num_R
 
-def sim_period(T, n, p, t0, t1, lam, v, R, delta, k):
+def sim_period(T, n, p, t0, t1, b, v, R, delta, k):
 	# simulate entire period of programs, length T
 
 	# sample customers
 	t = sample_look_ahead(t0, t1, p, n)
+	lam = sample_lam(n, b)
 
 	# create vector for states of each vector
 	V = np.zeros((n,1))
@@ -127,7 +135,8 @@ t1 = T
 
 # monopoly effects of each form (can also model
 # preferences)
-lam = 0.55
+# each person has a random lambda from in (0, b)
+b = 0.3
 
 # other parameters
 beta = 0.9
@@ -138,7 +147,7 @@ v = 0.25
 # setup reward program, optimizing revenue rate of B
 # k = math.e/(1.-beta)
 # R = v*k
-# delta = compute_delta(v, R, beta, lam)
+# delta = compute_delta(v, R, beta)
 # if rev_rate_thresh(delta, lam, beta, R, delta, t0, p) > lam:
 # 	k = delta
 # else:
@@ -154,13 +163,15 @@ for l in range(len(vs)):
 	s_b = 0.
 	# k = math.e/(1.-beta)
 	R = 1.
-	delta = compute_delta(v, R, beta, lam)
-	if delta != 0. and rev_rate_thresh(delta, lam, beta, R, delta, t0, p) > lam:
+	delta = compute_delta(v, R, beta)
+	if delta != 0. and rev_rate_thresh(delta, b/2, beta, R, delta, t0, p) > b/2:
+		# here we check based on average of lambda distribution
+		# need some theory to work this out, but testing for now
 		k = delta
 	else:
 		k = T
 	for j in range(trials):
-		rev_a, rev_b, tot_a, tot_b, tot_R = sim_period(T, n, p, t0, t1, lam, v, R, delta, k)
+		rev_a, rev_b, tot_a, tot_b, tot_R = sim_period(T, n, p, t0, t1, b, v, R, delta, k)
 		s_a += rev_a
 		s_b += rev_b
 	avg_rev_a[l] = s_a/float(trials)
@@ -181,10 +192,10 @@ for l in range(len(vs)):
 	s_b = 0.
 	# k = math.e/(1.-beta)
 	R = 1.
-	delta = compute_delta(v, R, beta, lam)
+	delta = compute_delta(v, R, beta)
 	k = 2*delta
 	for j in range(trials):
-		rev_a, rev_b, tot_a, tot_b, tot_R = sim_period(T, n, p, t0, t1, lam, v, R, delta, k)
+		rev_a, rev_b, tot_a, tot_b, tot_R = sim_period(T, n, p, t0, t1, b, v, R, delta, k)
 		s_a += rev_a
 		s_b += rev_b
 	avg_rev_a[l] = s_a/float(trials)
@@ -197,27 +208,27 @@ plt.xlabel('v')
 plt.ylabel('avg rev')
 plt.legend()
 
-avg_rev_a = np.zeros((len(vs),1))
-avg_rev_b = np.zeros((len(vs),1))
-for l in range(len(vs)):
-	v = vs[l]
-	s_a = 0.
-	s_b = 0.
-	k = math.e/(1.-beta)
-	R = v*k
-	delta = compute_delta(v, R, beta, lam)
-	for j in range(trials):
-		rev_a, rev_b, tot_a, tot_b, tot_R = sim_period(T, n, p, t0, t1, lam, v, R, delta, k)
-		s_a += rev_a
-		s_b += rev_b
-	avg_rev_a[l] = s_a/float(trials)
-	avg_rev_b[l] = s_b/float(trials)
+# avg_rev_a = np.zeros((len(vs),1))
+# avg_rev_b = np.zeros((len(vs),1))
+# for l in range(len(vs)):
+# 	v = vs[l]
+# 	s_a = 0.
+# 	s_b = 0.
+# 	k = math.e/(1.-beta)
+# 	R = v*k
+# 	delta = compute_delta(v, R, beta)
+# 	for j in range(trials):
+# 		rev_a, rev_b, tot_a, tot_b, tot_R = sim_period(T, n, p, t0, t1, b, v, R, delta, k)
+# 		s_a += rev_a
+# 		s_b += rev_b
+# 	avg_rev_a[l] = s_a/float(trials)
+# 	avg_rev_b[l] = s_b/float(trials)
 
-f3 = plt.figure()
-plt.plot(vs, avg_rev_a, label = 'A')
-plt.plot(vs, avg_rev_b, 'r', label = 'B')
-plt.xlabel('v')
-plt.ylabel('avg rev')
-plt.legend()
+# f3 = plt.figure()
+# plt.plot(vs, avg_rev_a, label = 'A')
+# plt.plot(vs, avg_rev_b, 'r', label = 'B')
+# plt.xlabel('v')
+# plt.ylabel('avg rev')
+# plt.legend()
 
 plt.show()

@@ -295,6 +295,21 @@ We have that $f(\Delta) \leq \lambda$ and $f(k) \rightarrow \lambda$ as $k \righ
 
 \textbf{Case 2:} $(f'(\Delta) < 0)$ By our previous lemma, only one critical point may occur after $\Delta$, so by the negative sign of $f'(\Delta)$, that critical point may only be a minimum. \\
 
-\textbf{Case 3:} $(f'(\Delta) > 0)$ (NOT COMPLETED YET, so here are some notes) Here we want to show that in fact no critical points occur after $\Delta$, so no strict maximum may occur on the interval of interest. I am still working on this proof - I think it won't take too much longer. 
+\textbf{Case 3:} $(f'(\Delta) > 0)$ (NOT COMPLETED YET, so here are some notes) Here we want to show that in fact no critical points occur after $\Delta$, so no strict maximum may occur on the interval of interest. I am still working on this proof - I think it won't take too much longer. \\
+
+Here I prove that the max root of $f'(k) < \Delta(1+\lambda)$. We have by the sign of the derivative:
+\begin{equation*}
+f'(\Delta) = \frac{p(R-(1-\lambda)\Delta)+\lambda^2(1-p)R}{\lambda^2\Delta} > 0
+\end{equation*}
+We know the denominator is positive (for $\Delta > 0$: need this as a condition and if $\Delta = 0$, program adoption never happens, so we should not use a program). For real roots of $f'$, $(R-(1-\lambda)\Delta) \leq 0$, so the above states $\lambda^2(1-p)R > |p(R-(1-\lambda)\Delta|$. Then the max root of $f'$ is:
+\begin{align*}
+x &= \frac{(1-\lambda)(1-p)R\Delta+(1-\lambda)\Delta(-p(1-p)(R-(1-\lambda)\Delta)R)^{1/2}}{p(R-(1-\lambda)\Delta)+(1-p)R} \\
+&< \frac{(1-\lambda)(1-p)R\Delta+(1-\lambda)\Delta((1-p)R\lambda^2(1-p)R)^{1/2}}{p(R-(1-\lambda)\Delta)+(1-p)R} \\
+&= \frac{(1-\lambda)(1-p)R\Delta+(1-\lambda)\Delta(1-p)\lambda R}{p(R-(1-\lambda)\Delta)+(1-p)R} \\
+&= \frac{(1-\lambda)(1-p)R\Delta(1+\lambda)}{p(R-(1-\lambda)\Delta)+(1-p)R} \\
+&\leq \frac{(1-p)R^2\Delta(1+\lambda)}{(1-p)R^2} \\
+&= (1+\lambda)\Delta
+\end{align*}
+Where in the second line above we have used $\lambda^2(1-p)R > |p(R-(1-\lambda)\Delta|$ and in the second to last line we have used the facts that $\lambda \geq \frac{p(\Delta-R)}{\Delta-(\Delta-R)(1-p)}$ and $x$ is non-increasing in $\lambda$ (and done the same exact computations as in the previous lemma).
 \end{proof}
 \end{document}
