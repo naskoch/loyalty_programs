@@ -16,9 +16,9 @@ def compute_delta(v, R, beta, lam_a, lam_b):
 	# duopoly where reward is R, discouting is beta and 
 	# price difference is v
 
-	return np.floor(np.log((v*(1.-lam_a*beta))/(R*beta*(1.-beta)))/np.log((1.-lam_a)*beta/(1.-lam_a*beta)))
+	return max(0.,np.floor(np.log((v*(1.-lam_a*beta))/(R*beta*(1.-beta)))/np.log((1.-lam_a)*beta/(1.-lam_a*beta))))
 
-v = 0.001
+v = 0.5
 beta = 0.8
 R = 1.
 lam_a = 0.05
@@ -31,7 +31,7 @@ print delta
 p = 0.5
 t0 = 0
 
-k = np.linspace(delta,10.*delta)
+k = np.linspace(delta,10.*delta+10)
 rev_rate = [rev_rate_thresh(j, lam_a, lam_b, beta, R, delta, t0, p) for j in k]
 
 f1 = plt.figure()
