@@ -30,22 +30,33 @@ def solve_thresh(lam, R, delta, t0, p):
 
 	return np.roots([a, b, c])
 
-v = 0.1
-beta = 0.9
-p = 0.5
+# v = 0.35
+# beta = 0.9
+# p = 0.5
 
-lam = 0.1
+# lam = 0.4
 
-N = range(20,400)
-k = [v*j for j in N]
+# N = range(20,400)
+# k = [v*j for j in N]
 
-delta = [compute_delta(v, j, beta) for j in N]
+# delta = [compute_delta(v, j, beta) for j in N]
 
-revs = [rev_rate_thresh(k[j], lam, v, beta, delta[j], p) for j in range(len(N))]
+# revs = [rev_rate_thresh(k[j], lam, v, beta, delta[j], p) for j in range(len(N))]
 
-f1 = plt.figure()
-plt.plot(k, revs)
-plt.xlabel('k')
-plt.ylabel('rev rate')
+# f1 = plt.figure()
+# plt.plot(k, revs)
+# plt.xlabel('k')
+# plt.ylabel('rev rate')
 
-plt.show()
+# plt.show()
+
+lam = 0.4
+p = 0.4
+R = 1.3
+delta = 1.0
+
+denom = delta-(delta-R)*(1.-p)
+l = (p*(delta-R))/denom
+
+print (l**2)*(1.-p)*R+p*l*delta-p*(delta-R)
+print (-1.*p*(delta-R)*(1.-p)*(R**2))/(denom**2)

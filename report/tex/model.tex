@@ -40,20 +40,20 @@ For simplification we assume merchants do not discount future revenues.
 As described above, a customer's dynamics are cyclic after each reward cycle.
 Thus the lifetime dynamics of customer behvior is a regenerative process with independent and identically distributed reward cycle lengths.
 Let $RoR_A(c)$ and $RoR_B(c)$ denote the expected rate of revenues for merchants $A$ and $B$ respectively from a customer $c$'s lifetime.
-Let $\tau(i_0(t))$ denote the total number of visits the customer makes before reaching the phase transition point $i_0(t)$.
-Then the length of the reward cycle (or total number of visits the customer makes before receiving the reward) is $\tau(i_0(t)) + k - i_0(t)$, as after the phase transition (s)he makes all visits to merchant $A$ only till hitting the reward.
-In this cycle the number of visits that the customer makes to $A$ are $k$, and to $B$ are $\tau(i_0(t)) - i_0(t)$.
+Let $\tau(t, \lambda)$ denote the total number of visits the customer makes before reaching the phase transition point $i_0(t)$.
+Then the length of the reward cycle (or total number of visits the customer makes before receiving the reward) is $\tau(t, \lambda) + k - i_0(t)$, as after the phase transition (s)he makes all visits to merchant $A$ only till hitting the reward.
+In this cycle the number of visits that the customer makes to $A$ are $k$, and to $B$ are $\tau(t,\lambda) - i_0(t)$.
 Thus the rate of revenues are as follows:
 \beq
-RoR_A(c) = \underset{\tau}E\left[\frac{k-R}{\tau(i_0(t)) + k - i_0(t)}\right]
+RoR_A(c) = \underset{\tau}E\left[\frac{k-R}{\tau(t,\lambda) + k - i_0(t)}\right]
 \eeq
 \beq
-RoR_B(c) = \underset{\tau}E\left[\frac{(\tau(i_0(t)) - i_0(t))(1-v)}{\tau(i_0(t)) + k - i_0(t)}\right]
+RoR_B(c) = \underset{\tau}E\left[\frac{(\tau(t,\lambda) - i_0(t))(1-v)}{\tau(t,\lambda) + k - i_0(t)}\right]
 \eeq
 
 The goal of each merchant is to set their reward or pricing parameters so as to maximize the expected value of rate of revenue over the entire customer population.
 Before that, since the process for a single customer is regenerative, using the reward renewal theorem (CITE), we can take the expectation over the cycle length inside the numerator and denominator respectively.
-Note that $\underset{\tau}E[\tau(i_0(t))] = \frac{i_0(t)}{\lambda}$ as before reaching the phase transition point, with probability $\lambda$, the customer's visits to $A$ increases by $1$ and with probability $1-\lambda$ it stays constant.
+Note that $\underset{\tau}E[\tau(t,\lambda)] = \frac{i_0(t)}{\lambda}$ as before reaching the phase transition point, with probability $\lambda$, the customer's visits to $A$ increases by $1$ and with probability $1-\lambda$ it stays constant.
 Then the objectives of the two merchants are:
 
 \beq
@@ -61,5 +61,5 @@ Then the objectives of the two merchants are:
 \eeq
 
 \beq
-\underset{v}\max\left\{RoR_B\right\} = \underset{v}\max\left\{\underset{\lambda, t}E\left[\frac{(\tau(i_0(t)) - i_0(t))(1-v)}{i_0(t)/\lambda + k - i_0(t)}\right]\right\}
+\underset{v}\max\left\{RoR_B\right\} = \underset{v}\max\left\{\underset{\lambda, t}E\left[\frac{(\tau(t,\lambda) - i_0(t))(1-v)}{i_0(t)/\lambda + k - i_0(t)}\right]\right\}
 \eeq
