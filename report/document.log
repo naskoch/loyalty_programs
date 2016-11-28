@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.22)  21 NOV 2016 14:27
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.22)  27 NOV 2016 16:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -642,122 +642,151 @@ LaTeX Warning: No \author given.
 \c@conjecture=\count151
 ) (./tex/model.tex [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]) (./tex/results.tex
-Underfull \hbox (badness 10000) in paragraph at lines 5--6
-
- []
-
-[3] [4]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]) (./tex/results.tex [3
+] [4] [5]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 76.
+(hyperref)                removing `math shift' on input line 98.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 76.
+(hyperref)                removing `math shift' on input line 98.
 
-[5] [6]
-Overfull \hbox (132.24658pt too wide) in paragraph at lines 144--144
+[6] <./figures/phase_trans.pdf, id=95, 578.16pt x 397.485pt>
+File: ./figures/phase_trans.pdf Graphic file (type pdf)
+
+<use ./figures/phase_trans.pdf>
+Package pdftex.def Info: ./figures/phase_trans.pdf used on input line 137.
+(pdftex.def)             Requested size: 433.61893pt x 298.113pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[7] <./figures/eq_budg_vary_v_p05.pdf, id=104, 578.16pt x 397.485pt>
+File: ./figures/eq_budg_vary_v_p05.pdf Graphic file (type pdf)
+
+<use ./figures/eq_budg_vary_v_p05.pdf>
+Package pdftex.def Info: ./figures/eq_budg_vary_v_p05.pdf used on input line 15
+7.
+(pdftex.def)             Requested size: 433.61893pt x 298.113pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[8 <./figures/phase_trans.pdf>]
+<./figures/eq_budg_vary_p_v01.pdf, id=130, 578.16pt x 397.485pt>
+File: ./figures/eq_budg_vary_p_v01.pdf Graphic file (type pdf)
+
+<use ./figures/eq_budg_vary_p_v01.pdf>
+Package pdftex.def Info: ./figures/eq_budg_vary_p_v01.pdf used on input line 17
+2.
+(pdftex.def)             Requested size: 433.61893pt x 298.113pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 178.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 178.
+
+[9 <./figures/eq_budg_vary_v_p05.pdf>] [10 <./figures/eq_budg_vary_p_v01.pdf>]
+Overfull \hbox (132.24658pt too wide) in paragraph at lines 220--220
 [] 
  []
 
 
-Overfull \hbox (107.6404pt too wide) in paragraph at lines 153--153
+Overfull \hbox (107.6404pt too wide) in paragraph at lines 229--229
 [] 
  []
 
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 161--162
+
+Underfull \hbox (badness 10000) in paragraph at lines 237--238
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 170--172
-
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 181--183
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 196--197
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 198--199
-
- []
-
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 218--219
-
- []
-
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 244--247
+Underfull \hbox (badness 10000) in paragraph at lines 243--244
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 256--258
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 269--270
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 271--272
+Underfull \hbox (badness 10000) in paragraph at lines 245--246
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 273--274
+Underfull \hbox (badness 10000) in paragraph at lines 265--266
+
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 291--294
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 303--305
+
+ []
+
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 316--317
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 318--319
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 320--321
 
  []
 
 )
 No file document.bbl.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 20.
-[13]
+[15]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 20.
  (./document.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 20.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 20.
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: D4E03C414DC785B2B7AA94539115ABD0;682.
+(rerunfilecheck)             Checksum: 5D1810DF47CA10F28FF4FFE241560348;732.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 20.
  ) 
 Here is how much of TeX's memory you used:
- 9634 strings out of 493304
- 141953 string characters out of 6139871
- 245060 words of memory out of 5000000
- 12925 multiletter control sequences out of 15000+600000
+ 9669 strings out of 493304
+ 142727 string characters out of 6139871
+ 244620 words of memory out of 5000000
+ 12946 multiletter control sequences out of 15000+600000
  13395 words of font info for 52 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 51i,12n,45p,726b,411s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 51i,12n,45p,726b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
-6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on document.pdf (13 pages, 190978 bytes).
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on document.pdf (15 pages, 304473 bytes).
 PDF statistics:
- 187 PDF objects out of 1000 (max. 8388607)
- 156 compressed objects within 2 object streams
- 40 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 281 PDF objects out of 1000 (max. 8388607)
+ 203 compressed objects within 3 object streams
+ 50 named destinations out of 1000 (max. 500000)
+ 96 words of extra memory for PDF output out of 10000 (max. 10000000)
 

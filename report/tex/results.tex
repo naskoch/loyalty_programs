@@ -2,16 +2,38 @@
 We first show that every customer exhibits the following behavior: until (s)he reaches the phase transition point $i_0(t)$, she visits $A$ only due to the exogeneity paramaeter, and after that (s)he always visits merchant $A$ till she receives the reward.
 This behavior is cyclic, and repeats after the first reward redemption.
 
-NEED TO: find conditions under which $V(i)$ is increasing in $i$ and provide proof (these will be different than in the original write-up). The following lemma would be written as a part of this lemma. \\
-
-\begin{lemma} We may write the DP as
-\begin{equation*}
+\begin{lemma} $V(i)$ is an increasing function in $i$ if the following condition holds:
+\begin{equation}
+R > \frac{(1-\lambda)v}{1-\beta}
+\end{equation}
+And further, $V(i)$ can be evaluated as:
+\begin{equation}
 V(i) = \max\left\{ \frac{\lambda \beta V(i+1)+(1-\lambda)v}{1-(1-\lambda)\beta}, \beta V(i+1) \right\}
-\end{equation*}
+\end{equation}
 \end{lemma}
 
 \begin{proof}
-We have the following:
+First we show that $V(i)$ is an increasing function in $i$ by induction. We first show that if the condition above is satisfied, $V(k-1) < V(k) = R$. Suppose not, so $V(i) \geq R$. Then we have:
+\begin{align*}
+V(k-1) &= \lambda \beta V(k) + (1-\lambda)(v+\beta V(k-1)) \\
+&= \frac{\lambda \beta R + (1-\lambda)v}{1-(1-\lambda)\beta} \\
+&< \frac{\lambda \beta R + (1-\beta)R}{1-(1-\lambda)\beta} \\
+&= \frac{R(1-(1-\lambda)\beta)}{1-(1-\lambda)\beta} = R
+\end{align*}
+But this is a contradiction, so $V(k-1) < V(k)$. Now assume $V(i+1) < V(i+2)$ for some $i < k-2$, we will show that this implies $V(i) < V(i+1)$. Suppose not, so $V(i) \geq V(i+1)$. As we did before we may upper bound $V(i)$.
+\begin{align*}
+V(i) &= \lambda \beta V(i+1) + (1-\lambda)(v+\beta V(i)) \\
+&\leq (1-\lambda)v + \beta V(i) \\
+\iff V(i) &\leq \frac{(1-\lambda)v}{1-\beta}
+\end{align*}
+But because $V(i+1) < V(i+2)$, we may lower bound $V(i+1)$.
+\begin{align*}
+V(i+1) &\geq \lambda \beta V(i+2) + (1-\lambda)(v+\beta V(i+1)) \\
+&= (1-\lambda)v + (1-\lambda)\beta V(i+1) + \lambda \beta V(i+2) \\
+&> (1-\lambda)+\beta V(i+1) \\
+\iff V(i+1) &> \frac{(1-\lambda)v}{1-\beta}
+\end{align*}
+Again, we have a contradiction, so $V(i) < V(i+1)$, and $V(i)$ is an increasing function in $i$. Now we prove the second claim. We have the following:
 \begin{align*}
 V(i) &= \lambda \beta V(i+1) + (1-\lambda)\max\{v +\beta V(i), \beta V(i+1) \} \\
 &= \max\{\lambda \beta V(i+1) + (1-\lambda)(v+\beta V(i)), \beta V(i+1) \}
@@ -22,19 +44,19 @@ Assuming $V(i)$ is the left term in the above maximum, we may solve the equation
 V(i) = \lambda \beta V(i+1) + (1-\lambda)(v+\beta V(i)) \\
 (1-(1-\lambda)\beta) V(i) = \lambda \beta V(i+1) + (1-\lambda)v \\
 V(i) = \frac{\lambda \beta V(i+1) + (1-\lambda)v}{1-(1-\lambda)\beta}
-\end{gather*}\end{proof}
+\end{gather*}
+And we get our claim.
+\end{proof}
 
-\begin{theorem} A phase transition occurs after the consumer makes $i_0$ visits to firm $B$, which evaluates to:
+\begin{theorem} Assuming $V(i)$ is an increasing function in $i$, a phase transition occurs after the consumer makes $i_0$ visits to firm $A$, which evaluates to:
 \begin{align*}
 i_0 &= k - \left\lfloor \log_{\beta}\left(\frac{v}{R(1-\beta)}\right)\right\rfloor \\
 &\equiv k-\Delta
 \end{align*}
 \end{theorem}
 
-(Note: we may need conditions as we did before - thing to check)
-
 \begin{proof}
-First we solve for the condition on $V(i+1)$ for us to choose firm $B$ over $A$ willingly.
+First we solve for the condition on $V(i+1)$ for us to choose firm $A$ over $B$ willingly.
 \begin{gather*}
 \beta V(i+1) > \frac{\lambda \beta V(i+1) + (1-\lambda)v}{1-(1-\lambda)\beta} \\
 \iff \beta V(i+1) \left(1-\frac{\lambda}{1-(1-\lambda)\beta} \right) > \left(\frac{1-\lambda}{1-(1-\lambda)\beta} \right) v \\
@@ -43,7 +65,7 @@ First we solve for the condition on $V(i+1)$ for us to choose firm $B$ over $A$ 
 \iff \beta V(i+1) > \frac{v}{1-\beta} \\
 \iff V(i+1) > \frac{v}{\beta(1-\beta)}
 \end{gather*}
-Let $i_0$ be the minimum state $i$ such that the above holds, so in particular $V(i_0) \le \frac{v}{\beta(1-\beta)}$ but $V(i_0+1) > \frac{v}{\beta(1-\beta)}$. We know because $V$ is increasing in $i$ (still need to prove), this point is indeed a phase transition: $V(i) > \frac{v}{\beta(1-\beta)}$ for all $i > i_0$, so after this point, the customer always chooses firm $B$. We may compute $V(i_0)$ easily using this fact.
+Let $i_0$ be the minimum state $i$ such that the above holds, so in particular $V(i_0) \le \frac{v}{\beta(1-\beta)}$ but $V(i_0+1) > \frac{v}{\beta(1-\beta)}$. We know because $V$ is increasing in $i$ (still need to prove), this point is indeed a phase transition: $V(i) > \frac{v}{\beta(1-\beta)}$ for all $i > i_0$, so after this point, the customer always chooses firm $A$. We may compute $V(i_0)$ easily using this fact.
 \begin{equation*}
 V(i_0) = \beta V(i_0+1) = \cdots = \beta^{k-i_0}V(k) = \beta^{k-i_0}R
 \end{equation*}
@@ -108,6 +130,60 @@ Whereas when $b$ is large, $f'(\theta)$ can be shown to be negative. Hence we ge
 
 \end{proof}
 
+Note that under equal-budgeting, we need $k > \frac{1-\lambda}{1-\beta}$ for $V$ to be increasing. We meet this condition when $k = \frac{e}{1-\beta} > \frac{1}{1-\beta} \geq \frac{1-\lambda}{1-\beta}$. Figure~\ref{fig:phase_trans} shows the percentage of visits needed for a ``forward-looking'' consumer to adopt the reward program as a function of $\beta$. (Here we should add our comments on cash back computations).
+
+\begin{figure}[h!]
+\begin{centering}
+\includegraphics[scale = 0.75]{./figures/phase_trans.pdf}
+\caption{We assume $k = e/(1-\beta)$ and equal-budgeting. The plot shows the percentage of extraneous visits needed for a ``forward-looking'' consumer needed to adopt the reward program as a function of $\beta$.}
+\label{fig:phase_trans}
+\end{centering}
+\end{figure}
+
+Now we consider the expected revenues of each firm under these conditions.
+
+\beq
+\underset{\lambda, t}E[RoR_A] = pk(1-v)\frac{1}{b}\int_0^b \frac{\lambda}{k-(1-\lambda)\Delta} \mbox{ } d\lambda + (1-p)(1-v)\frac{b}{2}
+\eeq
+
+\beq
+\underset{\lambda, t}E[RoR_B] = pk(1-v)\frac{1}{b}\int_0^b \frac{1-\lambda}{k-(1-\lambda)\Delta} \mbox{ } d\lambda + (1-p)(1-v)\left(1-\frac{b}{2}\right)
+\eeq
+
+First notice that the ratio of expected revenues is independent of $v$, the price difference of the two firms. We observe this behavior in our simulations as well. Figure~\ref{fig:eq_budg_vary_v} shows the revenue rates of $A$ and $B$ as a function of $b$ for different values of $v$. We see that the relative rates do not vary with $v$; changing $v$ only changes the absolute revenue rates of each firm, putting more money into the rewards given out. We see that $b$ must be pretty large for firm $A$ to make more money than firm $B$. 
+
+\begin{figure}[h!]
+\begin{centering}
+\includegraphics[scale = 0.75]{./figures/eq_budg_vary_v_p05.pdf}
+\caption{Rates of revenue for $A$ and $B$ with equal-budgeting as a function of $b$ for various $v$. Fixed $p = 0.5$, $\beta = 0.9$ and $k = e/(1-\beta)$.}
+\label{fig:eq_budg_vary_v}
+\end{centering}
+\end{figure}
+
+[Not sure if we should include] We may solve for the $b$ such that the expected revenues are equal, which occurs if when the following holds (excluding work for now).
+\begin{equation*}
+b-\frac{2k(k-\Delta)p}{(1-p)b\Delta^2}\log \left(\frac{k-(1-b)\Delta}{k-\Delta} \right) = 1-\frac{p}{1-p} \frac{2k-\Delta}{\Delta}
+\end{equation*}
+
+Note from the above that $p$, the probability of a consumer being ``forward-looking'' does affect the ratio of expected rates of revenue. Figure~\ref{fig:eq_budg_vary_p} shows simulation results for the rates of revenue of $A$ and $B$ for various values of $p$ with everything else fixed. We see that as $p$ increases, the $b$ required for the reward program to become more profitable than not using one decreases.
+
+\begin{figure}[h!]
+\begin{centering}
+\includegraphics[scale = 0.75]{./figures/eq_budg_vary_p_v01.pdf}
+\caption{Rates of revenue for $A$ and $B$ with equal-budgeting as a function of $b$ for various $p$. Fixed $v = 0.1$, $\beta = 0.9$ and $k = e/(1-\beta)$.}
+\label{fig:eq_budg_vary_p}
+\end{centering}
+\end{figure}
+
+\subsubsection{Non Strategic Merchant $B$, and Unequal Promotion Budgeting}
+
+Now we consider scenarios in which firms $A$ and $B$ have different budgets. First we consider the case where the budgets are still proportional, i.e. $R = \alpha \cdot kv$ for some fixed $\alpha$. Now the expected rate of revenue of $A$ is given by the following, while that of firm $B$ is unchanged. Therefore the ratio of expected revenue rates may now depend on $v$.
+\beq
+\underset{\lambda, t}E[RoR_A] = pk(1-\alpha v)\frac{1}{b}\int_0^b \frac{\lambda}{k-(1-\lambda)\Delta} \mbox{ } d\lambda + (1-p)(1-\alpha v)\frac{b}{2}
+\eeq
+
+Following the same logic of Theorem 3.2, the expected revenue rate of $A$ is maximized at $k = \frac{e}{\alpha(1-\beta)}$ at small values of $b$ (need to do again for larger values).
+
 \begin{lemma}
 The objective function for the above look-ahead distribution is given by:
 \begin{equation*}
@@ -161,35 +237,6 @@ The constraint that $c_1c_2 \leq 0$ means $(R-(1-\lambda)\Delta)(R-(1-\lambda)t_
 Note that $\Delta$ depends on $R$, so the above inequality is more complicated than as written. TODO - see if we can get a nice inequality for $R$ not in terms of $\Delta$. (Can also add a sample plot here). \\
 
 Now need to check that this is actually a maximum.
-
-\section{Question that we need to answer}
-
-Here is something that is concerning me. Look at the objective function again.
-\begin{equation*}
-f(k) = \frac{\lambda p (k-R)}{k-(1-\lambda)\Delta} + \frac{\lambda (1-p) (k-R)}{k-(1-\lambda)t_0}
-\end{equation*}
-We want to maximize this function over values of $k$ greater than $\Delta$. We know that $t_0 < \Delta$ so the denominator of the first term will always be less than that of the second term. Note even more that when $k$ is really close to $\Delta$ the first term dominates and will be really large. Obviously, when $k = (1-\lambda)\Delta < \Delta$, $f(k)$ will be infinite (as long as $R \neq \Delta$). And as $k$ increases from here, $f$ will decrease. I believe this objective function will always be maximized at $k=\Delta$ unless $R$ is also very close to $\Delta$ - which as we've seen on restrictions on $R$, may not be possible. We may need to tweek our objective function. \\
-
-Some futher investigation on restrictions on $R$ to get a maximum from critical point. First we look at the second derivative of $f$.
-\begin{equation*}
-f''(k) = -\frac{2\lambda p (R-(1-\lambda)\Delta)}{(k-(1-\lambda)\Delta)^3}-\frac{2\lambda(1-p)(R-(1-\lambda)t_0)}{(k-(1-\lambda)t_0)^3}
-\end{equation*}
-We know the denominators will always be positive on our domain. We also know that for a critical point to be real we must have $(R-(1-\lambda)\Delta) \leq 0 \leq (R-(1-\lambda)t_0)$. So for a real-valued critical point to be a maximum, we must have:
-\begin{gather*}
--\frac{2\lambda p (R-(1-\lambda)\Delta)}{(k-(1-\lambda)\Delta)^3}-\frac{2\lambda(1-p)(R-(1-\lambda)t_0)}{(k-(1-\lambda)t_0)^3} < 0 \\
-\iff \frac{2\lambda p |R-(1-\lambda)\Delta|}{(k-(1-\lambda)\Delta)^3} < \frac{2\lambda (1-p)(R-(1-\lambda)t_0)}{(k-(1-\lambda)t_0)^3}
-\end{gather*}
-Again, the denominator of the first term will always be smaller than that of the second term, so will be difficult (more restrictions on $R$ and $\Delta$) for above to be true. \\
-
-Furthermore, we need the critical point of $f$ to be greater than $\Delta$. The critical points of $f$ are given by:
-\begin{equation*}
-x = \frac{(1-\lambda)(pc_1t_0+(1-p)c_2\Delta) \pm (1-\lambda)|t_0-\Delta|(-p(1-p)c_1c_2)^{\frac{1}{2}}}{pc_1+(1-p)c_2}
-\end{equation*}
-And we need:
-\begin{equation*}
-\frac{(1-\lambda)(pc_1t_0+(1-p)c_2\Delta) + (1-\lambda)|t_0-\Delta|(-p(1-p)c_1c_2)^{\frac{1}{2}}}{pc_1+(1-p)c_2} \geq \Delta
-\end{equation*}
-Again, this gives more restrictions on $R$ and $\Delta$. I still need to solve for all these restrictions, but I wanted to write this up so far to let you know a concern.
 
 \section{When should a store offer a reward?}
 

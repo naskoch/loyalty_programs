@@ -38,11 +38,11 @@ def compute_delta(v, R, beta):
 	# duopoly where reward is R, discouting is beta and 
 	# price difference is v
 
-	return max(0.,np.floor(np.log(v/(R*beta*(1.-beta)))/np.log(beta)))
+	return max(0.,np.floor(np.log(v/(R*(1.-beta)))/np.log(beta)))
 
 def phase_vec(t, delta, k):
 	# compute i0 for each customer
-	i0 = np.zeros((n,1))
+	i0 = np.zeros((len(t),1))
 	for j in range(len(t)):
 		if t[j] < delta:
 			i0[j] = k-t[j]
@@ -66,7 +66,7 @@ def sim_one_purchase(V, i0, lam, k):
 	num_b = 0
 	num_R = 0
 
-	P = np.zeros((n,1))
+	P = np.zeros((len(V),1))
 	for j in range(len(V)):
 		q = np.random.rand()
 		if q <= lam[j]:
@@ -125,110 +125,71 @@ def sim_period(T, n, p, t0, t1, b, v, R, delta, k):
 
 	return rev_a, rev_b, tot_a, tot_b, tot_R
 
-T = 100 # time period of interest
-n = 1000 # number of customers
+if __name__ == "__main__":
 
-# define threshold look-ahead distribution
-p = 0.5
-t0 = 0
-t1 = T
+	T = 1000 # time period of interest
+	n = 1000 # number of customers
 
-# monopoly effects of each form (can also model
-# preferences)
-# each person has a random lambda from in (0, b)
-b = 0.3
+	# define threshold look-ahead distribution
+	p = 0.5
+	t0 = 0
+	t1 = T
 
-# other parameters
-beta = 0.9
+	# monopoly effects of each form (can also model
+	# preferences)
+	# each person has a random lambda from in (0, b)
+	b = 0.9
 
-# fixed prices of firms
-v = 0.25
+	# other parameters
+	beta = 0.9
 
-# setup reward program, optimizing revenue rate of B
-# k = math.e/(1.-beta)
-# R = v*k
-# delta = compute_delta(v, R, beta)
-# if rev_rate_thresh(delta, lam, beta, R, delta, t0, p) > lam:
-# 	k = delta
-# else:
-# 	k = T
+	# fixed prices of firms
+	v = 0.1
 
-trials = 10
-vs = np.linspace(0.25, 0.001)
-avg_rev_a = np.zeros((len(vs),1))
-avg_rev_b = np.zeros((len(vs),1))
-for l in range(len(vs)):
-	v = vs[l]
-	s_a = 0.
-	s_b = 0.
+	# setup reward program, optimizing revenue rate of B
 	# k = math.e/(1.-beta)
-	R = 1.
-	delta = compute_delta(v, R, beta)
-	if delta != 0. and rev_rate_thresh(delta, b/2, beta, R, delta, t0, p) > b/2:
-		# here we check based on average of lambda distribution
-		# need some theory to work this out, but testing for now
-		k = delta
-	else:
-		k = T
-	for j in range(trials):
-		rev_a, rev_b, tot_a, tot_b, tot_R = sim_period(T, n, p, t0, t1, b, v, R, delta, k)
-		s_a += rev_a
-		s_b += rev_b
-	avg_rev_a[l] = s_a/float(trials)
-	avg_rev_b[l] = s_b/float(trials)
+	# R = v*k
+	# delta = compute_delta(v, R, beta)
+	# if rev_rate_thresh(delta, lam, beta, R, delta, t0, p) > lam:
+	# 	k = delta
+	# else:
+	# 	k = T
 
-f1 = plt.figure()
-plt.plot(vs, avg_rev_a, label = 'A')
-plt.plot(vs, avg_rev_b, 'r', label = 'B')
-plt.xlabel('v')
-plt.ylabel('avg rev')
-plt.legend()
+	trials = 20
+	vs = np.linspace(0.25, 0.1, 5)
+	avg_rev_a = np.zeros((len(vs),1))
+	avg_rev_b = np.zeros((len(vs),1))
+	avg_tot_R = np.zeros((len(vs),1))
+	for l in range(len(vs)):
+		v = vs[l]
+		s_a = 0.
+		s_b = 0.
+		s_R = 0.
+		k = np.floor(math.e/(1.-beta))
+		R = k*v
+		delta = compute_delta(v, R, beta)
+		# if delta != 0. and rev_rate_thresh(delta, b/2, beta, R, delta, t0, p) > b/2:
+		# 	# here we check based on average of lambda distribution
+		# 	# need some theory to work this out, but testing for now
+		# 	k = delta
+		# else:
+		# 	k = T
+		for j in range(trials):
+			rev_a, rev_b, tot_a, tot_b, tot_R = sim_period(T, n, p, t0, t1, b, v, R, delta, k)
+			s_a += rev_a
+			s_b += rev_b
+			s_R += tot_R
+		avg_rev_a[l] = s_a/float(trials)
+		avg_rev_b[l] = s_b/float(trials)
+		avg_tot_R[l] = s_R/float(trials)
 
-avg_rev_a = np.zeros((len(vs),1))
-avg_rev_b = np.zeros((len(vs),1))
-for l in range(len(vs)):
-	v = vs[l]
-	s_a = 0.
-	s_b = 0.
-	# k = math.e/(1.-beta)
-	R = 1.
-	delta = compute_delta(v, R, beta)
-	k = 2*delta
-	for j in range(trials):
-		rev_a, rev_b, tot_a, tot_b, tot_R = sim_period(T, n, p, t0, t1, b, v, R, delta, k)
-		s_a += rev_a
-		s_b += rev_b
-	avg_rev_a[l] = s_a/float(trials)
-	avg_rev_b[l] = s_b/float(trials)
+	print avg_tot_R
 
-f2 = plt.figure()
-plt.plot(vs, avg_rev_a, label = 'A')
-plt.plot(vs, avg_rev_b, 'r', label = 'B')
-plt.xlabel('v')
-plt.ylabel('avg rev')
-plt.legend()
+	f1 = plt.figure()
+	plt.plot(vs, avg_rev_a/(T*n), label = 'A')
+	plt.plot(vs, avg_rev_b/(T*n), 'r', label = 'B')
+	plt.xlabel('v')
+	plt.ylabel('avg rev per person per day')
+	plt.legend()
 
-# avg_rev_a = np.zeros((len(vs),1))
-# avg_rev_b = np.zeros((len(vs),1))
-# for l in range(len(vs)):
-# 	v = vs[l]
-# 	s_a = 0.
-# 	s_b = 0.
-# 	k = math.e/(1.-beta)
-# 	R = v*k
-# 	delta = compute_delta(v, R, beta)
-# 	for j in range(trials):
-# 		rev_a, rev_b, tot_a, tot_b, tot_R = sim_period(T, n, p, t0, t1, b, v, R, delta, k)
-# 		s_a += rev_a
-# 		s_b += rev_b
-# 	avg_rev_a[l] = s_a/float(trials)
-# 	avg_rev_b[l] = s_b/float(trials)
-
-# f3 = plt.figure()
-# plt.plot(vs, avg_rev_a, label = 'A')
-# plt.plot(vs, avg_rev_b, 'r', label = 'B')
-# plt.xlabel('v')
-# plt.ylabel('avg rev')
-# plt.legend()
-
-plt.show()
+	plt.show()

@@ -16,7 +16,7 @@ def compute_delta(v, R, beta):
 	# duopoly where reward is R, discouting is beta and 
 	# price difference is v
 
-	return max(0.,np.floor(np.log(v/(R*beta*(1.-beta)))/np.log(beta)))
+	return max(0.,np.floor(np.log(v/(R*(1.-beta)))/np.log(beta)))
 
 def solve_thresh(lam, R, delta, t0, p):
 	# solve for critical points of rev_rate_thresh function
