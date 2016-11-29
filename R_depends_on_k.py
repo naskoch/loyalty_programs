@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import math
 
 def rev_rate_thresh(k, lam, v, beta, R, delta, t0, p):
 	# compute revenue rate with a threshold function
@@ -18,22 +19,23 @@ def compute_delta(v, R, beta):
 
 	return max(0.,np.floor(np.log(v/(R*(1.-beta)))/np.log(beta)))
 
-v = 0.2
+v = 0.1
 beta = 0.9
 p = 0.5
 
-lam = 0.1
-alpha = 2.0
-k = range(1,100)
-R = [alpha*v*j for j in k]
+lam = 0.9
+alpha = np.linspace(0.5,3.)
+#k = range(1,100)
+k = np.array([math.e/(alpha[j]*(1.-beta)) for j in range(len(alpha))])
+R = [alpha[j]*v*k[j] for j in range(len(alpha))]
 
 delta = [compute_delta(v, j, beta) for j in R]
 
 revs = [rev_rate_thresh(k[j], lam, v, beta, R[j], delta[j], 0, p) for j in range(len(k))]
 
 f1 = plt.figure()
-plt.plot(k, revs)
-plt.xlabel('k')
+plt.plot(alpha, revs)
+plt.xlabel('alpha')
 plt.ylabel('rev rate')
 
 plt.show()

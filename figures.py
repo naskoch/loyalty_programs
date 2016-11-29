@@ -29,7 +29,7 @@ T = 1000 # time period of interest
 n = 1000 # number of customers
 
 # define threshold look-ahead distribution
-p = 0.5
+#p = 0.5
 t0 = 0
 t1 = T
 
@@ -39,23 +39,26 @@ t1 = T
 bs = np.linspace(0,1,20)
 
 # other parameters
-beta = 0.7
+beta = 0.9
 
 f, ax = plt.subplots(2,3, sharex='col', sharey='row')
 
 trials = 10
 
 # fixed prices of firms
-vs = [[0.01, 0.05, 0.1], [0.2, 0.3, 0.4]]
+#vs = [[0.01, 0.05, 0.1], [0.2, 0.3, 0.4]]
+
+# look ahead distribution
+ps = [[0.25, 0.5, 0.75], [0.8, 0.9, 1.]]
 
 print ax
-#v = 0.1
+v = 0.2
 # this affects proportion of budgets
-alpha = 3.0
+alpha = 2.5
 for i in range(2):
 	for j in range(3):
-		v = vs[i][j]
-		print v
+		p = ps[i][j]
+		print p
 		avg_rev_a = np.zeros((len(bs),1))
 		avg_rev_b = np.zeros((len(bs),1))
 		avg_tot_R = np.zeros((len(bs),1))
@@ -65,6 +68,7 @@ for i in range(2):
 			s_b = 0.
 			s_R = 0.
 			k = np.floor(math.e/(alpha*(1.-beta)))
+			#k = np.floor(math.e**(t1*(1.-beta))/(1.-beta))
 			R = alpha*k*v
 			delta = sim.compute_delta(v, R, beta)
 			for jj in range(trials):
@@ -81,9 +85,9 @@ for i in range(2):
 		#ax[i][j].xlabel('b')
 		#ax[i][j].ylabel('rev')
 		(ax[i,j]).legend()
-		(ax[i,j]).set_title('v = %.2f' %v)
+		(ax[i,j]).set_title('p = %.2f' %p)
 
 f.text(0.5, 0.04, 'b', ha='center')
 f.text(0.04, 0.5, 'rev', va='center', rotation='vertical')
 
-plt.savefig('uneq_budg_vary_v_p05.pdf')
+plt.savefig('test.pdf')

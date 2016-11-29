@@ -182,142 +182,46 @@ Now we consider scenarios in which firms $A$ and $B$ have different budgets. Fir
 \underset{\lambda, t}E[RoR_A] = pk(1-\alpha v)\frac{1}{b}\int_0^b \frac{\lambda}{k-(1-\lambda)\Delta} \mbox{ } d\lambda + (1-p)(1-\alpha v)\frac{b}{2}
 \eeq
 
-Following the same logic of Theorem 3.2, the expected revenue rate of $A$ is maximized at $k = \frac{e}{\alpha(1-\beta)}$ at small values of $b$ (need to do again for larger values).
+Following the same logic of Theorem 3.2, the expected revenue rate of $A$ is maximized at $k = \frac{e}{\alpha(1-\beta)}$ at small values of $b$ (need to do again for larger values). For this value of $k$, $\Delta$ is fixed for all $\alpha$ ($\Delta = \left \lfloor \log_{\beta} \left(\frac{1}{e} \right) \right \rfloor$), so we must have $\alpha \leq \frac{e}{\Delta(1-\beta)}$ for $k \geq \Delta$ to hold. When $\beta = 0.9$, this upperbound on $\alpha$ is about 3.
 
-\begin{lemma}
-The objective function for the above look-ahead distribution is given by:
+
+\begin{theorem}
+Suppose firm $A$ fixes its price at 1, and firm $B$ chooses a price of $1-v$. Given a consumer distribution defined by $p$ - with probability $p$, a consumer is fully forward looking and probability $1-p$ the customer does not look ahead at all - $b$ - each consumer's monopoly factor to firm $A$ is drawn as $\lambda~\sim Unif(0,b)$ and $\beta$ - the customer's discout factor. Then firm $A$ may choose to give a reward of $\alpha v < 1$ to customers after $k$ visits. It should run a reward program if the following condition holds.
+\begin{equation}
+\frac{1}{b}\left(1-\frac{e-1}{b}\log \left(1+\frac{b}{e-1} \right) \right) \geq \frac{1-(1-p)(1-\alpha v)}{2pe(1-\alpha v)}
+\end{equation}
+Define the function on the left-hand side above as $g(b)$.
+\end{theorem}
+
+\begin{proof}
+Firm $A$ always sells the good for price 1. If it chooses to run a reward program its expected rate of revenue is given by:
 \begin{equation*}
-f(k) = \frac{\lambda (k-R)p}{k-(1-\lambda)\Delta}+\frac{\lambda (k-R)(1-p)}{k-(1-\lambda)t_0}
+\underset{\lambda, t}E[RoR_A] = pk(1-\alpha v)\frac{1}{b}\int_0^b \frac{\lambda}{k-(1-\lambda)\Delta} \mbox{ } d\lambda + (1-p)(1-\alpha v)\frac{b}{2}
 \end{equation*}
-\end{lemma}
-
-\begin{proof}
-\begin{align*}
-E_t\left(\frac{k-R}{\frac{i_0(t)}{\lambda}+k-i_0(t)} \right) &= \frac{(k-R)p}{\frac{i_0}{\lambda}+k-i_0}+\frac{(k-R)(1-p)}{\frac{k-t_0}{\lambda}+k-(k-t-0)} \\
-&= \frac{\lambda(k-R)p}{i_0+\lambda(k-i_0)}+\frac{\lambda(k-R)(1-p)}{k-t_0+t_0\lambda} \\
-&= \frac{\lambda(k-R)p}{k-\Delta+\lambda(\Delta)}+\frac{\lambda(k-R)(1-p)}{k-t_0+t_0\lambda} \\
-&= \frac{\lambda (k-R)p}{k-(1-\lambda)\Delta}+\frac{\lambda (k-R)(1-p)}{k-(1-\lambda)t_0} \equiv f(k)
-\end{align*}
-\end{proof}
-
-We wish to maximize this objective function for $k>\Delta$ (otherwise $i_0$ would be negative). Next, we will characterize the conditions under which we can maximize the function and what the maxima are.
-
-\begin{lemma}
-If $(1-\lambda)t_0 \leq R \leq (1-\lambda)\Delta$, the above objective function has real-valued critical points.
-\end{lemma}
-
-\begin{proof}
-First we differentiate $f(k)$.
-\begin{align*}
-\frac{df}{dk} &= \frac{\lambda(k-(1-\lambda)\Delta)-\lambda(k-R)p}{(k-(1-\lambda)\Delta)^2}+\frac{\lambda(1-p)(k-(1-\lambda)t_0)-\lambda(k-R)(1-p)}{(k-(1-\lambda)t_0)^2} \\
-&= \frac{\lambda p(R-(1-\lambda)\Delta)}{(k-(1-\lambda)\Delta)^2} + \frac{\lambda(1-p)(R-(1-\lambda)t_0)}{(k-(1-\lambda)t_0)^2}
-\end{align*}
-Setting equal to zero and solving for $k$ we get the following. Let $c_1 = R-(1-\lambda)\Delta$ and $c_2 = R-(1-\lambda)t_0$.
+If it does not run a reward program, then the only visits it will receive are exogenous visits. In this case, its expected rate of revenue is simply $\frac{b}{2}$. We consider a reward program to be profitable if its expected rate of revenue is at least that of the non-reward program expected revenue rate.
 \begin{gather*}
-pc_1(k-(1-\lambda)t_0)^2 = -(1-p)c_2(k-(1-\lambda)R)^2 \\
-\iff (pc_1)k^2-(2pc_1(1-\lambda))k+(pc_1(1-\lambda)^2t_0^2 = (-(1-p)c_2)k^2+(2(1-p)(1-\lambda)c_2\Delta)k-((1-p)c_2(1-\lambda)^2\Delta^2) \\
-\iff (pc_1+(1-p)c_2)k^2-2(1-\lambda)(pc_1t_0+(1-p)c_2\Delta)k+(1-\lambda)^2(pc_1t_0^2+(1-p)c_2\Delta^2) = 0
+pk(1-\alpha v)\frac{1}{b}\int_0^b \frac{\lambda}{k-(1-\lambda)\Delta} \mbox{ } d\lambda + (1-p)(1-\alpha v)\frac{b}{2} \geq \frac{b}{2} \\
+\iff \frac{pk(1-\alpha v)}{\Delta}\left(1-\frac{k-\Delta}{b\Delta}\log \left(\frac{k-(1-b)\Delta}{k-\Delta} \right) \right) \geq \frac{b}{2}(1-(1-p)(1-\alpha v)) \\
+\iff pe(1-\alpha v)\left(1-\frac{e-1}{b}\log \left(1+\frac{b}{e-1} \right) \right) \geq \frac{b}{2}(1-(1-p)(1-\alpha v)) \\
+\iff \frac{1}{b}\left(1-\frac{e-1}{b}\log \left(1+\frac{b}{e-1} \right) \right) \geq \frac{1-(1-p)(1-\alpha v)}{2pe(1-\alpha v)}
 \end{gather*}
-For the above to have real-valued solutions, we need:
-\begin{gather*}
-4(1-\lambda)^2(pc_1t_0+(1-p)c_2\Delta)^2 - 4(pc_1+(1-p)c_2)(1-\lambda)^2(pc_1t_0^2+(1-p)c_2\Delta^2) \geq 0 \\
-\iff p^2c_1^2t_0^2+(1-p)^2c_2^2\Delta^2+2p(1-p)c_1c_2t_0\Delta - p^2c_1^2t_0^2+(1-p)^2c_2^2\Delta^2+p(1-p)c_1c_2t_0^2+p(1-p)c_1c_2\Delta^2 \geq 0 \\
-\iff p(1-p)c_1c_2(2t_0\Delta-\Delta^2-t_0^2) \geq 0 \\
-\iff -p(1-p)c_1c_2(t_0-\Delta)^2 \geq 0 \\
-\iff -p(1-p)c_1c_2 \geq 0 \\
-\iff c_1c_2 \leq 0
-\end{gather*}
-The constraint that $c_1c_2 \leq 0$ means $(R-(1-\lambda)\Delta)(R-(1-\lambda)t_0) \leq 0$. Because $R \geq 0$, $(1-\lambda) \geq 0$ and $t_0 < \Delta$, we also have that $(R-(1-\lambda)\Delta) < (R-(1-\lambda)t_0)$. So we must have:
-\begin{gather*}
-(R-(1-\lambda)\Delta) \leq 0 \leq (R-(1-\lambda)t_0) \\
-\iff (1-\lambda)t_0 \leq R \leq (1-\lambda)\Delta
-\end{gather*}
+Where we have used the work from Theorem 3.2 as well as the fact that the optimal $k$ is given by $\frac{e}{\alpha(1-\beta)}$, making $\Delta \approx \frac{1}{1-\beta}$. 
 \end{proof}
 
-Note that $\Delta$ depends on $R$, so the above inequality is more complicated than as written. TODO - see if we can get a nice inequality for $R$ not in terms of $\Delta$. (Can also add a sample plot here). \\
+Note that the above condition on $b$ is rather complicated, so we have plotted it as a function of $b$ below. First we notice that $g(b)$ is decreasing in $b$. So for a fixed evaluation of $x \equiv \frac{1-(1-p)(1-\alpha v)}{2pe(1-\alpha v)}$, we are in one of the following cases:
+\begin{enumerate}
+\item
+$x \geq g(0)$. So no value of $b$ makes the reward program profitable.
+\item
+$x \leq g(1)$. So any value of $b$ makes the reward program profitable.
+\item
+$x = g(b_0)$ for some $b_0 \in (0,1)$. So the reward program is profitable for all $b \leq b_0$ and not otherwise.
+\end{enumerate}
 
-Now need to check that this is actually a maximum.
-
-\section{When should a store offer a reward?}
-
-Notice the revenue rate function $f(k)$, fixing $\beta$, $t_0$, $p$, $R$ and $\lambda$, approaches $\lambda$ as $k \rightarrow \infty$. This limit makes sense, as $k$ approaching $\infty$ means that no reward will be given, so all visits to $B$ will be exogenous, with a revenue rate of $\lambda$. One question that we may find interesting is when it is impossible to beat the revenue rate of $\lambda$ (supposing $R$ is fixed) and thus not offer a reward at all. Even if fixing $R$ is not very realistic, understanding the objective function as a function of $\lambda$ may give us insight into what to set $R$. \\
-
-Let's fix $\beta$, $p$, $R$ and let $t_0 = 0$ for now (for simplicity - can go in later and add more general case next). We wish to find the set of $\lambda \in [0,1]$ such that $f(k) \leq \lambda$ on $k \geq \Delta$: the $\lambda$'s for which we can not beat revenue rate of $\lambda$. I believe that there will always be some $\lambda_0$ such that for all $\lambda < \lambda_0$, we can increase the revenue rate by offering a reward and for all $\lambda \geq \lambda_0$, we cannot increase the revenue rate by offering a reward. (Note: I have not finished with the full proof of this yet, but going to write-up some ideas so far). \\
-
-\begin{lemma} Fix $R > 0$, $\beta$, $p$, $v$ and $t_0 = 0$. Then $f(\Delta) \leq \lambda$ if and only if $\lambda \geq \frac{p(\Delta-R)}{\Delta-(\Delta-R)(1-p)}$. Note that when equality holds in the second inequality, it does in the first as well. \end{lemma}
-\begin{proof}
-We have:
-\begin{align*}
-f(\Delta) &= \frac{\lambda p (\Delta-R)}{\Delta-(1-\lambda)\Delta}+\frac{\lambda (1-p)(\Delta-R)}{\Delta} \\
-&= \frac{p(\Delta-R)}{\Delta}+\frac{\lambda(1-p)(\Delta-R)}{\Delta} \\
-&= \frac{(\Delta-R)(\lambda(1-p)+p)}{\Delta}
-\end{align*}
-Then:
-\begin{gather*}
-\frac{(\Delta-R)(\lambda(1-p)+p)}{\Delta} \leq \lambda \\
-\iff \lambda-\frac{(\Delta-R)\lambda(1-p)}{\Delta} \geq \frac{p(\Delta-R)}{\Delta} \\
-\iff \lambda \left(\frac{\Delta-(\Delta-R)(1-p)}{\Delta}\right) \geq \frac{p(\Delta-R)}{\Delta} \\
-\iff \lambda \geq \frac{p(\Delta-R)}{\Delta-(\Delta-R)(1-p)}
-\end{gather*}
-Note for the last step above, we need $\Delta-(\Delta-R)(1-p) > 0$. But because $\Delta, R, (1-p) \geq 0$ then if $(\Delta-R) \leq 0$, the condition will always be satisfied (if $(\Delta-R) = 0$, $\Delta = R > 0$ and value is positive). And if $(\Delta-R) > 0$, $(1-p)(\Delta-R) \leq (\Delta-R) < \Delta$, so $\Delta-(\Delta-R)(1-p) > 0$.
-\end{proof}
-
-I believe the above threshold $\frac{p(\Delta-R)}{\Delta-(\Delta-R)(1-p)}$ is our desired $\lambda_0$. To show this we need to show that $f(\Delta)$ is a necessary and sufficient condition for $f(k)$ not exceeding $\lambda$ on $k \geq \Delta$. Clearly it is a necessary condition, so we just need to show it is sufficient. I believe the best way to do this is to show that for these $\lambda$, no critical points that are maxima exist in the range $[\Delta, \infty)$. If this is the case, then the max will occur at the the endpoints, which we have already argued will not be greater than $\lambda$. First we prove some lemmas about the roots of $f'$, assuming they are real-valued. \\
-
-\begin{lemma}
-If $p(R-(1-\lambda)\Delta)+(1-p)R > 0$, the objective function $f(k)$ (when $t_0 = 0$) has at least one real-valued critical point with value at least $(1-\lambda)\Delta$.
-\end{lemma}
-\begin{proof}
-First note that we need $R-(1-\lambda)\Delta \leq 0 \leq R-(1-\lambda)t_0 = R$ for $f'$ to have real roots. The roots of $f'$ are given by:
-\begin{equation*}
-x = \frac{(1-\lambda)((1-p)R\Delta) \pm (1-\lambda)\Delta(-p(1-p)(R-(1-\lambda)\Delta)R)^{\frac{1}{2}}}{p(R-(1-\lambda)\Delta)+(1-p)R} \equiv C\pm D
-\end{equation*}
-We will show that $C = 
-\frac{(1-\lambda)((1-p)R\Delta)}{p(R-(1-\lambda)\Delta)+(1-p)R} \geq (1-\lambda) \Delta$. Then $f'$ has at most one root less than $(1-\lambda)\Delta$; because if $C \geq (1-\lambda)\Delta$, for every $D$ it is not possible for both $C+D$ and $C-D$ to be less than $(1-\lambda)\Delta$. Note that $(1-\lambda)(1-p)R\Delta \geq 0$ and $p(R-(1-\lambda)\Delta) \leq 0$ and by assumption, the denominator of $C$ is positive as well. Therefore, we have:
-\begin{align*}
-C &= \frac{(1-\lambda)(1-p)R\Delta}{p(R-(1-\lambda)\Delta)+(1-p)R} \\
-&\geq \frac{(1-\lambda)(1-p)R\Delta}{(1-p)R} = (1-\lambda)\Delta
-\end{align*}
-because $(1-p)R \geq (1-p)R+p(R-(1-\lambda)\Delta) > 0$.
-\end{proof}
-
-Note that the above lemma applies to any choice of parameters as long as that denominator is positive. Hopefully we can use it to understand the objective function in more general settings as well.
-
-\begin{lemma} If $\lambda \geq \frac{p(\Delta-R)}{\Delta-(\Delta-R)(1-p)}$, the objective function $f(k)$ (when $t_0 = 0$) has at most one real-valued critical point greater than $\Delta$. \end{lemma}
-\begin{proof}
-Again note that we need $R-(1-\lambda)\Delta \leq 0 \leq R-(1-\lambda)t_0 = R$ for $f'$ to have real roots. The roots of $f'$ are given by:
-\begin{equation*}
-x = \frac{(1-\lambda)((1-p)R\Delta) \pm (1-\lambda)\Delta(-p(1-p)(R-(1-\lambda)\Delta)R)^{\frac{1}{2}}}{p(R-(1-\lambda)\Delta)+(1-p)R} \equiv C\pm D
-\end{equation*}
-We will show that $C = 
-\frac{(1-\lambda)((1-p)R\Delta)}{p(R-(1-\lambda)\Delta)+(1-p)R} \leq \Delta$. Then $f'$ has at most one root great than $\Delta$; because if $C \leq \Delta$, for every $D$ it is not possible for both $C+D$ and $C-D$ to be greater than $\Delta$. Note that $(1-\lambda)(1-p)R\Delta \geq 0$ and $p(R-(1-\lambda)\Delta) \leq 0$. If $p(R-(1-\lambda)\Delta)+(1-p)R < 0$, then $C < 0 \leq \Delta$ and we are done. So we focus on the case that $p(R-(1-\lambda)\Delta)+(1-p)R > 0$. \\
-
-We will think of $C$ as a function of $\lambda$.First we show that for $\lambda' = \frac{p(\Delta-R)}{\Delta-(\Delta-R)(1-p)}$, $C(\lambda') = \Delta$. It is a straightforward computation to see that $(1-\lambda') = \frac{R}{\Delta-(\Delta-R)(1-p)}$. And we have:
-\begin{align*}
-C(\lambda') &= \frac{(1-\lambda')(1-p)R\Delta}{p(R-(1-\lambda')\Delta)+(1-p)R} \\
-&= \frac{(1-p)R^2\Delta}{\Delta-(\Delta-R)(1-p)} \cdot \frac{1}{p\left(R-\frac{R\Delta}{\Delta-(\Delta-R)(1-p)} \right)+(1-p)R} \\
-&= \frac{(1-p)R^2\Delta}{\Delta-(\Delta-R)(1-p)} \cdot \frac{1}{\left(\frac{-pR(\Delta-R)(1-p)}{\Delta-(\Delta-R)(1-p)} \right)+(1-p)R} \\
-&= \frac{(1-p)R^2\Delta}{-pR(\Delta-R)(1-p)+(1-p)R(\Delta-(\Delta-R)(1-p)))} \\
-&= \frac{(1-p)R^2\Delta}{(1-p)R\Delta-(pR(\Delta-R)(1-p)+(1-p)R(\Delta-R)(1-p))} \\
-&= \frac{(1-p)R^2\Delta}{(1-p)R\Delta-(1-p)R(\Delta-R)} = \frac{(1-p)R^2\Delta}{(1-p)R^2} = \Delta
-\end{align*}
-Next notice that when the denominator is positive, $C$ is a decreasing function in $\lambda < 1$; increasing $\lambda$ decreases the value of the nominator and increases the value of the denominator (the first term becomes less negative so the whole thing becomes more positive). So by these two facts, $C(\lambda) \leq \Delta$ for $\lambda \geq \lambda'$ as defined above. \\
-
-Finally, we need that the denominator is non-zero. So we need $R \neq p(1-\lambda)\Delta$. But we already have for real roots that $R \geq (1-\lambda)\Delta$. So for $p < 1$, we have a non-zero denominator.
-\end{proof}
-
-Now we must prove that $f(\Delta) \leq \lambda$ is a sufficient condition the maximum of $f$ on $k\geq \Delta$ being no greater than $\lambda$.
-
-\begin{lemma}
-Fix $R > 0$, $\beta$, $p$, $v$ and $t_0 = 0$. If $f(\Delta) \leq \lambda$, then $f(k) \leq \lambda$, $\forall k \geq \Delta$. 
-\end{lemma}
-
-\begin{proof}
-We have that $f(\Delta) \leq \lambda$ and $f(k) \rightarrow \lambda$ as $k \rightarrow \infty$. Then if we show that no strict maximum occurs on the interval $(\Delta, \infty)$, we have shown the claim. We will break the proof down in cases based on the sign on the derivative of $f$ at delta. Note that because $f(\lambda) \leq \Delta$, we have a $\lambda$ such that our previous lemma applies. \\
-
-\textbf{Case 1:} $(f'(\Delta) = 0)$ For the derivative of $f$ at $\Delta$ to be zero, no critical points of $f$ may occur after $\Delta$. To see this, we make use of our previous lemma; if $\Delta$ is the larger of the two roots of $f'$ then we are done, and by the previous result, if it is the smaller of the two roots, it must be the case that both roots are actually $\Delta$. Because no critical points occur after $\Delta$, there are no strict maximum in the interval $(\Delta, \infty)$. \\
-
-\textbf{Case 2:} $(f'(\Delta) < 0)$ By our previous lemma, only one critical point may occur after $\Delta$, so by the negative sign of $f'(\Delta)$, that critical point may only be a minimum. \\
-
-\textbf{Case 3:} $(f'(\Delta) > 0)$ (NOT COMPLETED YET, so here are some notes) Here we want to show that in fact no critical points occur after $\Delta$, so no strict maximum may occur on the interval of interest. I am still working on this proof - I think it won't take too much longer. 
-\end{proof}
+\begin{figure}[h!]
+\begin{centering}
+\includegraphics[scale = 0.75]{./figures/b_plot.pdf}
+\caption{Function governing profitability of reward program for firm $A$ as a function of $b$.}
+\label{fig:b_plot}
+\end{centering}
+\end{figure}
