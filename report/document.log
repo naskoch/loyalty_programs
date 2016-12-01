@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  30 NOV 2016 19:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  1 DEC 2016 15:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -646,12 +646,13 @@ LaTeX Warning: No \author given.
 \c@conjecture=\count151
 ) (./tex/model.tex [1
 
-{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+
 Overfull \hbox (27.58534pt too wide) in paragraph at lines 90--90
 [] 
  []
 
-[3]
+
 Overfull \hbox (45.06604pt too wide) in paragraph at lines 97--97
 [] 
  []
@@ -670,7 +671,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 93.
 
-[7] <./figures/phase_trans.pdf, id=94, 578.16pt x 397.485pt>
+[7] <./figures/phase_trans.pdf, id=91, 578.16pt x 397.485pt>
 File: ./figures/phase_trans.pdf Graphic file (type pdf)
 
 <use ./figures/phase_trans.pdf>
@@ -741,7 +742,7 @@ Here is how much of TeX's memory you used:
  12998 multiletter control sequences out of 15000+600000
  13395 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 51i,12n,45p,1005b,402s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 51i,12n,45p,1005b,401s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
@@ -758,7 +759,7 @@ e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/201
 5/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2015
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on document.pdf (13 pages, 297358 bytes).
+Output written on document.pdf (13 pages, 297354 bytes).
 PDF statistics:
  274 PDF objects out of 1000 (max. 8388607)
  198 compressed objects within 2 object streams
