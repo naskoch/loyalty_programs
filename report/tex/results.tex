@@ -78,23 +78,18 @@ Thus, we have the following:
 \end{gather*}
 \end{proof}
 
-Now we assume the look-ahead factor of a customer is drawn from some distribution $t \sim T$. The phase transition of the customer's DP will now depend on $t$.
-\begin{equation*}
-  i_0(t)=\begin{cases}
-    i_0, & \text{if $t \geq \Delta$}.\\
-    k-t, & \text{otherwise}.
-  \end{cases}
-\end{equation*}
-
-In this section, we focus on a very simple threshold distribution given by the following.
-\begin{equation*}
-  t=\begin{cases}
-    t_1\geq \Delta, & \text{wp } p,\\
-    0, & \text{wp } 1-p.
-  \end{cases}
-\end{equation*}
-
 \subsection{Merchant Objective Dynamics}
+We can substitute the value of the phase transition point obtained above in the rate of revenue equations to reevaluate the merchant objectives:
+\begin{align*}
+\underset{R,k}\max\left\{RoR_A\right\} =& \underset{R,k}\max\left\{\underset{\lambda}E\left[p\cdot\frac{\lambda(k-R)}{k\lambda + (k-\Delta)(1-\lambda)} + (1-p)\frac{\lambda(k-R)}{k}\right]\right\}\\
+                                       =& \underset{R,k}\max\left\{\underset{\lambda}E\left[p\cdot\frac{\lambda(k-R)}{k - \Delta(1-\lambda)} + (1-p)\frac{\lambda(k-R)}{k}\right]\right\}
+\end{align*} 
+
+\begin{align*}
+\underset{v}\max\left\{RoR_B\right\} =& \underset{v}\max\left\{\underset{\lambda}E\left[p\cdot\frac{i_0(1-\lambda)(1-v)}{k\lambda + (k-\Delta)(1-\lambda)} + (1-p)(1-\lambda)(1-v)\right]\right\}\\
+                                     =& \underset{v}\max\left\{\underset{\lambda}E\left[p\cdot\frac{i_0(1-\lambda)(1-v)}{k - \Delta(1-\lambda)} + (1-p)(1-\lambda)(1-v)\right]\right\}
+\end{align*}
+
 \subsubsection{Non Strategic Merchant $B$, and Equal Promotion Budgeting}
 First we look into the case when merchant $B$ does not strategize over its discount value $v$, and when merchant $A$ sets its reward parameters so as to have equal budgets for promosionts as $B$: \ie~ $R = k v$.
 \begin{theorem}
