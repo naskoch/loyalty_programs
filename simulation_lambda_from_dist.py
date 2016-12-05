@@ -131,20 +131,20 @@ if __name__ == "__main__":
 	n = 1000 # number of customers
 
 	# define threshold look-ahead distribution
-	p = 0.5
+	p = 1.0
 	t0 = 0
 	t1 = T
 
 	# monopoly effects of each form (can also model
 	# preferences)
 	# each person has a random lambda from in (0, b)
-	b = 0.9
+	b = 0.5
 
 	# other parameters
 	beta = 0.9
 
 	# fixed prices of firms
-	v = 0.1
+	v = 0.05
 
 	# setup reward program, optimizing revenue rate of B
 	# k = math.e/(1.-beta)
@@ -155,18 +155,19 @@ if __name__ == "__main__":
 	# else:
 	# 	k = T
 
-	trials = 20
-	vs = np.linspace(0.25, 0.1, 5)
-	avg_rev_a = np.zeros((len(vs),1))
-	avg_rev_b = np.zeros((len(vs),1))
-	avg_tot_R = np.zeros((len(vs),1))
-	for l in range(len(vs)):
-		v = vs[l]
+	trials = 10
+	alpha = 2.0
+	bs = np.linspace(0.1, 0.6, 5)
+	avg_rev_a = np.zeros((len(bs),1))
+	avg_rev_b = np.zeros((len(bs),1))
+	avg_tot_R = np.zeros((len(bs),1))
+	for l in range(len(bs)):
+		b = bs[l]
 		s_a = 0.
 		s_b = 0.
 		s_R = 0.
-		k = np.floor(math.e/(1.-beta))
-		R = k*v
+		k = np.floor(math.e/(alpha*(1.-beta)))
+		R = k*v*alpha
 		delta = compute_delta(v, R, beta)
 		# if delta != 0. and rev_rate_thresh(delta, b/2, beta, R, delta, t0, p) > b/2:
 		# 	# here we check based on average of lambda distribution
@@ -186,9 +187,9 @@ if __name__ == "__main__":
 	print avg_tot_R
 
 	f1 = plt.figure()
-	plt.plot(vs, avg_rev_a/(T*n), label = 'A')
-	plt.plot(vs, avg_rev_b/(T*n), 'r', label = 'B')
-	plt.xlabel('v')
+	plt.plot(bs, avg_rev_a/(T*n), label = 'B')
+	plt.plot(bs, avg_rev_b/(T*n), 'r', label = 'A')
+	plt.xlabel('b')
 	plt.ylabel('avg rev per person per day')
 	plt.legend()
 
