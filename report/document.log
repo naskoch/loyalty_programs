@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  6 DEC 2016 13:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  6 DEC 2016 13:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -668,67 +668,44 @@ l.4
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.4 
-    ] [7] [8]
-Overfull \hbox (27.58534pt too wide) in paragraph at lines 113--113
-[] 
- []
-
-[9]
-Overfull \hbox (45.06604pt too wide) in paragraph at lines 120--120
-[] 
- []
-
-
-Overfull \hbox (11.03946pt too wide) in paragraph at lines 133--133
-[] 
- []
-
-[10]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 145.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 145.
-
-[11] <./figures/phase_trans.pdf, id=142, 578.16pt x 397.485pt>
+    ] [7] [8] [9] [10] [11]
+<./figures/phase_trans.pdf, id=143, 578.16pt x 397.485pt>
 File: ./figures/phase_trans.pdf Graphic file (type pdf)
 
 <use ./figures/phase_trans.pdf>
-Package pdftex.def Info: ./figures/phase_trans.pdf used on input line 184.
+Package pdftex.def Info: ./figures/phase_trans.pdf used on input line 178.
 (pdftex.def)             Requested size: 433.61893pt x 298.113pt.
  [12 <./figures/phase_trans.pdf>]
-<./figures/eq_budg_vary_v_p05.pdf, id=167, 578.16pt x 397.485pt>
+<./figures/eq_budg_vary_v_p05.pdf, id=168, 578.16pt x 397.485pt>
 File: ./figures/eq_budg_vary_v_p05.pdf Graphic file (type pdf)
 
 <use ./figures/eq_budg_vary_v_p05.pdf>
-Package pdftex.def Info: ./figures/eq_budg_vary_v_p05.pdf used on input line 20
-4.
+Package pdftex.def Info: ./figures/eq_budg_vary_v_p05.pdf used on input line 19
+8.
 (pdftex.def)             Requested size: 433.61893pt x 298.113pt.
  [13 <./figures/eq_budg_vary_v_p05.pdf>]
-<./figures/eq_budg_vary_p_v01.pdf, id=202, 578.16pt x 397.485pt>
+<./figures/eq_budg_vary_p_v01.pdf, id=203, 578.16pt x 397.485pt>
 File: ./figures/eq_budg_vary_p_v01.pdf Graphic file (type pdf)
 
 <use ./figures/eq_budg_vary_p_v01.pdf>
 Package pdftex.def Info: ./figures/eq_budg_vary_p_v01.pdf used on input line 21
-9.
+3.
 (pdftex.def)             Requested size: 433.61893pt x 298.113pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 225.
+(hyperref)                removing `math shift' on input line 219.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 225.
+(hyperref)                removing `math shift' on input line 219.
 
 [14 <./figures/eq_budg_vary_p_v01.pdf>] [15]
-<./figures/b_plot.pdf, id=241, 578.16pt x 397.485pt>
+<./figures/b_plot.pdf, id=242, 578.16pt x 397.485pt>
 File: ./figures/b_plot.pdf Graphic file (type pdf)
 
 <use ./figures/b_plot.pdf>
-Package pdftex.def Info: ./figures/b_plot.pdf used on input line 270.
+Package pdftex.def Info: ./figures/b_plot.pdf used on input line 264.
 (pdftex.def)             Requested size: 433.61893pt x 298.113pt.
 ) (./tex/conclusions.tex)
 No file document.bbl.
@@ -738,24 +715,18 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 27.
  (./document.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 27.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 27.
+Package rerunfilecheck Info: File `document.out' has not changed.
+(rerunfilecheck)             Checksum: D8AC4C56AEE8D59BFD2A1C41D21D5F05;1059.
 
-
-Package rerunfilecheck Warning: File `document.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `document.out':
-(rerunfilecheck)             Before: 8962F1376D22C73DA6BDE0EF103C7622;1098
-(rerunfilecheck)             After:  892CB23624EA2F5857BC1E9A39B2F0FB;1082.
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 27.
  ) 
 Here is how much of TeX's memory you used:
- 9764 strings out of 493089
- 145011 string characters out of 6134842
- 251461 words of memory out of 5000000
+ 9765 strings out of 493089
+ 145022 string characters out of 6134842
+ 247461 words of memory out of 5000000
  13046 multiletter control sequences out of 15000+600000
  13395 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -776,10 +747,10 @@ e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/201
 5/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2015
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on document.pdf (17 pages, 306653 bytes).
+Output written on document.pdf (17 pages, 306330 bytes).
 PDF statistics:
- 324 PDF objects out of 1000 (max. 8388607)
- 243 compressed objects within 3 object streams
- 59 named destinations out of 1000 (max. 500000)
+ 325 PDF objects out of 1000 (max. 8388607)
+ 244 compressed objects within 3 object streams
+ 60 named destinations out of 1000 (max. 500000)
  141 words of extra memory for PDF output out of 10000 (max. 10000000)
 
