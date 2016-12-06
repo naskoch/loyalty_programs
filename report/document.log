@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  6 DEC 2016 13:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  6 DEC 2016 15:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -673,39 +673,49 @@ l.4
 File: ./figures/phase_trans.pdf Graphic file (type pdf)
 
 <use ./figures/phase_trans.pdf>
-Package pdftex.def Info: ./figures/phase_trans.pdf used on input line 178.
+Package pdftex.def Info: ./figures/phase_trans.pdf used on input line 185.
 (pdftex.def)             Requested size: 433.61893pt x 298.113pt.
- [12 <./figures/phase_trans.pdf>]
-<./figures/eq_budg_vary_v_p05.pdf, id=168, 578.16pt x 397.485pt>
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./figures/eq_budg_vary_v_p05.pdf, id=145, 578.16pt x 397.485pt>
 File: ./figures/eq_budg_vary_v_p05.pdf Graphic file (type pdf)
 
 <use ./figures/eq_budg_vary_v_p05.pdf>
-Package pdftex.def Info: ./figures/eq_budg_vary_v_p05.pdf used on input line 19
-8.
+Package pdftex.def Info: ./figures/eq_budg_vary_v_p05.pdf used on input line 20
+5.
 (pdftex.def)             Requested size: 433.61893pt x 298.113pt.
- [13 <./figures/eq_budg_vary_v_p05.pdf>]
-<./figures/eq_budg_vary_p_v01.pdf, id=203, 578.16pt x 397.485pt>
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[12] <./figures/eq_budg_vary_p_v01.pdf, id=156, 578.16pt x 397.485pt>
 File: ./figures/eq_budg_vary_p_v01.pdf Graphic file (type pdf)
 
 <use ./figures/eq_budg_vary_p_v01.pdf>
-Package pdftex.def Info: ./figures/eq_budg_vary_p_v01.pdf used on input line 21
-3.
+Package pdftex.def Info: ./figures/eq_budg_vary_p_v01.pdf used on input line 22
+0.
 (pdftex.def)             Requested size: 433.61893pt x 298.113pt.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 219.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 219.
+(hyperref)                removing `math shift' on input line 226.
 
-[14 <./figures/eq_budg_vary_p_v01.pdf>] [15]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 226.
+
+[13 <./figures/phase_trans.pdf>] [14 <./figures/eq_budg_vary_v_p05.pdf>]
+[15 <./figures/eq_budg_vary_p_v01.pdf>]
 <./figures/b_plot.pdf, id=242, 578.16pt x 397.485pt>
 File: ./figures/b_plot.pdf Graphic file (type pdf)
 
 <use ./figures/b_plot.pdf>
-Package pdftex.def Info: ./figures/b_plot.pdf used on input line 264.
+Package pdftex.def Info: ./figures/b_plot.pdf used on input line 271.
 (pdftex.def)             Requested size: 433.61893pt x 298.113pt.
 ) (./tex/conclusions.tex)
 No file document.bbl.
@@ -747,7 +757,7 @@ e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/201
 5/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2015
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on document.pdf (17 pages, 306330 bytes).
+Output written on document.pdf (17 pages, 307037 bytes).
 PDF statistics:
  325 PDF objects out of 1000 (max. 8388607)
  244 compressed objects within 3 object streams
