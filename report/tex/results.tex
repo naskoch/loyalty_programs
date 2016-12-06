@@ -78,12 +78,64 @@ Thus, we have the following:
 \end{gather*}
 \end{proof}
 
+With the inclusion of the look-ahead factor, the phase transition point depends on it, and we will refer to it as $i_0(t)$. Specifically, the dependence is as follows:
+
+\begin{equation*}
+  i_0(t)=\begin{cases}
+    i_0, & \text{if $t \geq \Delta$}.\\
+    k-t, & \text{otherwise}.
+  \end{cases}
+\end{equation*}
+
+The above dependence reduces to the following after incorporating the look-ahead distribution $T$:
+
+\begin{equation*}
+  i_0(t)=\begin{cases}
+    i_0, & \text{wp } p,\\
+    k, & \text{wp } 1-p.
+  \end{cases}
+\end{equation*}
+
+
+
 \subsection{Merchant Objective Dynamics}
 We can substitute the value of the phase transition point obtained above in the rate of revenue equations to reevaluate the merchant objectives:
+
+
+Finally, since we are assuming that $\lambda$ and $t$ distributions are independent of each other, we can separate the expectation terms and evaluate them sequentially, first over $t$, then over $\lambda$. This reduces the rate of revenues as follows:
+
+The goal of each merchant is to set their reward or pricing parameters so as to maximize the expected value of rate of revenue over the entire customer population.
+\begin{align*}
+\underset{R,k}\max\left\{RoR_A\right\} =& \underset{R,k}\max\left\{\underset{\lambda, t}E\left[\frac{k-R}{i_0(t)/\lambda + k - i_0(t)}\right]\right\}\\
+                                       =& \underset{R,k}\max\left\{\underset{\lambda}E\left[p\cdot\frac{k-R}{i_0/\lambda + k - i_0} + (1-p)\frac{\lambda(k-R)}{k}\right]\right\}\\
+                                       =& \underset{R,k}\max\left\{\underset{\lambda}E\left[p\cdot\frac{\lambda(k-R)}{k\lambda + i_0(1-\lambda)} + (1-p)\frac{\lambda(k-R)}{k}\right]\right\}\\
+                                       =& \underset{R,k}\max\left\{p\cdot\frac{k-R}{(k-i_0)^2}\cdot\left(b(k-i_0) - i_0 \log\left(1 + \frac{b(k-i_0)}{i_0}\right)\right) + (1-p)\frac{b^2(k-R)}{2k}\right\}
+\end{align*}
+
+\begin{align*}
+\underset{v}\max\left\{RoR_B\right\} =& \underset{v}\max\left\{\underset{\lambda, t}E\left[\frac{(i_0(t)\lambda - i_0(t))(1-v)}{i_0(t)/\lambda + k - i_0(t)}\right]\right\}\\
+                                     =& \underset{v}\max\left\{\underset{\lambda}E\left[p\cdot\frac{(i_0/\lambda - i_0)(1-v)}{i_0/\lambda + k - i_0} + (1-p)\frac{(k/\lambda - k)(1-v)}{k/\lambda}\right]\right\}\\
+                                     =& \underset{v}\max\left\{\underset{\lambda}E\left[p\cdot\frac{i_0(1-\lambda)(1-v)}{k\lambda + i_0(1-\lambda)} + (1-p)(1-\lambda)(1-v)\right]\right\}\\
+                                     =& \underset{v}\max\left\{p\cdot\frac{i_0(1-v)}{(k-i_0)^2}\left(k\log\left(1+\frac{b(k-i_0)}{i_0}\right) - b(k-i_0)\right) + (1-p)(b-\frac{b^2}{2})(1-v)\right\}
+\end{align*}
+
+At small values of $b$ the above evaluate to:
+
+\begin{align*}
+\underset{R,k}\max\left\{RoR_A\right\} =& \underset{R,k}\max\left\{p\cdot(k-R)\cdot\frac{b^2}{2i_0} + (1-p)\frac{b^2(k-R)}{2k}\right\}\\
+                                       =& \underset{R,k}\max\left\{\frac{b^2(k-R)}{2}\left(\frac{p}{i_0} + \frac{1-p}{k}\right)\right\}
+\end{align*}
+
+\begin{align*}
+\underset{v}\max\left\{RoR_B\right\} =& \underset{v}\max\left\{p\cdot\frac{i_0(1-v)}{(k-i_0)^2}\left(bk\frac{(k-i_0)^2}{i_0}- k\frac{b^2(k-i_0)^2}{2i_0^2} \right) + (1-p)(b-\frac{b^2}{2})(1-v)\right\}\\
+                                     =& \underset{v}\max\left\{p\cdot(1-v)\left(bk- k\frac{b^2}{2i_0}\right) + (1-p)(b-\frac{b^2}{2})(1-v)\right\}\\
+                                     =& \underset{v}\max\left\{b(1-v)\cdot \left(pk(1-\frac{b}{2i_0}) + (1-p)(1-\frac{b}{2})\right)\right\}
+\end{align*}
 \begin{align*}
 \underset{R,k}\max\left\{RoR_A\right\} =& \underset{R,k}\max\left\{\underset{\lambda}E\left[p\cdot\frac{\lambda(k-R)}{k\lambda + (k-\Delta)(1-\lambda)} + (1-p)\frac{\lambda(k-R)}{k}\right]\right\}\\
                                        =& \underset{R,k}\max\left\{\underset{\lambda}E\left[p\cdot\frac{\lambda(k-R)}{k - \Delta(1-\lambda)} + (1-p)\frac{\lambda(k-R)}{k}\right]\right\}
 \end{align*} 
+
 
 \begin{align*}
 \underset{v}\max\left\{RoR_B\right\} =& \underset{v}\max\left\{\underset{\lambda}E\left[p\cdot\frac{i_0(1-\lambda)(1-v)}{k\lambda + (k-\Delta)(1-\lambda)} + (1-p)(1-\lambda)(1-v)\right]\right\}\\
