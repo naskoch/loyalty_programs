@@ -1,35 +1,16 @@
-Consider a competitive duopoly of two stores, $A$ and $B$, selling the same item. 
-Without loss of generality we assume that store $A$ sells the item for a price of $1$ dollars while store $B$ sells it for $1-v$ dollars, \ie, $B$ offers a discount of $v$ dollars. 
-Store $A$ on the other hand offers a reward of value $R$ dollars to a customer after (s)he makes $k$ purchases at $A$. 
-Our goal is to understand the dynamics of customer behavior under this competitive duopoly with respect to the reward and discount parameters, as well as solve for optimal reward parameters for store $A$ to maximize its revenue over a distribution of customer preferences.
+We index the two competing merchants selling identical goods as $A$ and $B$.
+Without loss of generality we assume that $A$ sells the good for a price of $1$ dollars while $B$ sells it for $1-v$ dollars, \ie, $B$ offers a discount of $v$ dollars. 
+$A$ on the other hand offers a reward of value $R$ dollars to a customer after (s)he makes $k$ purchases at $A$. 
 
-\subsection{Customer Choice Model}
-First we assume that every customer purchases an item from either $A$ or $B$ everyday.
-We assume that there is some exogenous probability, $\lambda$, during each purchase that forces the customer to go to store $A$.
-This $\lambda$ is a customer specific parameter and is drawn from a uniform distribution between $[0,b]$, where $b$ is between $0$ and $1$.
-Let $0 < \beta \leq 1$ denote the discounting factor of future money. 
-We assume customers to have a linear homogenous utility in price: at price $p$ the utility is $\nu(p) = 1-p$. 
+Every customer purchases an item from either $A$ or $B$ everyday {\arpit (Can we justify/relax this somehow)}.
+We assume customers have a linear homogenous utility in price: at price $p$ the utility is $\nu(p) = 1-p$. 
 This reduces to customers getting an immediate utility of $0$ from $A$ and $v$ from $B$.
+Customers have the same time value of money as a discount factor of $\beta$ lying between $0$ and $1$.
 
-We model the customer's decision problem as a dynamic problem. We index the number of visits the customer makes at store $A$ by $i$, for $0 \leq i \leq k-1$, and we refer a customer to be in state $i$ after having made $i$ visits to $A$. At state $i$, the customer has two possibilities:
-\begin{enumerate}
-\item
-With probability $\lambda$, the customer must visit $A$, and she is now in state $i+1$.
-\item
-With probability $1-\lambda$, the customer may purchase from $B$ for an immediate utility $v$ and remain in state $i$ or purchase from $A$ for no utility but move to state $i+1$.
-\end{enumerate}
-
-Let $V(i)$ denote the long term expected reward at state $i$. Then we may model the decision problem as the following dynamic program.
-\begin{align*}
-& V(i) = \lambda \beta V(i+1) + (1-\lambda)\max\{v+\beta V(i),\beta V(i+1) \} \mbox{ for } 0\leq i \leq k-1 \\
-& V(k) = R
-\end{align*}
-
-We will show that the decision process exhibits a phase transition; that is prior to some state $i_0$, the customer will only visit $A$ if she must do so exogenously but after $i_0$, she always decides to go to $A$. 
-
-Finally, we assume the customer has a look-ahead factor $t$, which models how many purchases the customer looks ahead when making her current decision. 
-This value will affect the phase transition of the decision process. 
-We will focus on a very simple threshold distribution to show intuitive results. Let the look-ahead factor for a customer is drawn from a distribution $t \sim T$ given by the following:
+We denote a customer's visit probability bias and look-ahead parameter with $\lambda$ and $t$ respectively. 
+That is with probability $\lambda$ (s)he purchases from $A$ due to externalities and perceives a future reward only if it is within $t$ purchases away. 
+We assume $\lambda$ for a customer to be drawn from a uniform distribution between $[0,b]$, where $b$ is between $0$ and $1$.
+And we focus on a simple threshold distribution for the look-ahead parameter $t$: 
 
 \begin{equation*}
   t=\begin{cases}
@@ -38,73 +19,52 @@ We will focus on a very simple threshold distribution to show intuitive results.
   \end{cases}
 \end{equation*}
 
+The above distribution intuitively means that the customers are either myopic and focus only on immediate rewards, or are far-sighted enough.
+We model the customer's decision problem as a dynamic problem. We index the number of visits the customer makes at store $A$ by $i$, for $0 \leq i \leq k-1$, and we refer a customer to be in state $i$ after having made $i$ visits to $A$. At state $i$, the customer has two possibilities:
+\begin{enumerate}
+\item
+With probability $\lambda$, the customer must visit $A$, and she is now in state $i+1$.
+\item
+With probability $1-\lambda$, the customer may purchase from $B$ for an immediate utility $v$ and remain in state $i$ or purchase from $A$ for no utility but move to state $i+1$.
+\end{enumerate}
 
-This means that the customers are either myopic and focus only on immediate rewards, or are far sighted enough.
-With the addition of this look-ahead factor, the phase transition point will now depend on it, and we will refer to it as $i_0(t)$. Specifically, the dependence will be as follows:
+Let $V(i)$ denote the long term expected reward at state $i$. Then we model the decision problem as the following dynamic program.
+\begin{align*}
+& V(i) = \lambda \beta V(i+1) + (1-\lambda)\max\{v+\beta V(i),\beta V(i+1) \} \mbox{ for } 0\leq i \leq k-1 \\
+& V(k) = R
+\end{align*}
 
-\begin{equation*}
-  i_0(t)=\begin{cases}
-    i_0, & \text{if $t \geq \Delta$}.\\
-    k-t, & \text{otherwise}.
-  \end{cases}
-\end{equation*}
+We show that the decision process exhibits a phase transition; that is prior to some state, the customer will only visit $A$ if (s)he must do so exogenously but after that state, (s)he always decides to go to $A$. 
+This phase transition point is independent of $\lambda$, and depends only on $t$, among the variable customer parameters.
+Hence we represent this phase transition point as $i_0(t)$.
 
-The above dependence reduces to the following after incorporating the look-ahead distribution $T$:
-
-\begin{equation*}
-  i_0(t)=\begin{cases}
-    i_0, & \text{wp } p,\\
-    k, & \text{wp } 1-p.
-  \end{cases}
-\end{equation*}
-
-
-\subsection{Merchant Objective and Competition}
-Given the above model of customer dynamics, the two merchants compete over the customer base to maximize their long run revenues.
+\subsection{Merchant Objective}
+Given the above model of customer dynamics, we define the revenue objectives of $A$ and $B$, where $A$ chooses its parameters whereas $B$ is non strategic. 
 We define the rate of revenue for a merchant from a customer as the expected time averaged revenue that the merchant receives within the customer's lifetime.
 For simplification we assume merchants do not discount future revenues.
 As described above, a customer's dynamics are cyclic after each reward cycle.
-Thus the lifetime dynamics of customer behvior is a regenerative process with independent and identically distributed reward cycle lengths.
+Thus the lifetime dynamics of customer behavior is a regenerative process with independent and identically distributed reward cycle lengths.
 Let $RoR_A(c)$ and $RoR_B(c)$ denote the expected rate of revenues for merchants $A$ and $B$ respectively from a customer $c$'s lifetime.
 Let $\tau(t, \lambda)$ denote the total number of visits the customer makes before reaching the phase transition point $i_0(t)$.
 Then the length of the reward cycle (or total number of visits the customer makes before receiving the reward) is $\tau(t, \lambda) + k - i_0(t)$, as after the phase transition (s)he makes all visits to merchant $A$ only until hitting the reward.
 In this cycle the number of visits that the customer makes to $A$ are $k$, and to $B$ are $\tau(t,\lambda) - i_0(t)$.
-Thus the rate of revenues are as follows:
+The revenue that $A$ earns in one such cycle is $k-R$ and the revenue that $B$ earns is $(1-v)(\tau(t,\lambda) - i_0(t))$.
+Thus the rate of revenues for $A$ and $B$ from the customer $c$ are as follows:
 \beq
-RoR_A(c) = \underset{\tau}E\left[\frac{k-R}{\tau(t,\lambda) + k - i_0(t)}\right]
+RoR_A(c) = \underset{\tau}E\left[\frac{k-R}{\tau(t,\lambda) + k - i_0(t)}\right]\notag
 \eeq
 \beq
-RoR_B(c) = \underset{\tau}E\left[\frac{(\tau(t,\lambda) - i_0(t))(1-v)}{\tau(t,\lambda) + k - i_0(t)}\right]
+RoR_B(c) = \underset{\tau}E\left[\frac{(\tau(t,\lambda) - i_0(t))(1-v)}{\tau(t,\lambda) + k - i_0(t)}\right]\notag
 \eeq
 
-The goal of each merchant is to set their reward or pricing parameters so as to maximize the expected value of rate of revenue over the entire customer population.
-Before that, since the process for a single customer is regenerative, using the reward renewal theorem (CITE), we can take the expectation over the cycle length inside the numerator and denominator respectively.
+Since the process for a single customer is regenerative, using the reward renewal theorem (CITE), we can take the expectation over the cycle length inside the numerator and denominator respectively.
 Note that $\underset{\tau}E[\tau(t,\lambda)] = \frac{i_0(t)}{\lambda}$ as before reaching the phase transition point, with probability $\lambda$, the customer's visits to $A$ increases by $1$ and with probability $1-\lambda$ it stays constant.
-Finally, since we are assuming that $\lambda$ and $t$ distributions are independent of each other, we can separate the expectation terms and evaluate them sequentially, first over $t$, then over $\lambda$. This reduces the rate of revenues as follows:
+And then taking the expectation over the customer population the overall rate of revenues for both $A$ and $B$ are as follows:
 
-\begin{align*}
-\underset{R,k}\max\left\{RoR_A\right\} =& \underset{R,k}\max\left\{\underset{\lambda, t}E\left[\frac{k-R}{i_0(t)/\lambda + k - i_0(t)}\right]\right\}\\
-                                       =& \underset{R,k}\max\left\{\underset{\lambda}E\left[p\cdot\frac{k-R}{i_0/\lambda + k - i_0} + (1-p)\frac{\lambda(k-R)}{k}\right]\right\}\\
-                                       =& \underset{R,k}\max\left\{\underset{\lambda}E\left[p\cdot\frac{\lambda(k-R)}{k\lambda + i_0(1-\lambda)} + (1-p)\frac{\lambda(k-R)}{k}\right]\right\}\\
-                                       =& \underset{R,k}\max\left\{p\cdot\frac{k-R}{(k-i_0)^2}\cdot\left(b(k-i_0) - i_0 \log\left(1 + \frac{b(k-i_0)}{i_0}\right)\right) + (1-p)\frac{b^2(k-R)}{2k}\right\}
-\end{align*}
+\beq
+RoR_A = \underset{\lambda, t}E\left[\frac{k-R}{i_0(t)/\lambda + k - i_0(t)}\right]
+\eeq
 
-\begin{align*}
-\underset{v}\max\left\{RoR_B\right\} =& \underset{v}\max\left\{\underset{\lambda, t}E\left[\frac{(i_0(t)\lambda - i_0(t))(1-v)}{i_0(t)/\lambda + k - i_0(t)}\right]\right\}\\
-                                     =& \underset{v}\max\left\{\underset{\lambda}E\left[p\cdot\frac{(i_0/\lambda - i_0)(1-v)}{i_0/\lambda + k - i_0} + (1-p)\frac{(k/\lambda - k)(1-v)}{k/\lambda}\right]\right\}\\
-                                     =& \underset{v}\max\left\{\underset{\lambda}E\left[p\cdot\frac{i_0(1-\lambda)(1-v)}{k\lambda + i_0(1-\lambda)} + (1-p)(1-\lambda)(1-v)\right]\right\}\\
-                                     =& \underset{v}\max\left\{p\cdot\frac{i_0(1-v)}{(k-i_0)^2}\left(k\log\left(1+\frac{b(k-i_0)}{i_0}\right) - b(k-i_0)\right) + (1-p)(b-\frac{b^2}{2})(1-v)\right\}
-\end{align*}
-
-At small values of $b$ the above evaluate to:
-
-\begin{align*}
-\underset{R,k}\max\left\{RoR_A\right\} =& \underset{R,k}\max\left\{p\cdot(k-R)\cdot\frac{b^2}{2i_0} + (1-p)\frac{b^2(k-R)}{2k}\right\}\\
-                                       =& \underset{R,k}\max\left\{\frac{b^2(k-R)}{2}\left(\frac{p}{i_0} + \frac{1-p}{k}\right)\right\}
-\end{align*}
-
-\begin{align*}
-\underset{v}\max\left\{RoR_B\right\} =& \underset{v}\max\left\{p\cdot\frac{i_0(1-v)}{(k-i_0)^2}\left(bk\frac{(k-i_0)^2}{i_0}- k\frac{b^2(k-i_0)^2}{2i_0^2} \right) + (1-p)(b-\frac{b^2}{2})(1-v)\right\}\\
-                                     =& \underset{v}\max\left\{p\cdot(1-v)\left(bk- k\frac{b^2}{2i_0}\right) + (1-p)(b-\frac{b^2}{2})(1-v)\right\}\\
-                                     =& \underset{v}\max\left\{b(1-v)\cdot \left(pk(1-\frac{b}{2i_0}) + (1-p)(1-\frac{b}{2})\right)\right\}
-\end{align*}
+\beq
+RoR_B = \underset{\lambda, t}E\left[\frac{(i_0(t)\lambda - i_0(t))(1-v)}{i_0(t)/\lambda + k - i_0(t)}\right]
+\eeq

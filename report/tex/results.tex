@@ -1,6 +1,6 @@
 \subsection{Customer Choice Dynamics}
 We first show that every customer exhibits the following behavior: until (s)he reaches the phase transition point $i_0(t)$, she visits $A$ only due to the exogeneity paramaeter, and after that (s)he always visits merchant $A$ till she receives the reward.
-This behavior is cyclic, and repeats after the first reward redemption.
+This behavior is cyclic, and repeats after every reward redemption.
 
 \begin{lemma} $V(i)$ is an increasing function in $i$ if the following condition holds:
 \begin{equation}
@@ -48,6 +48,8 @@ V(i) = \frac{\lambda \beta V(i+1) + (1-\lambda)v}{1-(1-\lambda)\beta}
 And we get our claim.
 \end{proof}
 
+{\arpit Let's combine this theorem with the look-ahead parameter directly}
+
 \begin{theorem} Assuming $V(i)$ is an increasing function in $i$, a phase transition occurs after the consumer makes $i_0$ visits to firm $A$, which evaluates to:
 \begin{align*}
 i_0 &= k - \left\lfloor \log_{\beta}\left(\frac{v}{R(1-\beta)}\right)\right\rfloor \\
@@ -78,24 +80,76 @@ Thus, we have the following:
 \end{gather*}
 \end{proof}
 
+With the inclusion of the look-ahead factor, the phase transition point depends on it, and we will refer to it as $i_0(t)$. Specifically, the dependence is as follows:
+
+\begin{equation*}
+  i_0(t)=\begin{cases}
+    i_0, & \text{if $t \geq \Delta$}.\\
+    k-t, & \text{otherwise}.
+  \end{cases}
+\end{equation*}
+
+The above dependence reduces to the following after incorporating the look-ahead distribution:
+
+\begin{equation*}
+  i_0(t)=\begin{cases}
+    i_0, & \text{wp } p,\\
+    k, & \text{wp } 1-p.
+  \end{cases}
+\end{equation*}
+
+{\arpit Discussion around what do the $i_0$ dependencies mean.}
+
+{\arpit Discussion around setting $i_0 = 0$}
+
 \subsection{Merchant Objective Dynamics}
-We can substitute the value of the phase transition point obtained above in the rate of revenue equations to reevaluate the merchant objectives:
-\begin{align*}
-\underset{R,k}\max\left\{RoR_A\right\} =& \underset{R,k}\max\left\{\underset{\lambda}E\left[p\cdot\frac{\lambda(k-R)}{k\lambda + (k-\Delta)(1-\lambda)} + (1-p)\frac{\lambda(k-R)}{k}\right]\right\}\\
-                                       =& \underset{R,k}\max\left\{\underset{\lambda}E\left[p\cdot\frac{\lambda(k-R)}{k - \Delta(1-\lambda)} + (1-p)\frac{\lambda(k-R)}{k}\right]\right\}
-\end{align*} 
+We substitute the value of the phase transition point obtained above in the rate of revenue equations to reevaluate them. 
+And since we assume that $\lambda$ and $t$ are drawn indepent of each other, we can separate the expectation terms and evaluate them sequentially, first over $t$, then over $\lambda$. This reduces the rate of revenues as follows:
 
 \begin{align*}
-\underset{v}\max\left\{RoR_B\right\} =& \underset{v}\max\left\{\underset{\lambda}E\left[p\cdot\frac{i_0(1-\lambda)(1-v)}{k\lambda + (k-\Delta)(1-\lambda)} + (1-p)(1-\lambda)(1-v)\right]\right\}\\
-                                     =& \underset{v}\max\left\{\underset{\lambda}E\left[p\cdot\frac{i_0(1-\lambda)(1-v)}{k - \Delta(1-\lambda)} + (1-p)(1-\lambda)(1-v)\right]\right\}
+RoR_A =& \underset{\lambda, t}E\left[\frac{k-R}{i_0(t)/\lambda + k - i_0(t)}\right]\\
+                                       =& \underset{\lambda}E\left[p\cdot\frac{k-R}{i_0/\lambda + k - i_0} + (1-p)\frac{\lambda(k-R)}{k}\right]\\
+                                       =& \underset{\lambda}E\left[p\cdot\frac{\lambda(k-R)}{k\lambda + i_0(1-\lambda)} + (1-p)\frac{\lambda(k-R)}{k}\right]\\
+                                       =& p\cdot\frac{k-R}{(k-i_0)^2}\cdot\left(b(k-i_0) - i_0 \log\left(1 + \frac{b(k-i_0)}{i_0}\right)\right) + (1-p)\frac{b^2(k-R)}{2k}
 \end{align*}
 
-\subsubsection{Non Strategic Merchant $B$, and Equal Promotion Budgeting}
-First we look into the case when merchant $B$ does not strategize over its discount value $v$, and when merchant $A$ sets its reward parameters so as to have equal budgets for promosionts as $B$: \ie~ $R = k v$.
+\begin{align*}
+RoR_B =& \underset{\lambda, t}E\left[\frac{(i_0(t)\lambda - i_0(t))(1-v)}{i_0(t)/\lambda + k - i_0(t)}\right]\\
+                                     =& \underset{\lambda}E\left[p\cdot\frac{(i_0/\lambda - i_0)(1-v)}{i_0/\lambda + k - i_0} + (1-p)\frac{(k/\lambda - k)(1-v)}{k/\lambda}\right]\\
+                                     =& \underset{\lambda}E\left[p\cdot\frac{i_0(1-\lambda)(1-v)}{k\lambda + i_0(1-\lambda)} + (1-p)(1-\lambda)(1-v)\right]\\
+                                     =& p\cdot\frac{i_0(1-v)}{(k-i_0)^2}\left(k\log\left(1+\frac{b(k-i_0)}{i_0}\right) - b(k-i_0)\right) + (1-p)(b-\frac{b^2}{2})(1-v)\\
+\end{align*}
+
+{\arpit
 \begin{theorem}
-Given $\lambda~\sim Unif(0,b)$, merchant $A$ sets its reward parameter $k = \frac{e}{1-\beta}$ at small values of $b$ and $k = \frac{e^{(1-\beta)t_1}}{1-\beta}$ for larger values.
+When is $RoR_A > RoR_B$ at $i_0 = 0$?
+\end{theorem}
+}
+
+At small values of $b$ the above evaluate to:
+\begin{align*}
+RoR_A =& p\cdot(k-R)\cdot\frac{b^2}{2i_0} + (1-p)\frac{b^2(k-R)}{2k}\\
+                                       =& \frac{b^2(k-R)}{2}\left(\frac{p}{i_0} + \frac{1-p}{k}\right)
+\end{align*}
+
+\begin{align*}
+RoR_B =& p\cdot\frac{i_0(1-v)}{(k-i_0)^2}\left(bk\frac{(k-i_0)^2}{i_0}- k\frac{b^2(k-i_0)^2}{2i_0^2} \right) + (1-p)(b-\frac{b^2}{2})(1-v)\\
+                                     =& p\cdot(1-v)\left(bk- k\frac{b^2}{2i_0}\right) + (1-p)(b-\frac{b^2}{2})(1-v)\\
+                                     =& b(1-v)\cdot \left(pk(1-\frac{b}{2i_0}) + (1-p)(1-\frac{b}{2})\right)
+\end{align*}
+
+{\arpit Talk about the framework in depth. That this can be used to find optimal $R$ and $k$. Also different distributions can be tested once the framework is ready}
+
+\subsubsection{Proportional Promotion Budgeting}
+First we look into the case when $A$ sets its reward value $R$ proportional to the product of the distance to the reward $k$ and the discount value $v$ provided by merchant $B$: \ie~ $R = \alpha k v$.
+We refer to this case as proportional promotion budgeting.
+Note $\alpha$ is a constant here.
+
+\begin{theorem}
+Under prportional promotion budgeting, the optimal reward distance that $A$ should set is $k = \frac{e}{\alpha(1-\beta)}$ at small values of $b$ and $k = \frac{e^{(1-\beta)t_1}}{\alpha(1-\beta)}$ for larger values.
 \end{theorem}
 \begin{proof}
+{\arpit this proof needs to be rewritten, combined with the next section}
 First merchant $A$'s objective evaluates to the following:
 \begin{align*}
 \underset{k}\max\{RoR_A\} \Leftrightarrow & \underset{k}\max\left\{\underset{\lambda}E\left[\frac{\lambda k}{k-\Delta(1-\lambda)}\right]\right\}\\
