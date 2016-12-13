@@ -50,14 +50,24 @@ And we get our claim.
 
 {\arpit Let's combine this theorem with the look-ahead parameter directly}
 
-\begin{theorem} Assuming $V(i)$ is an increasing function in $i$, a phase transition occurs after the consumer makes $i_0$ visits to firm $A$, which evaluates to:
-\begin{align*}
-i_0 &= k - \left\lfloor \log_{\beta}\left(\frac{v}{R(1-\beta)}\right)\right\rfloor \\
-&\equiv k-\Delta
-\end{align*}
+{\nolan I've changed the theorem statement. Not sure how much we need to change the proof. Do we need to argue how look-ahead will change the DP?}
+
+\begin{theorem} Suppose $V(i)$ is an increasing function in $i$ and consider a customer with look-ahead $t$. A phase transition occurs after the consumer makes $i_0(t)$ visits to firm $A$, where $i_0(t)$ is given by:
+\begin{equation}
+  i_0(t)=\begin{cases}
+    k-\Delta \equiv i_0, & \text{if $t \geq \Delta$}.\\
+    k-t, & \text{otherwise}.
+  \end{cases}
+\end{equation}
+with 
+\begin{align}
+\Delta &= \left\lfloor \log_{\beta}\left(\frac{v}{R(1-\beta)}\right)\right\rfloor
+\end{align}
 \end{theorem}
 
 \begin{proof}
+{\nolan This part is without $t$. Should we keep it and deal with $t$ after or do we deal with $t$ directly here?}
+
 First we solve for the condition on $V(i+1)$ for us to choose firm $A$ over $B$ willingly.
 \begin{gather*}
 \beta V(i+1) > \frac{\lambda \beta V(i+1) + (1-\lambda)v}{1-(1-\lambda)\beta} \\
@@ -67,7 +77,7 @@ First we solve for the condition on $V(i+1)$ for us to choose firm $A$ over $B$ 
 \iff \beta V(i+1) > \frac{v}{1-\beta} \\
 \iff V(i+1) > \frac{v}{\beta(1-\beta)}
 \end{gather*}
-Let $i_0$ be the minimum state $i$ such that the above holds, so in particular $V(i_0) \le \frac{v}{\beta(1-\beta)}$ but $V(i_0+1) > \frac{v}{\beta(1-\beta)}$. We know because $V$ is increasing in $i$ (still need to prove), this point is indeed a phase transition: $V(i) > \frac{v}{\beta(1-\beta)}$ for all $i > i_0$, so after this point, the customer always chooses firm $A$. We may compute $V(i_0)$ easily using this fact.
+Let $i_0$ be the minimum state $i$ such that the above holds, so in particular $V(i_0) \le \frac{v}{\beta(1-\beta)}$ but $V(i_0+1) > \frac{v}{\beta(1-\beta)}$. We know because $V$ is increasing in $i$, this point is indeed a phase transition: $V(i) > \frac{v}{\beta(1-\beta)}$ for all $i > i_0$, so after this point, the customer always chooses firm $A$. We may compute $V(i_0)$ easily using this fact.
 \begin{equation*}
 V(i_0) = \beta V(i_0+1) = \cdots = \beta^{k-i_0}V(k) = \beta^{k-i_0}R
 \end{equation*}
@@ -79,15 +89,6 @@ Thus, we have the following:
 \iff i_0 = k - \left\lfloor \log_{\beta}\left(\frac{v}{R(1-\beta)}\right) \right\rfloor \equiv k-\Delta
 \end{gather*}
 \end{proof}
-
-With the inclusion of the look-ahead factor, the phase transition point depends on it, and we will refer to it as $i_0(t)$. Specifically, the dependence is as follows:
-
-\begin{equation*}
-  i_0(t)=\begin{cases}
-    i_0, & \text{if $t \geq \Delta$}.\\
-    k-t, & \text{otherwise}.
-  \end{cases}
-\end{equation*}
 
 The above dependence reduces to the following after incorporating the look-ahead distribution:
 
@@ -192,17 +193,9 @@ The above approximation relies on $\beta$ close to 1. Now this value is minimize
 
 {\nolan Discussion about why this theorem makes sense - restriction on $\beta$ is realistic anyway and minimizing $\Delta$ makes sense as well. Also, should we put this proof in the appendix and just give outline in paper?}
 
-Note that under equal-budgeting, we need $k > \frac{1-\lambda}{1-\beta}$ for $V$ to be increasing. We meet this condition when $k = \frac{e}{\alpha(1-\beta)} \geq \frac{1}{1-\beta} \geq \frac{1-\lambda}{1-\beta}$ ({\nolan used $\alpha < e$}). Figure~\ref{fig:phase_trans} shows the percentage of visits needed for a ``forward-looking'' consumer to adopt the reward program as a function of $\beta$. (Here we should add our comments on cash back computations).
+The above proof is very intuitive. To maximize revenue, $A$ should minimize $\frac{k}{\Delta}$, which represents the number of visits required for a ``forward-looking'' customer to adopt the reward program. The condition that $\beta$ be close to 1 is not very restrictive, as we expect it to be near 1 in most cases {\nolan (maybe get a citation for this)}. Note that because $k \geq \Delta$, the above also shows $\alpha \leq e$. Finally, observe that under equal-budgeting, we need $k > \frac{1-\lambda}{1-\beta}$ for $V$ to be increasing. We meet this condition when $k = \frac{e}{\alpha(1-\beta)} \geq \frac{1}{1-\beta} \geq \frac{1-\lambda}{1-\beta}$ . 
 
-{\nolan Don't think we need this figure anymore - in fact doesn't really make much sense.}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[scale = 0.75]{./figures/phase_trans.pdf}
-\caption{We assume $k = e/(1-\beta)$ and equal-budgeting. The plot shows the percentage of extraneous visits needed for a ``forward-looking'' consumer needed to adopt the reward program as a function of $\beta$.}
-\label{fig:phase_trans}
-\end{centering}
-\end{figure}
+{\nolan Got rid of figure we had before with dependency on $\beta$ - should we do something to replace it?}
 
 Now we consider the expected revenues of each firm under these conditions.
 
