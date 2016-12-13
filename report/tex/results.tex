@@ -50,14 +50,24 @@ And we get our claim.
 
 {\arpit Let's combine this theorem with the look-ahead parameter directly}
 
-\begin{theorem} Assuming $V(i)$ is an increasing function in $i$, a phase transition occurs after the consumer makes $i_0$ visits to firm $A$, which evaluates to:
-\begin{align*}
-i_0 &= k - \left\lfloor \log_{\beta}\left(\frac{v}{R(1-\beta)}\right)\right\rfloor \\
-&\equiv k-\Delta
-\end{align*}
+{\nolan I've changed the theorem statement. Not sure how much we need to change the proof. Do we need to argue how look-ahead will change the DP?}
+
+\begin{theorem} Suppose $V(i)$ is an increasing function in $i$ and consider a customer with look-ahead $t$. A phase transition occurs after the consumer makes $i_0(t)$ visits to firm $A$, where $i_0(t)$ is given by:
+\begin{equation}
+  i_0(t)=\begin{cases}
+    k-\Delta \equiv i_0, & \text{if $t \geq \Delta$}.\\
+    k-t, & \text{otherwise}.
+  \end{cases}
+\end{equation}
+with 
+\begin{align}
+\Delta &= \left\lfloor \log_{\beta}\left(\frac{v}{R(1-\beta)}\right)\right\rfloor
+\end{align}
 \end{theorem}
 
 \begin{proof}
+{\nolan This part is without $t$. Should we keep it and deal with $t$ after or do we deal with $t$ directly here?}
+
 First we solve for the condition on $V(i+1)$ for us to choose firm $A$ over $B$ willingly.
 \begin{gather*}
 \beta V(i+1) > \frac{\lambda \beta V(i+1) + (1-\lambda)v}{1-(1-\lambda)\beta} \\
@@ -67,7 +77,7 @@ First we solve for the condition on $V(i+1)$ for us to choose firm $A$ over $B$ 
 \iff \beta V(i+1) > \frac{v}{1-\beta} \\
 \iff V(i+1) > \frac{v}{\beta(1-\beta)}
 \end{gather*}
-Let $i_0$ be the minimum state $i$ such that the above holds, so in particular $V(i_0) \le \frac{v}{\beta(1-\beta)}$ but $V(i_0+1) > \frac{v}{\beta(1-\beta)}$. We know because $V$ is increasing in $i$ (still need to prove), this point is indeed a phase transition: $V(i) > \frac{v}{\beta(1-\beta)}$ for all $i > i_0$, so after this point, the customer always chooses firm $A$. We may compute $V(i_0)$ easily using this fact.
+Let $i_0$ be the minimum state $i$ such that the above holds, so in particular $V(i_0) \le \frac{v}{\beta(1-\beta)}$ but $V(i_0+1) > \frac{v}{\beta(1-\beta)}$. We know because $V$ is increasing in $i$, this point is indeed a phase transition: $V(i) > \frac{v}{\beta(1-\beta)}$ for all $i > i_0$, so after this point, the customer always chooses firm $A$. We may compute $V(i_0)$ easily using this fact.
 \begin{equation*}
 V(i_0) = \beta V(i_0+1) = \cdots = \beta^{k-i_0}V(k) = \beta^{k-i_0}R
 \end{equation*}
@@ -79,15 +89,6 @@ Thus, we have the following:
 \iff i_0 = k - \left\lfloor \log_{\beta}\left(\frac{v}{R(1-\beta)}\right) \right\rfloor \equiv k-\Delta
 \end{gather*}
 \end{proof}
-
-With the inclusion of the look-ahead factor, the phase transition point depends on it, and we will refer to it as $i_0(t)$. Specifically, the dependence is as follows:
-
-\begin{equation*}
-  i_0(t)=\begin{cases}
-    i_0, & \text{if $t \geq \Delta$}.\\
-    k-t, & \text{otherwise}.
-  \end{cases}
-\end{equation*}
 
 The above dependence reduces to the following after incorporating the look-ahead distribution:
 
@@ -176,48 +177,55 @@ We refer to this case as proportional promotion budgeting.
 Note $\alpha$ is a constant here.
 
 \begin{theorem}
-Under prportional promotion budgeting, the optimal reward distance that $A$ should set is $k = \frac{e}{\alpha(1-\beta)}$ at small values of $b$ and $k = \frac{e^{(1-\beta)t_1}}{\alpha(1-\beta)}$ for larger values.
+Under proportional promotion budgeting, the optimal reward distance that $A$ should set is $k = \frac{e}{\alpha(1-\beta)}$ at all values of $b$ as long as $\beta$ is close to 1.
 \end{theorem}
+{\nolan I've specified that $\beta$ be close to 1. We do need this for our nice expression. We can also give something when $\beta$ is not close to 1, but I don't think that should be necessary?}
 \begin{proof}
-{\arpit this proof needs to be rewritten, combined with the next section}
-First merchant $A$'s objective evaluates to the following:
+Recall the previous expression for $RoR_A$. Maximizing this function is equivalent to maximizing the following:
 \begin{align*}
 \underset{k}\max\{RoR_A\} \Leftrightarrow & \underset{k}\max\left\{\underset{\lambda}E\left[\frac{\lambda k}{k-\Delta(1-\lambda)}\right]\right\}\\
                           \Leftrightarrow & \underset{k}\max\left\{ \frac{1}{b}\int_{0}^{b} \frac{\lambda k}{k-\Delta(1-\lambda)}d\lambda \right\}\\
                           \Leftrightarrow & \underset{k}\max\left\{ \frac{k}{\Delta^2 b}\left(\Delta b - (k-\Delta)\log\left(\frac{k-\Delta(1-b)}{k-\Delta}\right)\right) \right\}\\
                           \Leftrightarrow & \underset{k} \max\left\{\frac{k}{\Delta}\left(1-\frac{k-\Delta}{b\Delta}\log\left(\frac{k-\Delta(1-b)}{k-\Delta}\right)\right)\right\}
 \end{align*}
-Now let $\theta = \frac{\Delta}{k}$. Then maximizing the above function is equivalent to maximizing the following function w.r.t. $\theta$ with keeping in mind the range that $\theta$ can follow.
+Now let $\theta = \frac{k}{\Delta}$. Then maximizing the above function is equivalent to maximizing the following function w.r.t. $\theta$. Note that $\theta \geq 1$ because $k \geq \Delta$.
 \beq
-\underset{k}\max\{RoR_A\} \Leftrightarrow \underset{\theta}\max\{f(\theta)\} \Leftrightarrow \underset{\theta}\max\left\{ \frac{1}{\theta} \left(1-\frac{1-\theta}{b\theta}\log\left(1 + \frac{b\theta}{1-\theta}\right)\right)\right\} 
+\underset{k}\max\{RoR_A\} \Leftrightarrow \underset{\theta}\max\{f(\theta)\} \Leftrightarrow \underset{\theta}\max\left\{ \theta \left(1-\frac{\theta-1}{b}\log\left(1 + \frac{b}{\theta-1}\right)\right)\right\} 
 \eeq
-Let's look at the quantity $\frac{\Delta}{k}$.
-\begin{align*}
-\frac{\Delta}{k} = \frac{\log_\beta\left(\frac{1}{k(1-\beta)}\right)}{k} \sim \frac{\log(k(1-\beta))}{k(1-\beta)} 
-\end{align*}
-Now this value is maximized at $k = \frac{e}{1-\beta}$ and minimized at the maximum possible value of $k$ which is bounded above by $\frac{e^{(1-\beta)t_1}}{1-\beta}$ from the assumption of $t_1 \ge \Delta$.
 
-When $b$ is small, the function $f(\theta)$ can be approximated by taking the second degree terms for the term inside the log. This gives:
+We will show that $f'(\theta) \leq 0$ for all $\theta$ so maximizing $f$ is equivalent to minimizing $\theta$.
 
 \begin{align*}
-f(\theta) \sim & \frac{1}{\theta} \left(1-\frac{1-\theta}{b\theta}\left(\frac{b\theta}{1-\theta} - \frac{\left(\frac{b\theta}{1-\theta}\right)^2}{2}\right)\right)\\
-          = & \frac{b}{2(1-\theta)}
+f'(\theta) &= \frac{2\theta-1+b}{\theta-1+b} - \frac{2\theta-1}{b} \log \left(1+\frac{b}{\theta-1} \right) \leq 0 \\
+&\iff \left(\frac{2\theta-1+b}{\theta-1+b}\right)\left(\frac{b}{2\theta-1} \right) \leq \log \left(1+\frac{b}{\theta-1} \right) \\
+&\iff \frac{b}{\theta-1+b}+\frac{b^2}{(2\theta-1)(\theta-1+b)} \leq \log \left(1+\frac{b}{\theta-1} \right)
 \end{align*}
-Clearly $f(\theta)$ is maximized when $\theta$ is maximized. This happens as shown above at $k = \frac{e}{1-\beta}$
 
-Whereas when $b$ is large, $f'(\theta)$ can be shown to be negative. Hence we get our result.
+In the limit of $b = 0$, it is easy to see that $f'(\theta) = 0$ for all $\theta$. We now show that for all $\theta$ and all $0 < b \leq 1$, $\frac{\partial f'(\theta)}{\partial b} \leq 0$.
+
+\begin{align*}
+\frac{\partial f'(\theta)}{\partial b} &= \frac{\theta-1}{(\theta-1+b)^2}+\frac{1}{2\theta-1}\cdot \frac{2b(\theta-1+b)-b^2}{(\theta-1+b)^2} -\frac{1}{\theta-1+b} \leq 0 \\
+&\iff \theta-1 + \frac{2b(\theta-1+b)-b^2}{2\theta-1} \leq \theta-1+b \\
+&\iff \frac{b(2\theta-2+b)}{2\theta-1} \leq b \\
+&\iff 2\theta-2+b \leq 2\theta-1 \\
+&\iff b \leq 1
+\end{align*}
+
+Thus we have shown that for all $\theta$, $f'(\theta) = 0$ as $b \approaches 0$ and that for all $\theta$ and $0 < b \leq 1$, $f'(\theta) \leq 0$. These together mean that for all $\theta$ and $b \in [0,1]$, $f'(\theta) \leq 0$. So to maximize $f$, we need to minimize $\theta$.
+
+Let's look at the quantity $\frac{k}{\Delta}$.
+\begin{align*}
+\frac{k}{\Delta} = \frac{k}{\log_\beta\left(\frac{1}{\alpha k(1-\beta)}\right)} \sim \frac{k(1-\beta)}{\log (\alpha k(1-\beta))} 
+\end{align*}
+The above approximation relies on $\beta$ close to 1. Now this value is minimized at $k = \frac{e}{\alpha(1-\beta)}$. Therefore, for all $b$, the optimal value for $k$ is given by $\frac{e}{\alpha(1-\beta)}$, the value for which $\frac{k}{\Delta}$ is minimized. 
 
 \end{proof}
 
-Note that under equal-budgeting, we need $k > \frac{1-\lambda}{1-\beta}$ for $V$ to be increasing. We meet this condition when $k = \frac{e}{1-\beta} > \frac{1}{1-\beta} \geq \frac{1-\lambda}{1-\beta}$. Figure~\ref{fig:phase_trans} shows the percentage of visits needed for a ``forward-looking'' consumer to adopt the reward program as a function of $\beta$. (Here we should add our comments on cash back computations).
+{\nolan Discussion about why this theorem makes sense - restriction on $\beta$ is realistic anyway and minimizing $\Delta$ makes sense as well. Also, should we put this proof in the appendix and just give outline in paper?}
 
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[scale = 0.75]{./figures/phase_trans.pdf}
-\caption{We assume $k = e/(1-\beta)$ and equal-budgeting. The plot shows the percentage of extraneous visits needed for a ``forward-looking'' consumer needed to adopt the reward program as a function of $\beta$.}
-\label{fig:phase_trans}
-\end{centering}
-\end{figure}
+The above proof is very intuitive. To maximize revenue, $A$ should minimize $\frac{k}{\Delta}$, which represents the number of visits required for a ``forward-looking'' customer to adopt the reward program. The condition that $\beta$ be close to 1 is not very restrictive, as we expect it to be near 1 in most cases {\nolan (maybe get a citation for this)}. Note that because $k \geq \Delta$, the above also shows $\alpha \leq e$. Finally, observe that under equal-budgeting, we need $k > \frac{1-\lambda}{1-\beta}$ for $V$ to be increasing. We meet this condition when $k = \frac{e}{\alpha(1-\beta)} \geq \frac{1}{1-\beta} \geq \frac{1-\lambda}{1-\beta}$ . 
+
+{\nolan Got rid of figure we had before with dependency on $\beta$ - should we do something to replace it?}
 
 Now we consider the expected revenues of each firm under these conditions.
 
@@ -230,6 +238,8 @@ Now we consider the expected revenues of each firm under these conditions.
 \eeq
 
 First notice that the ratio of expected revenues is independent of $v$, the price difference of the two firms. We observe this behavior in our simulations as well. Figure~\ref{fig:eq_budg_vary_v} shows the revenue rates of $A$ and $B$ as a function of $b$ for different values of $v$. We see that the relative rates do not vary with $v$; changing $v$ only changes the absolute revenue rates of each firm, putting more money into the rewards given out. We see that $b$ must be pretty large for firm $A$ to make more money than firm $B$. 
+
+{\nolan Not sure what best figures are now, we can discuss this.}
 
 \begin{figure}[h!]
 \begin{centering}
@@ -263,6 +273,7 @@ Now we consider scenarios in which firms $A$ and $B$ have different budgets. Fir
 
 Following the same logic of Theorem 3.2, the expected revenue rate of $A$ is maximized at $k = \frac{e}{\alpha(1-\beta)}$ at small values of $b$ (need to do again for larger values). For this value of $k$, $\Delta$ is fixed for all $\alpha$ ($\Delta = \left \lfloor \log_{\beta} \left(\frac{1}{e} \right) \right \rfloor$), so we must have $\alpha \leq \frac{e}{\Delta(1-\beta)}$ for $k \geq \Delta$ to hold. When $\beta = 0.9$, this upperbound on $\alpha$ is about 3.
 
+{\nolan Should proof of this theorem be in the appendix?}
 
 \begin{theorem}
 Suppose firm $A$ fixes its price at 1, and firm $B$ chooses a price of $1-v$. Given a consumer distribution defined by $p$ - with probability $p$, a consumer is fully forward looking and probability $1-p$ the customer does not look ahead at all - $b$ - each consumer's monopoly factor to firm $A$ is drawn as $\lambda~\sim Unif(0,b)$ and $\beta$ - the customer's discout factor. Then firm $A$ may choose to give a reward of $\alpha v < 1$ to customers after $k$ visits. It should run a reward program if the following condition holds.
