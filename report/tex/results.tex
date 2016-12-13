@@ -111,14 +111,14 @@ And since we assume that $\lambda$ and $t$ are drawn indepent of each other, we 
 RoR_A =& \underset{\lambda, t}E\left[\frac{k-R}{i_0(t)/\lambda + k - i_0(t)}\right]\\
                                        =& \underset{\lambda}E\left[p\cdot\frac{k-R}{i_0/\lambda + k - i_0} + (1-p)\frac{\lambda(k-R)}{k}\right]\\
                                        =& \underset{\lambda}E\left[p\cdot\frac{\lambda(k-R)}{k\lambda + i_0(1-\lambda)} + (1-p)\frac{\lambda(k-R)}{k}\right]\\
-                                       =& p\cdot\frac{k-R}{(k-i_0)^2}\cdot\left(b(k-i_0) - i_0 \log\left(1 + \frac{b(k-i_0)}{i_0}\right)\right) + (1-p)\frac{b^2(k-R)}{2k}
+                                       =& p\cdot\frac{k-R}{b(k-i_0)^2}\cdot\left(b(k-i_0) - i_0 \log\left(1 + \frac{b(k-i_0)}{i_0}\right)\right) + (1-p)\frac{b(k-R)}{2k}
 \end{align*}
 
 \begin{align*}
 RoR_B =& \underset{\lambda, t}E\left[\frac{(i_0(t)\lambda - i_0(t))(1-v)}{i_0(t)/\lambda + k - i_0(t)}\right]\\
                                      =& \underset{\lambda}E\left[p\cdot\frac{(i_0/\lambda - i_0)(1-v)}{i_0/\lambda + k - i_0} + (1-p)\frac{(k/\lambda - k)(1-v)}{k/\lambda}\right]\\
                                      =& \underset{\lambda}E\left[p\cdot\frac{i_0(1-\lambda)(1-v)}{k\lambda + i_0(1-\lambda)} + (1-p)(1-\lambda)(1-v)\right]\\
-                                     =& p\cdot\frac{i_0(1-v)}{(k-i_0)^2}\left(k\log\left(1+\frac{b(k-i_0)}{i_0}\right) - b(k-i_0)\right) + (1-p)(b-\frac{b^2}{2})(1-v)\\
+                                     =& p\cdot\frac{i_0(1-v)}{b(k-i_0)^2}\left(k\log\left(1+\frac{b(k-i_0)}{i_0}\right) - b(k-i_0)\right) + (1-p)(1-\frac{b}{2})(1-v)\\
 \end{align*}
 
 {\arpit
@@ -126,6 +126,36 @@ RoR_B =& \underset{\lambda, t}E\left[\frac{(i_0(t)\lambda - i_0(t))(1-v)}{i_0(t)
 When is $RoR_A > RoR_B$ at $i_0 = 0$?
 \end{theorem}
 }
+
+\begin{figure*}[t!]
+\centering
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[height=2in]{./figures/bp_pair_rorAB_al0p5_dense.png}
+\caption{$\alpha = 0.5$}
+\end{subfigure}%
+~ 
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[height=2in]{./figures/bp_pair_rorAB_al1p0_dense.png}
+\caption{$\alpha = 1$}
+\end{subfigure}
+\centering
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[height=2in]{./figures/bp_pair_rorAB_al2p0_dense.png}
+\caption{$\alpha = 2$}
+\end{subfigure}%
+~ 
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[height=2in]{./figures/bp_pair_rorAB_al2p5_dense.png}
+\caption{$\alpha = 2.5$}
+\end{subfigure}
+
+\caption{Achievable region of $(b,p)$ pairs where rate of revenue is higher for merchant $A$ for different values of budget proportions $\alpha$. This achievable region is maximized at $\alpha$ close to $e$.}
+\end{figure*}
+
 
 At small values of $b$ the above evaluate to:
 \begin{align*}
