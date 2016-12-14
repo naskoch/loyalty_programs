@@ -14,12 +14,12 @@ And we focus on a simple threshold distribution for the look-ahead parameter $t$
 
 \begin{equation*}
   t=\begin{cases}
-    t_1\geq \Delta, & \text{wp } p,\\
+    t_1, & \text{wp } p,\\
     0, & \text{wp } 1-p.
   \end{cases}
 \end{equation*}
 
-The above distribution intuitively means that the customers are either myopic and focus only on immediate rewards, or are far-sighted enough.
+The above distribution intuitively means that the customers are either myopic and focus only on immediate rewards, or are far-sighted enough (we assume $t_1$ is large).
 We model the customer's decision problem as a dynamic problem. We index the number of visits the customer makes at store $A$ by $i$, for $0 \leq i \leq k-1$, and we refer a customer to be in state $i$ after having made $i$ visits to $A$. At state $i$, the customer has two possibilities:
 \begin{enumerate}
 \item

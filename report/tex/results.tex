@@ -48,11 +48,7 @@ V(i) = \frac{\lambda \beta V(i+1) + (1-\lambda)v}{1-(1-\lambda)\beta}
 And we get our claim.
 \end{proof}
 
-{\arpit Let's combine this theorem with the look-ahead parameter directly}
-
-{\nolan I've changed the theorem statement. Not sure how much we need to change the proof. Do we need to argue how look-ahead will change the DP?}
-
-\begin{theorem} Suppose $V(i)$ is an increasing function in $i$ and consider a customer with look-ahead $t$. A phase transition occurs after the consumer makes $i_0(t)$ visits to firm $A$, where $i_0(t)$ is given by:
+\begin{theorem} Suppose $V(i)$ is an increasing function in $i$ and consider a customer with look-ahead parameter $t$. A phase transition occurs after (s)he makes $i_0(t)$ visits to firm $A$, where $i_0(t)$ is given by:
 \begin{equation}
   i_0(t)=\begin{cases}
     k-\Delta \equiv i_0, & \text{if $t \geq \Delta$}.\\
@@ -66,8 +62,6 @@ with
 \end{theorem}
 
 \begin{proof}
-{\nolan This part is without $t$. Should we keep it and deal with $t$ after or do we deal with $t$ directly here?}
-
 First we solve for the condition on $V(i+1)$ for us to choose firm $A$ over $B$ willingly.
 \begin{gather*}
 \beta V(i+1) > \frac{\lambda \beta V(i+1) + (1-\lambda)v}{1-(1-\lambda)\beta} \\
@@ -88,7 +82,6 @@ Thus, we have the following:
 \iff i_0 \le k - \log_{\beta}\left(\frac{v}{R(1-\beta)} \right) + 1 < i_0 + 1\\
 \iff i_0 = k - \left\lfloor \log_{\beta}\left(\frac{v}{R(1-\beta)}\right) \right\rfloor \equiv k-\Delta
 \end{gather*}
-\end{proof}
 
 The above dependence reduces to the following after incorporating the look-ahead distribution:
 
@@ -98,6 +91,7 @@ The above dependence reduces to the following after incorporating the look-ahead
     k, & \text{wp } 1-p.
   \end{cases}
 \end{equation*}
+\end{proof}
 
 {\arpit Discussion around what do the $i_0$ dependencies mean.}
 
@@ -111,7 +105,9 @@ And since we assume that $\lambda$ and $t$ are drawn indepent of each other, we 
 RoR_A =& \underset{\lambda, t}E\left[\frac{k-R}{i_0(t)/\lambda + k - i_0(t)}\right]\\
                                        =& \underset{\lambda}E\left[p\cdot\frac{k-R}{i_0/\lambda + k - i_0} + (1-p)\frac{\lambda(k-R)}{k}\right]\\
                                        =& \underset{\lambda}E\left[p\cdot\frac{\lambda(k-R)}{k\lambda + i_0(1-\lambda)} + (1-p)\frac{\lambda(k-R)}{k}\right]\\
-                                       =& p\cdot\frac{k-R}{b(k-i_0)^2}\cdot\left(b(k-i_0) - i_0 \log\left(1 + \frac{b(k-i_0)}{i_0}\right)\right) + (1-p)\frac{b(k-R)}{2k}
+                                       =& p\cdot\frac{k-R}{b(k-i_0)^2}\cdot\left(b(k-i_0) - i_0 \log\left(1 + \frac{b(k-i_0)}{i_0}\right)\right) + (1-p)\frac{b(k-R)}{2k}\\
+                                       =& p\cdot\frac{k-R}{b\Delta^2}\cdot\left(b\Delta - (k-\Delta)\log\left(1+\frac{b\Delta}{k-\Delta}\right)\right) + (1-p)\frac{b(k-R)}{2k}\\
+                                       =& p\cdot\frac{k-R}{\Delta}\cdot\left(1 - \frac{k-\Delta}{b\Delta}\log\left(1+\frac{b\Delta}{k-\Delta}\right)\right) + (1-p)\frac{b(k-R)}{2k}
 \end{align*}
 
 \begin{align*}
@@ -119,7 +115,103 @@ RoR_B =& \underset{\lambda, t}E\left[\frac{(i_0(t)\lambda - i_0(t))(1-v)}{i_0(t)
                                      =& \underset{\lambda}E\left[p\cdot\frac{(i_0/\lambda - i_0)(1-v)}{i_0/\lambda + k - i_0} + (1-p)\frac{(k/\lambda - k)(1-v)}{k/\lambda}\right]\\
                                      =& \underset{\lambda}E\left[p\cdot\frac{i_0(1-\lambda)(1-v)}{k\lambda + i_0(1-\lambda)} + (1-p)(1-\lambda)(1-v)\right]\\
                                      =& p\cdot\frac{i_0(1-v)}{b(k-i_0)^2}\left(k\log\left(1+\frac{b(k-i_0)}{i_0}\right) - b(k-i_0)\right) + (1-p)(1-\frac{b}{2})(1-v)\\
+                                     =& p\cdot\frac{(k-\Delta)(1-v)}{b\Delta^2}\left(k\log\left(1+\frac{b\Delta}{k-\Delta}\right) - b\Delta\right) + (1-p)(1-\frac{b}{2})(1-v)\\
+                                     =& p\cdot\frac{(k-\Delta)(1-v)}{\Delta}\left(\frac{k}{b\Delta}\log\left(1+\frac{b\Delta}{k-\Delta}\right) - 1\right) + (1-p)(1-\frac{b}{2})(1-v)\\
 \end{align*}
+
+\subsubsection{Proportional Promotion Budgeting}
+First we look into the case when $A$ sets its reward value $R$ proportional to the product of the distance to the reward $k$ and the discount value $v$ provided by merchant $B$: \ie~ $R = \alpha k v$.
+We refer to this case as proportional promotion budgeting.
+Note $\alpha$ is a constant here.
+
+\begin{theorem}
+Under proportional promotion budgeting, the optimal reward distance that $A$ should set is $k = \frac{e}{\alpha(1-\beta)}$ at all values of $b$ as long as $\beta$ is close to 1.
+\end{theorem}
+\begin{proof}
+Recall the previous expression for $RoR_A$. Maximizing this function is equivalent to maximizing the following:
+\begin{align*}
+\underset{k}\max\{RoR_A\} \Leftrightarrow & \underset{k} \max\left\{\frac{k}{\Delta}\left(1-\frac{k-\Delta}{b\Delta}\log\left(\frac{k-\Delta(1-b)}{k-\Delta}\right)\right)\right\}
+\end{align*}
+Now let $\theta = \frac{k}{\Delta}$. Then maximizing the above function is equivalent to maximizing the following function w.r.t. $\theta$. Note that $\theta \geq 1$ because $k \geq \Delta$.
+\beq\notag
+\underset{k}\max\{RoR_A\} \Leftrightarrow \underset{\theta}\max\{f(\theta)\} \Leftrightarrow \underset{\theta}\max\left\{ \theta \left(1-\frac{\theta-1}{b}\log\left(1 + \frac{b}{\theta-1}\right)\right)\right\} 
+\eeq
+
+We will show that $f'(\theta) \leq 0$ for all $\theta$ so maximizing $f$ is equivalent to minimizing $\theta$.
+
+\begin{align*}
+f'(\theta) &= \frac{2\theta-1+b}{\theta-1+b} - \frac{2\theta-1}{b} \log \left(1+\frac{b}{\theta-1} \right) \\
+&= \frac{2\theta-1}{b}\cdot\left(\left(\frac{2\theta-1+b}{\theta-1+b}\right)\left(\frac{b}{2\theta-1} \right) - \log \left(1+\frac{b}{\theta-1} \right)\right) \\
+&= \frac{2\theta-1}{b}\cdot\left(\frac{b}{\theta-1+b}+\frac{b^2}{(2\theta-1)(\theta-1+b)} - \log \left(1+\frac{b}{\theta-1} \right)\right)
+\end{align*}
+
+Let $g(b, \theta) = \frac{b}{\theta-1+b}+\frac{b^2}{(2\theta-1)(\theta-1+b)} - \log \left(1+\frac{b}{\theta-1} \right)$. 
+In the limit of $b \to 0$, it is easy to see that $f'(\theta) = g(b, \theta) = 0$ for all $\theta$ in the domain. 
+We now show that for all $\theta$ in the domain and all $0 < b \leq 1$, $\frac{\partial g(b, \theta)}{\partial b} \leq 0$.
+
+\begin{align*}
+\frac{\partial g(b,\theta)}{\partial b} &= \frac{\theta-1}{(\theta-1+b)^2}+\frac{1}{2\theta-1}\cdot \frac{2b(\theta-1+b)-b^2}{(\theta-1+b)^2} -\frac{1}{\theta-1+b} \leq 0 \\
+&\iff \theta-1 + \frac{2b(\theta-1+b)-b^2}{2\theta-1} \leq \theta-1+b \\
+&\iff \frac{b(2\theta-2+b)}{2\theta-1} \leq b \\
+&\iff 2\theta-2+b \leq 2\theta-1 \\
+&\iff b \leq 1
+\end{align*}
+
+Thus we have shown that for all $\theta$, $g(b,\theta) = 0$ as $b \to 0$ and that for all $\theta$ and $0 < b \leq 1$, $g(b,\theta)$ is decreasing. 
+These together mean that for all $\theta$ and $b \in [0,1]$, $g(b,\theta) \leq 0$. 
+Which implies that $f'(\theta) \le 0$ for all $\theta$ in the domain.
+So to maximize $f$, we need to minimize $\theta$.
+
+Now let's look at the quantity $\theta = \frac{k}{\Delta}$.
+\begin{align*}
+\frac{k}{\Delta} = \frac{k}{\log_\beta\left(\frac{1}{\alpha k(1-\beta)}\right)} \sim \frac{k(1-\beta)}{\log (\alpha k(1-\beta))} 
+\end{align*}
+The above approximation relies on $\beta$ close to 1. Now this value is minimized at $k = \frac{e}{\alpha(1-\beta)}$. Therefore, for all $b$, the optimal value for $k$ is given by $\frac{e}{\alpha(1-\beta)}$, the value for which $\frac{k}{\Delta}$ is minimized and takes the value $\frac{e}{\alpha}$. 
+
+\end{proof}
+
+{\nolan Discussion about why this theorem makes sense - restriction on $\beta$ is realistic anyway and minimizing $\Delta$ makes sense as well. Also, should we put this proof in the appendix and just give outline in paper?}
+
+The above proof is very intuitive. To maximize revenue, $A$ should minimize $\frac{k}{\Delta}$, which represents the number of visits required for a ``forward-looking'' customer to adopt the reward program. The condition that $\beta$ be close to 1 is not very restrictive, as we expect it to be near 1 in most cases {\nolan (maybe get a citation for this)}. Note that because $k \geq \Delta$, the above also shows $\alpha \leq e$. Finally, observe that under equal-budgeting, we need $k > \frac{1-\lambda}{1-\beta}$ for $V$ to be increasing. We meet this condition when $k = \frac{e}{\alpha(1-\beta)} \geq \frac{1}{1-\beta} \geq \frac{1-\lambda}{1-\beta}$ . 
+
+{\nolan Got rid of figure we had before with dependency on $\beta$ - should we do something to replace it?}
+
+Now we consider the expected revenues of each firm under these conditions.
+
+\beq
+\underset{\lambda, t}E[RoR_A] = pk(1-v)\frac{1}{b}\int_0^b \frac{\lambda}{k-(1-\lambda)\Delta} \mbox{ } d\lambda + (1-p)(1-v)\frac{b}{2}
+\eeq
+
+\beq
+\underset{\lambda, t}E[RoR_B] = pk(1-v)\frac{1}{b}\int_0^b \frac{1-\lambda}{k-(1-\lambda)\Delta} \mbox{ } d\lambda + (1-p)(1-v)\left(1-\frac{b}{2}\right)
+\eeq
+
+First notice that the ratio of expected revenues is independent of $v$, the price difference of the two firms. We observe this behavior in our simulations as well. Figure~\ref{fig:eq_budg_vary_v} shows the revenue rates of $A$ and $B$ as a function of $b$ for different values of $v$. We see that the relative rates do not vary with $v$; changing $v$ only changes the absolute revenue rates of each firm, putting more money into the rewards given out. We see that $b$ must be pretty large for firm $A$ to make more money than firm $B$. 
+
+{\nolan Not sure what best figures are now, we can discuss this.}
+
+\begin{figure}[h!]
+\begin{centering}
+\includegraphics[scale = 0.75]{./figures/eq_budg_vary_v_p05.pdf}
+\caption{Rates of revenue for $A$ and $B$ with equal-budgeting as a function of $b$ for various $v$. Fixed $p = 0.5$, $\beta = 0.9$ and $k = e/(1-\beta)$.}
+\label{fig:eq_budg_vary_v}
+\end{centering}
+\end{figure}
+
+[Not sure if we should include] We may solve for the $b$ such that the expected revenues are equal, which occurs if when the following holds (excluding work for now).
+\begin{equation*}
+b-\frac{2k(k-\Delta)p}{(1-p)b\Delta^2}\log \left(\frac{k-(1-b)\Delta}{k-\Delta} \right) = 1-\frac{p}{1-p} \frac{2k-\Delta}{\Delta}
+\end{equation*}
+
+Note from the above that $p$, the probability of a consumer being ``forward-looking'' does affect the ratio of expected rates of revenue. Figure~\ref{fig:eq_budg_vary_p} shows simulation results for the rates of revenue of $A$ and $B$ for various values of $p$ with everything else fixed. We see that as $p$ increases, the $b$ required for the reward program to become more profitable than not using one decreases.
+
+\begin{figure}[h!]
+\begin{centering}
+\includegraphics[scale = 0.75]{./figures/eq_budg_vary_p_v01.pdf}
+\caption{Rates of revenue for $A$ and $B$ with equal-budgeting as a function of $b$ for various $p$. Fixed $v = 0.1$, $\beta = 0.9$ and $k = e/(1-\beta)$.}
+\label{fig:eq_budg_vary_p}
+\end{centering}
+\end{figure}
 
 {\arpit
 \begin{theorem}
@@ -171,98 +263,6 @@ RoR_B =& p\cdot\frac{i_0(1-v)}{(k-i_0)^2}\left(bk\frac{(k-i_0)^2}{i_0}- k\frac{b
 
 {\arpit Talk about the framework in depth. That this can be used to find optimal $R$ and $k$. Also different distributions can be tested once the framework is ready}
 
-\subsubsection{Proportional Promotion Budgeting}
-First we look into the case when $A$ sets its reward value $R$ proportional to the product of the distance to the reward $k$ and the discount value $v$ provided by merchant $B$: \ie~ $R = \alpha k v$.
-We refer to this case as proportional promotion budgeting.
-Note $\alpha$ is a constant here.
-
-\begin{theorem}
-Under proportional promotion budgeting, the optimal reward distance that $A$ should set is $k = \frac{e}{\alpha(1-\beta)}$ at all values of $b$ as long as $\beta$ is close to 1.
-\end{theorem}
-{\nolan I've specified that $\beta$ be close to 1. We do need this for our nice expression. We can also give something when $\beta$ is not close to 1, but I don't think that should be necessary?}
-\begin{proof}
-Recall the previous expression for $RoR_A$. Maximizing this function is equivalent to maximizing the following:
-\begin{align*}
-\underset{k}\max\{RoR_A\} \Leftrightarrow & \underset{k}\max\left\{\underset{\lambda}E\left[\frac{\lambda k}{k-\Delta(1-\lambda)}\right]\right\}\\
-                          \Leftrightarrow & \underset{k}\max\left\{ \frac{1}{b}\int_{0}^{b} \frac{\lambda k}{k-\Delta(1-\lambda)}d\lambda \right\}\\
-                          \Leftrightarrow & \underset{k}\max\left\{ \frac{k}{\Delta^2 b}\left(\Delta b - (k-\Delta)\log\left(\frac{k-\Delta(1-b)}{k-\Delta}\right)\right) \right\}\\
-                          \Leftrightarrow & \underset{k} \max\left\{\frac{k}{\Delta}\left(1-\frac{k-\Delta}{b\Delta}\log\left(\frac{k-\Delta(1-b)}{k-\Delta}\right)\right)\right\}
-\end{align*}
-Now let $\theta = \frac{k}{\Delta}$. Then maximizing the above function is equivalent to maximizing the following function w.r.t. $\theta$. Note that $\theta \geq 1$ because $k \geq \Delta$.
-\beq
-\underset{k}\max\{RoR_A\} \Leftrightarrow \underset{\theta}\max\{f(\theta)\} \Leftrightarrow \underset{\theta}\max\left\{ \theta \left(1-\frac{\theta-1}{b}\log\left(1 + \frac{b}{\theta-1}\right)\right)\right\} 
-\eeq
-
-We will show that $f'(\theta) \leq 0$ for all $\theta$ so maximizing $f$ is equivalent to minimizing $\theta$.
-
-\begin{align*}
-f'(\theta) &= \frac{2\theta-1+b}{\theta-1+b} - \frac{2\theta-1}{b} \log \left(1+\frac{b}{\theta-1} \right) \leq 0 \\
-&\iff \left(\frac{2\theta-1+b}{\theta-1+b}\right)\left(\frac{b}{2\theta-1} \right) \leq \log \left(1+\frac{b}{\theta-1} \right) \\
-&\iff \frac{b}{\theta-1+b}+\frac{b^2}{(2\theta-1)(\theta-1+b)} \leq \log \left(1+\frac{b}{\theta-1} \right)
-\end{align*}
-
-In the limit of $b = 0$, it is easy to see that $f'(\theta) = 0$ for all $\theta$. We now show that for all $\theta$ and all $0 < b \leq 1$, $\frac{\partial f'(\theta)}{\partial b} \leq 0$.
-
-\begin{align*}
-\frac{\partial f'(\theta)}{\partial b} &= \frac{\theta-1}{(\theta-1+b)^2}+\frac{1}{2\theta-1}\cdot \frac{2b(\theta-1+b)-b^2}{(\theta-1+b)^2} -\frac{1}{\theta-1+b} \leq 0 \\
-&\iff \theta-1 + \frac{2b(\theta-1+b)-b^2}{2\theta-1} \leq \theta-1+b \\
-&\iff \frac{b(2\theta-2+b)}{2\theta-1} \leq b \\
-&\iff 2\theta-2+b \leq 2\theta-1 \\
-&\iff b \leq 1
-\end{align*}
-
-Thus we have shown that for all $\theta$, $f'(\theta) = 0$ as $b \rightarrow 0$ and that for all $\theta$ and $0 < b \leq 1$, $f'(\theta) \leq 0$. These together mean that for all $\theta$ and $b \in [0,1]$, $f'(\theta) \leq 0$. So to maximize $f$, we need to minimize $\theta$.
-
-Let's look at the quantity $\frac{k}{\Delta}$.
-\begin{align*}
-\frac{k}{\Delta} = \frac{k}{\log_\beta\left(\frac{1}{\alpha k(1-\beta)}\right)} \sim \frac{k(1-\beta)}{\log (\alpha k(1-\beta))} 
-\end{align*}
-The above approximation relies on $\beta$ close to 1. Now this value is minimized at $k = \frac{e}{\alpha(1-\beta)}$. Therefore, for all $b$, the optimal value for $k$ is given by $\frac{e}{\alpha(1-\beta)}$, the value for which $\frac{k}{\Delta}$ is minimized. 
-
-\end{proof}
-
-{\nolan Discussion about why this theorem makes sense - restriction on $\beta$ is realistic anyway and minimizing $\Delta$ makes sense as well. Also, should we put this proof in the appendix and just give outline in paper?}
-
-The above proof is very intuitive. To maximize revenue, $A$ should minimize $\frac{k}{\Delta}$, which represents the number of visits required for a ``forward-looking'' customer to adopt the reward program. The condition that $\beta$ be close to 1 is not very restrictive, as we expect it to be near 1 in most cases {\nolan (maybe get a citation for this)}. Note that because $k \geq \Delta$, the above also shows $\alpha \leq e$. Finally, observe that under equal-budgeting, we need $k > \frac{1-\lambda}{1-\beta}$ for $V$ to be increasing. We meet this condition when $k = \frac{e}{\alpha(1-\beta)} \geq \frac{1}{1-\beta} \geq \frac{1-\lambda}{1-\beta}$ . 
-
-{\nolan Got rid of figure we had before with dependency on $\beta$ - should we do something to replace it?}
-
-Now we consider the expected revenues of each firm under these conditions.
-
-\beq
-\underset{\lambda, t}E[RoR_A] = pk(1-v)\frac{1}{b}\int_0^b \frac{\lambda}{k-(1-\lambda)\Delta} \mbox{ } d\lambda + (1-p)(1-v)\frac{b}{2}
-\eeq
-
-\beq
-\underset{\lambda, t}E[RoR_B] = pk(1-v)\frac{1}{b}\int_0^b \frac{1-\lambda}{k-(1-\lambda)\Delta} \mbox{ } d\lambda + (1-p)(1-v)\left(1-\frac{b}{2}\right)
-\eeq
-
-First notice that the ratio of expected revenues is independent of $v$, the price difference of the two firms. We observe this behavior in our simulations as well. Figure~\ref{fig:eq_budg_vary_v} shows the revenue rates of $A$ and $B$ as a function of $b$ for different values of $v$. We see that the relative rates do not vary with $v$; changing $v$ only changes the absolute revenue rates of each firm, putting more money into the rewards given out. We see that $b$ must be pretty large for firm $A$ to make more money than firm $B$. 
-
-{\nolan Not sure what best figures are now, we can discuss this.}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[scale = 0.75]{./figures/eq_budg_vary_v_p05.pdf}
-\caption{Rates of revenue for $A$ and $B$ with equal-budgeting as a function of $b$ for various $v$. Fixed $p = 0.5$, $\beta = 0.9$ and $k = e/(1-\beta)$.}
-\label{fig:eq_budg_vary_v}
-\end{centering}
-\end{figure}
-
-[Not sure if we should include] We may solve for the $b$ such that the expected revenues are equal, which occurs if when the following holds (excluding work for now).
-\begin{equation*}
-b-\frac{2k(k-\Delta)p}{(1-p)b\Delta^2}\log \left(\frac{k-(1-b)\Delta}{k-\Delta} \right) = 1-\frac{p}{1-p} \frac{2k-\Delta}{\Delta}
-\end{equation*}
-
-Note from the above that $p$, the probability of a consumer being ``forward-looking'' does affect the ratio of expected rates of revenue. Figure~\ref{fig:eq_budg_vary_p} shows simulation results for the rates of revenue of $A$ and $B$ for various values of $p$ with everything else fixed. We see that as $p$ increases, the $b$ required for the reward program to become more profitable than not using one decreases.
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[scale = 0.75]{./figures/eq_budg_vary_p_v01.pdf}
-\caption{Rates of revenue for $A$ and $B$ with equal-budgeting as a function of $b$ for various $p$. Fixed $v = 0.1$, $\beta = 0.9$ and $k = e/(1-\beta)$.}
-\label{fig:eq_budg_vary_p}
-\end{centering}
-\end{figure}
 
 \subsubsection{Non Strategic Merchant $B$, and Unequal Promotion Budgeting}
 
