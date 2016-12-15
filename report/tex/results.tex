@@ -116,7 +116,7 @@ RoR_B =& \underset{\lambda, t}E\left[\frac{(i_0(t)\lambda - i_0(t))(1-v)}{i_0(t)
                                      =& \underset{\lambda}E\left[p\cdot\frac{i_0(1-\lambda)(1-v)}{k\lambda + i_0(1-\lambda)} + (1-p)(1-\lambda)(1-v)\right]\\
                                      =& p\cdot\frac{i_0(1-v)}{b(k-i_0)^2}\left(k\log\left(1+\frac{b(k-i_0)}{i_0}\right) - b(k-i_0)\right) + (1-p)(1-\frac{b}{2})(1-v)\\
                                      =& p\cdot\frac{(k-\Delta)(1-v)}{b\Delta^2}\left(k\log\left(1+\frac{b\Delta}{k-\Delta}\right) - b\Delta\right) + (1-p)(1-\frac{b}{2})(1-v)\\
-                                     =& p\cdot\frac{(k-\Delta)(1-v)}{\Delta}\left(\frac{k}{b\Delta}\log\left(1+\frac{b\Delta}{k-\Delta}\right) - 1\right) + (1-p)(1-\frac{b}{2})(1-v)\\
+                                     =& p\cdot\frac{(k-\Delta)(1-v)}{\Delta}\left(\frac{k}{b\Delta}\log\left(1+\frac{b\Delta}{k-\Delta}\right) - 1\right) + (1-p)(1-\frac{b}{2})(1-v)\label{eq:rorB_eval}
 \end{align*}
 
 \subsubsection{Proportional Promotion Budgeting}
@@ -170,54 +170,35 @@ The above approximation relies on $\beta$ close to 1. Now this value is minimize
 
 \end{proof}
 
-The above proof is very intuitive. To maximize revenue, $A$ should minimize $\frac{k}{\Delta}$, which represents the number of visits required for a ``forward-looking'' customer to adopt the reward program. The condition that $\beta$ be close to 1 is not very restrictive, as we expect it to be near 1 in most cases {\nolan (maybe get a citation for this)}. Note that because $k \geq \Delta$, the above also shows $\alpha \leq e$. Finally, observe that under equal-budgeting, we need $k > \frac{1-\lambda}{1-\beta}$ for $V$ to be increasing. We meet this condition when $k = \frac{e}{\alpha(1-\beta)} \geq \frac{1}{1-\beta} \geq \frac{1-\lambda}{1-\beta}$ . 
+An interesting point to observe in the above proof is that maximizing the revenue objective is equivalent to minimizing $\frac{k}{\Delta}$ or maximizing $\frac{\Delta}{k}$. This quantity $\frac{\Delta}{k}$ is effectively the \emph{zone of influence}, \ie, the ratio of number of visits required for a ``forward-looking'' customer to adopt a reward program and the total distance to the reward.
+In short, if the merchant minimizes the \emph{zone of influence}, it maximizes its revenue objective.
+Merchants often offer reward currency for free (give some examples of airlines issuing free credit or accelerating rate at which points are issued). We are characterizing the time until which it is most beneficial to offer such accelerations. 
+The condition that $\beta$ be close to 1 is not very restrictive, as we expect it to be near 1 in most cases {\nolan (maybe get a citation for this)}. Note that because $k \geq \Delta$, the above also shows $\alpha \leq e$. 
+Finally, observe that, we need $R > \frac{(1-\lambda)v}{1-\beta}$ for $V$ to be increasing. 
+We meet this condition with proportional budgeting when $k = \frac{e}{\alpha(1-\beta)}$ as $R = \alpha k v = \frac{e v}{1-\beta} \geq \frac{v}{1-\beta} \geq \frac{(1-\lambda)v}{1-\beta}$. 
 Also note that if $\alpha$ is $1$, then the value of $k$ corresponds to a cashback percentage between $2$ and $4$ as $\beta$ ranges between $0.95$ and $0.9$.
 This value is realistic to what is observed in practice too.
 
-{\nolan Got rid of figure we had before with dependency on $\beta$ - should we do something to replace it?}
+Now we evaluate the expected rate of revenues of each merchant under these conditions of proportional budgeting and optimal $k$.
 
-Now we consider the expected revenues of each firm under these conditions.
+\begin{align*}
+RoR_A =& pk\cdot\frac{1-\alpha v}{\Delta}\cdot\left(1 - \frac{k-\Delta}{b\Delta}\log\left(1+\frac{b\Delta}{k-\Delta}\right)\right) + (1-p)\frac{bk(1-\alpha v)}{2k}\\
+      =& (1-\alpha v) \left(p\frac{e}{\alpha}\left(1-\frac{e-\alpha}{b\alpha}\log\left(1+\frac{b\alpha}{e-\alpha}\right)\right) + (1-p)\frac{b}{2}\right)
+\end{align*}
 
-\beq
-\underset{\lambda, t}E[RoR_A] = pk(1-v)\frac{1}{b}\int_0^b \frac{\lambda}{k-(1-\lambda)\Delta} \mbox{ } d\lambda + (1-p)(1-v)\frac{b}{2}
-\eeq
+\begin{align*}
+RoR_B =& p\cdot\frac{(k-\Delta)(1-v)}{\Delta}\left(\frac{k}{b\Delta}\log\left(1+\frac{b\Delta}{k-\Delta}\right) - 1\right) + (1-p)(1-\frac{b}{2})(1-v)\\
+      =& (1-v)\left(p\cdot\frac{e-\alpha}{\alpha}\left(\frac{e}{b\alpha}\log\left(1+\frac{b\alpha}{e-\alpha}\right) - 1\right)\right)\\
+      =& (1-v)\left(p\frac{e}{\alpha}\left(\frac{e-\alpha}{b\alpha}\log\left(1+\frac{b\alpha}{e-\alpha}\right) - \frac{e-\alpha}{e}\right) + (1-p)(1-\frac{b}{2})\right)
+\end{align*}
 
-\beq
-\underset{\lambda, t}E[RoR_B] = pk(1-v)\frac{1}{b}\int_0^b \frac{1-\lambda}{k-(1-\lambda)\Delta} \mbox{ } d\lambda + (1-p)(1-v)\left(1-\frac{b}{2}\right)
-\eeq
-
-First notice that the ratio of expected revenues is independent of $v$, the price difference of the two firms. We observe this behavior in our simulations as well. Figure~\ref{fig:eq_budg_vary_v} shows the revenue rates of $A$ and $B$ as a function of $b$ for different values of $v$. We see that the relative rates do not vary with $v$; changing $v$ only changes the absolute revenue rates of each firm, putting more money into the rewards given out. We see that $b$ must be pretty large for firm $A$ to make more money than firm $B$. 
-
-{\nolan Not sure what best figures are now, we can discuss this.}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[scale = 0.75]{./figures/eq_budg_vary_v_p05.pdf}
-\caption{Rates of revenue for $A$ and $B$ with equal-budgeting as a function of $b$ for various $v$. Fixed $p = 0.5$, $\beta = 0.9$ and $k = e/(1-\beta)$.}
-\label{fig:eq_budg_vary_v}
-\end{centering}
-\end{figure}
-
-[Not sure if we should include] We may solve for the $b$ such that the expected revenues are equal, which occurs if when the following holds (excluding work for now).
-\begin{equation*}
-b-\frac{2k(k-\Delta)p}{(1-p)b\Delta^2}\log \left(\frac{k-(1-b)\Delta}{k-\Delta} \right) = 1-\frac{p}{1-p} \frac{2k-\Delta}{\Delta}
-\end{equation*}
-
-Note from the above that $p$, the probability of a consumer being ``forward-looking'' does affect the ratio of expected rates of revenue. Figure~\ref{fig:eq_budg_vary_p} shows simulation results for the rates of revenue of $A$ and $B$ for various values of $p$ with everything else fixed. We see that as $p$ increases, the $b$ required for the reward program to become more profitable than not using one decreases.
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[scale = 0.75]{./figures/eq_budg_vary_p_v01.pdf}
-\caption{Rates of revenue for $A$ and $B$ with equal-budgeting as a function of $b$ for various $p$. Fixed $v = 0.1$, $\beta = 0.9$ and $k = e/(1-\beta)$.}
-\label{fig:eq_budg_vary_p}
-\end{centering}
-\end{figure}
-
-{\arpit
-\begin{theorem}
-When is $RoR_A > RoR_B$ at $i_0 = 0$?
-\end{theorem}
-}
+Observe that both the above equations have a left term and a right term. The left term is the rate of revenue obtained from ``forward-looking'' customers whereas the right term is from the myopic customers.
+As $\alpha$ ranges between $0$ and $e$, the value on the left term increases from $0$ for $RoR_A$ and decreases to $0$ for $RoR_B$.
+That is by controlling the reward budget ratio, merchant $A$ is able to gain the entire ``forward-looking'' customer base.
+The next figure illustrates the gap in rate of revenue ($RoR_A - RoR_B$) as follows: for different values of $\alpha$ we plot the region of $b$ and $p$ pairs where the gap is positive.
+We observe that there is a clear threshold of $b$ and $p$ beyond which the revenue gap is always positive.
+This is easily explained by the increasing nature of the revenue gap with $b$ and $p$.
+But more interestingly, the threshold value of $b$ and $p$ decreases as $\alpha$ is increased toward $e$.
 
 \begin{figure*}[t!]
 \centering
@@ -249,31 +230,33 @@ When is $RoR_A > RoR_B$ at $i_0 = 0$?
 \end{figure*}
 
 
-At small values of $b$ the above evaluate to:
-\begin{align*}
-RoR_A =& p\cdot(k-R)\cdot\frac{b^2}{2i_0} + (1-p)\frac{b^2(k-R)}{2k}\\
-                                       =& \frac{b^2(k-R)}{2}\left(\frac{p}{i_0} + \frac{1-p}{k}\right)
-\end{align*}
+\begin{figure}[h!]
+\begin{centering}
+\includegraphics[scale = 0.75]{./figures/eq_budg_vary_v_p05.pdf}
+\caption{Rates of revenue for $A$ and $B$ with equal-budgeting as a function of $b$ for various $v$. Fixed $p = 0.5$, $\beta = 0.9$ and $k = e/(1-\beta)$.}
+\label{fig:eq_budg_vary_v}
+\end{centering}
+\end{figure}
 
-\begin{align*}
-RoR_B =& p\cdot\frac{i_0(1-v)}{(k-i_0)^2}\left(bk\frac{(k-i_0)^2}{i_0}- k\frac{b^2(k-i_0)^2}{2i_0^2} \right) + (1-p)(b-\frac{b^2}{2})(1-v)\\
-                                     =& p\cdot(1-v)\left(bk- k\frac{b^2}{2i_0}\right) + (1-p)(b-\frac{b^2}{2})(1-v)\\
-                                     =& b(1-v)\cdot \left(pk(1-\frac{b}{2i_0}) + (1-p)(1-\frac{b}{2})\right)
-\end{align*}
+\begin{comment}
+Note from the above that $p$, the probability of a consumer being ``forward-looking'' does affect the ratio of expected rates of revenue. Figure~\ref{fig:eq_budg_vary_p} shows simulation results for the rates of revenue of $A$ and $B$ for various values of $p$ with everything else fixed. We see that as $p$ increases, the $b$ required for the reward program to become more profitable than not using one decreases.
+
+\begin{figure}[h!]
+\begin{centering}
+\includegraphics[scale = 0.75]{./figures/eq_budg_vary_p_v01.pdf}
+\caption{Rates of revenue for $A$ and $B$ with equal-budgeting as a function of $b$ for various $p$. Fixed $v = 0.1$, $\beta = 0.9$ and $k = e/(1-\beta)$.}
+\label{fig:eq_budg_vary_p}
+\end{centering}
+\end{figure}
+
+{\arpit
+\begin{theorem}
+When is $RoR_A > RoR_B$ at $i_0 = 0$?
+\end{theorem}
+}
+\end{comment}
 
 {\arpit Talk about the framework in depth. That this can be used to find optimal $R$ and $k$. Also different distributions can be tested once the framework is ready}
-
-
-\subsubsection{Non Strategic Merchant $B$, and Unequal Promotion Budgeting}
-
-Now we consider scenarios in which firms $A$ and $B$ have different budgets. First we consider the case where the budgets are still proportional, i.e. $R = \alpha \cdot kv$ for some fixed $\alpha$. Now the expected rate of revenue of $A$ is given by the following, while that of firm $B$ is unchanged. Therefore the ratio of expected revenue rates may now depend on $v$.
-\beq
-\underset{\lambda, t}E[RoR_A] = pk(1-\alpha v)\frac{1}{b}\int_0^b \frac{\lambda}{k-(1-\lambda)\Delta} \mbox{ } d\lambda + (1-p)(1-\alpha v)\frac{b}{2}
-\eeq
-
-Following the same logic of Theorem 3.2, the expected revenue rate of $A$ is maximized at $k = \frac{e}{\alpha(1-\beta)}$ at small values of $b$ (need to do again for larger values). For this value of $k$, $\Delta$ is fixed for all $\alpha$ ($\Delta = \left \lfloor \log_{\beta} \left(\frac{1}{e} \right) \right \rfloor$), so we must have $\alpha \leq \frac{e}{\Delta(1-\beta)}$ for $k \geq \Delta$ to hold. When $\beta = 0.9$, this upperbound on $\alpha$ is about 3.
-
-{\nolan Should proof of this theorem be in the appendix?}
 
 \begin{theorem}
 Suppose firm $A$ fixes its price at 1, and firm $B$ chooses a price of $1-v$. Given a consumer distribution defined by $p$ - with probability $p$, a consumer is fully forward looking and probability $1-p$ the customer does not look ahead at all - $b$ - each consumer's monopoly factor to firm $A$ is drawn as $\lambda~\sim Unif(0,b)$ and $\beta$ - the customer's discout factor. Then firm $A$ may choose to give a reward of $\alpha v < 1$ to customers after $k$ visits. It should run a reward program if the following condition holds.
