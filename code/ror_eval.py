@@ -42,3 +42,36 @@ def pbpairplot(alpha=1):
     plt.ylabel("p value")
     plt.xlabel("b value")
     plt.show()
+
+def pbpairplot_both(alpha=1):
+    v = 0.01
+    beta = 0.95
+    k = math.e/(alpha * (1-beta)) 
+    R = alpha * k * v
+    delta = max(0., np.floor(-1.0/np.log(beta)))
+    p_range = [0.01*j for j in range(1,100)]
+
+    b_range = [0.01*j for j in range(1,100)] 
+
+    x_range_1 = []
+    y_range_1 = []
+
+    x_range_2 = []
+    y_range_2 = []
+
+    for b in b_range:
+        for p in p_range:
+            rA = ror_A(k, R, v, b, p, beta, delta)
+            rB = ror_B(k, R, v, b, p, beta, delta)
+            if rA > rB:
+                x_range_1.append(b)
+                y_range_1.append(p)
+            if rA > b/2.:
+                x_range_2.append(b)
+                y_range_2.append(p)
+
+    plt.plot(x_range_1, y_range_1)
+    plt.plot(x_range_2, y_range_2)
+    plt.ylabel("p value")
+    plt.xlabel("b value")
+    plt.show()
