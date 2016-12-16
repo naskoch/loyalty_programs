@@ -17,6 +17,39 @@ def ror_B(k, R, v, b, p, beta, delta):
 def compute_delta(v, R, beta):
 	return max(0.,np.floor(np.log(v/(R*(1.-beta)))/np.log(beta)))
 
+def ror_A_opt_k(p, alpha, b, v):
+    forward_ror = (1-alpha*v) * (p * math.e/alpha * (1 - (math.e-alpha)/(b*alpha) * math.log(1 + b*alpha/(math.e-alpha))))
+    backward_ror = (1-alpha*v) * (1-p)*b/2
+    return forward_ror + backward_ror
+
+def ror_B_opt_k(p, alpha, b, v):
+    forward_ror = (1-v) * (p * math.e/alpha * ((math.e-alpha)/(b*alpha) * math.log(1 + b*alpha/(math.e-alpha)) - (math.e-alpha)/math.e))
+    backward_ror = (1-v) * (1-p) * (1-b/2)
+    return forward_ror + backward_ror
+
+def pbpairplot_optk(alpha=1):
+    v = 0.05 
+    beta = 0.95
+    p_range = [0.001*j for j in range(1,1000)]
+
+    b_range = [0.001*j for j in range(1,1000)] 
+
+    x_range = []
+    y_range = []
+
+    for b in b_range:
+        for p in p_range:
+            rA = ror_A_opt_k(p, alpha, b, v)
+            rB = ror_B_opt_k(p, alpha, b, v)
+            if rA > rB:
+                x_range.append(b)
+                y_range.append(p)
+
+    plt.plot(x_range, y_range)
+    plt.ylabel("p value")
+    plt.xlabel("b value")
+    plt.show()
+
 def pbpairplot(alpha=1):
     v = 0.05 
     beta = 0.95

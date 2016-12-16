@@ -229,7 +229,27 @@ But more interestingly, the threshold value of $b$ and $p$ decreases as $\alpha$
 \caption{Achievable region of $(b,p)$ pairs where rate of revenue is higher for merchant $A$ for different values of budget proportions $\alpha$. This achievable region is maximized at $\alpha$ close to $e$.}
 \end{figure*}
 
+As $\alpha \to 0$, $RoR_A \to (1-p)b/2$, \ie, the revenue earned is only due to visit probability bias.
+Observe how $RoR_A$ varies with $\alpha$.
+The marginal revenue term $(1-\alpha v)$ decreases with $\alpha$ as the merchant is giving higher rewards to customers, whereas the market share term increases as the merchant gains more ``forward-looking'' customers with increase in reward budget.
+Also note that $\alpha = 0$ is equivalent to the merchant not running any reward program.
+We next investigate the question of when it is better for the merchant to offer a reward program as opposed to doing traditional pricing.
+That is for what values of $\alpha, b, p, v$ is it appropriate for merchant $A$ to offer a reward program.
+In other words, when is the rate of revenue of merchant $A$ greater than its rate of revenue at $\alpha = 0$.
 
+\begin{align*}
+ (1-\alpha v) \left(p\frac{e}{\alpha}\left(1-\frac{e-\alpha}{b\alpha}\log\left(1+\frac{b\alpha}{e-\alpha}\right)\right) + (1-p)\frac{b}{2}\right) &>& (1-p)b/2\\
+\implies (1-\alpha v)p\frac{e}{\alpha}\left(1-\frac{e-\alpha}{b\alpha}\log\left(1+\frac{b\alpha}{e-\alpha}\right)\right) &>& \alpha v (1-p)b/2\\
+\implies (1-\alpha v)p\frac{e}{\alpha}\left(\frac{b\alpha}{2(e-\alpha)} - \frac{b^2\alpha^2}{3(e-\alpha)^2}\right) &>& \alpha v (1-p)b/2\\
+\implies (1-\alpha v)\frac{pe}{e-\alpha}\left(\frac{1}{2} - \frac{b\alpha}{3(e-\alpha)}\right) &>& \alpha v (1-p)/2\\
+\implies \left(\frac{1}{\alpha v}-1\right)\frac{e}{e-\alpha}\left(\frac{1}{2} - \frac{b\alpha}{3(e-\alpha)}\right) &>&  \frac{1-p}{2p}\\
+\end{align*}
+
+From above we get an interesting sufficient cutoff for $b$: $b < 3(e-\alpha)/2$.
+LHS is decreasing in $v$ and decreasing in $b$.
+RHS is decreasing in $p$.
+
+\begin{comment}
 \begin{figure}[h!]
 \begin{centering}
 \includegraphics[scale = 0.75]{./figures/eq_budg_vary_v_p05.pdf}
@@ -238,7 +258,6 @@ But more interestingly, the threshold value of $b$ and $p$ decreases as $\alpha$
 \end{centering}
 \end{figure}
 
-\begin{comment}
 Note from the above that $p$, the probability of a consumer being ``forward-looking'' does affect the ratio of expected rates of revenue. Figure~\ref{fig:eq_budg_vary_p} shows simulation results for the rates of revenue of $A$ and $B$ for various values of $p$ with everything else fixed. We see that as $p$ increases, the $b$ required for the reward program to become more profitable than not using one decreases.
 
 \begin{figure}[h!]
