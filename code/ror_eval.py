@@ -22,7 +22,8 @@ def pbpairplot(alpha=1):
     beta = 0.95
     k = math.e/(alpha * (1-beta)) 
     R = alpha * k * v
-    delta = max(0., np.floor(-1.0/np.log(beta)))
+    #delta = max(0., np.floor(-1.0/np.log(beta)))
+    delta = 1./(1-beta)
     p_range = [0.0001*j for j in range(1,10000)]
 
     b_range = [0.0001*j for j in range(1,10000)] 
@@ -44,7 +45,7 @@ def pbpairplot(alpha=1):
     plt.show()
 
 def pbpairplot_both(alpha=1):
-    v = 0.01
+    v = 0.05
     beta = 0.95
     k = math.e/(alpha * (1-beta)) 
     R = alpha * k * v
