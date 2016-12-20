@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.22)  16 DEC 2016 16:39
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.22)  20 DEC 2016 12:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -771,36 +771,36 @@ File: ./figures/b_restriction.png Graphic file (type png)
 Package pdftex.def Info: ./figures/b_restriction.png used on input line 337.
 (pdftex.def)             Requested size: 433.61893pt x 298.113pt.
 
-<./figures/bp_pair_both_al0p5_dense.png, id=179, 578.16pt x 433.62pt>
-File: ./figures/bp_pair_both_al0p5_dense.png Graphic file (type png)
+<./figures/bp_pair_both_al0p5.png, id=179, 578.16pt x 433.62pt>
+File: ./figures/bp_pair_both_al0p5.png Graphic file (type png)
 
-<use ./figures/bp_pair_both_al0p5_dense.png>
-Package pdftex.def Info: ./figures/bp_pair_both_al0p5_dense.png used on input l
-ine 347.
+<use ./figures/bp_pair_both_al0p5.png>
+Package pdftex.def Info: ./figures/bp_pair_both_al0p5.png used on input line 34
+7.
 (pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
-<./figures/bp_pair_both_al1p0_dense.png, id=180, 578.16pt x 433.62pt>
-File: ./figures/bp_pair_both_al1p0_dense.png Graphic file (type png)
+<./figures/bp_pair_both_al1p0.png, id=180, 578.16pt x 433.62pt>
+File: ./figures/bp_pair_both_al1p0.png Graphic file (type png)
 
-<use ./figures/bp_pair_both_al1p0_dense.png>
-Package pdftex.def Info: ./figures/bp_pair_both_al1p0_dense.png used on input l
-ine 353.
+<use ./figures/bp_pair_both_al1p0.png>
+Package pdftex.def Info: ./figures/bp_pair_both_al1p0.png used on input line 35
+3.
 (pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
-<./figures/bp_pair_both_al2p0_dense.png, id=181, 578.16pt x 433.62pt>
-File: ./figures/bp_pair_both_al2p0_dense.png Graphic file (type png)
+<./figures/bp_pair_both_al2p0.png, id=181, 578.16pt x 433.62pt>
+File: ./figures/bp_pair_both_al2p0.png Graphic file (type png)
 
-<use ./figures/bp_pair_both_al2p0_dense.png>
-Package pdftex.def Info: ./figures/bp_pair_both_al2p0_dense.png used on input l
-ine 359.
+<use ./figures/bp_pair_both_al2p0.png>
+Package pdftex.def Info: ./figures/bp_pair_both_al2p0.png used on input line 35
+9.
 (pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
-<./figures/bp_pair_both_al2p5_dense.png, id=182, 578.16pt x 433.62pt>
-File: ./figures/bp_pair_both_al2p5_dense.png Graphic file (type png)
+<./figures/bp_pair_both_al2p5.png, id=182, 578.16pt x 433.62pt>
+File: ./figures/bp_pair_both_al2p5.png Graphic file (type png)
 
-<use ./figures/bp_pair_both_al2p5_dense.png>
-Package pdftex.def Info: ./figures/bp_pair_both_al2p5_dense.png used on input l
-ine 365.
+<use ./figures/bp_pair_both_al2p5.png>
+Package pdftex.def Info: ./figures/bp_pair_both_al2p5.png used on input line 36
+5.
 (pdftex.def)             Requested size: 192.71658pt x 144.54pt.
 
 Overfull \hbox (5.22217pt too wide) in paragraph at lines 345--368
@@ -815,9 +815,9 @@ Overfull \hbox (5.22217pt too wide) in paragraph at lines 345--368
 ) (./tex/conclusions.tex)
 No file document.bbl.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 27.
-[16 <./figures/b_restriction.png>] [17 <./figures/bp_pair_both_al0p5_dense.png>
- <./figures/bp_pair_both_al1p0_dense.png> <./figures/bp_pair_both_al2p0_dense.p
-ng> <./figures/bp_pair_both_al2p5_dense.png>]
+[16 <./figures/b_restriction.png>] [17 <./figures/bp_pair_both_al0p5.png> <./fi
+gures/bp_pair_both_al1p0.png> <./figures/bp_pair_both_al2p0.png> <./figures/bp_
+pair_both_al2p5.png>]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 27.
  (./document.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 27.
@@ -832,8 +832,8 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 27.
  ) 
 Here is how much of TeX's memory you used:
  9694 strings out of 493304
- 144378 string characters out of 6139871
- 245781 words of memory out of 5000000
+ 144258 string characters out of 6139871
+ 245648 words of memory out of 5000000
  12945 multiletter control sequences out of 15000+600000
  15644 words of font info for 60 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -851,7 +851,7 @@ amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on document.pdf (17 pages, 419570 bytes).
+Output written on document.pdf (17 pages, 428287 bytes).
 PDF statistics:
  257 PDF objects out of 1000 (max. 8388607)
  196 compressed objects within 2 object streams

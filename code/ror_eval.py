@@ -119,19 +119,26 @@ def pbpairplot_both(file, alpha=1):
     x_range_2 = []
     y_range_2 = []
 
+    x_range_3 = []
+    y_range_3 = []
+
     for b in b_range:
         for p in p_range:
             rA = ror_A(k, R, v, b, p, beta, delta)
             rB = ror_B(k, R, v, b, p, beta, delta)
-            if rA > rB:
+            if rA > rB and rA > b/2.:
+                x_range_3.append(b)
+                y_range_3.append(p)
+            elif rA > rB:
                 x_range_1.append(b)
                 y_range_1.append(p)
-            if rA > b/2.:
+            elif rA > b/2.:
                 x_range_2.append(b)
                 y_range_2.append(p)
 
-    plt.plot(x_range_1, y_range_1)
-    plt.plot(x_range_2, y_range_2)
+    plt.plot(x_range_1, y_range_1, 'b')
+    plt.plot(x_range_2, y_range_2, 'y')
+    plt.plot(x_range_3, y_range_3, 'g')
     plt.ylabel("p value")
     plt.xlabel("b value")
     plt.savefig(file)
