@@ -97,9 +97,29 @@ The above dependence reduces to the following after incorporating the look-ahead
 \end{equation*}
 \end{proof}
 
-{\arpit Discussion around what do the $i_0$ dependencies mean.}
+Note that the phase transition point is independent of $\lambda$, the customer's visit probability bias toward the merchant.
+As we would expect, it increases with the look-ahead parameter, and with the price discount offered by merchant $B$.
+And decreases with increase in the reward value $R$ and decrease in the distance to reward $k$.
+The variation with the discount factor $\beta$ is interesting: we can show that for any $\frac{R}{v} \ge 1$ there exists a $\beta \in [0,1]$ that minimizes the phase transition point $i_0$ for ``forward-looking'' customers.
+This means that customers who are more patient have longer time frame to transition and so do customers who are less patient than the optimal value.
+We refer to the ratio of number of visits required for a ``forward-looking'' customer to adopt a reward program and the total distance to the reward as the ``influence zone''.
+Intuitively this is the fraction of visits that the merchant wants to influence the customer by offering exogenous means of earning additional points like bonus miles in airlines, or accelerated earnings, as discussed in the introduction.
+Next we find the optimal $k$ for minimizing this influence zone.
 
-{\arpit Discussion around setting $i_0 = 0$}
+\begin{remark}\label{rem:inf_zone}
+Influence zone is minimized at $k = \frac{e}{\alpha(1-\beta)}$ under proportional promotion budgeting. 
+\end{remark}
+\begin{proof}
+As defined the influence zone is $\frac{i_0}{k} = \frac{k-\Delta}{k} = 1 -\frac{\Delta}{k}$.
+Thus minimizing the influence zone is equivalent to minimizing $\frac{k}{\Delta}$.
+\begin{align*}
+\frac{k}{\Delta} = \frac{k}{\log_\beta\left(\frac{1}{\alpha k(1-\beta)}\right)} \sim \frac{k(1-\beta)}{\log (\alpha k(1-\beta))} 
+\end{align*}
+The above approximation relies on $\beta$ close to 1. Now this value is minimized at $k = \frac{e}{\alpha(1-\beta)}$. Therefore, for all $b$, the optimal value for $k$ is given by $\frac{e}{\alpha(1-\beta)}$, the value for which $\frac{k}{\Delta}$ is minimized and takes the value $\frac{e}{\alpha}$. 
+At this value the influence zone takes the value $1-\frac{\alpha}{e}$.
+\end{proof}
+Note that if $\alpha$ is $1$, then the value of $k$ corresponds to a cashback between $2$\% and $4$\% as $\beta$ ranges between $0.95$ and $0.9$.
+This value is realistic to what is observed in practice too.
 
 \subsection{Merchant Objective Dynamics}
 We substitute the value of the phase transition point obtained above in the rate of revenue equations to reevaluate them. 
@@ -123,10 +143,9 @@ RoR_B =& \underset{\lambda, t}E\left[\frac{(i_0(t)\lambda - i_0(t))(1-v)}{i_0(t)
                                      =& p\cdot\frac{(k-\Delta)(1-v)}{\Delta}\left(\frac{k}{b\Delta}\log\left(1+\frac{b\Delta}{k-\Delta}\right) - 1\right) + (1-p)(1-\frac{b}{2})(1-v)\label{eq:rorB_eval}
 \end{align*}
 
-\subsubsection{Proportional Promotion Budgeting}
-First we look into the case when $A$ sets its reward value $R$ proportional to the product of the distance to the reward $k$ and the discount value $v$ provided by merchant $B$: \ie~ $R = \alpha k v$.
-We refer to this case as proportional promotion budgeting.
-Note $\alpha$ is a constant here.
+The above framework can be used for optimizing for the reward parameters to maximize $A$'s rate of revenue, and correspondingly for the discount parameter for $B$, for varying distributions of the customer population.
+We leave the competitive study where merchant $B$ could strategize on its discount value $v$ for future work.
+And in this work we only consider proportional promotion budgeting as mentioned in Section~\ref{sec:model}, where $R = \alpha k v$ and $\alpha$ is a constant.
 
 \begin{theorem}
 Under proportional promotion budgeting, the optimal reward distance that $A$ should set is $k = \frac{e}{\alpha(1-\beta)}$ at all values of $b$ as long as $\beta$ is close to 1.
@@ -166,22 +185,14 @@ These together mean that for all $\theta$ and $b \in [0,1]$, $g(b,\theta) \leq 0
 Which implies that $f'(\theta) \le 0$ for all $\theta$ in the domain.
 So to maximize $f$, we need to minimize $\theta$.
 
-Now let's look at the quantity $\theta = \frac{k}{\Delta}$.
-\begin{align*}
-\frac{k}{\Delta} = \frac{k}{\log_\beta\left(\frac{1}{\alpha k(1-\beta)}\right)} \sim \frac{k(1-\beta)}{\log (\alpha k(1-\beta))} 
-\end{align*}
-The above approximation relies on $\beta$ close to 1. Now this value is minimized at $k = \frac{e}{\alpha(1-\beta)}$. Therefore, for all $b$, the optimal value for $k$ is given by $\frac{e}{\alpha(1-\beta)}$, the value for which $\frac{k}{\Delta}$ is minimized and takes the value $\frac{e}{\alpha}$. 
-
+Observe that minimizing $\theta = \frac{k}{\Delta}$ is equivalent to minimizing the influence zone.
+As shown in Remark~\ref{rem:inf_zone}, this happens at $k = \frac{e}{\alpha(1-\beta)}$. 
 \end{proof}
 
-An interesting point to observe in the above proof is that maximizing the revenue objective is equivalent to minimizing $\frac{k}{\Delta}$ or maximizing $\frac{\Delta}{k}$. This quantity $\frac{\Delta}{k}$ is effectively the \emph{zone of influence}, \ie, the ratio of number of visits required for a ``forward-looking'' customer to adopt a reward program and the total distance to the reward.
-In short, if the merchant minimizes the \emph{zone of influence}, it maximizes its revenue objective.
-Merchants often offer reward currency for free (give some examples of airlines issuing free credit or accelerating rate at which points are issued). We are characterizing the time until which it is most beneficial to offer such accelerations. 
+An interesting point to observe in the above proof is that maximizing the revenue objective is equivalent to minimizing the influence zone, \ie, under our model, mazimizing revenue is equivalent to the time until which it is most beneficial to offer reward point accelerations. 
 The condition that $\beta$ be close to 1 is not very restrictive, as we expect it to be near 1 in most cases {\nolan (maybe get a citation for this)}. Note that because $k \geq \Delta$, the above also shows $\alpha \leq e$. 
 Finally, observe that, we need $R > \frac{(1-\lambda)v}{1-\beta}$ for $V$ to be increasing. 
 We meet this condition with proportional budgeting when $k = \frac{e}{\alpha(1-\beta)}$ as $R = \alpha k v = \frac{e v}{1-\beta} \geq \frac{v}{1-\beta} \geq \frac{(1-\lambda)v}{1-\beta}$. 
-Also note that if $\alpha$ is $1$, then the value of $k$ corresponds to a cashback percentage between $2$ and $4$ as $\beta$ ranges between $0.95$ and $0.9$.
-This value is realistic to what is observed in practice too.
 
 Now we evaluate the expected rate of revenues of each merchant under these conditions of proportional budgeting and optimal $k$.
 
