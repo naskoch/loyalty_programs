@@ -48,6 +48,8 @@ V(i) = \frac{\lambda \beta V(i+1) + (1-\lambda)v}{1-(1-\lambda)\beta}
 And we get our claim.
 \end{proof}
 
+{\nolan Probably want some exposition between the lemma and the theorem.}
+
 \begin{theorem} Suppose $V(i)$ is an increasing function in $i$ and consider a customer with look-ahead parameter $t$. A phase transition occurs after (s)he makes $i_0(t)$ visits to firm $A$, where $i_0(t)$ is given by:
 \begin{equation}
   i_0(t)=\begin{cases}
@@ -62,6 +64,8 @@ with
 \end{theorem}
 
 \begin{proof}
+{\nolan Still need to fix this proof a little bit I think. I will try to work on that.}
+
 First we solve for the condition on $V(i+1)$ for us to choose firm $A$ over $B$ willingly.
 \begin{gather*}
 \beta V(i+1) > \frac{\lambda \beta V(i+1) + (1-\lambda)v}{1-(1-\lambda)\beta} \\
@@ -240,13 +244,15 @@ But more interestingly, the threshold value of $b$ and $p$ decreases as $\alpha$
 \caption{Achievable region of $(b,p)$ pairs where rate of revenue is higher for merchant $A$ for different values of budget proportions $\alpha$. This achievable region is maximized at $\alpha$ close to $e$.}
 \end{figure*}
 
-As $\alpha \to 0$, $RoR_A \to (1-p)b/2$, \ie, the revenue earned is only due to visit probability bias.
+As $\alpha \to 0$, $RoR_A \to b/2$, \ie, the revenue earned is only due to visit probability bias.
 Observe how $RoR_A$ varies with $\alpha$.
 The marginal revenue term $(1-\alpha v)$ decreases with $\alpha$ as the merchant is giving higher rewards to customers, whereas the market share term increases as the merchant gains more ``forward-looking'' customers with increase in reward budget.
 Also note that $\alpha = 0$ is equivalent to the merchant not running any reward program.
 We next investigate the question of when it is better for the merchant to offer a reward program as opposed to doing traditional pricing.
 That is for what values of $\alpha, b, p, v$ is it appropriate for merchant $A$ to offer a reward program.
 In other words, when is the rate of revenue of merchant $A$ greater than its rate of revenue at $\alpha = 0$.
+
+{\nolan Is this the best way to frame the next results? It seems like we are thinking of $\alpha$ fixed and then the firm must decide to either offer the reward program or not; but here, we are changing the choice from reward program vs not to our previously fixed $\alpha$ vs $\alpha = 0$. This is just very subtle semantics, just something to think about.}
 
 \begin{align*}
  (1-\alpha v) \left(p\frac{e}{\alpha}\left(1-\frac{e-\alpha}{b\alpha}\log\left(1+\frac{b\alpha}{e-\alpha}\right)\right) + (1-p)\frac{b}{2}\right) &>& (1-p)b/2\\
@@ -259,6 +265,8 @@ In other words, when is the rate of revenue of merchant $A$ greater than its rat
 From above we get an interesting sufficient cutoff for $b$: $b < 3(e-\alpha)/2$.
 LHS is decreasing in $v$ and decreasing in $b$.
 RHS is decreasing in $p$.
+
+{\nolan Don't think the above is necessary anymore? But will keep for now.}
 
 \begin{comment}
 \begin{figure}[h!]
@@ -286,6 +294,55 @@ When is $RoR_A > RoR_B$ at $i_0 = 0$?
 }
 \end{comment}
 
+{\arpit Talk about the framework in depth. That this can be used to find optimal $R$ and $k$. Also different distributions can be tested once the framework is ready}
+
+Just as we can look at values of $b$ and $p$ such that $RoR_A > RoR_B$, we can characterize the $(b,p)$ pairs for which $RoR_A > \frac{b}{2}$. These pairs correspond to customer distributions for which a reward program is more profitable than not. Figure~\ref{fig:offer_reward_or_not} shows the pairs for different values of $\alpha$, keeping $v = 0.05$ and $\beta = 0.95$ fixed. Observe that under these conditions, the firm should choose to run a reward program most of the time. Also notice that reward programs begin to lose profitability as $b$ increases; larger $b$ values mean that people make more exogenous visits, so a reward program is no longer needed to entice visits.
+
+{\nolan Probably need to expand on above, will think about how to do that. Also, need to figure out when to add expiration comment.}
+
+\begin{figure*}[t!]
+\centering
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[height=2in]{./figures/bp_pair_rorA_al0p5_dense.png}
+\caption{$\alpha = 0.5$}
+\end{subfigure}%
+~ 
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[height=2in]{./figures/bp_pair_rorA_al1p0_dense.png}
+\caption{$\alpha = 1$}
+\end{subfigure}
+\centering
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[height=2in]{./figures/bp_pair_rorA_al2p0_dense.png}
+\caption{$\alpha = 2$}
+\end{subfigure}%
+~ 
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[height=2in]{./figures/bp_pair_rorA_al2p5_dense.png}
+\caption{$\alpha = 2.5$}
+\end{subfigure}
+
+\caption{Achievable region of $(b,p)$ pairs where rate of revenue is higher with a reward program than it is without. In these plots $v = 0.05$ and $\beta = 0.95$.}
+\label{fig:offer_reward_or_not}
+\end{figure*}
+
+For any fixed $\alpha$, the exact conditions on $p$, $b$ and $v$ for $RoR_A > \frac{b}{2}$ are rather complex. We will focus on one particular simple case: $\alpha \rightarrow e$. 
+
+\begin{theorem}
+As $\alpha \rightarrow e$, $RoR_A > \frac{b}{2}$ if the following condition on $b$ holds:
+\begin{equation}
+b < \frac{2p}{p+\frac{e\cdot v}{1-e\cdot v}}
+\end{equation}
+\end{theorem} 
+
+\begin{proof}
+
+\end{proof}
+
 \begin{figure}[h!]
 \begin{centering}
 \includegraphics[scale = 0.75]{./figures/b_restriction.png}
@@ -294,45 +351,77 @@ When is $RoR_A > RoR_B$ at $i_0 = 0$?
 \end{centering}
 \end{figure}
 
-\begin{theorem}
-Suppose firm $A$ fixes its price at 1, and firm $B$ chooses a price of $1-v$. Given a consumer distribution defined by $p$ - with probability $p$, a consumer is fully forward looking and probability $1-p$ the customer does not look ahead at all - $b$ - each consumer's monopoly factor to firm $A$ is drawn as $\lambda~\sim Unif(0,b)$ and $\beta$ - the customer's discout factor. Then firm $A$ may choose to give a reward of $\alpha v < 1$ to customers after $k$ visits. It should run a reward program if the following condition holds.
-\begin{equation}
-\frac{1}{b}\left(1-\frac{e-\alpha}{b\alpha}\log \left(1+\frac{b\alpha}{e-\alpha} \right) \right) \geq \frac{\alpha(1-(1-p)(1-\alpha v))}{2pe(1-\alpha v)}
-\end{equation}
-Define the function on the left-hand side above as $g(b)$.
-\end{theorem}
+\begin{figure*}[t!]
+\centering
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[height=2in]{./figures/bp_pair_both_al0p5.png}
+\caption{$\alpha = 0.5$}
+\end{subfigure}%
+~ 
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[height=2in]{./figures/bp_pair_both_al1p0.png}
+\caption{$\alpha = 1$}
+\end{subfigure}
+\centering
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[height=2in]{./figures/bp_pair_both_al2p0.png}
+\caption{$\alpha = 2$}
+\end{subfigure}%
+~ 
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[height=2in]{./figures/bp_pair_both_al2p5.png}
+\caption{$\alpha = 2.5$}
+\end{subfigure}
 
-\begin{proof}
-Firm $A$ always sells the good for price 1. If it chooses to run a reward program its expected rate of revenue is given by:
-\begin{equation*}
-\underset{\lambda, t}E[RoR_A] = pk(1-\alpha v)\frac{1}{b}\int_0^b \frac{\lambda}{k-(1-\lambda)\Delta} \mbox{ } d\lambda + (1-p)(1-\alpha v)\frac{b}{2}
-\end{equation*}
-If it does not run a reward program, then the only visits it will receive are exogenous visits. In this case, its expected rate of revenue is simply $\frac{b}{2}$. We consider a reward program to be profitable if its expected rate of revenue is at least that of the non-reward program expected revenue rate.
-\begin{gather*}
-pk(1-\alpha v)\frac{1}{b}\int_0^b \frac{\lambda}{k-(1-\lambda)\Delta} \mbox{ } d\lambda + (1-p)(1-\alpha v)\frac{b}{2} \geq \frac{b}{2} \\
-\iff \frac{pk(1-\alpha v)}{\Delta}\left(1-\frac{k-\Delta}{b\Delta}\log \left(\frac{k-(1-b)\Delta}{k-\Delta} \right) \right) \geq \frac{b}{2}(1-(1-p)(1-\alpha v)) \\
-\iff pe(1-\alpha v)\left(1-\frac{e-1}{b}\log \left(1+\frac{b}{e-1} \right) \right) \geq \frac{b}{2}(1-(1-p)(1-\alpha v)) \\
-\iff \frac{1}{b}\left(1-\frac{e-1}{b}\log \left(1+\frac{b}{e-1} \right) \right) \geq \frac{1-(1-p)(1-\alpha v)}{2pe(1-\alpha v)}
-\end{gather*}
-Where we have used Theorem 3.2, the optimal $k$ is given by $\frac{e}{\alpha(1-\beta)}$, making $\Delta \approx \frac{1}{1-\beta}$. 
-\end{proof}
+\caption{{Regions where $RoR_A > RoR_B$ (blue), where $RoR_A > \frac{b}{2}$ (yellow) and where both are true (green) for different values of $\alpha$. In all cases, $\beta = 0.95$ and $v = 0.05$.}}
+\label{fig:offer_reward_or_not}
+\end{figure*}
 
-Note that the above condition on $b$ is rather complicated, so we have plotted it as a function of $b$ below. First we notice that $g(b)$ is decreasing in $b$. So for a fixed evaluation of $x \equiv \frac{1-(1-p)(1-\alpha v)}{2pe(1-\alpha v)}$, we are in one of the following cases:
-\begin{enumerate}
-\item
-$x \geq g(0)$. So no value of $b$ makes the reward program profitable.
-\item
-$x \leq g(1)$. So any value of $b$ makes the reward program profitable.
-\item
-$x = g(b_0)$ for some $b_0 \in (0,1)$. So the reward program is profitable for all $b \leq b_0$ and not otherwise.
-\end{enumerate}
+% Nolan: don't think we will want for final writeup but not positive yet, so just commenting for now.
 
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[scale = 0.75]{./figures/b_plot.pdf}
-\caption{Function governing profitability of reward program for firm $A$ as a function of $b$.}
-\label{fig:b_plot}
-\end{centering}
-\end{figure}
+% \begin{theorem}
+% Suppose firm $A$ fixes its price at 1, and firm $B$ chooses a price of $1-v$. Given a consumer distribution defined by $p$ - with probability $p$, a consumer is fully forward looking and probability $1-p$ the customer does not look ahead at all - $b$ - each consumer's monopoly factor to firm $A$ is drawn as $\lambda~\sim Unif(0,b)$ and $\beta$ - the customer's discout factor. Then firm $A$ may choose to give a reward of $\alpha v < 1$ to customers after $k$ visits. It should run a reward program if the following condition holds.
+% \begin{equation}
+% \frac{1}{b}\left(1-\frac{e-\alpha}{b\alpha}\log \left(1+\frac{b\alpha}{e-\alpha} \right) \right) \geq \frac{\alpha(1-(1-p)(1-\alpha v))}{2pe(1-\alpha v)}
+% \end{equation}
+% Define the function on the left-hand side above as $g(b)$.
+% \end{theorem}
 
-Now we can take a look at the right hand side of the profitability condition. Let $h(p, \alpha, v) = \frac{1-(1-p)(1-\alpha v)}{2pe(1-\alpha v)}$. It is easy to see that for all values of $p$, $\alpha$ and $v$, $\frac{\partial h}{\partial p} < 0$, $\frac{\partial h}{\partial v} > 0$ and $\frac{\partial h}{\partial \alpha} > 0$. These partial derivative signs mean that as $p$ increases (fixing $v$ and $\alpha$), the interval of profitable $b$'s can only increase. This result make sense intuitively - as the $p$ increases, the number of consumers looking ahead does as well, so more people adopt the reward program. However, increasing either $\alpha$ or $v$ (keeping others fixed), the interval of profitable $b$'s can only decrease. Thus, increasing the reward while keeping $p$ fixed means that in order for the reward program to remain profitable, the profits earned without the reward program must simultaneously decrease, which occurs with decreasing $b$.
+% \begin{proof}
+% Firm $A$ always sells the good for price 1. If it chooses to run a reward program its expected rate of revenue is given by:
+% \begin{equation*}
+% \underset{\lambda, t}E[RoR_A] = pk(1-\alpha v)\frac{1}{b}\int_0^b \frac{\lambda}{k-(1-\lambda)\Delta} \mbox{ } d\lambda + (1-p)(1-\alpha v)\frac{b}{2}
+% \end{equation*}
+% If it does not run a reward program, then the only visits it will receive are exogenous visits. In this case, its expected rate of revenue is simply $\frac{b}{2}$. We consider a reward program to be profitable if its expected rate of revenue is at least that of the non-reward program expected revenue rate.
+% \begin{gather*}
+% pk(1-\alpha v)\frac{1}{b}\int_0^b \frac{\lambda}{k-(1-\lambda)\Delta} \mbox{ } d\lambda + (1-p)(1-\alpha v)\frac{b}{2} \geq \frac{b}{2} \\
+% \iff \frac{pk(1-\alpha v)}{\Delta}\left(1-\frac{k-\Delta}{b\Delta}\log \left(\frac{k-(1-b)\Delta}{k-\Delta} \right) \right) \geq \frac{b}{2}(1-(1-p)(1-\alpha v)) \\
+% \iff pe(1-\alpha v)\left(1-\frac{e-1}{b}\log \left(1+\frac{b}{e-1} \right) \right) \geq \frac{b}{2}(1-(1-p)(1-\alpha v)) \\
+% \iff \frac{1}{b}\left(1-\frac{e-1}{b}\log \left(1+\frac{b}{e-1} \right) \right) \geq \frac{1-(1-p)(1-\alpha v)}{2pe(1-\alpha v)}
+% \end{gather*}
+% Where we have used Theorem 3.2, the optimal $k$ is given by $\frac{e}{\alpha(1-\beta)}$, making $\Delta \approx \frac{1}{1-\beta}$. 
+% \end{proof}
+
+% Note that the above condition on $b$ is rather complicated, so we have plotted it as a function of $b$ below. First we notice that $g(b)$ is decreasing in $b$. So for a fixed evaluation of $x \equiv \frac{1-(1-p)(1-\alpha v)}{2pe(1-\alpha v)}$, we are in one of the following cases:
+% \begin{enumerate}
+% \item
+% $x \geq g(0)$. So no value of $b$ makes the reward program profitable.
+% \item
+% $x \leq g(1)$. So any value of $b$ makes the reward program profitable.
+% \item
+% $x = g(b_0)$ for some $b_0 \in (0,1)$. So the reward program is profitable for all $b \leq b_0$ and not otherwise.
+% \end{enumerate}
+
+% \begin{figure}[h!]
+% \begin{centering}
+% \includegraphics[scale = 0.75]{./figures/b_plot.pdf}
+% \caption{Function governing profitability of reward program for firm $A$ as a function of $b$.}
+% \label{fig:b_plot}
+% \end{centering}
+% \end{figure}
+
+% Now we can take a look at the right hand side of the profitability condition. Let $h(p, \alpha, v) = \frac{1-(1-p)(1-\alpha v)}{2pe(1-\alpha v)}$. It is easy to see that for all values of $p$, $\alpha$ and $v$, $\frac{\partial h}{\partial p} < 0$, $\frac{\partial h}{\partial v} > 0$ and $\frac{\partial h}{\partial \alpha} > 0$. These partial derivative signs mean that as $p$ increases (fixing $v$ and $\alpha$), the interval of profitable $b$'s can only increase. This result make sense intuitively - as the $p$ increases, the number of consumers looking ahead does as well, so more people adopt the reward program. However, increasing either $\alpha$ or $v$ (keeping others fixed), the interval of profitable $b$'s can only decrease. Thus, increasing the reward while keeping $p$ fixed means that in order for the reward program to remain profitable, the profits earned without the reward program must simultaneously decrease, which occurs with decreasing $b$.
