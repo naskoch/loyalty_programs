@@ -1,5 +1,5 @@
 \subsection{Customer Choice Dynamics}
-We first show that every customer exhibits the following behavior: until (s)he reaches the phase transition point $i_0(t)$, she visits $A$ only due to the exogeneity paramaeter, and after that (s)he always visits merchant $A$ till she receives the reward.
+We first show that every customer exhibits the following behavior: until (s)he reaches the phase transition point $i_0(t)$, she purchases from $A$ only due to the exogeneity paramater, and after that (s)he always purchases from $A$ till she receives the reward.
 This behavior is cyclic, and repeats after every reward redemption.
 
 \begin{lemma} $V(i)$ is an increasing function in $i$ if the following condition holds:
@@ -48,7 +48,8 @@ V(i) = \frac{\lambda \beta V(i+1) + (1-\lambda)v}{1-(1-\lambda)\beta}
 And we get our claim.
 \end{proof}
 
-{\nolan Probably want some exposition between the lemma and the theorem.}
+Now if the expected reward of the customer increases with the number of purchases made from $A$, we expect that at some number of purchases it becomes profitable for the customer to choose to purchase from $A$ as opposed to $B$.
+We characterize this phase transition point in the following theorem.
 
 \begin{theorem} Suppose $V(i)$ is an increasing function in $i$ and consider a customer with look-ahead parameter $t$. A phase transition occurs after (s)he makes $i_0(t)$ visits to firm $A$, where $i_0(t)$ is given by:
 \begin{equation}
@@ -119,7 +120,7 @@ The above approximation relies on $\beta$ close to 1. Now this value is minimize
 At this value the influence zone takes the value $1-\frac{\alpha}{e}$.
 \end{proof}
 Note that if $\alpha$ is $1$, then the value of $k$ corresponds to a cashback between $2$\% and $4$\% as $\beta$ ranges between $0.95$ and $0.9$.
-This value is realistic to what is observed in practice too.
+This value is realistic to what is observed in practice.
 
 \subsection{Merchant Objective Dynamics}
 We substitute the value of the phase transition point obtained above in the rate of revenue equations to reevaluate them. 
@@ -189,7 +190,7 @@ Observe that minimizing $\theta = \frac{k}{\Delta}$ is equivalent to minimizing 
 As shown in Remark~\ref{rem:inf_zone}, this happens at $k = \frac{e}{\alpha(1-\beta)}$. 
 \end{proof}
 
-An interesting point to observe in the above proof is that maximizing the revenue objective is equivalent to minimizing the influence zone, \ie, under our model, mazimizing revenue is equivalent to the time until which it is most beneficial to offer reward point accelerations. 
+An interesting point to observe above is that maximizing the revenue objective is equivalent to minimizing the influence zone, \ie, under our model, maximizing revenue is equivalent to the time until which it is most beneficial to offer reward point accelerations. 
 The condition that $\beta$ be close to 1 is not very restrictive, as we expect it to be near 1 in most cases {\nolan (maybe get a citation for this)}. Note that because $k \geq \Delta$, the above also shows $\alpha \leq e$. 
 Finally, observe that, we need $R > \frac{(1-\lambda)v}{1-\beta}$ for $V$ to be increasing. 
 We meet this condition with proportional budgeting when $k = \frac{e}{\alpha(1-\beta)}$ as $R = \alpha k v = \frac{e v}{1-\beta} \geq \frac{v}{1-\beta} \geq \frac{(1-\lambda)v}{1-\beta}$. 
@@ -210,148 +211,20 @@ RoR_B =& p\cdot\frac{(k-\Delta)(1-v)}{\Delta}\left(\frac{k}{b\Delta}\log\left(1+
 Observe that both the above equations have a left term and a right term. The left term is the rate of revenue obtained from ``forward-looking'' customers whereas the right term is from the myopic customers.
 As $\alpha$ ranges between $0$ and $e$, the value on the left term increases from $0$ for $RoR_A$ and decreases to $0$ for $RoR_B$.
 That is by controlling the reward budget ratio, merchant $A$ is able to gain the entire ``forward-looking'' customer base.
-The next figure illustrates the gap in rate of revenue ($RoR_A - RoR_B$) as follows: for different values of $\alpha$ we plot the region of $b$ and $p$ pairs where the gap is positive.
-We observe that there is a clear threshold of $b$ and $p$ beyond which the revenue gap is always positive.
-This is easily explained by the increasing nature of the revenue gap with $b$ and $p$.
-But more interestingly, the threshold value of $b$ and $p$ decreases as $\alpha$ is increased toward $e$.
-
-\begin{figure*}[t!]
-\centering
-\begin{subfigure}[t]{0.5\textwidth}
-\centering
-\includegraphics[height=2in]{./figures/bp_pair_rorAB_al0p5_dense.png}
-\caption{$\alpha = 0.5$}
-\end{subfigure}%
-~ 
-\begin{subfigure}[t]{0.5\textwidth}
-\centering
-\includegraphics[height=2in]{./figures/bp_pair_rorAB_al1p0_dense.png}
-\caption{$\alpha = 1$}
-\end{subfigure}
-\centering
-\begin{subfigure}[t]{0.5\textwidth}
-\centering
-\includegraphics[height=2in]{./figures/bp_pair_rorAB_al2p0_dense.png}
-\caption{$\alpha = 2$}
-\end{subfigure}%
-~ 
-\begin{subfigure}[t]{0.5\textwidth}
-\centering
-\includegraphics[height=2in]{./figures/bp_pair_rorAB_al2p5_dense.png}
-\caption{$\alpha = 2.5$}
-\end{subfigure}
-
-\caption{Achievable region of $(b,p)$ pairs where rate of revenue is higher for merchant $A$ for different values of budget proportions $\alpha$. This achievable region is maximized at $\alpha$ close to $e$.}
-\end{figure*}
 
 As $\alpha \to 0$, $RoR_A \to b/2$, \ie, the revenue earned is only due to visit probability bias.
 Observe how $RoR_A$ varies with $\alpha$.
 The marginal revenue term $(1-\alpha v)$ decreases with $\alpha$ as the merchant is giving higher rewards to customers, whereas the market share term increases as the merchant gains more ``forward-looking'' customers with increase in reward budget.
 Also note that $\alpha = 0$ is equivalent to the merchant not running any reward program.
-We next investigate the question of when it is better for the merchant to offer a reward program as opposed to doing traditional pricing.
-That is for what values of $\alpha, b, p, v$ is it appropriate for merchant $A$ to offer a reward program.
-In other words, when is the rate of revenue of merchant $A$ greater than its rate of revenue at $\alpha = 0$.
 
-{\nolan Is this the best way to frame the next results? It seems like we are thinking of $\alpha$ fixed and then the firm must decide to either offer the reward program or not; but here, we are changing the choice from reward program vs not to our previously fixed $\alpha$ vs $\alpha = 0$. This is just very subtle semantics, just something to think about.}
-
-\begin{align*}
- (1-\alpha v) \left(p\frac{e}{\alpha}\left(1-\frac{e-\alpha}{b\alpha}\log\left(1+\frac{b\alpha}{e-\alpha}\right)\right) + (1-p)\frac{b}{2}\right) &>& (1-p)b/2\\
-\implies (1-\alpha v)p\frac{e}{\alpha}\left(1-\frac{e-\alpha}{b\alpha}\log\left(1+\frac{b\alpha}{e-\alpha}\right)\right) &>& \alpha v (1-p)b/2\\
-\implies (1-\alpha v)p\frac{e}{\alpha}\left(\frac{b\alpha}{2(e-\alpha)} - \frac{b^2\alpha^2}{3(e-\alpha)^2}\right) &>& \alpha v (1-p)b/2\\
-\implies (1-\alpha v)\frac{pe}{e-\alpha}\left(\frac{1}{2} - \frac{b\alpha}{3(e-\alpha)}\right) &>& \alpha v (1-p)/2\\
-\implies \left(\frac{1}{\alpha v}-1\right)\frac{e}{e-\alpha}\left(\frac{1}{2} - \frac{b\alpha}{3(e-\alpha)}\right) &>&  \frac{1-p}{2p}\\
-\end{align*}
-
-From above we get an interesting sufficient cutoff for $b$: $b < 3(e-\alpha)/2$.
-LHS is decreasing in $v$ and decreasing in $b$.
-RHS is decreasing in $p$.
-
-{\nolan Don't think the above is necessary anymore? But will keep for now.}
-
-\begin{comment}
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[scale = 0.75]{./figures/eq_budg_vary_v_p05.pdf}
-\caption{Rates of revenue for $A$ and $B$ with equal-budgeting as a function of $b$ for various $v$. Fixed $p = 0.5$, $\beta = 0.9$ and $k = e/(1-\beta)$.}
-\label{fig:eq_budg_vary_v}
-\end{centering}
-\end{figure}
-
-Note from the above that $p$, the probability of a consumer being ``forward-looking'' does affect the ratio of expected rates of revenue. Figure~\ref{fig:eq_budg_vary_p} shows simulation results for the rates of revenue of $A$ and $B$ for various values of $p$ with everything else fixed. We see that as $p$ increases, the $b$ required for the reward program to become more profitable than not using one decreases.
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[scale = 0.75]{./figures/eq_budg_vary_p_v01.pdf}
-\caption{Rates of revenue for $A$ and $B$ with equal-budgeting as a function of $b$ for various $p$. Fixed $v = 0.1$, $\beta = 0.9$ and $k = e/(1-\beta)$.}
-\label{fig:eq_budg_vary_p}
-\end{centering}
-\end{figure}
-
-{\arpit
-\begin{theorem}
-When is $RoR_A > RoR_B$ at $i_0 = 0$?
-\end{theorem}
-}
-\end{comment}
-
-{\arpit Talk about the framework in depth. That this can be used to find optimal $R$ and $k$. Also different distributions can be tested once the framework is ready}
-
-Just as we can look at values of $b$ and $p$ such that $RoR_A > RoR_B$, we can characterize the $(b,p)$ pairs for which $RoR_A > \frac{b}{2}$. These pairs correspond to customer distributions for which a reward program is more profitable than not. Figure~\ref{fig:offer_reward_or_not} shows the pairs for different values of $\alpha$, keeping $v = 0.05$ and $\beta = 0.95$ fixed. Observe that under these conditions, the firm should choose to run a reward program most of the time. Also notice that reward programs begin to lose profitability as $b$ increases; larger $b$ values mean that people make more exogenous visits, so a reward program is no longer needed to entice visits.
+Figure~\ref{fig:offer_reward_or_not} illustrates the region in terms of the customer parameters $(b,p)$ where $RoR_A > RoR_B$ (indicated in blue) and $RoR_A > \frac{b}{2}$ (indicated in yellow) for different values of $\alpha$, keeping $v = 0.05$ and $\beta = 0.95$ fixed..
+That is, the region where $A$ earns higher revenue rate as compared to $B$ and the region where it is profitable for $A$ to run a reward program as opposed to traditional pricing. 
+The blue region shows that there is a clear threshold of $b$ and $p$ beyond which $RoR_A > RoR_B$.
+This is explained by the increasing nature of the revenue gap $(RoR_A - RoR_B)$ with $b$ and $p$.
+But more interestingly, the threshold value of $b$ and $p$ decreases as $\alpha$ is increased toward $e$.
+Whereas the green region shows that the firm should choose to run a reward program most of the time except for when $b$ is large: larger $b$ values mean that customers make more exogenous visits, so a reward program is no longer needed to entice visits, but only causes decrease in the profitability of the reward program merchant.
 
 {\nolan Probably need to expand on above, will think about how to do that. Also, need to figure out when to add expiration comment.}
-
-\begin{figure*}[t!]
-\centering
-\begin{subfigure}[t]{0.5\textwidth}
-\centering
-\includegraphics[height=2in]{./figures/bp_pair_rorA_al0p5_dense.png}
-\caption{$\alpha = 0.5$}
-\end{subfigure}%
-~ 
-\begin{subfigure}[t]{0.5\textwidth}
-\centering
-\includegraphics[height=2in]{./figures/bp_pair_rorA_al1p0_dense.png}
-\caption{$\alpha = 1$}
-\end{subfigure}
-\centering
-\begin{subfigure}[t]{0.5\textwidth}
-\centering
-\includegraphics[height=2in]{./figures/bp_pair_rorA_al2p0_dense.png}
-\caption{$\alpha = 2$}
-\end{subfigure}%
-~ 
-\begin{subfigure}[t]{0.5\textwidth}
-\centering
-\includegraphics[height=2in]{./figures/bp_pair_rorA_al2p5_dense.png}
-\caption{$\alpha = 2.5$}
-\end{subfigure}
-
-\caption{Achievable region of $(b,p)$ pairs where rate of revenue is higher with a reward program than it is without. In these plots $v = 0.05$ and $\beta = 0.95$.}
-\label{fig:offer_reward_or_not}
-\end{figure*}
-
-For any fixed $\alpha$, the exact conditions on $p$, $b$ and $v$ for $RoR_A > \frac{b}{2}$ are rather complex. We will focus on one particular simple case: $\alpha \rightarrow e$. 
-
-\begin{theorem}
-As $\alpha \rightarrow e$, $RoR_A > \frac{b}{2}$ if the following condition on $b$ holds:
-\begin{equation}
-b < \frac{2p}{p+\frac{e\cdot v}{1-e\cdot v}}
-\end{equation}
-\end{theorem} 
-
-\begin{proof}
-
-\end{proof}
-
-The above theorem gives a nice upperbound on $b$ for the optimal reward program being more profitable than no reward program. Notice that when $\frac{e\cdot v}{1-e \cdot v} \leq p$, this upperbound is 1, and there is no restriction on $b$. This case happens for large $p$ values and/or small $v$ values. Figure~\ref{fig:offer_reward_or_not} shows the upperbound on $b$ for all values of $p$ and $v$ ($v < e$); for each $(p, v)$ pair, a firm should run a reward program for all values of $b$ below the upperbound shown in the figure. We see as $p$ increases (more people adopt reward programs), the region of allowable $b$ values increases. 
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[scale = 0.75]{./figures/b_restriction.png}
-\caption{Upper bound on $b$ for reward program to be more profitable than no reward program for different values of $p$ and $v$ with $\alpha \rightarrow e$.}
-\label{fig:b_restriction}
-\end{centering}
-\end{figure}
 
 \begin{figure*}[t!]
 \centering
@@ -382,6 +255,33 @@ The above theorem gives a nice upperbound on $b$ for the optimal reward program 
 \caption{{Regions where $RoR_A > RoR_B$ (blue), where $RoR_A > \frac{b}{2}$ (yellow) and where both are true (green) for different values of $\alpha$. In all cases, $\beta = 0.95$ and $v = 0.05$.}}
 \label{fig:offer_reward_or_not}
 \end{figure*}
+
+
+{\nolan Is this the best way to frame the next results? It seems like we are thinking of $\alpha$ fixed and then the firm must decide to either offer the reward program or not; but here, we are changing the choice from reward program vs not to our previously fixed $\alpha$ vs $\alpha = 0$. This is just very subtle semantics, just something to think about.}
+
+
+For any fixed $\alpha$, the exact conditions on $p$, $b$ and $v$ for $RoR_A > \frac{b}{2}$ are rather complex. We will focus on one particular simple case: $\alpha \rightarrow e$. 
+
+\begin{theorem}
+As $\alpha \rightarrow e$, $RoR_A > \frac{b}{2}$ if the following condition on $b$ holds:
+\begin{equation}
+b < \frac{2p}{p+\frac{e\cdot v}{1-e\cdot v}}
+\end{equation}
+\end{theorem} 
+
+\begin{proof}
+
+\end{proof}
+
+The above theorem gives a nice upperbound on $b$ for the optimal reward program being more profitable than no reward program. Notice that when $\frac{e\cdot v}{1-e \cdot v} \leq p$, this upperbound is 1, and there is no restriction on $b$. This case happens for large $p$ values and/or small $v$ values. Figure~\ref{fig:offer_reward_or_not} shows the upperbound on $b$ for all values of $p$ and $v$ ($v < e$); for each $(p, v)$ pair, a firm should run a reward program for all values of $b$ below the upperbound shown in the figure. We see as $p$ increases (more people adopt reward programs), the region of allowable $b$ values increases. 
+
+\begin{figure}[h!]
+\begin{centering}
+\includegraphics[scale = 0.75]{./figures/b_restriction.png}
+\caption{Upper bound on $b$ for reward program to be more profitable than no reward program for different values of $p$ and $v$ with $\alpha \rightarrow e$.}
+\label{fig:b_restriction}
+\end{centering}
+\end{figure}
 
 % Nolan: don't think we will want for final writeup but not positive yet, so just commenting for now.
 
