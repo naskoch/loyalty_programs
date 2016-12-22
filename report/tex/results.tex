@@ -292,6 +292,49 @@ The above theorem gives a nice upperbound on $b$ for the optimal reward program 
 \end{centering}
 \end{figure}
 
+The previous $\alpha \rightarrow e$ discussion is a special case of a more general result.
+
+\begin{theorem}
+Fix $\alpha \in (0, e)$. For any $(p,v)$ pair, there exists some upper bound $b_0 \in [0,1]$ such that for all $b \leq b_0$, $RoR_A \geq \frac{b}{2}$.
+\end{theorem}
+
+We delay the proof of this theorem to first prove a helpful lemma. It is a straightforward computation to see that the condition of $RoR_A \geq \frac{b}{2}$ is equivalent to:
+\begin{gather*}
+\frac{1}{b}\left(1-\frac{e-\alpha}{b\alpha}\log \left(1+\frac{b\alpha}{e-\alpha} \right) \right) \geq \frac{\alpha(1-(1-p)(1-\alpha v))}{2pe(1-\alpha v)} \\
+\iff
+g(b; \alpha) \geq h(p, v; \alpha)
+\end{gather*}
+where we have defined functions $g(b)$ and $h(p,v)$ for fixed $\alpha$ for the above inequalities. 
+
+\begin{lemma}
+For a fixed $\alpha$, $g(b)$ is decreasing for all $b \in [0,1]$. 
+\end{lemma}
+
+\begin{proof}
+We take the derivative of $g$:
+\begin{align*}
+g'(b) &= \frac{2(e-\alpha)}{b^3 \alpha} \log\left(1+\frac{b\alpha}{e-\alpha} \right) - \frac{1}{b^2}-\frac{1}{b^2\left(1+\frac{b\alpha}{e-\alpha}\right)} \leq 0 \\
+&\iff \frac{2(e-\alpha)}{b \alpha} \log\left(1+\frac{b\alpha}{e-\alpha} \right) \leq 1+\frac{1}{1+\frac{b\alpha}{e-\alpha}} \\
+&\iff \frac{2\log(1+x)}{x} \leq 1+\frac{1}{1+x}
+\end{align*}
+where $x = \frac{b\alpha}{e-\alpha}$, and as $b \in [0,1]$, $x \in [0, \frac{\alpha}{e-\alpha}$. We can see that as $x \rightarrow 0$, the above inequality is an equality. 
+{\nolan Need to show above, it is true by plotting. I was trying to show like we had done before; we want to show $L(x) \leq R(x)$ for all $x \geq 0$, we know they are equal at $x = 0$, so show that $L'(x) \leq R'(x)$ for all $x$ (both are decreasing functions though).}
+\end{proof}
+
+Thus, $g(b)$ is decreasing in $b$, so for any $(p,v)$ pair, we may compute $h(p, v; \alpha)$, which will then fall into one of the following three cases.
+\begin{enumerate}
+\item
+$h(p,v;\alpha) \geq g(0)$. So no value of $b$ makes the reward program profitable.
+\item
+$h(p,v;\alpha) \leq g(1)$. So any value of $b$ makes the reward program profitable.
+\item
+$h(p,v;\alpha) = g(b_0)$ for some $b_0 \in (0,1)$. So the reward program is profitable for all $b \leq b_0$ and not otherwise.
+\end{enumerate}
+
+Thus, the above lemma and discussion proves our theorem; for fixed $\alpha$ and any $(p,v)$ pair, there is some upperbound on $b$ s.t. $RoR_A \leq \frac{b}{2}$. 
+
+{\nolan I can also look at derivatives of $h$ with respect to $p$ and $v$ - had this before, somewhat interesting. I also need to be careful about notation, I will think about the best way to use $g$ and $h$}
+
 % Nolan: don't think we will want for final writeup but not positive yet, so just commenting for now.
 
 % \begin{theorem}
