@@ -317,8 +317,35 @@ g'(b) &= \frac{2(e-\alpha)}{b^3 \alpha} \log\left(1+\frac{b\alpha}{e-\alpha} \ri
 &\iff \frac{2(e-\alpha)}{b \alpha} \log\left(1+\frac{b\alpha}{e-\alpha} \right) \leq 1+\frac{1}{1+\frac{b\alpha}{e-\alpha}} \\
 &\iff \frac{2\log(1+x)}{x} \leq 1+\frac{1}{1+x}
 \end{align*}
-where $x = \frac{b\alpha}{e-\alpha}$, and as $b \in [0,1]$, $x \in [0, \frac{\alpha}{e-\alpha}$. We can see that as $x \rightarrow 0$, the above inequality is an equality. 
+where $x = \frac{b\alpha}{e-\alpha}$, and as $b \in [0,1]$, $x \in [0, \frac{\alpha}{e-\alpha}]$. We can see that as $x \rightarrow 0$, the above inequality is an equality. 
 {\nolan Need to show above, it is true by plotting. I was trying to show like we had done before; we want to show $L(x) \leq R(x)$ for all $x \geq 0$, we know they are equal at $x = 0$, so show that $L'(x) \leq R'(x)$ for all $x$ (both are decreasing functions though).}
+
+{\arpit I have a proof for above. It is little convoluted.
+
+First show that in the range of $x$ the following holds true:
+
+\beq
+\label{eq:eq00}
+\left(2-\frac{1}{1+x}\right)^2 \le 2\log(1+x) + 1
+\eeq
+To show the above observe that at $x\rightarrow 0$ both the LHS and RHS are equal. And it is easy to show that the derivative of LHS is lower than the derivative of RHS for all $x\ge 0$ as shown.
+\begin{align*}
+& (1+x) + \frac{1}{1+x} \ge 2\\
+\implies & 2 - \frac{1}{1+x} \le 1 + x\\
+\implies & (2-\frac{1}{1+x})\cdot \frac{1}{1+x} \le 1\\
+\implies & 2\cdot(2-\frac{1}{1+x})\cdot (\frac{1}{1+x})^2 \le \frac{2}{1+x}
+\end{align*}
+The left hand side is the derivative of the above LHS and right hand side is the derivative of the above RHS.
+
+Now we can rearrange Eq.~\ref{eq:eq00} as follows:
+\begin{align*}
+& \left(2-\frac{1}{1+x}\right)^2 \le 2\log(1+x) + 1\\
+\implies & (1 + \frac{x}{1+x})^2 \le 2\log(1+x) + 1\\
+\implies & (\frac{x}{1+x})^2 + \frac{2x}{1+x} \le 2\log(1+x)\\
+\implies & 2\left(\frac{x}{1+x} - \log(1+x)\right) \le - (\frac{x}{1+x})^2
+\end{align*}
+The left hand side of above is $L'(x)$ and right hand side is $R'(x)$. This proves it.
+}
 \end{proof}
 
 Thus, $g(b)$ is decreasing in $b$, so for any $(p,v)$ pair, we may compute $h(p, v; \alpha)$, which will then fall into one of the following three cases.
