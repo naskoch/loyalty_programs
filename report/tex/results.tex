@@ -217,12 +217,12 @@ Observe how $RoR_A$ varies with $\alpha$.
 The marginal revenue term $(1-\alpha v)$ decreases with $\alpha$ as the merchant is giving higher rewards to customers, whereas the market share term increases as the merchant gains more ``forward-looking'' customers with increase in reward budget.
 Also note that $\alpha = 0$ is equivalent to the merchant not running any reward program.
 
-Figure~\ref{fig:offer_reward_or_not} illustrates the region in terms of the customer parameters $(b,p)$ where $RoR_A > RoR_B$ (indicated in blue) and $RoR_A > \frac{b}{2}$ (indicated in yellow) for different values of $\alpha$, keeping $v = 0.05$ and $\beta = 0.95$ fixed..
-That is, the region where $A$ earns higher revenue rate as compared to $B$ and the region where it is profitable for $A$ to run a reward program as opposed to traditional pricing. 
+Figure~\ref{fig:offer_reward_or_not} illustrates the region in terms of the customer parameters $(b,p)$ where $RoR_A > RoR_B$ (indicated in blue) and $RoR_A > \frac{b}{2}$ (indicated in yellow) for different values of $\alpha$, keeping $v = 0.05$ and $\beta = 0.95$ fixed.
+That is, the region where $A$ earns higher revenue rate as compared to $B$ and the region where it is profitable for $A$ to run a reward program as opposed to running traditional pricing. 
 The blue region shows that there is a clear threshold of $b$ and $p$ beyond which $RoR_A > RoR_B$.
 This is explained by the increasing nature of the revenue gap $(RoR_A - RoR_B)$ with $b$ and $p$.
 But more interestingly, the threshold value of $b$ and $p$ decreases as $\alpha$ is increased toward $e$.
-Whereas the green region shows that the firm should choose to run a reward program most of the time except for when $b$ is large: larger $b$ values mean that customers make more exogenous visits, so a reward program is no longer needed to entice visits, but only causes decrease in the profitability of the reward program merchant.
+Whereas the yellow region shows that if the fraction of "forward-looking" customers is not too small, the firm should choose to run a reward program most of the time except for when $b$ is large: larger $b$ values mean that customers make more exogenous visits, so a reward program is no longer needed to entice visits, but only causes decrease in the profitability of the reward program merchant.
 
 {\nolan Probably need to expand on above, will think about how to do that. Also, need to figure out when to add expiration comment.}
 
@@ -282,7 +282,11 @@ b < \frac{2p}{p+\frac{e\cdot v}{1-e\cdot v}}
 
 \end{proof}
 
-The above theorem gives a nice upperbound on $b$ for the optimal reward program being more profitable than no reward program. Notice that when $\frac{e\cdot v}{1-e \cdot v} \leq p$, this upperbound is 1, and there is no restriction on $b$. This case happens for large $p$ values and/or small $v$ values. Figure~\ref{fig:offer_reward_or_not} shows the upperbound on $b$ for all values of $p$ and $v$ ($v < e$); for each $(p, v)$ pair, a firm should run a reward program for all values of $b$ below the upperbound shown in the figure. We see as $p$ increases (more people adopt reward programs), the region of allowable $b$ values increases. 
+The above theorem gives a bound on $b$ for the optimal reward program being more profitable than the competitor and no reward program. 
+Notice that when $\frac{e\cdot v}{1-e \cdot v} \leq p$, this upperbound is 1, and there is no restriction on $b$. 
+This case happens for large $p$ values and/or small $v$ values. 
+Figure~\ref{fig:offer_reward_or_not} shows the upperbound on $b$ for all values of $p$ and $v$ ($v < e$); for each $(p, v)$ pair, a firm should run a reward program for all values of $b$ below the upperbound shown in the figure. 
+We see as $p$ increases (more people adopt reward programs), the region of allowable $b$ values increases. 
 
 \begin{figure}[h!]
 \begin{centering}
