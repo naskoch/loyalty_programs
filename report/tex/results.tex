@@ -282,25 +282,15 @@ b < \frac{2p}{p+\frac{e\cdot v}{1-e\cdot v}}
 
 \end{proof}
 
-The above theorem gives a nice upperbound on $b$ for the optimal reward program being more profitable than no reward program. Notice that when $\frac{e\cdot v}{1-e \cdot v} \leq p$, this upperbound is 1, and there is no restriction on $b$. This case happens for large $p$ values and/or small $v$ values. Figure~\ref{fig:offer_reward_or_not} shows the upperbound on $b$ for all values of $p$ and $v$ ($v < e$); for each $(p, v)$ pair, a firm should run a reward program for all values of $b$ below the upperbound shown in the figure. We see as $p$ increases (more people adopt reward programs), the region of allowable $b$ values increases. 
+The above theorem gives a nice upperbound on $b$ for the optimal reward program being more profitable than no reward program. Notice that when $\frac{e\cdot v}{1-e \cdot v} \leq p$, this upperbound is 1, and there is no restriction on $b$. This case happens for large $p$ values and/or small $v$ values. Figure~\ref{fig:b_restrictions} shows the upperbound on $b$ for all values of $p$ and $v$ ($v < e$); for each $(p, v)$ pair, a firm should run a reward program for all values of $b$ below the upperbound shown in the figure. We see as $p$ increases (more people adopt reward programs), the region of allowable $b$ values increases. 
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[scale = 0.75]{./figures/b_lowerbound.png}
-\caption{Lower bound on $b$ for $RoR_A > RoR_B$ for different values of $p$ and $v$ with $\alpha \rightarrow e$.}
-\label{fig:b_restriction}
+\includegraphics[scale = 0.75]{./figures/b_bounds.png}
+\caption{Bounds on $b$ for various values of $p$ and $v$. Top shows lower bounds on $b$ for $RoR_A \geq RoR_B$ and bottom shows upper bounds of $b$ for $RoR_A \geq \frac{b}{2}$.}
+\label{fig:b_restrictions}
 \end{centering}
 \end{figure}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[scale = 0.75]{./figures/b_restriction.png}
-\caption{Upper bound on $b$ for reward program to be more profitable than no reward program for different values of $p$ and $v$ with $\alpha \rightarrow e$.}
-\label{fig:b_restriction}
-\end{centering}
-\end{figure}
-
-{\nolan May be worth adding both figures together in python as well, but we can worry about that later if we want.}
 
 The previous $\alpha \rightarrow e$ discussion is a special case of a more general result.
 
@@ -317,7 +307,7 @@ g(b; \alpha) \geq h(p, v; \alpha)
 where we have defined functions $g(b)$ and $h(p,v)$ for fixed $\alpha$ for the above inequalities. 
 
 \begin{lemma}
-For a fixed $\alpha$, $g(b)$ is decreasing for all $b \in [0,1]$. 
+For a fixed $\alpha$, $g(b)$ is non-increasing for all $b \in [0,1]$. 
 \end{lemma}
 
 \begin{proof}

@@ -23,8 +23,8 @@ for i in range(n):
 		B[i,j] = max(0., 2.*((1.-v[i])-p[j]/(1.-p[j])*(1.-math.e*v[i]))/((1.-v[i])+(1.-math.e*v[i])))
 		B[i,j] = min(1., B[i,j])
 
-fig, [ax1, ax2] = plt.subplots(2,1)
-heatmap1 = ax1.imshow(B, cmap = 'viridis', extent=[0,1,0,1./math.e])
+fig, axes = plt.subplots(2,1)
+heatmap = axes[0].imshow(B, cmap = 'viridis', extent=[0,1,0,1./math.e])
 
 
 B = np.zeros((n,n))
@@ -33,11 +33,12 @@ for i in range(n):
 	for j in range(n):
 		B[i,j] = min(1., 2*p[j]/(p[j]+math.e*v[i]/(1.-math.e*v[i])))
 
-heatmap2 = ax2.imshow(B, cmap = 'viridis', extent=[0,1,0,1./math.e])
+heatmap = axes[1].imshow(B, cmap = 'viridis', extent=[0,1,0,1./math.e])
 
-cbar = fig.colorbar(heatmap1)
+fig.colorbar(heatmap, ax=axes.ravel().tolist())
 
 plt.xlabel(r'$\boldsymbol{p}$')
-plt.ylabel(r'$\boldsymbol{v}$')
+#plt.ylabel(r'$\boldsymbol{v}$')
+fig.text(0.04, 0.5, r'$\boldsymbol{v}$', va='center', rotation='vertical')
 
 plt.savefig('../report/figures/b_bounds.png')
