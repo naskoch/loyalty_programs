@@ -101,9 +101,9 @@ The above dependence reduces to the following after incorporating the look-ahead
 Note that the phase transition point is independent of $\lambda$, the customer's visit probability bias toward the merchant.
 As we would expect, it increases with the look-ahead parameter, and with the price discount offered by merchant $B$.
 And decreases with increase in the reward value $R$ and decrease in the distance to reward $k$.
-The variation with the discount factor $\beta$ is interesting: we can show that for any $\frac{R}{v} \ge 1$ there exists a $\beta \in [0,1]$ that minimizes the phase transition point $i_0$ for ``forward-looking'' customers.
+The variation with the discount factor $\beta$ is interesting: we can show that for any $\frac{R}{v} \ge 1$ there exists a $\beta \in [0,1]$ that minimizes the phase transition point $i_0$ for ''forward-looking'' customers.
 This means that customers who are more patient have longer time frame to transition and so do customers who are less patient than the optimal value.
-We refer to the ratio of number of visits required for a ``forward-looking'' customer to adopt a reward program and the total distance to the reward as the ``influence zone''.
+We refer to the ratio of number of visits required for a forward-looking customer to adopt a reward program and the total distance to the reward as the ``influence zone''.
 Intuitively this is the fraction of visits that the merchant wants to influence the customer by offering exogenous means of earning additional points like bonus miles in airlines, or accelerated earnings, as discussed in the introduction.
 Next we find the optimal $k$ for minimizing this influence zone.
 
@@ -191,11 +191,13 @@ As shown in Remark~\ref{rem:inf_zone}, this happens at $k = \frac{e}{\alpha(1-\b
 \end{proof}
 
 An interesting point to observe above is that maximizing the revenue objective is equivalent to minimizing the influence zone, \ie, under our model, maximizing revenue is equivalent to the time until which it is most beneficial to offer reward point accelerations. 
-The condition that $\beta$ be close to 1 is not very restrictive, as we expect it to be near 1 in most cases {\nolan (maybe get a citation for this)}. Note that because $k \geq \Delta$, the above also shows $\alpha \leq e$. 
+The condition that $\beta$ be close to 1 is not very restrictive, as we expect it to be near 1 in most cases (CITE). Note that because $k \geq \Delta$, the above also shows $\alpha \leq e$. 
 Finally, observe that, we need $R > \frac{(1-\lambda)v}{1-\beta}$ for $V$ to be increasing. 
 We meet this condition with proportional budgeting when $k = \frac{e}{\alpha(1-\beta)}$ as $R = \alpha k v = \frac{e v}{1-\beta} \geq \frac{v}{1-\beta} \geq \frac{(1-\lambda)v}{1-\beta}$. 
 
-Now we evaluate the expected rate of revenues of each merchant under these conditions of proportional budgeting and optimal $k$.
+Now we characterize conditions for when it is strictly better for $A$ to offer a reward program.
+This boils down to two situations: first, the rate of revenue for $A$ should be higher than that of $B$ and second, that the rate of revenue for $A$ should be higher than it could have achieved by not offering the reward program.
+First we evaluate the expected rate of revenues for both $A$ and $B$ under these conditions of proportional budgeting and optimal $k$.
 
 \begin{align*}
 RoR_A =& pk\cdot\frac{1-\alpha v}{\Delta}\cdot\left(1 - \frac{k-\Delta}{b\Delta}\log\left(1+\frac{b\Delta}{k-\Delta}\right)\right) + (1-p)\frac{bk(1-\alpha v)}{2k}\\
@@ -208,23 +210,18 @@ RoR_B =& p\cdot\frac{(k-\Delta)(1-v)}{\Delta}\left(\frac{k}{b\Delta}\log\left(1+
       =& (1-v)\left(p\frac{e}{\alpha}\left(\frac{e-\alpha}{b\alpha}\log\left(1+\frac{b\alpha}{e-\alpha}\right) - \frac{e-\alpha}{e}\right) + (1-p)(1-\frac{b}{2})\right)
 \end{align*}
 
-Observe that both the above equations have a left term and a right term. The left term is the rate of revenue obtained from ``forward-looking'' customers whereas the right term is from the myopic customers.
+Observe that both the above equations have a left term and a right term. The left term is the rate of revenue obtained from forward-looking customers whereas the right term is from the myopic customers.
 As $\alpha$ ranges between $0$ and $e$, the value on the left term increases from $0$ for $RoR_A$ and decreases to $0$ for $RoR_B$.
-That is by controlling the reward budget ratio, merchant $A$ is able to gain the entire ``forward-looking'' customer base.
+That is by controlling the reward budget ratio, $A$ is able to gain the entire forward-looking customer base.
+But now observe how $RoR_A$ varies with $\alpha$.
+The marginal revenue term $(1-\alpha v)$ decreases with $\alpha$ as the merchant is giving higher rewards to customers, whereas the market share term increases as $A$ gains more forward-looking customers with increase in reward budget.
+As $\alpha \to 0$, $RoR_A \to b/2$, \ie, the revenue earned is only due to visit probability bias, and is equivalent to the reveue earned by $A$ when not running any reward program.
 
-As $\alpha \to 0$, $RoR_A \to b/2$, \ie, the revenue earned is only due to visit probability bias.
-Observe how $RoR_A$ varies with $\alpha$.
-The marginal revenue term $(1-\alpha v)$ decreases with $\alpha$ as the merchant is giving higher rewards to customers, whereas the market share term increases as the merchant gains more ``forward-looking'' customers with increase in reward budget.
-Also note that $\alpha = 0$ is equivalent to the merchant not running any reward program.
-
-Figure~\ref{fig:offer_reward_or_not} illustrates the region in terms of the customer parameters $(b,p)$ where $RoR_A > RoR_B$ (indicated in blue) and $RoR_A > \frac{b}{2}$ (indicated in yellow) for different values of $\alpha$, keeping $v = 0.05$ and $\beta = 0.95$ fixed.
-That is, the region where $A$ earns higher revenue rate as compared to $B$ and the region where it is profitable for $A$ to run a reward program as opposed to running traditional pricing. 
+Figure~\ref{fig:offer_reward_or_not} illustrates the region in terms of the customer parameters $(b,p)$ where it is better for $A$ to offer a reward program, \ie, $RoR_A > RoR_B$ (indicated in blue) and $RoR_A > \frac{b}{2}$ (indicated in yellow) for different values of $\alpha$, keeping $v = 0.05$ and $\beta = 0.95$ fixed.
 The blue region shows that there is a clear threshold of $b$ and $p$ beyond which $RoR_A > RoR_B$.
 This is explained by the increasing nature of the revenue gap $(RoR_A - RoR_B)$ with $b$ and $p$.
 But more interestingly, the threshold value of $b$ and $p$ decreases as $\alpha$ is increased toward $e$.
-Whereas the yellow region shows that if the fraction of "forward-looking" customers is not too small, the firm should choose to run a reward program most of the time except for when $b$ is large: larger $b$ values mean that customers make more exogenous visits, so a reward program is no longer needed to entice visits, but only causes decrease in the profitability of the reward program merchant.
-
-{\nolan Probably need to expand on above, will think about how to do that. Also, need to figure out when to add expiration comment.}
+Whereas the yellow region shows that if the fraction of forward-looking customers is not too small, the firm should choose to run a reward program most of the time except for when $b$ is large: larger $b$ values mean that customers make more exogenous visits, so a reward program is no longer needed to entice visits, but only causes decrease in the profitability of the reward program merchant.
 
 \begin{figure*}[t!]
 \centering
@@ -257,29 +254,49 @@ Whereas the yellow region shows that if the fraction of "forward-looking" custom
 \end{figure*}
 
 
-{\nolan Is this the best way to frame the next results? It seems like we are thinking of $\alpha$ fixed and then the firm must decide to either offer the reward program or not; but here, we are changing the choice from reward program vs not to our previously fixed $\alpha$ vs $\alpha = 0$. This is just very subtle semantics, just something to think about.}
-
-
 For any fixed $\alpha$, the exact conditions on $p$, $b$ and $v$ for $RoR_A > RoR_B$ and $RoR_A > \frac{b}{2}$ are rather complex. We will focus on one particular simple case: $\alpha \rightarrow e$. 
 
-\begin{theorem}
+\begin{lemma}
 As $\alpha \rightarrow e$, $RoR_A > RoR_B$ if the following condition on $b$ holds:
 \begin{equation}
 b > 2\cdot \frac{(1-v) - \frac{p}{1-p}\cdot (1-ev)}{(1-v) + (1-ev)}
 \end{equation}
-\end{theorem} 
+\end{lemma} 
 \begin{proof}
 \end{proof}
 
-\begin{theorem}
+\begin{lemma}
 As $\alpha \rightarrow e$, $RoR_A > \frac{b}{2}$ if the following condition on $b$ holds:
 \begin{equation}
 b < \frac{2p}{p+\frac{e\cdot v}{1-e\cdot v}}
 \end{equation}
-\end{theorem} 
+\end{lemma} 
 
 \begin{proof}
 
+\end{proof}
+
+\begin{lemma}
+As $\alpha \rightarrow e$, for the reward program to be strictly better, a necessary condition on $p$ is:
+\beq
+\label{eq:necp}
+p > 1 - \frac{1-ev}{1-ev^2}
+\eeq
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\begin{lemma}
+As $\alpha \rightarrow e$ and $p$ obeying Eq.~\ref{eq:necp}, as $p$ increases, the range of value of $b$ for which reward program is strictly better increases.
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+Under proportional budgeting when the reward proportion $\alpha$ is close to $e$, a necessary condition for reward program to be strictly better is a minimum threshold of fraction of forward-looking customers increasing with the discount value $v$ set by the competing merchant.  
+And as this fraction of forward-looking customers increases beyond the threshold, the range of values of the exogenous visit bias for which the reward program is strictly better becomes larger. 
+\end{theorem}
+\begin{proof}
 \end{proof}
 
 The above theorem gives a bound on $b$ for the optimal reward program being more profitable than the competitor and no reward program. 
