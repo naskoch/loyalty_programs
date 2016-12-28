@@ -290,21 +290,11 @@ We see as $p$ increases (more people adopt reward programs), the region of allow
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[scale = 0.75]{./figures/b_lowerbound.png}
-\caption{Lower bound on $b$ for $RoR_A > RoR_B$ for different values of $p$ and $v$ with $\alpha \rightarrow e$.}
-\label{fig:b_restriction}
+\includegraphics[scale = 0.75]{./figures/b_bounds.png}
+\caption{Bounds on $b$ for various values of $p$ and $v$. Top shows lower bounds on $b$ for $RoR_A \geq RoR_B$ and bottom shows upper bounds of $b$ for $RoR_A \geq \frac{b}{2}$.}
+\label{fig:b_restrictions}
 \end{centering}
 \end{figure}
-
-\begin{figure}[h!]
-\begin{centering}
-\includegraphics[scale = 0.75]{./figures/b_restriction.png}
-\caption{Upper bound on $b$ for reward program to be more profitable than no reward program for different values of $p$ and $v$ with $\alpha \rightarrow e$.}
-\label{fig:b_restriction}
-\end{centering}
-\end{figure}
-
-{\nolan May be worth adding both figures together in python as well, but we can worry about that later if we want.}
 
 The previous $\alpha \rightarrow e$ discussion is a special case of a more general result.
 
@@ -321,7 +311,7 @@ g(b; \alpha) \geq h(p, v; \alpha)
 where we have defined functions $g(b)$ and $h(p,v)$ for fixed $\alpha$ for the above inequalities. 
 
 \begin{lemma}
-For a fixed $\alpha$, $g(b)$ is decreasing for all $b \in [0,1]$. 
+For a fixed $\alpha$, $g(b)$ is non-increasing for all $b \in [0,1]$. 
 \end{lemma}
 
 \begin{proof}
