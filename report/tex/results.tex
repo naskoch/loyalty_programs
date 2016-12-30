@@ -253,7 +253,6 @@ Whereas the yellow region shows that if the fraction of forward-looking customer
 \label{fig:offer_reward_or_not}
 \end{figure*}
 
-
 For any fixed $\alpha$, the exact conditions on $p$, $b$ and $v$ for $RoR_A > RoR_B$ and $RoR_A > \frac{b}{2}$ are rather complex. We will focus on one particular simple case: $\alpha \rightarrow e$. 
 
 \begin{lemma}
@@ -287,7 +286,7 @@ p > 1 - \frac{1-ev}{1-ev^2}
 \end{proof}
 
 \begin{lemma}
-As $\alpha \rightarrow e$ and $p$ obeying Eq.~\ref{eq:necp}, as $p$ increases, the range of value of $b$ for which reward program is strictly better increases.
+As $\alpha \rightarrow e$ and $p$ obeying Eq.~\ref{eq:necp}, as $p$ increases, the range of values of $b$ for which reward program is strictly better increases.
 \end{lemma}
 \begin{proof}
 \end{proof}
@@ -311,6 +310,24 @@ We should follow up this theorem with the $(b,p)$ curve showing range of $b$ val
 Then follow up with the colored plots showing the darker shade of top plot is the region of $(b,p)$ varying with $v$ where reward is strictly better.
 }
 
+\begin{figure*}[t!]
+\centering
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[height=2in]{./figures/b_region_v1.png}
+\end{subfigure}%
+~
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[height=2in]{./figures/b_region_v2.png}
+\end{subfigure}
+
+\caption{The upper and lower bounds on $b$ as a function of $p$. Here $v = 0.05$ and $\alpha \rightarrow e$.}
+\label{fig:b_region}
+\end{figure*}
+
+{\nolan Above is a couple different ways of visualizing the bounds. Right side cuts things off at 0 and 1 which is what we care about but doesn't look that great. Left side cuts off at only 0. }
+
 The above theorem gives a bound on $b$ for the optimal reward program being more profitable than the competitor and no reward program. 
 Notice that when $\frac{e\cdot v}{1-e \cdot v} \leq p$, this upperbound is 1, and there is no restriction on $b$. 
 This case happens for large $p$ values and/or small $v$ values. 
@@ -320,7 +337,7 @@ We see as $p$ increases (more people adopt reward programs), the region of allow
 \begin{figure}[h!]
 \begin{centering}
 \includegraphics[scale = 0.75]{./figures/b_bounds.png}
-\caption{Bounds on $b$ for various values of $p$ and $v$. Top shows lower bounds on $b$ for $RoR_A \geq RoR_B$ and bottom shows upper bounds of $b$ for $RoR_A \geq \frac{b}{2}$.}
+\caption{Bounds on $b$ for various values of $p$ and $v$ at $\alpha \rightarrow e$. Top shows lower bounds on $b$ for $RoR_A \geq RoR_B$ and bottom shows upper bounds of $b$ for $RoR_A \geq \frac{b}{2}$.}
 \label{fig:b_restrictions}
 \end{centering}
 \end{figure}
