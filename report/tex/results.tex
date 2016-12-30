@@ -256,7 +256,7 @@ Whereas the yellow region shows that if the fraction of forward-looking customer
 For any fixed $\alpha$, the exact conditions on $p$, $b$ and $v$ for $RoR_A > RoR_B$ and $RoR_A > \frac{b}{2}$ are rather complex. We will focus on one particular simple case: $\alpha \rightarrow e$. 
 
 \begin{lemma}
-As $\alpha \rightarrow e$, $RoR_A > RoR_B$ if the following condition on $b$ holds:
+As $\alpha \rightarrow e$, $RoR_A > RoR_B$ if and only if the following condition on $b$ holds:
 \begin{equation}
 b > 2\cdot \frac{(1-v) - \frac{p}{1-p}\cdot (1-ev)}{(1-v) + (1-ev)}
 \end{equation}
@@ -265,7 +265,7 @@ b > 2\cdot \frac{(1-v) - \frac{p}{1-p}\cdot (1-ev)}{(1-v) + (1-ev)}
 \end{proof}
 
 \begin{lemma}
-As $\alpha \rightarrow e$, $RoR_A > \frac{b}{2}$ if the following condition on $b$ holds:
+As $\alpha \rightarrow e$, $RoR_A > \frac{b}{2}$ if and only if the following condition on $b$ holds:
 \begin{equation}
 b < \frac{2p}{p+\frac{e\cdot v}{1-e\cdot v}}
 \end{equation}
@@ -276,7 +276,7 @@ b < \frac{2p}{p+\frac{e\cdot v}{1-e\cdot v}}
 \end{proof}
 
 \begin{lemma}
-As $\alpha \rightarrow e$, for the reward program to be strictly better, a necessary condition on $p$ is:
+As $\alpha \rightarrow e$, for the reward program to be strictly better, a necessary and sufficient condition on $p$ is:
 \beq
 \label{eq:necp}
 p > 1 - \frac{1-ev}{1-ev^2}
@@ -292,11 +292,23 @@ As $\alpha \rightarrow e$ and $p$ obeying Eq.~\ref{eq:necp}, as $p$ increases, t
 \end{proof}
 
 \begin{theorem}
-Under proportional budgeting when the reward proportion $\alpha$ is close to $e$, a necessary condition for reward program to be strictly better is a minimum threshold of fraction of forward-looking customers increasing with the discount value $v$ set by the competing merchant.  
-And as this fraction of forward-looking customers increases beyond the threshold, the range of values of the exogenous visit bias for which the reward program is strictly better becomes larger. 
+Under proportional budgeting, as $\alpha\rightarrow e$, a necessary and sufficient condition for reward program to be strictly better is a lowerbound on $p$ which increases with $v$.  
+And as $p$ increases beyond the lowerbound, the region of allowable $b$ for which the reward program is strictly better becomes larger. 
 \end{theorem}
 \begin{proof}
 \end{proof}
+
+{\arpit
+In WORDS FORMAT
+
+Under proportional budgeting when the reward proportion $\alpha$ is close to $e$, a necessary condition for reward program to be strictly better is a minimum threshold of fraction of forward-looking customers increasing with the discount value $v$ set by the competing merchant.  
+And as this fraction of forward-looking customers increases beyond the threshold, the range of values of the exogenous visit bias for which the reward program is strictly better becomes larger. 
+}
+
+{\arpit
+We should follow up this theorem with the $(b,p)$ curve showing range of $b$ values increasing with increase in $p$ beyond the threshold for a given $v$.
+Then follow up with the colored plots showing the darker shade of top plot is the region of $(b,p)$ varying with $v$ where reward is strictly better.
+}
 
 The above theorem gives a bound on $b$ for the optimal reward program being more profitable than the competitor and no reward program. 
 Notice that when $\frac{e\cdot v}{1-e \cdot v} \leq p$, this upperbound is 1, and there is no restriction on $b$. 
@@ -383,6 +395,60 @@ Thus, the above lemma and discussion proves our theorem; for fixed $\alpha$ and 
 
 {\nolan I can also look at derivatives of $h$ with respect to $p$ and $v$ - had this before, somewhat interesting. I also need to be careful about notation, I will think about the best way to use $g$ and $h$}
 
+{\arpit I think the above theorem can be writte similar to the way I write the next theorem -- specifically that for any $(p,v)$ exist a threshold $b$ and for any $(b,v)$ exist a threshold $p$ such that reward program is better
+}
+
+{\arpit Writing up thoughts for the reverse direction theorem
+
+Let $\frac{b\alpha}{e-\alpha} = X$. Then $RoR_A > RoR_B$ can be evaluated as follows:
+
+\begin{align*}
+& p\frac{e}{\alpha}\left(1-\frac{\log(1+X)}{X}\right)(1-\alpha v + 1 - v) - p(1-v) + (1-p)\frac{b}{2}\left(1-\alpha v + 1-v\right) + p(1-v) > 1-v\\
+& \implies p\left(1 - \frac{\log(1+X)}{X}\right) + (1-p)\frac{b\alpha}{2e} > \frac{\alpha}{e} \cdot \frac{1-v}{1-\alpha v + 1 - v}\\
+\end{align*}
+
+Since $\alpha$ is a constant, the LHS above is a function of $b$ and $p$. 
+Let the LHS above be $L(b,p)$.
+We first show that in the range of $b\in [0,1]$, $1 - \frac{\log(1+X)}{X} > \frac{b\alpha}{2e}$ which shows that $L(b,p)$ is increasing in $p$.
+
+\begin{align*}
+& 1-\frac{\log(1+X)}{X} > \frac{b\alpha}{2e}\\
+\Leftrightarrow & X - \log(1+X) > \frac{b^2\alpha^2}{2e(e-\alpha)}
+\end{align*}
+Observe that LHS is equal to RHS when $b\rightarrow 0$. 
+All we show is that LHS increases faster than RHS in the range of $b\in [0,1]$. 
+
+\begin{align*}
+\Leftrightarrow & \left(1 - \frac{1}{1+X}\right) \frac{\alpha}{e-\alpha} > \frac{b\alpha^2}{e(e-\alpha)}\\
+\Leftrightarrow & \frac{1}{1+X} > \frac{e-\alpha}{e}\\
+\Leftrightarrow & \frac{e}{e-\alpha} > 1 + \frac{b\alpha}{e-\alpha}
+\end{align*}
+And the last equation is true in the range of $b\in [0,1]$. Hence $L(b,p)$ increases with $p$.
+
+Now we show that $L(b,p)$ increases with $b$ as well. First observe:
+
+\beq
+\frac{\partial L(b,p)}{\partial b} = p\left(\frac{\log(1+X) - \frac{X}{1+X}}{X^2}\right)\frac{\alpha}{e-\alpha} + (1-p)\frac{\alpha}{2e}
+\notag
+\eeq
+
+Thus $\frac{\partial L(b,p)}{\partial b} > 0$ implies:
+
+\begin{align*}
+& (1-p)\frac{\alpha}{2e} > p\left(\frac{\frac{X}{1+X} - \log(1+X)}{X^2}\right)\frac{\alpha}{e-\alpha}\\
+\Leftrightarrow & (1-p)\frac{b^2\alpha^2}{2e(e-\alpha)} > p \left(1 - \frac{1}{1+X} - \log(1+X)\right)
+\end{align*}
+
+Again the LHS and RHS are equal as $b\rightarrow 0$. All we show again is that LHS increases faster as compared to RHS.
+
+\begin{align*}
+\Leftrightarrow (1-p)\frac{b\alpha^2}{e(e-\alpha)} > p\left(\frac{1}{(1+X)^2} - \frac{1}{1+X} \right)\frac{\alpha}{e-\alpha}\\
+\end{align*}
+Clearly RHS is negative when $b\in (0,1]$ and LHS is positive. Hence proved.
+
+Thus $L(b,p)$ is increasing in both $b$ and $p$. And the condition required is $L(b,p)$ is greater than some constant value which depends on $v$.
+Hence for any $v$ there exists a smooth $(b_0,p_0)$ curve such that for all $b\ge b_0$ and $p\ge p_0$ revenue rate of reward program merchant is larger.
+}
 % Nolan: don't think we will want for final writeup but not positive yet, so just commenting for now.
 
 % \begin{theorem}
