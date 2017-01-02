@@ -1,6 +1,6 @@
 Loyalty programs constitute a huge market and are a major source of revenue for many low margin businesses.
-Over 48 billion dollars of perceived rewards are issued in the United States alone every year, with every household having over 19 loyalty memberships.
-These include credit cards, hotel and airline reward programs, and more recently even restaurants, grocery and retail stores.
+Over 48 billion dollars in perceived value of rewards is issued in the United States alone every year, with every household having over 19 loyalty memberships on average.
+This market includes credit cards, hotel and airline reward programs, and more recently even restaurants, grocery and retail stores.
 Though forming a big component of the market, there is very less scientific understanding about the design of loyalty reward programs. We aim to address this gap with this research.
 
 One popular form of loyalty reward programs are \emph{frequency reward programs}, where customers earn \emph{points} as currency over spendings with merchants and are able to redeem these points into dollar based rewards after achieving certain threshold point collections.
@@ -12,56 +12,8 @@ One important constraint we impose is that the merchant has to choose a \emph{on
 
 This is how the remaining of the paper is structured. First we will describe some past work. Then we will go over our contributions and explain how our work builds on top of past literature. In Section~\ref{sec:model} we will describe our model followed by the main results in Section~\ref{sec:results}. We will follow up with a short discussion and future work in Section~\ref{sec:conc}.
 
-\subsection{Past Literature}
+\subsection{Related Work}
+\input{./tex/intro/related.tex}
 
 \subsection{Our Contributions}
-We make both modeling and analytical contributions along the following major directions:
-
-\subsubsection{Competitive Duopoly Setup}
-We model a competitive duopoly of two merchants, one of them offering a frequency reward program and the other offering traditional pricing.
-Both merchants sell an identical good at fixed precommitted prices.
-The reward program merchant sells the good at a higher price.
-Customers are drawn from a known population distribution and they measure their utilities in rational economic terms, \ie, they make their purchase decisions to maximize long term discounted rewards.
-The discount factor is the time value of money, and is constant for all customers.
-Every customer makes a purchase everyday from either of the two merchants.
-With each purchase from the reward program merchant, customer gains some fixed number of points, and on achieving the reward redemption threshold, (s)he immediately gains the reward value as a dollar cashback.
-
-\subsubsection{Customer Parameters}
-Each customer has two important parameters drawn from the known population distribution: first a visit probability bias with which (s)he purchases the good from the reward program merchant for reasons exogenous to utility maximization, and second a look-ahead factor that controls how far into the future the customer can perceive the rewards.
-The visit probability bias toward the reward program merchant can be attributed to \emph{excess loyalty} which has been argued as a important parameter for the success of any reward program, or it can be attributed to price insensitivity of the customer: whenever the customer is price insensitive, (s)he strictly prefers to purchase from the reward program merchant as (s)he gains points redeemable for rewards in the future.
-There are many possible reasons for customers' price insensitivity: the reward program merchant could be offering some other monopoly products, or the customer might be getting reimbursed for some purchases as part of corporate perks (eg: corporate travel).
-As an effect, this visit probability bias controls how frequently the customers' points increase even when (s)he does not actively choose to make purchases from the reward program merchant.
-The look-ahead parameter affects the customer behavior dynamics as follows: if the reward is farther than the customer's look-ahead parameter, (s)he is unable to register the future value of that reward and take it into consideration while maximizing long term utility.
-Both these parameters can be attributed to bounded rationality of customers and have been argued to be important factors toward customer choice dynamics (CITE).
-
-
-\subsubsection{Customer Choice Dynamics}
-We formulate the customer choice dynamics as a dynamic program with the state being the number of points collected from the reward program merchant.
-When the customer does not make biased visits to the reward program merchant, (s)he chooses the merchant maximizing her long term utility: comparing the immediate utility by purchasing the good at cheaper price and the long term utility of waiting and receiving the time discounted reward.
-The solution to the customer's dynamic program gives conditions for the existence and achievability of a phase transition: a points threshold before which the customer visits the merchant offering rewards only due to the visit probability bias, and after which (s)he always visits the merchant offering rewards till receiving the reward.
-We show that this phase transition point has the following dependencies:
-\begin{enumerate}
-\item It decreases with increase in the look-ahead parameter, \ie, if the customer can perceive rewards longer into the future, the phase transition for the customer occurs sooner.
-\item It decreases with increase in the reward value, and decreases with increase in points threshold required to redeem the reward. 
-\item It increases with the discount value that the traditional pricing merchant provides, \ie, the cheaper the product from the second merchant, the farther is the phase transition point. 
-\item With respect to the discount factor there is a unique minimizer for the phase transition point. That is, if customers are highly patient, then maximizing their long term utility leads them to redeem rewards only due to exogenous visit bias.
-And if they are very less patient, they strictly prefer immediate discount over future rewards.
-\end{enumerate}
-
-We define the ``influence zone'' as the ratio of the distance to the phase transition  point and the total distance to the reward.
-This is effectively the fraction of total purchases until reward that the customer needs to make due to exogenous visit bias to adopt the reward program for future purchases.
-Merchants often give bonus miles or points to their customers, mainly to increase the switching cost of customers and push them to adopt the reward program.
-The influence zone as we defined is the point till such external promotions are required.
-We optimize over this influence zone and show that the optimal $k$ has a very intuitive form which corresponds closely to practically observed values for the reward distance.
-
-{\arpit(Discussion relating to past literature on psychological constructs: tipping point literature. purchase acceleration literature)}
-
-\subsubsection{Reward Program Design}
-After characterizing the customer behavior dynamics in our model, we optimize over the long run revenues that the reward program merchant achieves.
-We provide a framework for optimizing the parameters for the reward program merchant to maximize its revenue objective.
-We then look at a specific simplified case of proportional promotion budgeting: the reward offered by the reward program merchant is proportional to the product of the distance to the reward and the discount provided by the traditional pricing merchant.
-We show that under proportional promotion budgeting the optimal distance to reward for maximizing the revenue objective of the reward program merchant is independent of the customer parameters and is close to the real world obtained cashback percentage amounts.
-In addition, optimizing the revenue objective gives the same optimal distance to reward as optimizing the influence zone as defined above.
-Then we characterize the conditions in terms of the customer parameters for when the revenue objective of reward program merchant is better than the traditional pricing merchant and when it is better for the reward program merchant to offer a reward versus not offering any reward.
-We show that for other parameters fixed there is a range of exogenous visit probability bias and myopicity parameters under the distributions we choose which meet both the conditions for the reward program to be effective.
-We also give an intuitive description of these conditions using simulations.
+\input{./tex/intro/contri.tex}
