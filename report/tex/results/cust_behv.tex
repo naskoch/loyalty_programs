@@ -65,8 +65,6 @@ with
 \end{theorem}
 
 \begin{proof}
-{\nolan Still need to fix this proof a little bit I think. I will try to work on that.}
-
 First we solve for the condition on $V(i+1)$ for us to choose firm $A$ over $B$ willingly.
 \begin{gather*}
 \beta V(i+1) > \frac{\lambda \beta V(i+1) + (1-\lambda)v}{1-(1-\lambda)\beta} \\
@@ -100,7 +98,7 @@ The above dependence reduces to the following after incorporating the look-ahead
 
 Note that the phase transition point is independent of $\lambda$, the customer's visit probability bias toward the merchant.
 As we would expect, it increases with the look-ahead parameter, and with the price discount offered by merchant $B$.
-And decreases with increase in the reward value $R$ and decrease in the distance to reward $k$.
+Additionally, it decreases with increase in the reward value $R$ and decrease in the distance to reward $k$.
 The variation with the discount factor $\beta$ is interesting: we can show that for any $\frac{R}{v} \ge 1$ there exists a $\beta \in [0,1]$ that minimizes the phase transition point $i_0$ for ''forward-looking'' customers.
 This means that customers who are more patient have longer time frame to transition and so do customers who are less patient than the optimal value.
 We refer to the ratio of number of visits required for a forward-looking customer to adopt a reward program and the total distance to the reward as the ``influence zone''.
