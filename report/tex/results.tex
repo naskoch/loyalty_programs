@@ -1,126 +1,4 @@
-\subsection{Customer Choice Dynamics}
-We first show that every customer exhibits the following behavior: until (s)he reaches the phase transition point $i_0(t)$, she purchases from $A$ only due to the exogeneity paramater, and after that (s)he always purchases from $A$ till she receives the reward.
-This behavior is cyclic, and repeats after every reward redemption.
-
-\begin{lemma} $V(i)$ is an increasing function in $i$ if the following condition holds:
-\begin{equation}
-R > \frac{(1-\lambda)v}{1-\beta}
-\end{equation}
-And further, $V(i)$ can be evaluated as:
-\begin{equation}
-V(i) = \max\left\{ \frac{\lambda \beta V(i+1)+(1-\lambda)v}{1-(1-\lambda)\beta}, \beta V(i+1) \right\}
-\end{equation}
-\end{lemma}
-
-\begin{proof}
-First we show that $V(i)$ is an increasing function in $i$ by induction. We first show that if the condition above is satisfied, $V(k-1) < V(k) = R$. Suppose not, so $V(i) \geq R$. Then we have:
-\begin{align*}
-V(k-1) &= \lambda \beta V(k) + (1-\lambda)(v+\beta V(k-1)) \\
-&= \frac{\lambda \beta R + (1-\lambda)v}{1-(1-\lambda)\beta} \\
-&< \frac{\lambda \beta R + (1-\beta)R}{1-(1-\lambda)\beta} \\
-&= \frac{R(1-(1-\lambda)\beta)}{1-(1-\lambda)\beta} = R
-\end{align*}
-But this is a contradiction, so $V(k-1) < V(k)$. Now assume $V(i+1) < V(i+2)$ for some $i < k-2$, we will show that this implies $V(i) < V(i+1)$. Suppose not, so $V(i) \geq V(i+1)$. As we did before we may upper bound $V(i)$.
-\begin{align*}
-V(i) &= \lambda \beta V(i+1) + (1-\lambda)(v+\beta V(i)) \\
-&\leq (1-\lambda)v + \beta V(i) \\
-\iff V(i) &\leq \frac{(1-\lambda)v}{1-\beta}
-\end{align*}
-But because $V(i+1) < V(i+2)$, we may lower bound $V(i+1)$.
-\begin{align*}
-V(i+1) &\geq \lambda \beta V(i+2) + (1-\lambda)(v+\beta V(i+1)) \\
-&= (1-\lambda)v + (1-\lambda)\beta V(i+1) + \lambda \beta V(i+2) \\
-&> (1-\lambda)+\beta V(i+1) \\
-\iff V(i+1) &> \frac{(1-\lambda)v}{1-\beta}
-\end{align*}
-Again, we have a contradiction, so $V(i) < V(i+1)$, and $V(i)$ is an increasing function in $i$. Now we prove the second claim. We have the following:
-\begin{align*}
-V(i) &= \lambda \beta V(i+1) + (1-\lambda)\max\{v +\beta V(i), \beta V(i+1) \} \\
-&= \max\{\lambda \beta V(i+1) + (1-\lambda)(v+\beta V(i)), \beta V(i+1) \}
-\end{align*}
-
-Assuming $V(i)$ is the left term in the above maximum, we may solve the equation for that term.
-\begin{gather*}
-V(i) = \lambda \beta V(i+1) + (1-\lambda)(v+\beta V(i)) \\
-(1-(1-\lambda)\beta) V(i) = \lambda \beta V(i+1) + (1-\lambda)v \\
-V(i) = \frac{\lambda \beta V(i+1) + (1-\lambda)v}{1-(1-\lambda)\beta}
-\end{gather*}
-And we get our claim.
-\end{proof}
-
-Now if the expected reward of the customer increases with the number of purchases made from $A$, we expect that at some number of purchases it becomes profitable for the customer to choose to purchase from $A$ as opposed to $B$.
-We characterize this phase transition point in the following theorem.
-
-\begin{theorem} Suppose $V(i)$ is an increasing function in $i$ and consider a customer with look-ahead parameter $t$. A phase transition occurs after (s)he makes $i_0(t)$ visits to firm $A$, where $i_0(t)$ is given by:
-\begin{equation}
-  i_0(t)=\begin{cases}
-    k-\Delta \equiv i_0, & \text{if $t \geq \Delta$}.\\
-    k-t, & \text{otherwise}.
-  \end{cases}
-\end{equation}
-with 
-\begin{align}
-\Delta &= \left\lfloor \log_{\beta}\left(\frac{v}{R(1-\beta)}\right)\right\rfloor
-\end{align}
-\end{theorem}
-
-\begin{proof}
-{\nolan Still need to fix this proof a little bit I think. I will try to work on that.}
-
-First we solve for the condition on $V(i+1)$ for us to choose firm $A$ over $B$ willingly.
-\begin{gather*}
-\beta V(i+1) > \frac{\lambda \beta V(i+1) + (1-\lambda)v}{1-(1-\lambda)\beta} \\
-\iff \beta V(i+1) \left(1-\frac{\lambda}{1-(1-\lambda)\beta} \right) > \left(\frac{1-\lambda}{1-(1-\lambda)\beta} \right) v \\
-\iff \beta V(i+1) \left(\frac{1-(1-\lambda)\beta -\lambda}{1-(1-\lambda)\beta} \right) > \left(\frac{1-\lambda}{1-(1-\lambda)\beta} \right) v \\
-\iff \beta V(i+1) \left(\frac{(1-\lambda)(1-\beta)}{1-(1-\lambda)\beta} \right) > \left(\frac{1-\lambda}{1-(1-\lambda)\beta} \right) v \\
-\iff \beta V(i+1) > \frac{v}{1-\beta} \\
-\iff V(i+1) > \frac{v}{\beta(1-\beta)}
-\end{gather*}
-Let $i_0$ be the minimum state $i$ such that the above holds, so in particular $V(i_0) \le \frac{v}{\beta(1-\beta)}$ but $V(i_0+1) > \frac{v}{\beta(1-\beta)}$. We know because $V$ is increasing in $i$, this point is indeed a phase transition: $V(i) > \frac{v}{\beta(1-\beta)}$ for all $i > i_0$, so after this point, the customer always chooses firm $A$. We may compute $V(i_0)$ easily using this fact.
-\begin{equation*}
-V(i_0) = \beta V(i_0+1) = \cdots = \beta^{k-i_0}V(k) = \beta^{k-i_0}R
-\end{equation*}
-Thus, we have the following:
-\begin{gather*}
-\beta^{k-i_0} \le \frac{v}{R\beta(1-\beta)} < \beta^{k-(i_0+1)} \\ 
-\iff k-i_0 \ge \log_{\beta}\left(\frac{v}{R\beta(1-\beta)} \right) > k-(i_0+1) \\
-\iff i_0 \le k - \log_{\beta}\left(\frac{v}{R(1-\beta)} \right) + 1 < i_0 + 1\\
-\iff i_0 = k - \left\lfloor \log_{\beta}\left(\frac{v}{R(1-\beta)}\right) \right\rfloor \equiv k-\Delta
-\end{gather*}
-
-The above dependence reduces to the following after incorporating the look-ahead distribution:
-
-\begin{equation*}
-  i_0(t)=\begin{cases}
-    i_0, & \text{wp } p,\\
-    k, & \text{wp } 1-p.
-  \end{cases}
-\end{equation*}
-\end{proof}
-
-Note that the phase transition point is independent of $\lambda$, the customer's visit probability bias toward the merchant.
-As we would expect, it increases with the look-ahead parameter, and with the price discount offered by merchant $B$.
-And decreases with increase in the reward value $R$ and decrease in the distance to reward $k$.
-The variation with the discount factor $\beta$ is interesting: we can show that for any $\frac{R}{v} \ge 1$ there exists a $\beta \in [0,1]$ that minimizes the phase transition point $i_0$ for ''forward-looking'' customers.
-This means that customers who are more patient have longer time frame to transition and so do customers who are less patient than the optimal value.
-We refer to the ratio of number of visits required for a forward-looking customer to adopt a reward program and the total distance to the reward as the ``influence zone''.
-Intuitively this is the fraction of visits that the merchant wants to influence the customer by offering exogenous means of earning additional points like bonus miles in airlines, or accelerated earnings, as discussed in the introduction.
-Next we find the optimal $k$ for minimizing this influence zone.
-
-\begin{remark}\label{rem:inf_zone}
-Influence zone is minimized at $k = \frac{e}{\alpha(1-\beta)}$ under proportional promotion budgeting. 
-\end{remark}
-\begin{proof}
-As defined the influence zone is $\frac{i_0}{k} = \frac{k-\Delta}{k} = 1 -\frac{\Delta}{k}$.
-Thus minimizing the influence zone is equivalent to minimizing $\frac{k}{\Delta}$.
-\begin{align*}
-\frac{k}{\Delta} = \frac{k}{\log_\beta\left(\frac{1}{\alpha k(1-\beta)}\right)} \sim \frac{k(1-\beta)}{\log (\alpha k(1-\beta))} 
-\end{align*}
-The above approximation relies on $\beta$ close to 1. Now this value is minimized at $k = \frac{e}{\alpha(1-\beta)}$. Therefore, for all $b$, the optimal value for $k$ is given by $\frac{e}{\alpha(1-\beta)}$, the value for which $\frac{k}{\Delta}$ is minimized and takes the value $\frac{e}{\alpha}$. 
-At this value the influence zone takes the value $1-\frac{\alpha}{e}$.
-\end{proof}
-Note that if $\alpha$ is $1$, then the value of $k$ corresponds to a cashback between $2$\% and $4$\% as $\beta$ ranges between $0.95$ and $0.9$.
-This value is realistic to what is observed in practice.
+\input{./tex/results/cust_behv.tex}
 
 \subsection{Merchant Objective Dynamics}
 We substitute the value of the phase transition point obtained above in the rate of revenue equations to reevaluate them. 
@@ -222,6 +100,8 @@ The blue region shows that there is a clear threshold of $b$ and $p$ beyond whic
 This is explained by the increasing nature of the revenue gap $(RoR_A - RoR_B)$ with $b$ and $p$.
 But more interestingly, the threshold value of $b$ and $p$ decreases as $\alpha$ is increased toward $e$.
 Whereas the yellow region shows that if the fraction of forward-looking customers is not too small, the firm should choose to run a reward program most of the time except for when $b$ is large: larger $b$ values mean that customers make more exogenous visits, so a reward program is no longer needed to entice visits, but only causes decrease in the profitability of the reward program merchant.
+The intersection of two regions, \ie, the region in green, indicates that the range of values of $b$ for which the reward program is strictly profitable increases as $p$ increases.
+We formally show this next.
 
 \begin{figure*}[t!]
 \centering
@@ -298,18 +178,7 @@ And as $p$ increases beyond the lowerbound, the region of allowable $b$ for whic
 \begin{proof}
 \end{proof}
 
-{\arpit
-In WORDS FORMAT
-
-Under proportional budgeting when the reward proportion $\alpha$ is close to $e$, a necessary condition for reward program to be strictly better is a minimum threshold of fraction of forward-looking customers increasing with the discount value $v$ set by the competing merchant.  
-And as this fraction of forward-looking customers increases beyond the threshold, the range of values of the exogenous visit bias for which the reward program is strictly better becomes larger. 
-}
-
-{\arpit
-We should follow up this theorem with the $(b,p)$ curve showing range of $b$ values increasing with increase in $p$ beyond the threshold for a given $v$.
-Then follow up with the colored plots showing the darker shade of top plot is the region of $(b,p)$ varying with $v$ where reward is strictly better.
-}
-
+\begin{comment}
 \begin{figure*}[t!]
 \centering
 \begin{subfigure}[t]{0.5\textwidth}
@@ -325,14 +194,9 @@ Then follow up with the colored plots showing the darker shade of top plot is th
 \caption{The upper and lower bounds on $b$ as a function of $p$. Here $v = 0.05$ and $\alpha \rightarrow e$.}
 \label{fig:b_region}
 \end{figure*}
+\end{comment}
 
 {\nolan Above is a couple different ways of visualizing the bounds. Right side cuts things off at 0 and 1 which is what we care about but doesn't look that great. Left side cuts off at only 0. }
-
-The above theorem gives a bound on $b$ for the optimal reward program being more profitable than the competitor and no reward program. 
-Notice that when $\frac{e\cdot v}{1-e \cdot v} \leq p$, this upperbound is 1, and there is no restriction on $b$. 
-This case happens for large $p$ values and/or small $v$ values. 
-Figure~\ref{fig:offer_reward_or_not} shows the upperbound on $b$ for all values of $p$ and $v$ ($v < e$); for each $(p, v)$ pair, a firm should run a reward program for all values of $b$ below the upperbound shown in the figure. 
-We see as $p$ increases (more people adopt reward programs), the region of allowable $b$ values increases. 
 
 \begin{figure}[h!]
 \begin{centering}
@@ -342,13 +206,13 @@ We see as $p$ increases (more people adopt reward programs), the region of allow
 \end{centering}
 \end{figure}
 
-The previous $\alpha \rightarrow e$ discussion is a special case of a more general result.
+Now we generalize the above result. The conditions are more complex but the intuitions are similar. 
 
-\begin{theorem}
-Fix $\alpha \in (0, e)$. For any $(p,v)$ pair, there exists some upper bound $b_0 \in [0,1]$ such that for all $b \leq b_0$, $RoR_A \geq \frac{b}{2}$.
-\end{theorem}
+\begin{lemma}
+Fix $\alpha \in (0, e)$. For any $(p,v)$ pair, there exists some upper bound $b_1 \in [0,1]$ such that for all $b \leq b_1$, $RoR_A \geq \frac{b}{2}$.
+\end{lemma}
 
-We delay the proof of this theorem to first prove a helpful lemma. It is a straightforward computation to see that the condition of $RoR_A \geq \frac{b}{2}$ is equivalent to:
+We delay the proof of this theorem to first prove a helpful proposition. It is a straightforward computation to see that the condition of $RoR_A \geq \frac{b}{2}$ is equivalent to:
 \begin{gather*}
 \frac{1}{b}\left(1-\frac{e-\alpha}{b\alpha}\log \left(1+\frac{b\alpha}{e-\alpha} \right) \right) \geq \frac{\alpha(1-(1-p)(1-\alpha v))}{2pe(1-\alpha v)} \\
 \iff
@@ -356,9 +220,9 @@ g(b; \alpha) \geq h(p, v; \alpha)
 \end{gather*}
 where we have defined functions $g(b)$ and $h(p,v)$ for fixed $\alpha$ for the above inequalities. 
 
-\begin{lemma}
+\begin{proposition}
 For a fixed $\alpha$, $g(b)$ is non-increasing for all $b \in [0,1]$. 
-\end{lemma}
+\end{proposition}
 
 \begin{proof}
 We take the derivative of $g$:
@@ -368,10 +232,7 @@ g'(b) &= \frac{2(e-\alpha)}{b^3 \alpha} \log\left(1+\frac{b\alpha}{e-\alpha} \ri
 &\iff \frac{2\log(1+x)}{x} \leq 1+\frac{1}{1+x}
 \end{align*}
 where $x = \frac{b\alpha}{e-\alpha}$, and as $b \in [0,1]$, $x \in [0, \frac{\alpha}{e-\alpha}]$. We can see that as $x \rightarrow 0$, the above inequality is an equality. 
-{\nolan Need to show above, it is true by plotting. I was trying to show like we had done before; we want to show $L(x) \leq R(x)$ for all $x \geq 0$, we know they are equal at $x = 0$, so show that $L'(x) \leq R'(x)$ for all $x$ (both are decreasing functions though).}
-
-{\arpit I have a proof for above. It is little convoluted.
-
+We represent the LHS of the above equation as $L(x)$ and RHS as $R(x)$. Next we show that $L(x)$ increses slowly as compared to $R(x)$ thereby proving the proposition.
 First show that in the range of $x$ the following holds true:
 
 \beq
@@ -395,8 +256,8 @@ Now we can rearrange Eq.~\ref{eq:eq00} as follows:
 \implies & 2\left(\frac{x}{1+x} - \log(1+x)\right) \le - (\frac{x}{1+x})^2\\
 \implies & \frac{2\left(\frac{x}{1+x} - \log(1+x)\right)}{x^2} \le - (\frac{1}{1+x})^2
 \end{align*}
-The left hand side of above is $L'(x)$ and right hand side is $R'(x)$. This proves it.
-}
+The left hand side of above is $L'(x)$ and right hand side is $R'(x)$.
+
 \end{proof}
 
 Thus, $g(b)$ is decreasing in $b$, so for any $(p,v)$ pair, we may compute $h(p, v; \alpha)$, which will then fall into one of the following three cases.
@@ -411,19 +272,18 @@ $h(p,v;\alpha) = g(b_0)$ for some $b_0 \in (0,1)$. So the reward program is prof
 
 Thus, the above lemma and discussion proves our theorem; for fixed $\alpha$ and any $(p,v)$ pair, there is some upperbound on $b$ s.t. $RoR_A \leq \frac{b}{2}$. 
 
-{\nolan I can also look at derivatives of $h$ with respect to $p$ and $v$ - had this before, somewhat interesting. I also need to be careful about notation, I will think about the best way to use $g$ and $h$}
+\begin{lemma}
+Fix $\alpha \in (0, e)$. For any $(p,v)$ pair, there exists some lower bound $b_0 \in [0,1]$ such that for all $b \geq b_0$, $RoR_A \geq RoR_B$.
+\end{lemma}
 
-{\arpit I think the above theorem can be writte similar to the way I write the next theorem -- specifically that for any $(p,v)$ exist a threshold $b$ and for any $(b,v)$ exist a threshold $p$ such that reward program is better
-}
-
-{\arpit Writing up thoughts for the reverse direction theorem
+\begin{proof}
 
 Let $\frac{b\alpha}{e-\alpha} = X$. Then $RoR_A > RoR_B$ can be evaluated as follows:
 
-\begin{align*}
-& p\frac{e}{\alpha}\left(1-\frac{\log(1+X)}{X}\right)(1-\alpha v + 1 - v) - p(1-v) + (1-p)\frac{b}{2}\left(1-\alpha v + 1-v\right) + p(1-v) > 1-v\\
-& \implies p\left(1 - \frac{\log(1+X)}{X}\right) + (1-p)\frac{b\alpha}{2e} > \frac{\alpha}{e} \cdot \frac{1-v}{1-\alpha v + 1 - v}\\
-\end{align*}
+\begin{eqnarray}
+& p\frac{e}{\alpha}\left(1-\frac{\log(1+X)}{X}\right)(1-\alpha v + 1 - v) - p(1-v) + (1-p)\frac{b}{2}\left(1-\alpha v + 1-v\right) + p(1-v) > 1-v\notag\\
+& \implies p\left(1 - \frac{\log(1+X)}{X}\right) + (1-p)\frac{b\alpha}{2e} > \frac{\alpha}{e} \cdot \frac{1-v}{1-\alpha v + 1 - v}\label{eq:ra>rb}
+\end{eqnarray}
 
 Since $\alpha$ is a constant, the LHS above is a function of $b$ and $p$. 
 Let the LHS above be $L(b,p)$.
@@ -466,7 +326,14 @@ Clearly RHS is negative when $b\in (0,1]$ and LHS is positive. Hence proved.
 
 Thus $L(b,p)$ is increasing in both $b$ and $p$. And the condition required is $L(b,p)$ is greater than some constant value which depends on $v$.
 Hence for any $v$ there exists a smooth $(b_0,p_0)$ curve such that for all $b\ge b_0$ and $p\ge p_0$ revenue rate of reward program merchant is larger.
-}
+
+\end{proof}
+
+\begin{theorem}
+Fix $\alpha \in (0, e)$. 
+For any value of $v$, there exists a lowerbound $p_0$ such that for any $p$ greater than $p_0$, there exists a range $(b_0, b_1)$ between $0$ and $1$ such that for all $b$ lying between $b_0$ and $b_1$, offering the reward program is strictly better for $A$. 
+\end{theorem}
+
 % Nolan: don't think we will want for final writeup but not positive yet, so just commenting for now.
 
 % \begin{theorem}
