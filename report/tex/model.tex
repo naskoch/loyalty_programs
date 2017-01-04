@@ -1,5 +1,5 @@
 We index the two competing merchants selling identical goods as $A$ and $B$.
-Without loss of generality we assume that $A$ sells the good for a price of $1$ dollars while $B$ sells it for $1-v$ dollars, \ie, $B$ offers a discount of $v$ dollars. 
+Without loss of generality we assume that $A$ sells the good for a price of $1$ dollar while $B$ sells it for $1-v$ dollars, \ie, $B$ offers a discount of $v$ dollars. 
 $A$ on the other hand offers a reward of value $R$ dollars to a customer after (s)he makes $k$ purchases at $A$. 
 We investigate only the case we refer to as ``proportional promotion budgeting'' wherein this reward $R$ is proportional to the product of the distance to the reward $k$ and the discount $v$ provided by $B$.
 That is $R = \alpha k v$ where $\alpha$ is assumed to be a constant.
@@ -7,10 +7,10 @@ That is $R = \alpha k v$ where $\alpha$ is assumed to be a constant.
 We assume customers purchase the item from either $A$ or $B$ everyday, \ie, we ignore the heterogeneity in frequency of purchases among the customers in our model and leave it for future work.
 We assume customers have a linear homogenous utility in price: at price $p$ the utility is $\nu(p) = 1-p$. 
 This reduces to customers getting an immediate utility of $0$ from $A$ and $v$ from $B$.
-Customers have the same time value of money as a discount factor of $\beta$ lying between $0$ and $1$ for all customers.
+All customers have the same time value of money as a discount factor of $\beta$ lying between $0$ and $1$.
 
 We denote a customer's visit probability bias and the look-ahead parameter with $\lambda$ and $t$ respectively. 
-That is with probability $\lambda$ (s)he purchases from $A$ due to externalities and perceives a future reward only if it is within $t$ purchases away. 
+That is with probability $\lambda$, (s)he purchases from $A$ due to externalities and perceives a future reward only if it is within $t$ purchases away. 
 We assume $\lambda$ for a customer to be drawn from a uniform distribution between $[0,b]$, where $b$ is between $0$ and $1$.
 And we focus on a simple threshold distribution for the look-ahead parameter $t$: 
 
@@ -59,9 +59,9 @@ RoR_A(c) = \underset{\tau}E\left[\frac{k-R}{\tau(t,\lambda) + k - i_0(t)}\right]
 RoR_B(c) = \underset{\tau}E\left[\frac{(\tau(t,\lambda) - i_0(t))(1-v)}{\tau(t,\lambda) + k - i_0(t)}\right]\notag
 \eeq
 
-Since the process for a single customer is regenerative, using the reward renewal theorem (CITE), we can take the expectation over the cycle length inside the numerator and denominator respectively.
+Since the process for a single customer is regenerative, using the reward renewal theorem (\cite{10.2307/1426216}), we can take the expectation over the cycle length inside the numerator and denominator respectively.
 Note that $\underset{\tau}E[\tau(t,\lambda)] = \frac{i_0(t)}{\lambda}$ as before reaching the phase transition point, with probability $\lambda$, the number of purchases by the customer from $A$ increases by $1$ and with probability $1-\lambda$ it stays constant.
-And then taking the expectation over the customer population the overall rate of revenues for both $A$ and $B$ are as follows:
+Then taking the expectation over the customer population the overall rate of revenues for both $A$ and $B$ are as follows:
 
 \beq
 RoR_A = \underset{\lambda, t}E\left[\frac{k-R}{i_0(t)/\lambda + k - i_0(t)}\right]
