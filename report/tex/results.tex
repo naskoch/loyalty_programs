@@ -68,7 +68,7 @@ Observe that minimizing $\theta = \frac{k}{\Delta}$ is equivalent to minimizing 
 As shown in Remark~\ref{rem:inf_zone}, this happens at $k = \frac{e}{\alpha(1-\beta)}$. 
 \end{proof}
 
-An interesting point to observe above is that maximizing the revenue objective is equivalent to minimizing the influence zone, \ie, minimizing the fraction of customer visits until when merchant should offer reward point accelerations also maximizes the revenue objective of the merchant. {\arpit Better? We can even remove it if it doesn't offer any relevant exposition} {\nolan Not sure what this sentence means, seems awkward}. 
+An interesting point to observe above is that maximizing the revenue objective is equivalent to minimizing the influence zone, \ie, minimizing the fraction of customer visits until when merchant should offer reward point accelerations also maximizes the revenue objective of the merchant. {\arpit Better? We can even remove it if it doesn't offer any relevant exposition} {\nolan It still seems like some words are missing - particularly in ``until when merchant should offer reward..." Are you saying minimizing zone of influence via reward point accelerations also maximizes revenue or because the two optimization points are equivalent then merchants should offer reward points acceleration? I think it is a good point though, so worth keeping.}. 
 The condition that $\beta$ be close to 1 is not very restrictive, as the discount factor is expected to be high in most cases. 
 Note that because $k \geq \Delta$, the above also shows $\alpha \leq e$. 
 Finally, observe that we need $R > \frac{(1-\lambda)v}{1-\beta}$ for $V$ to be increasing. 
@@ -145,6 +145,8 @@ b > 2\cdot \frac{(1-v) - \frac{p}{1-p}\cdot (1-ev)}{(1-v) + (1-ev)}
 \begin{proof}
 \end{proof}
 
+The above lemma gives a lower bound on $b$ for $RoR_A > RoR_B$ in terms of $p$ and $v$. In order for the reward program to be strictly better than the traditional pricing model, we also need $RoR_A > \frac{b}{2}$. The following lemma shows that this condition gives a corresponding upper bound on $b$.
+
 \begin{lemma}
 As $\alpha \rightarrow e$, $RoR_A > \frac{b}{2}$ if and only if the following condition on $b$ holds:
 \begin{equation}
@@ -155,6 +157,16 @@ b < \frac{2p}{p+\frac{e\cdot v}{1-e\cdot v}}
 \begin{proof}
 
 \end{proof}
+
+Thus, for any choice of $p$ and $v$, the combination of the two above lemmas gives an interval of $b$ values for which the reward program is the most profitable choice for the merchant. Figure~\ref{fig:b_region} shows the bounds on $b$ for varying values of $p$, keeping $v = 0.05$ fixed. For some values of $p$ and $v$, the bounds given by the lemmas may fall outside the interval $[0,1]$, but we $b$ must fall within this range, so we restrict the bounds to this interval in figure~\ref{fig:b_region}. Notice that the upper bound on $b$ increases as a function of $p$ while the lower bound decreases with $p$, so the interval of ``strictly better'' $b$ values increases with $p$. We formalize this observation in a following lemma. Finally, observe that the bounds on $b$ are not very intuitive functions, so we may also write simple conditions on $p$.
+
+\begin{figure*}[t!]
+\centering
+\includegraphics[scale = 0.6]{./figures/b_region_v2.png}
+
+\caption{The upper and lower bounds on $b$ as a function of $p$. Here $v = 0.05$ and $\alpha \rightarrow e$.}
+\label{fig:b_region}
+\end{figure*}
 
 \begin{lemma}
 As $\alpha \rightarrow e$, for the reward program to be strictly better, a necessary and sufficient condition on $p$ is:
@@ -167,35 +179,12 @@ p > 1 - \frac{1-ev}{1-ev^2}
 \end{proof}
 
 \begin{lemma}
-As $\alpha \rightarrow e$ and $p$ obeying Eq.~\ref{eq:necp}, as $p$ increases, the range of values of $b$ for which reward program is strictly better increases.
+As $\alpha \rightarrow e$ and $p$ obeying Eq.~\ref{eq:necp}, as $p$ increases, the range of values of $b$ for which the reward program is strictly better increases.
 \end{lemma}
 \begin{proof}
 \end{proof}
 
-\begin{theorem}
-Under proportional budgeting, as $\alpha\rightarrow e$, a necessary and sufficient condition for reward program to be strictly better is a lowerbound on $p$ which increases with $v$.  
-And as $p$ increases beyond the lowerbound, the region of allowable $b$ for which the reward program is strictly better becomes larger. 
-\end{theorem}
-\begin{proof}
-\end{proof}
-
-\begin{figure*}[t!]
-\centering
-\begin{subfigure}[t]{0.5\textwidth}
-\centering
-\includegraphics[height=2in]{./figures/b_region_v1.png}
-\end{subfigure}%
-~
-\begin{subfigure}[t]{0.5\textwidth}
-\centering
-\includegraphics[height=2in]{./figures/b_region_v2.png}
-\end{subfigure}
-
-\caption{The upper and lower bounds on $b$ as a function of $p$. Here $v = 0.05$ and $\alpha \rightarrow e$.}
-\label{fig:b_region}
-\end{figure*}
-
-{\nolan Above is a couple different ways of visualizing the bounds. Right side cuts things off at 0 and 1 which is what we care about but doesn't look that great. Left side cuts off at only 0. }
+We observe this result in figure~\ref{fig:b_region}. Figure~\ref{fig:b_restrictions} shows the upper and lower bounds on $b$ for all valid pairs of $p$ and $v$ with $\alpha \rightarrow e$. The top plot shows the lower bound on $b$ and the bottom depicts the upper bound. For a particular $(p,v)$ pair, if the color on the top plot is darker than the corresponding color on the bottom plot, then this pair has a valid $b$ interval in which the reward program is strictly better. This figure also exhibits the increasing range of $b$ values with increasing $p$; for large values of $p$ and moderate values of $v$, we observe no restrictions on $b$ for the reward program to be strictly better. 
 
 \begin{figure}[h!]
 \begin{centering}
@@ -205,13 +194,20 @@ And as $p$ increases beyond the lowerbound, the region of allowable $b$ for whic
 \end{centering}
 \end{figure}
 
-Now we generalize the above result. The conditions are more complex but the intuitions are similar. 
+\begin{theorem}
+Under proportional budgeting, as $\alpha\rightarrow e$, a necessary and sufficient condition for reward program to be strictly better is a lowerbound on $p$ which increases with $v$.  
+And as $p$ increases beyond the lowerbound, the region of allowable $b$ for which the reward program is strictly better becomes larger. 
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+The above theorem combines our previous lemmas, but is only valid for $\alpha \rightarrow e$. Now we generalize the above result for all values of $\alpha$. The conditions are more complex but the results and intuitions are similar. 
 
 \begin{lemma}
 Fix $\alpha \in (0, e)$. For any $(p,v)$ pair, there exists some upper bound $b_1 \in [0,1]$ such that for all $b \leq b_1$, $RoR_A \geq \frac{b}{2}$.
 \end{lemma}
 
-We delay the proof of this theorem to first prove a helpful proposition. It is a straightforward computation to see that the condition of $RoR_A \geq \frac{b}{2}$ is equivalent to:
+We delay the proof of this lemma to first prove a helpful proposition. It is a straightforward computation to see that the condition of $RoR_A \geq \frac{b}{2}$ is equivalent to:
 \begin{gather*}
 \frac{1}{b}\left(1-\frac{e-\alpha}{b\alpha}\log \left(1+\frac{b\alpha}{e-\alpha} \right) \right) \geq \frac{\alpha(1-(1-p)(1-\alpha v))}{2pe(1-\alpha v)} \\
 \iff
@@ -269,10 +265,10 @@ $h(p,v;\alpha) \leq g(1)$. So any value of $b$ makes the reward program profitab
 $h(p,v;\alpha) = g(b_0)$ for some $b_0 \in (0,1)$. So the reward program is profitable for all $b \leq b_0$ and not otherwise.
 \end{enumerate}
 
-Thus, the above lemma and discussion proves our theorem; for fixed $\alpha$ and any $(p,v)$ pair, there is some upperbound on $b$ s.t. $RoR_A \leq \frac{b}{2}$. 
+The above proposition and discussion proves our lemma: for fixed $\alpha$ and any $(p,v)$ pair, there is some upperbound on $b$ s.t. $RoR_A > \frac{b}{2}$. Now again we look at conditions for $RoR_A > RoR_B$ to get a lower bound on $b$.  
 
 \begin{lemma}
-Fix $\alpha \in (0, e)$. For any $(p,v)$ pair, there exists some lower bound $b_0 \in [0,1]$ such that for all $b \geq b_0$, $RoR_A \geq RoR_B$.
+Fix $\alpha \in (0, e)$. For any $(p,v)$ pair, there exists some lower bound $b_0 \in [0,1]$ such that for all $b \geq b_0$, $RoR_A > RoR_B$.
 \end{lemma}
 
 \begin{proof}
@@ -327,6 +323,8 @@ Thus $L(b,p)$ is increasing in both $b$ and $p$. And the condition required is $
 Hence for any $v$ there exists a smooth $(b_0,p_0)$ curve such that for all $b\ge b_0$ and $p\ge p_0$ revenue rate of reward program merchant is larger.
 
 \end{proof}
+
+We may combine the above lemmas to get an interval of $b$ values on which the reward program is strictly better. However, we do not have exact expressions for these bounds for each $(p,v)$ pair. 
 
 \begin{theorem}
 Fix $\alpha \in (0, e)$. 
