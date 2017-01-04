@@ -134,7 +134,14 @@ We formally show this result next.
 \label{fig:offer_reward_or_not}
 \end{figure*}
 
-For any fixed $\alpha$, the exact conditions on $p$, $b$ and $v$ for $RoR_A > RoR_B$ and $RoR_A > \frac{b}{2}$ are rather complex. We will focus on one particular simple case: $\alpha \rightarrow e$. 
+\begin{figure*}[t!]
+\centering
+\includegraphics[scale = 0.6]{./figures/b_region_v2.png}
+\caption{The upper and lower bounds on $b$ as a function of $p$. Here $v = 0.05$ and $\alpha \rightarrow e$.}
+\label{fig:b_region}
+\end{figure*}
+
+For any fixed $\alpha$, the exact conditions on $p$, $b$ and $v$ for $RoR_A > RoR_B$ and $RoR_A > \frac{b}{2}$ are rather complex. We will first focus on one particular simple case: $\alpha \rightarrow e$. 
 
 \begin{lemma}
 As $\alpha \rightarrow e$, $RoR_A > RoR_B$ if and only if the following condition on $b$ holds:
@@ -158,15 +165,7 @@ b < \frac{2p}{p+\frac{e\cdot v}{1-e\cdot v}}
 
 \end{proof}
 
-Thus, for any choice of $p$ and $v$, the combination of the two above lemmas gives an interval of $b$ values for which the reward program is the most profitable choice for the merchant. Figure~\ref{fig:b_region} shows the bounds on $b$ for varying values of $p$, keeping $v = 0.05$ fixed. For some values of $p$ and $v$, the bounds given by the lemmas may fall outside the interval $[0,1]$, but we $b$ must fall within this range, so we restrict the bounds to this interval in figure~\ref{fig:b_region}. Notice that the upper bound on $b$ increases as a function of $p$ while the lower bound decreases with $p$, so the interval of ``strictly better'' $b$ values increases with $p$. We formalize this observation in a following lemma. Finally, observe that the bounds on $b$ are not very intuitive functions, so we may also write simple conditions on $p$.
-
-\begin{figure*}[t!]
-\centering
-\includegraphics[scale = 0.6]{./figures/b_region_v2.png}
-
-\caption{The upper and lower bounds on $b$ as a function of $p$. Here $v = 0.05$ and $\alpha \rightarrow e$.}
-\label{fig:b_region}
-\end{figure*}
+We combine the above two lemmas to get an intuitive necessary and sufficient condition on $p$ for the reward program to be ``strictly better''. 
 
 \begin{lemma}
 As $\alpha \rightarrow e$, for the reward program to be strictly better, a necessary and sufficient condition on $p$ is:
@@ -178,13 +177,22 @@ p > 1 - \frac{1-ev}{1-ev^2}
 \begin{proof}
 \end{proof}
 
+Thus, for any choice of $v$, and $p$ obeying the above condition, the combination of the above lemmas gives an interval of $b$ values for which the reward program is the most profitable choice for the merchant. 
+Figure~\ref{fig:b_region} shows the bounds on $b$ for varying values of $p$, keeping $v = 0.05$ fixed, and restricting the range of $b$ values in $[0,1]$. 
+Notice that the upper bound on $b$ increases as a function of $p$ while the lower bound decreases with $p$, so the interval of $b$ values where the reward program is strictly better increases with $p$. 
+We formalize this observation in the next lemma. 
+
 \begin{lemma}
 As $\alpha \rightarrow e$ and $p$ obeying Eq.~\ref{eq:necp}, as $p$ increases, the range of values of $b$ for which the reward program is strictly better increases.
 \end{lemma}
 \begin{proof}
 \end{proof}
 
-We observe this result in figure~\ref{fig:b_region}. Figure~\ref{fig:b_restrictions} shows the upper and lower bounds on $b$ for all valid pairs of $p$ and $v$ with $\alpha \rightarrow e$. The top plot shows the lower bound on $b$ and the bottom depicts the upper bound. For a particular $(p,v)$ pair, if the color on the top plot is darker than the corresponding color on the bottom plot, then this pair has a valid $b$ interval in which the reward program is strictly better. This figure also exhibits the increasing range of $b$ values with increasing $p$; for large values of $p$ and moderate values of $v$, we observe no restrictions on $b$ for the reward program to be strictly better. 
+Figure~\ref{fig:b_restrictions} shows the upper and lower bounds on $b$ for all valid pairs of $p$ and $v$ with $\alpha \rightarrow e$. 
+The top plot shows the lower bound on $b$ and the bottom plot depicts the upper bound. 
+For a particular $(p,v)$ pair, if the color on the top plot is darker than the corresponding color on the bottom plot, then this pair has a valid $b$ interval in which the reward program is strictly better. 
+This figure also exhibits the increasing range of $b$ values with increasing $p$; for large values of $p$ and moderate values of $v$, we observe no restrictions on $b$ for the reward program to be strictly better. 
+We combine all the above observations into the following theorem.
 
 \begin{figure}[h!]
 \begin{centering}
@@ -201,12 +209,13 @@ And as $p$ increases beyond the lowerbound, the region of allowable $b$ for whic
 \begin{proof}
 \end{proof}
 
-The above theorem combines our previous lemmas, but is only valid for $\alpha \rightarrow e$. Now we generalize the above result for all values of $\alpha$. The conditions are more complex but the results and intuitions are similar. 
+Now we generalize the above result for all values of $\alpha$. The conditions are more complex but the results and intuitions are similar. 
 
 \begin{lemma}
 Fix $\alpha \in (0, e)$. For any $(p,v)$ pair, there exists some upper bound $b_1 \in [0,1]$ such that for all $b \leq b_1$, $RoR_A \geq \frac{b}{2}$.
 \end{lemma}
 
+\begin{proof}
 We delay the proof of this lemma to first prove a helpful proposition. It is a straightforward computation to see that the condition of $RoR_A \geq \frac{b}{2}$ is equivalent to:
 \begin{gather*}
 \frac{1}{b}\left(1-\frac{e-\alpha}{b\alpha}\log \left(1+\frac{b\alpha}{e-\alpha} \right) \right) \geq \frac{\alpha(1-(1-p)(1-\alpha v))}{2pe(1-\alpha v)} \\
@@ -265,8 +274,10 @@ $h(p,v;\alpha) \leq g(1)$. So any value of $b$ makes the reward program profitab
 $h(p,v;\alpha) = g(b_0)$ for some $b_0 \in (0,1)$. So the reward program is profitable for all $b \leq b_0$ and not otherwise.
 \end{enumerate}
 
-The above proposition and discussion proves our lemma: for fixed $\alpha$ and any $(p,v)$ pair, there is some upperbound on $b$ s.t. $RoR_A > \frac{b}{2}$. Now again we look at conditions for $RoR_A > RoR_B$ to get a lower bound on $b$.  
+The above proposition and discussion proves our lemma: for fixed $\alpha$ and any $(p,v)$ pair, there is some upperbound on $b$ s.t. $RoR_A > \frac{b}{2}$. 
+\end{proof}
 
+Now we again look at the conditions for $RoR_A > RoR_B$ to get a lower bound on $b$.  
 \begin{lemma}
 Fix $\alpha \in (0, e)$. For any $(p,v)$ pair, there exists some lower bound $b_0 \in [0,1]$ such that for all $b \geq b_0$, $RoR_A > RoR_B$.
 \end{lemma}
@@ -324,54 +335,11 @@ Hence for any $v$ there exists a smooth $(b_0,p_0)$ curve such that for all $b\g
 
 \end{proof}
 
-We may combine the above lemmas to get an interval of $b$ values on which the reward program is strictly better. However, we do not have exact expressions for these bounds for each $(p,v)$ pair. 
+We combine the above two lemmas as before to get the following theorem.
 
 \begin{theorem}
 Fix $\alpha \in (0, e)$. 
 For any value of $v$, there exists a lowerbound $p_0$ such that for any $p$ greater than $p_0$, there exists a range $(b_0, b_1)$ between $0$ and $1$ such that for all $b$ lying between $b_0$ and $b_1$, offering the reward program is strictly better for $A$. 
 \end{theorem}
 
-% Nolan: don't think we will want for final writeup but not positive yet, so just commenting for now.
-
-% \begin{theorem}
-% Suppose firm $A$ fixes its price at 1, and firm $B$ chooses a price of $1-v$. Given a consumer distribution defined by $p$ - with probability $p$, a consumer is fully forward looking and probability $1-p$ the customer does not look ahead at all - $b$ - each consumer's monopoly factor to firm $A$ is drawn as $\lambda~\sim Unif(0,b)$ and $\beta$ - the customer's discout factor. Then firm $A$ may choose to give a reward of $\alpha v < 1$ to customers after $k$ visits. It should run a reward program if the following condition holds.
-% \begin{equation}
-% \frac{1}{b}\left(1-\frac{e-\alpha}{b\alpha}\log \left(1+\frac{b\alpha}{e-\alpha} \right) \right) \geq \frac{\alpha(1-(1-p)(1-\alpha v))}{2pe(1-\alpha v)}
-% \end{equation}
-% Define the function on the left-hand side above as $g(b)$.
-% \end{theorem}
-
-% \begin{proof}
-% Firm $A$ always sells the good for price 1. If it chooses to run a reward program its expected rate of revenue is given by:
-% \begin{equation*}
-% \underset{\lambda, t}E[RoR_A] = pk(1-\alpha v)\frac{1}{b}\int_0^b \frac{\lambda}{k-(1-\lambda)\Delta} \mbox{ } d\lambda + (1-p)(1-\alpha v)\frac{b}{2}
-% \end{equation*}
-% If it does not run a reward program, then the only visits it will receive are exogenous visits. In this case, its expected rate of revenue is simply $\frac{b}{2}$. We consider a reward program to be profitable if its expected rate of revenue is at least that of the non-reward program expected revenue rate.
-% \begin{gather*}
-% pk(1-\alpha v)\frac{1}{b}\int_0^b \frac{\lambda}{k-(1-\lambda)\Delta} \mbox{ } d\lambda + (1-p)(1-\alpha v)\frac{b}{2} \geq \frac{b}{2} \\
-% \iff \frac{pk(1-\alpha v)}{\Delta}\left(1-\frac{k-\Delta}{b\Delta}\log \left(\frac{k-(1-b)\Delta}{k-\Delta} \right) \right) \geq \frac{b}{2}(1-(1-p)(1-\alpha v)) \\
-% \iff pe(1-\alpha v)\left(1-\frac{e-1}{b}\log \left(1+\frac{b}{e-1} \right) \right) \geq \frac{b}{2}(1-(1-p)(1-\alpha v)) \\
-% \iff \frac{1}{b}\left(1-\frac{e-1}{b}\log \left(1+\frac{b}{e-1} \right) \right) \geq \frac{1-(1-p)(1-\alpha v)}{2pe(1-\alpha v)}
-% \end{gather*}
-% Where we have used Theorem 3.2, the optimal $k$ is given by $\frac{e}{\alpha(1-\beta)}$, making $\Delta \approx \frac{1}{1-\beta}$. 
-% \end{proof}
-
-% Note that the above condition on $b$ is rather complicated, so we have plotted it as a function of $b$ below. First we notice that $g(b)$ is decreasing in $b$. So for a fixed evaluation of $x \equiv \frac{1-(1-p)(1-\alpha v)}{2pe(1-\alpha v)}$, we are in one of the following cases:
-% \begin{enumerate}
-% \item
-% $x \geq g(0)$. So no value of $b$ makes the reward program profitable.
-% \item
-% $x \leq g(1)$. So any value of $b$ makes the reward program profitable.
-% \item
-% $x = g(b_0)$ for some $b_0 \in (0,1)$. So the reward program is profitable for all $b \leq b_0$ and not otherwise.
-% \end{enumerate}
-
-% \begin{figure}[h!]
-% \begin{centering}
-% \includegraphics[scale = 0.75]{./figures/b_plot.pdf}
-% \caption{Function governing profitability of reward program for firm $A$ as a function of $b$.}
-% \label{fig:b_plot}
-% \end{centering}
-% \end{figure}
-
-% Now we can take a look at the right hand side of the profitability condition. Let $h(p, \alpha, v) = \frac{1-(1-p)(1-\alpha v)}{2pe(1-\alpha v)}$. It is easy to see that for all values of $p$, $\alpha$ and $v$, $\frac{\partial h}{\partial p} < 0$, $\frac{\partial h}{\partial v} > 0$ and $\frac{\partial h}{\partial \alpha} > 0$. These partial derivative signs mean that as $p$ increases (fixing $v$ and $\alpha$), the interval of profitable $b$'s can only increase. This result make sense intuitively - as the $p$ increases, the number of consumers looking ahead does as well, so more people adopt the reward program. However, increasing either $\alpha$ or $v$ (keeping others fixed), the interval of profitable $b$'s can only decrease. Thus, increasing the reward while keeping $p$ fixed means that in order for the reward program to remain profitable, the profits earned without the reward program must simultaneously decrease, which occurs with decreasing $b$.
+The above results can be extremely helpful in the following way: if a merchant has good estimates of its target customer population, \ie, $b$ and $p$ values, it can find the appropriate reward budget ratios $\alpha$, which could make running a reward program strictly better against a traditional pricing competitor.
