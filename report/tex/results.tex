@@ -163,12 +163,22 @@ The above lemma gives a lower bound on $b$ for $RoR_A > RoR_B$ in terms of $p$ a
 \begin{lemma}
 As $\alpha \rightarrow e$, $RoR_A > \frac{b}{2}$ if and only if the following condition on $b$ holds:
 \begin{equation}
-b < \frac{2p}{p+\frac{e\cdot v}{1-e\cdot v}}
+b < \frac{2p}{p+\frac{ev}{1-ev}}
 \end{equation}
 \end{lemma} 
 
 \begin{proof}
-
+The condition $RoR_A > \frac{b}{2}$ is equivalent to:
+\begin{align*}
+(1-\alpha v)\left(p \frac{e}{\alpha}\left(1-\frac{e-\alpha}{b\alpha}\log \left(1+\frac{b\alpha}{e-\alpha} \right) \right)+(1-p)\frac{b}{2}\right) &> \frac{b}{2} \\
+\frac{e}{\alpha} \left(1-\frac{e-\alpha}{b\alpha}\log \left(1+\frac{b\alpha}{e-\alpha} \right) \right) &> \frac{b}{2p}\left(\frac{1}{1-\alpha v}-(1-p) \right)
+\end{align*}
+As $\alpha \rightarrow e$, the left term above approaches 1 and we are left with:
+\begin{align*}
+b &< \frac{2 p (1-ev)}{1-(1-p)(1-ev)} \\
+&= \frac{2p(1-ev)}{p-pev+ev} \\
+&= \frac{2p}{p+\frac{ev}{1-ev}}
+\end{align*}
 \end{proof}
 
 We combine the above two lemmas to get an intuitive necessary and sufficient condition on $p$ for the reward program to be ``strictly better''. 
