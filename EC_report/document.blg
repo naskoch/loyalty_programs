@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: document.aux
+The style file: ACM-Reference-Format.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: bibliography.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--no number and no volume in berry2013loyalty
+Warning--page numbers missing in both pages and numpages fields in berry2013loyalty
+Warning--no number and no volume in fader1993excess
+Warning--no number and no volume in kopalle2001economic
+You've used 14 entries,
+            5551 wiz_defined-function locations,
+            1381 strings with 17621 characters,
+and the built_in function-call counts, 16543 in all, are:
+= -- 2738
+> -- 433
+< -- 0
++ -- 136
+- -- 270
+* -- 1036
+:= -- 1569
+add.period$ -- 70
+call.type$ -- 14
+change.case$ -- 81
+chr.to.int$ -- 14
+cite$ -- 18
+duplicate$ -- 1135
+empty$ -- 839
+format.name$ -- 196
+if$ -- 4264
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 56
+newline$ -- 157
+num.names$ -- 112
+pop$ -- 370
+preamble$ -- 1
+purify$ -- 151
+quote$ -- 0
+skip$ -- 367
+stack$ -- 0
+substring$ -- 1558
+swap$ -- 128
+text.length$ -- 214
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 196
+warning$ -- 4
+while$ -- 135
+width$ -- 0
+write$ -- 280
+(There were 4 warnings)

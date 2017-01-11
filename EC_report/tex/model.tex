@@ -1,0 +1,73 @@
+We index the two competing merchants selling identical goods as $A$ and $B$.
+Without loss of generality we assume that $A$ sells the good for a price of $1$ dollar while $B$ sells it for $1-v$ dollars, \ie, $B$ offers a discount of $v$ dollars. 
+$A$ on the other hand offers a reward of value $R$ dollars to a customer after (s)he makes $k$ purchases at $A$. 
+We investigate only the case we refer to as ``proportional promotion budgeting'' wherein this reward $R$ is proportional to the product of the distance to the reward $k$ and the discount $v$ provided by $B$.
+That is $R = \alpha k v$ where $\alpha$ is assumed to be a constant.
+
+\subsection{Customer Behavior Model}
+We assume customers purchase the item from either $A$ or $B$ everyday, \ie, we ignore the heterogeneity in frequency of purchases among the customers in our model and leave it for future work.
+We assume customers have a linear homogenous utility in price: at price $p$ the utility is $\nu(p) = 1-p$. 
+This reduces to customers getting an immediate utility of $0$ from $A$ and $v$ from $B$.
+All customers have the same time value of money as a discount factor of $\beta$ lying between $0$ and $1$.
+
+We denote a customer's visit probability bias and the look-ahead parameter with $\lambda$ and $t$ respectively. 
+That is with probability $\lambda$, (s)he purchases from $A$ due to externalities and perceives a future reward only if it is within $t$ purchases away. 
+We assume $\lambda$ for a customer to be drawn from a uniform distribution between $[0,b]$, where $b$ is between $0$ and $1$.
+And we focus on a simple threshold distribution for the look-ahead parameter $t$: 
+
+\begin{equation*}
+  t=\begin{cases}
+    t_1, & \text{wp } p,\\
+    0, & \text{wp } 1-p.
+  \end{cases}
+\end{equation*}
+
+The above distribution intuitively means that the customers are either myopic and focus only on immediate rewards, or are far-sighted enough (we assume $t_1$ is large).
+We model the customer's decision problem as a dynamic problem. We index the number of purchases the customer makes from $A$ until reward by $i$, for $0 \leq i \leq k-1$, and we refer a customer to be in state $i$ after having made $i$ purchases from $A$. At state $i$, the customer has two possibilities:
+\begin{enumerate}
+\item
+With probability $\lambda$, the customer must visit $A$, and she is now in state $i+1$.
+\item
+With probability $1-\lambda$, the customer may purchase from $B$ for an immediate utility $v$ and remain in state $i$ or purchase from $A$ for no immediate utility but move to state $i+1$.
+\end{enumerate}
+
+Let $V(i)$ denote the long term expected reward at state $i$. Then we model the decision problem as the following dynamic program.
+\begin{align*}
+& V(i) = \lambda \beta V(i+1) + (1-\lambda)\max\{v+\beta V(i),\beta V(i+1) \} \mbox{ for } 0\leq i \leq k-1 \\
+& V(k) = R
+\end{align*}
+
+We show that the decision process exhibits a phase transition; that is prior to some state, the customer purchases from $A$ only if (s)he must do so exogenously but after that state, (s)he always decides to purchase from $A$. 
+This phase transition point is independent of $\lambda$, and depends only on $t$, among the variable customer parameters.
+Hence we represent this phase transition point as $i_0(t)$.
+
+\subsection{Merchant Objective}
+Given the above model of customer dynamics, we define the revenue objectives of $A$ and $B$, where $A$ chooses its parameters whereas $B$ is non strategic. 
+We define the rate of revenue for a merchant from a customer as the expected time averaged revenue that the merchant receives within the customer's lifetime.
+For simplification we assume merchants do not discount future revenues.
+As described above, a customer's dynamics are cyclic after each reward cycle.
+Thus the lifetime dynamics of customer behavior is a regenerative process with independent and identically distributed reward cycle lengths.
+Let $RoR_A(c)$ and $RoR_B(c)$ denote the expected rate of revenues for $A$ and $B$ respectively from a customer $c$'s lifetime.
+Let $\tau(t, \lambda)$ denote the total number of purchases the customer makes before reaching the phase transition point $i_0(t)$.
+Then the length of the reward cycle (or total number of purchases the customer makes before receiving the reward) is $\tau(t, \lambda) + k - i_0(t)$, as after the phase transition (s)he makes all purchases from $A$ only until hitting the reward.
+In this cycle the number of visits that the customer makes to $A$ are $k$, and to $B$ are $\tau(t,\lambda) - i_0(t)$.
+The revenue that $A$ earns in one such cycle is $k-R$ and the revenue that $B$ earns is $(1-v)(\tau(t,\lambda) - i_0(t))$.
+Thus the rate of revenues for $A$ and $B$ from the customer $c$ are as follows:
+\beq
+RoR_A(c) = \underset{\tau}E\left[\frac{k-R}{\tau(t,\lambda) + k - i_0(t)}\right]\notag
+\eeq
+\beq
+RoR_B(c) = \underset{\tau}E\left[\frac{(\tau(t,\lambda) - i_0(t))(1-v)}{\tau(t,\lambda) + k - i_0(t)}\right]\notag
+\eeq
+
+Since the process for a single customer is regenerative, using the reward renewal theorem (\cite{10.2307/1426216}), we can take the expectation over the cycle length inside the numerator and denominator respectively.
+Note that $\underset{\tau}E[\tau(t,\lambda)] = \frac{i_0(t)}{\lambda}$ as before reaching the phase transition point, with probability $\lambda$, the number of purchases by the customer from $A$ increases by $1$ and with probability $1-\lambda$ it stays constant.
+Then taking the expectation over the customer population the overall rate of revenues for both $A$ and $B$ are as follows:
+
+\beq
+RoR_A = \underset{\lambda, t}E\left[\frac{k-R}{i_0(t)/\lambda + k - i_0(t)}\right]
+\eeq
+
+\beq
+RoR_B = \underset{\lambda, t}E\left[\frac{(i_0(t)\lambda - i_0(t))(1-v)}{i_0(t)/\lambda + k - i_0(t)}\right]
+\eeq

@@ -1,0 +1,213 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{00}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{}, \showDOI{}, and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showDOI}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showDOI #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showDOI      \undefined \def \showDOI       #1{{\tt DOI:}\penalty0{#1}\ }
+  \fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       #1{#1}          \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[\protect\citeauthoryear{Berry}{Berry}{2013}]%
+        {berry2013loyalty}
+\bibfield{author}{\bibinfo{person}{Jeff Berry}.}
+  \bibinfo{year}{2013}\natexlab{}.
+\newblock \showarticletitle{The 2013 COLLOQUY Loyalty Census}.
+\newblock \bibinfo{journal}{{\em COLLOQUY Industry Report\/}}
+  (\bibinfo{year}{2013}).
+\newblock
+\showURL{%
+\url{http://www.colloquy.com/files/2013-COLLOQUY-Census-Talk-White-Paper.pdf}}
+
+
+\bibitem[\protect\citeauthoryear{Cinlar}{Cinlar}{1969}]%
+        {10.2307/1426216}
+\bibfield{author}{\bibinfo{person}{Erhan Cinlar}.}
+  \bibinfo{year}{1969}\natexlab{}.
+\newblock \showarticletitle{Markov Renewal Theory}.
+\newblock \bibinfo{journal}{{\em Advances in Applied Probability\/}}
+  \bibinfo{volume}{1}, \bibinfo{number}{2} (\bibinfo{year}{1969}),
+  \bibinfo{pages}{123--187}.
+\newblock
+\showISSN{00018678}
+\showURL{%
+\url{http://www.jstor.org/stable/1426216}}
+
+
+\bibitem[\protect\citeauthoryear{Dreze and Nunes}{Dreze and Nunes}{2004}]%
+        {dreze2004using}
+\bibfield{author}{\bibinfo{person}{Xavier Dreze} {and}
+  \bibinfo{person}{Joseph~C Nunes}.} \bibinfo{year}{2004}\natexlab{}.
+\newblock \showarticletitle{Using combined-currency prices to lower
+  consumers’ perceived cost}.
+\newblock \bibinfo{journal}{{\em Journal of Marketing Research\/}}
+  \bibinfo{volume}{41}, \bibinfo{number}{1} (\bibinfo{year}{2004}),
+  \bibinfo{pages}{59--72}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Fader and Schmittlein}{Fader and
+  Schmittlein}{1993}]%
+        {fader1993excess}
+\bibfield{author}{\bibinfo{person}{Peter~S Fader} {and}
+  \bibinfo{person}{David~C Schmittlein}.} \bibinfo{year}{1993}\natexlab{}.
+\newblock \showarticletitle{Excess behavioral loyalty for high-share brands:
+  Deviations from the Dirichlet model for repeat purchasing}.
+\newblock \bibinfo{journal}{{\em Journal of Marketing research\/}}
+  (\bibinfo{year}{1993}), \bibinfo{pages}{478--493}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Gao, Huang, and Simonson}{Gao
+  et~al\mbox{.}}{2014}]%
+        {gao2014influence}
+\bibfield{author}{\bibinfo{person}{Leilei Gao}, \bibinfo{person}{Yanliu Huang},
+  {and} \bibinfo{person}{Itamar Simonson}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{The Influence of Initial Possession Level on
+  Consumers' Adoption of a Collection Goal: A Tipping Point Effect}.
+\newblock \bibinfo{journal}{{\em Journal of Marketing\/}} \bibinfo{volume}{78},
+  \bibinfo{number}{6} (\bibinfo{year}{2014}), \bibinfo{pages}{143--156}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Hartmann and Viard}{Hartmann and
+  Viard}{2008}]%
+        {hartmann2008frequency}
+\bibfield{author}{\bibinfo{person}{Wesley~R Hartmann} {and}
+  \bibinfo{person}{V~Brian Viard}.} \bibinfo{year}{2008}\natexlab{}.
+\newblock \showarticletitle{Do frequency reward programs create switching
+  costs? A dynamic structural analysis of demand in a reward program}.
+\newblock \bibinfo{journal}{{\em Quantitative Marketing and Economics\/}}
+  \bibinfo{volume}{6}, \bibinfo{number}{2} (\bibinfo{year}{2008}),
+  \bibinfo{pages}{109--137}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Hull}{Hull}{1932}]%
+        {hull1932goal}
+\bibfield{author}{\bibinfo{person}{Clark~L Hull}.}
+  \bibinfo{year}{1932}\natexlab{}.
+\newblock \showarticletitle{The goal-gradient hypothesis and maze learning.}
+\newblock \bibinfo{journal}{{\em Psychological Review\/}} \bibinfo{volume}{39},
+  \bibinfo{number}{1} (\bibinfo{year}{1932}), \bibinfo{pages}{25}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Kivetz, Urminsky, and Zheng}{Kivetz
+  et~al\mbox{.}}{2006}]%
+        {kivetz2006goal}
+\bibfield{author}{\bibinfo{person}{Ran Kivetz}, \bibinfo{person}{Oleg
+  Urminsky}, {and} \bibinfo{person}{Yuhuang Zheng}.}
+  \bibinfo{year}{2006}\natexlab{}.
+\newblock \showarticletitle{The goal-gradient hypothesis resurrected: Purchase
+  acceleration, illusionary goal progress, and customer retention}.
+\newblock \bibinfo{journal}{{\em Journal of Marketing Research\/}}
+  \bibinfo{volume}{43}, \bibinfo{number}{1} (\bibinfo{year}{2006}),
+  \bibinfo{pages}{39--58}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Kopalle and Neslin}{Kopalle and
+  Neslin}{2001}]%
+        {kopalle2001economic}
+\bibfield{author}{\bibinfo{person}{Praveen~K. Kopalle} {and}
+  \bibinfo{person}{Scott Neslin}.} \bibinfo{year}{2001}\natexlab{}.
+\newblock \showarticletitle{The Economic Viability of Frequency Reward Programs
+  in a Strategic Competitive Environment}.
+\newblock \bibinfo{journal}{{\em Tuck School of Business at Dartmouth Working
+  Paper No. 01-02. Available at SSRN: https://ssrn.com/abstract=265431 or
+  http://dx.doi.org/10.2139/ssrn.265431\/}} (\bibinfo{year}{2001}).
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Lewis}{Lewis}{2004}]%
+        {lewis2004influence}
+\bibfield{author}{\bibinfo{person}{Michael Lewis}.}
+  \bibinfo{year}{2004}\natexlab{}.
+\newblock \showarticletitle{The influence of loyalty programs and short-term
+  promotions on customer retention}.
+\newblock \bibinfo{journal}{{\em Journal of marketing research\/}}
+  \bibinfo{volume}{41}, \bibinfo{number}{3} (\bibinfo{year}{2004}),
+  \bibinfo{pages}{281--292}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Liu}{Liu}{2007}]%
+        {liu2007long}
+\bibfield{author}{\bibinfo{person}{Yuping Liu}.}
+  \bibinfo{year}{2007}\natexlab{}.
+\newblock \showarticletitle{The long-term impact of loyalty programs on
+  consumer purchase behavior and loyalty}.
+\newblock \bibinfo{journal}{{\em Journal of Marketing\/}} \bibinfo{volume}{71},
+  \bibinfo{number}{4} (\bibinfo{year}{2007}), \bibinfo{pages}{19--35}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Sharp and Sharp}{Sharp and Sharp}{1997}]%
+        {sharp1997loyalty}
+\bibfield{author}{\bibinfo{person}{Byron Sharp} {and} \bibinfo{person}{Anne
+  Sharp}.} \bibinfo{year}{1997}\natexlab{}.
+\newblock \showarticletitle{Loyalty programs and their impact on
+  repeat-purchase loyalty patterns}.
+\newblock \bibinfo{journal}{{\em International journal of Research in
+  Marketing\/}} \bibinfo{volume}{14}, \bibinfo{number}{5}
+  (\bibinfo{year}{1997}), \bibinfo{pages}{473--486}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Stourm, Bradlow, and Fader}{Stourm
+  et~al\mbox{.}}{2015}]%
+        {stourm2015stockpiling}
+\bibfield{author}{\bibinfo{person}{Valeria Stourm}, \bibinfo{person}{Eric~T
+  Bradlow}, {and} \bibinfo{person}{Peter~S Fader}.}
+  \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{Stockpiling Points in Linear Loyalty Programs}.
+\newblock \bibinfo{journal}{{\em Journal of Marketing Research\/}}
+  \bibinfo{volume}{52}, \bibinfo{number}{2} (\bibinfo{year}{2015}),
+  \bibinfo{pages}{253--267}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Villas-Boas}{Villas-Boas}{2015}]%
+        {villas2015short}
+\bibfield{author}{\bibinfo{person}{J~Miguel Villas-Boas}.}
+  \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{A short survey on switching costs and dynamic
+  competition}.
+\newblock \bibinfo{journal}{{\em International Journal of Research in
+  Marketing\/}} \bibinfo{volume}{32}, \bibinfo{number}{2}
+  (\bibinfo{year}{2015}), \bibinfo{pages}{219--222}.
+\newblock
+
+
+\end{thebibliography}
