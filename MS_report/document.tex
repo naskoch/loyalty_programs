@@ -1,0 +1,63 @@
+\documentclass[mnsc,blindrev]{informs3}
+\usepackage{mystyle}
+\OneAndAHalfSpacedXI
+\usepackage{natbib}
+ \bibpunct[, ]{(}{)}{,}{a}{}{,}%
+ \def\bibfont{\small}%
+ \def\bibsep{\smallskipamount}%
+ \def\bibhang{24pt}%
+ \def\newblock{\ }%
+ \def\BIBand{and}%
+
+
+\TheoremsNumberedThrough     % Preferred (Theorem 1, Lemma 1, Theorem 2)
+
+\ECRepeatTheorems
+
+\EquationsNumberedThrough    % Default: (1), (2), ...
+
+\MANUSCRIPTNO{MS-0001-1922.65}
+
+\input{./definitions.tex}
+
+\begin{document}
+
+\TITLE{Optimal Design of Frequency Reward Program}
+
+\ARTICLEAUTHORS{%
+\AUTHOR{Arpit Goel}
+\AFF{Department of Management Science and Engineering, Stanford University, Stanford, CA, 94305, \EMAIL{argoel@stanford.edu}}
+\AUTHOR{Nolan Skochdopole}
+\AFF{Institute of Computational Mathematics and Engineering, Stanford University, Stanford, CA, 94305, \EMAIL{nolan.skoch@stanford.edu}}
+}
+
+\ABSTRACT{%
+Need to write the abstract here
+}
+
+\KEYWORDS{butter, margarine, silliness} \HISTORY{This paper was
+first submitted on April 12, 1922 and has been with the authors for
+83 years for 65 revisions.}
+
+\maketitle
+\section{Introduction}
+\label{sec:intro}
+\input{\texfolder/intro.tex}
+\section{Model}
+\label{sec:model}
+\input{\texfolder/model.tex}
+
+\section{Results}
+\label{sec:results}
+\input{\texfolder/results.tex}
+
+\section{Conclusions}
+\label{sec:conc}
+\input{\texfolder/conclusions.tex}
+
+
+\bibliographystyle{plainnat}
+\setcitestyle{numbers}
+\bibliography{\basefolder/bibliography}
+
+\end{document}

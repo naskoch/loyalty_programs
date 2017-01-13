@@ -1,0 +1,101 @@
+\begin{thebibliography}{14}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Berry(2013)]{berry2013loyalty}
+Jeff Berry.
+\newblock The 2013 colloquy loyalty census.
+\newblock \emph{COLLOQUY Industry Report}, 2013.
+\newblock URL
+  \url{http://www.colloquy.com/files/2013-COLLOQUY-Census-Talk-White-Paper.pdf}.
+
+\bibitem[Cinlar(1969)]{10.2307/1426216}
+Erhan Cinlar.
+\newblock Markov renewal theory.
+\newblock \emph{Advances in Applied Probability}, 1\penalty0 (2):\penalty0
+  123--187, 1969.
+\newblock ISSN 00018678.
+\newblock URL \url{http://www.jstor.org/stable/1426216}.
+
+\bibitem[Dreze and Nunes(2004)]{dreze2004using}
+Xavier Dreze and Joseph~C Nunes.
+\newblock Using combined-currency prices to lower consumers’ perceived cost.
+\newblock \emph{Journal of Marketing Research}, 41\penalty0 (1):\penalty0
+  59--72, 2004.
+
+\bibitem[Fader and Schmittlein(1993)]{fader1993excess}
+Peter~S Fader and David~C Schmittlein.
+\newblock Excess behavioral loyalty for high-share brands: Deviations from the
+  dirichlet model for repeat purchasing.
+\newblock \emph{Journal of Marketing research}, pages 478--493, 1993.
+
+\bibitem[Gao et~al.(2014)Gao, Huang, and Simonson]{gao2014influence}
+Leilei Gao, Yanliu Huang, and Itamar Simonson.
+\newblock The influence of initial possession level on consumers' adoption of a
+  collection goal: A tipping point effect.
+\newblock \emph{Journal of Marketing}, 78\penalty0 (6):\penalty0 143--156,
+  2014.
+
+\bibitem[Hartmann and Viard(2008)]{hartmann2008frequency}
+Wesley~R Hartmann and V~Brian Viard.
+\newblock Do frequency reward programs create switching costs? a dynamic
+  structural analysis of demand in a reward program.
+\newblock \emph{Quantitative Marketing and Economics}, 6\penalty0 (2):\penalty0
+  109--137, 2008.
+
+\bibitem[Hull(1932)]{hull1932goal}
+Clark~L Hull.
+\newblock The goal-gradient hypothesis and maze learning.
+\newblock \emph{Psychological Review}, 39\penalty0 (1):\penalty0 25, 1932.
+
+\bibitem[Kivetz et~al.(2006)Kivetz, Urminsky, and Zheng]{kivetz2006goal}
+Ran Kivetz, Oleg Urminsky, and Yuhuang Zheng.
+\newblock The goal-gradient hypothesis resurrected: Purchase acceleration,
+  illusionary goal progress, and customer retention.
+\newblock \emph{Journal of Marketing Research}, 43\penalty0 (1):\penalty0
+  39--58, 2006.
+
+\bibitem[Kopalle and Neslin(2001)]{kopalle2001economic}
+Praveen~K. Kopalle and Scott Neslin.
+\newblock The economic viability of frequency reward programs in a strategic
+  competitive environment.
+\newblock \emph{Tuck School of Business at Dartmouth Working Paper No. 01-02.
+  Available at SSRN: https://ssrn.com/abstract=265431 or
+  http://dx.doi.org/10.2139/ssrn.265431}, 2001.
+
+\bibitem[Lewis(2004)]{lewis2004influence}
+Michael Lewis.
+\newblock The influence of loyalty programs and short-term promotions on
+  customer retention.
+\newblock \emph{Journal of marketing research}, 41\penalty0 (3):\penalty0
+  281--292, 2004.
+
+\bibitem[Liu(2007)]{liu2007long}
+Yuping Liu.
+\newblock The long-term impact of loyalty programs on consumer purchase
+  behavior and loyalty.
+\newblock \emph{Journal of Marketing}, 71\penalty0 (4):\penalty0 19--35, 2007.
+
+\bibitem[Sharp and Sharp(1997)]{sharp1997loyalty}
+Byron Sharp and Anne Sharp.
+\newblock Loyalty programs and their impact on repeat-purchase loyalty
+  patterns.
+\newblock \emph{International journal of Research in Marketing}, 14\penalty0
+  (5):\penalty0 473--486, 1997.
+
+\bibitem[Stourm et~al.(2015)Stourm, Bradlow, and Fader]{stourm2015stockpiling}
+Valeria Stourm, Eric~T Bradlow, and Peter~S Fader.
+\newblock Stockpiling points in linear loyalty programs.
+\newblock \emph{Journal of Marketing Research}, 52\penalty0 (2):\penalty0
+  253--267, 2015.
+
+\bibitem[Villas-Boas(2015)]{villas2015short}
+J~Miguel Villas-Boas.
+\newblock A short survey on switching costs and dynamic competition.
+\newblock \emph{International Journal of Research in Marketing}, 32\penalty0
+  (2):\penalty0 219--222, 2015.
+
+\end{thebibliography}

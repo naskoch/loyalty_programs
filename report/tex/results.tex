@@ -1,4 +1,4 @@
-\input{./tex/results/cust_behv.tex}
+\input{\texfolder/cust_behv.tex}
 
 \subsection{Merchant Objective Dynamics}
 We substitute the value of the phase transition point obtained above in the rate of revenue equations to reevaluate them. 
@@ -29,7 +29,7 @@ And in this work we only consider proportional promotion budgeting as mentioned 
 \begin{theorem}
 Under proportional promotion budgeting, the optimal reward distance that $A$ should set is $k = \frac{e}{\alpha(1-\beta)}$ at all values of $b$ as long as $\beta$ is close to 1.
 \end{theorem}
-\begin{proof}
+\proof
 Recall the previous expression for $RoR_A$. Maximizing this function is equivalent to maximizing the following:
 \begin{align*}
 \underset{k}\max\{RoR_A\} \Leftrightarrow & \underset{k} \max\left\{\frac{k}{\Delta}\left(1-\frac{k-\Delta}{b\Delta}\log\left(\frac{k-\Delta(1-b)}{k-\Delta}\right)\right)\right\}
@@ -66,7 +66,7 @@ So to maximize $f$, we need to minimize $\theta$.
 
 Observe that minimizing $\theta = \frac{k}{\Delta}$ is equivalent to minimizing the influence zone.
 As shown in Remark~\ref{rem:inf_zone}, this happens at $k = \frac{e}{\alpha(1-\beta)}$. 
-\end{proof}
+\endproof
 
 An interesting point to observe above is that maximizing the revenue objective is equivalent to minimizing the influence zone.
 This result matches the following intuition - the faster the merchant can get customers to adopt the reward program, the more transactions it will make in the long run - but is stronger as it actually maximizes the revenue objective as well. 
@@ -110,25 +110,25 @@ We formally show this result next.
 \centering
 \begin{subfigure}[t]{0.5\textwidth}
 \centering
-\includegraphics[height=2in]{./figures/bp_pair_both_al0p5.png}
+\includegraphics[height=2in]{\figurefolder/bp_pair_both_al0p5.png}
 \caption{$\alpha = 0.5$}
 \end{subfigure}%
 ~ 
 \begin{subfigure}[t]{0.5\textwidth}
 \centering
-\includegraphics[height=2in]{./figures/bp_pair_both_al1p0.png}
+\includegraphics[height=2in]{\figurefolder/bp_pair_both_al1p0.png}
 \caption{$\alpha = 1$}
 \end{subfigure}
 \centering
 \begin{subfigure}[t]{0.5\textwidth}
 \centering
-\includegraphics[height=2in]{./figures/bp_pair_both_al2p0.png}
+\includegraphics[height=2in]{\figurefolder/bp_pair_both_al2p0.png}
 \caption{$\alpha = 2$}
 \end{subfigure}%
 ~ 
 \begin{subfigure}[t]{0.5\textwidth}
 \centering
-\includegraphics[height=2in]{./figures/bp_pair_both_al2p5.png}
+\includegraphics[height=2in]{\figurefolder/bp_pair_both_al2p5.png}
 \caption{$\alpha = 2.5$}
 \end{subfigure}
 
@@ -136,9 +136,9 @@ We formally show this result next.
 \label{fig:offer_reward_or_not}
 \end{figure*}
 
-\begin{figure*}[t!]
+\begin{figure*}[t]
 \centering
-\includegraphics[scale = 0.6]{./figures/b_region_v2.png}
+\includegraphics[scale = 0.6]{\figurefolder/b_region_v2.png}
 \caption{The upper and lower bounds on $b$ as a function of $p$. Here $v = 0.05$ and $\alpha \rightarrow e$.}
 \label{fig:b_region}
 \end{figure*}
@@ -151,7 +151,7 @@ As $\alpha \rightarrow e$, $RoR_A > RoR_B$ if and only if the following conditio
 b > 2\cdot \frac{(1-v) - \frac{p}{1-p}\cdot (1-ev)}{(1-v) + (1-ev)}
 \end{equation}
 \end{lemma} 
-\begin{proof}
+\proof
 First we compute the following quantity.
 \begin{equation*}
 \lim_{\alpha \to e} \frac{e-\alpha}{b\alpha}\log{1+\frac{b\alpha}{e-\alpha}}
@@ -170,7 +170,7 @@ And our condition $RoR_A > RoR_B$ simplifies.
 b &> 2\cdot \frac{(1-v) - \frac{p}{1-p}\cdot (1-ev)}{(1-v) + (1-ev)} 
 \end{align*}
 
-\end{proof}
+\endproof
 
 The above lemma gives a lower bound on $b$ for $RoR_A > RoR_B$ in terms of $p$ and $v$. In order for the reward program to be strictly better than the traditional pricing model, we also need $RoR_A > \frac{b}{2}$. The following lemma shows that this condition gives a corresponding upper bound on $b$.
 
@@ -181,7 +181,7 @@ b < \frac{2p}{p+\frac{ev}{1-ev}}
 \end{equation}
 \end{lemma} 
 
-\begin{proof}
+\proof
 The condition $RoR_A > \frac{b}{2}$ is equivalent to:
 \begin{align*}
 (1-\alpha v)\left(p \frac{e}{\alpha}\left(1-\frac{e-\alpha}{b\alpha}\log \left(1+\frac{b\alpha}{e-\alpha} \right) \right)+(1-p)\frac{b}{2}\right) &> \frac{b}{2} \\
@@ -193,7 +193,7 @@ b &< \frac{2 p (1-ev)}{1-(1-p)(1-ev)} \\
 &= \frac{2p(1-ev)}{p-pev+ev} \\
 &= \frac{2p}{p+\frac{ev}{1-ev}}
 \end{align*}
-\end{proof}
+\endproof
 
 We combine the above two lemmas to get an intuitive necessary and sufficient condition on $p$ for the reward program to be ``strictly better''. 
 
@@ -204,8 +204,8 @@ As $\alpha \rightarrow e$, for the reward program to be strictly better, a neces
 p > 1 - \frac{1-ev}{1-ev^2}
 \eeq
 \end{lemma}
-\begin{proof}
-\end{proof}
+%\proof
+%\endproof
 
 Thus, for any choice of $v$, and $p$ obeying the above condition, the combination of the above lemmas gives an interval of $b$ values for which the reward program is the most profitable choice for the merchant. 
 Figure~\ref{fig:b_region} shows the bounds on $b$ for varying values of $p$, keeping $v = 0.05$ fixed, and restricting the range of $b$ values in $[0,1]$. 
@@ -215,8 +215,8 @@ We formalize this observation in the next lemma.
 \begin{lemma}
 As $\alpha \rightarrow e$ and $p$ obeying Eq.~\ref{eq:necp}, as $p$ increases, the range of values of $b$ for which the reward program is strictly better increases.
 \end{lemma}
-\begin{proof}
-\end{proof}
+%\proof
+%\endproof
 
 Figure~\ref{fig:b_restrictions} shows the upper and lower bounds on $b$ for all valid pairs of $p$ and $v$ with $\alpha \rightarrow e$. 
 The top plot shows the lower bound on $b$ and the bottom plot depicts the upper bound. 
@@ -226,7 +226,7 @@ We combine all the above observations into the following theorem.
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[scale = 0.75]{./figures/b_bounds.png}
+\includegraphics[scale = 0.75]{\figurefolder/b_bounds.png}
 \caption{Bounds on $b$ for various values of $p$ and $v$ at $\alpha \rightarrow e$. Top shows lower bounds on $b$ for $RoR_A \geq RoR_B$ and bottom shows upper bounds of $b$ for $RoR_A \geq \frac{b}{2}$.}
 \label{fig:b_restrictions}
 \end{centering}
@@ -236,8 +236,8 @@ We combine all the above observations into the following theorem.
 Under proportional budgeting, as $\alpha\rightarrow e$, a necessary and sufficient condition for reward program to be strictly better is a lowerbound on $p$ which increases with $v$.  
 And as $p$ increases beyond the lowerbound, the region of allowable $b$ for which the reward program is strictly better becomes larger. 
 \end{theorem}
-\begin{proof}
-\end{proof}
+%\proof
+%\endproof
 
 Now we generalize the above result for all values of $\alpha$. The conditions are more complex but the results and intuitions are similar. 
 
@@ -245,7 +245,7 @@ Now we generalize the above result for all values of $\alpha$. The conditions ar
 Fix $\alpha \in (0, e)$. For any $(p,v)$ pair, there exists some upper bound $b_1 \in [0,1]$ such that for all $b \leq b_1$, $RoR_A \geq \frac{b}{2}$.
 \end{lemma}
 
-\begin{proof}
+\proof
 We delay the proof of this lemma to first prove a helpful proposition. It is a straightforward computation to see that the condition of $RoR_A \geq \frac{b}{2}$ is equivalent to:
 \begin{gather*}
 \frac{1}{b}\left(1-\frac{e-\alpha}{b\alpha}\log \left(1+\frac{b\alpha}{e-\alpha} \right) \right) \geq \frac{\alpha(1-(1-p)(1-\alpha v))}{2pe(1-\alpha v)} \\
@@ -258,7 +258,7 @@ where we have defined functions $g(b)$ and $h(p,v)$ for fixed $\alpha$ for the a
 For a fixed $\alpha$, $g(b)$ is non-increasing for all $b \in [0,1]$. 
 \end{proposition}
 
-\begin{proof}
+\proof
 We take the derivative of $g$:
 \begin{align*}
 g'(b) &= \frac{2(e-\alpha)}{b^3 \alpha} \log\left(1+\frac{b\alpha}{e-\alpha} \right) - \frac{1}{b^2}-\frac{1}{b^2\left(1+\frac{b\alpha}{e-\alpha}\right)} \leq 0 \\
@@ -292,28 +292,27 @@ Now we can rearrange Eq.~\ref{eq:eq00} as follows:
 \end{align*}
 The left hand side of above is $L'(x)$ and right hand side is $R'(x)$.
 
-\end{proof}
+\endproof
 
 Thus, $g(b)$ is decreasing in $b$, so for any $(p,v)$ pair, we may compute $h(p, v; \alpha)$, which will then fall into one of the following three cases.
-\begin{enumerate}
+\begin{itemize}
 \item
 $h(p,v;\alpha) \geq g(0)$. So no value of $b$ makes the reward program profitable.
 \item
 $h(p,v;\alpha) \leq g(1)$. So any value of $b$ makes the reward program profitable.
 \item
 $h(p,v;\alpha) = g(b_0)$ for some $b_0 \in (0,1)$. So the reward program is profitable for all $b \leq b_0$ and not otherwise.
-\end{enumerate}
+\end{itemize}
 
 The above proposition and discussion proves our lemma: for fixed $\alpha$ and any $(p,v)$ pair, there is some upperbound on $b$ s.t. $RoR_A > \frac{b}{2}$. 
-\end{proof}
+\endproof
 
 Now we again look at the conditions for $RoR_A > RoR_B$ to get a lower bound on $b$.  
 \begin{lemma}
 Fix $\alpha \in (0, e)$. For any $(p,v)$ pair, there exists some lower bound $b_0 \in [0,1]$ such that for all $b \geq b_0$, $RoR_A > RoR_B$.
 \end{lemma}
 
-\begin{proof}
-
+\proof
 Let $\frac{b\alpha}{e-\alpha} = X$. Then $RoR_A > RoR_B$ can be evaluated as follows:
 
 \begin{eqnarray}
@@ -363,7 +362,7 @@ Clearly RHS is negative when $b\in (0,1]$ and LHS is positive. Hence proved.
 Thus $L(b,p)$ is increasing in both $b$ and $p$. And the condition required is $L(b,p)$ is greater than some constant value which depends on $v$.
 Hence for any $v$ there exists a smooth $(b_0,p_0)$ curve such that for all $b\ge b_0$ and $p\ge p_0$ revenue rate of reward program merchant is larger.
 
-\end{proof}
+\endproof
 
 We combine the above two lemmas as before to get the following theorem.
 
