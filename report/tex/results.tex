@@ -198,14 +198,31 @@ b &< \frac{2 p (1-ev)}{1-(1-p)(1-ev)} \\
 We combine the above two lemmas to get an intuitive necessary and sufficient condition on $p$ for the reward program to be ``strictly better''. 
 
 \begin{lemma}
-As $\alpha \rightarrow e$, for the reward program to be strictly better, a necessary and sufficient condition on $p$ is:
+As $\alpha \rightarrow e$, for the reward program to be strictly better on some values of $b$, a necessary and sufficient condition on $p$ is:
 \beq
 \label{eq:necp}
 p > 1 - \frac{1-ev}{1-ev^2}
 \eeq
 \end{lemma}
-%\proof
-%\endproof
+
+\proof
+The previous two lemmas provide lower and upper bounds on $b$ for $RoR_A > RoR_B$ and $RoR_A > \frac{b}{2}$, respectively. For the reward program to be strictly better than all alternatives, both of these conditions must be met. The values of $b$ for which both are met is given by:
+\begin{align*}
+2\cdot \frac{(1-v) - \frac{p}{1-p}\cdot (1-ev)}{(1-v) + (1-ev)} < b < \frac{2p}{p+\frac{ev}{1-ev}}
+\end{align*}
+The above inequality is only valid when the lower bound is less than the upper bound. We may manipulate this inequality to get the simple condition on $p$ in our claim.
+\begin{align*}
+2\cdot \frac{(1-v) - \frac{p}{1-p}\cdot (1-ev)}{(1-v) + (1-ev)} &< \frac{2p}{p+\frac{ev}{1-ev}} \\
+\left(p+\frac{ev}{1-ev} \right)\left((1-v)+\frac{p}{1-p}(1-ev) \right) &<  p(1-v+1-ev) \\
+(1-v)\frac{ev}{1-ev} &< p(1-ev)+\frac{p^2}{1-p}(1-ev) + \frac{p}{1-p}ev \\
+(1-p)(1-v)\frac{ev}{1-ev} &< (1-p)p(1-ev)+p^2(1-ev)+pev \\
+(1-v)\frac{ev}{1-ev} &< p\left(1+(1-v)\frac{ev}{1-ev} \right) \\
+\frac{(1-v)ev}{(1-ev)+(1-v)ev} &< p \\
+\frac{ev-ev^2}{1-ev^2} &< p \\
+\frac{(1-ev^2)-(1-ev)}{1-ev^2} &< p \\
+1-\frac{1-ev}{1-ev^2} &< p
+\end{align*}
+\endproof
 
 Thus, for any choice of $v$, and $p$ obeying the above condition, the combination of the above lemmas gives an interval of $b$ values for which the reward program is the most profitable choice for the merchant. 
 Figure~\ref{fig:b_region} shows the bounds on $b$ for varying values of $p$, keeping $v = 0.05$ fixed, and restricting the range of $b$ values in $[0,1]$. 
@@ -215,8 +232,21 @@ We formalize this observation in the next lemma.
 \begin{lemma}
 As $\alpha \rightarrow e$ and $p$ obeying Eq.~\ref{eq:necp}, as $p$ increases, the range of values of $b$ for which the reward program is strictly better increases.
 \end{lemma}
-%\proof
-%\endproof
+
+\proof
+We know that the range of $b$ values in which we are interested is given by the interval.
+\begin{align*}
+2\cdot \frac{(1-v) - \frac{p}{1-p}\cdot (1-ev)}{(1-v) + (1-ev)} < b < \frac{2p}{p+\frac{ev}{1-ev}}
+\end{align*}
+Because $p$ obeys eq.~\ref{eq:necp}, the above inequality is valid. We will show that the above upper bound increases with $p$ and the lower bound decreases with increasing $p$. Therefore, as $p$ increases, the interval of $b$ values for which the reward program grows. First consider the upper bound, $UB(p) = \frac{2p}{p+\frac{ev}{1-ev}}$.
+\begin{align*}
+UB'(p) = \frac{ev}{(1-ev)\left(p+\frac{ev}{1-ev} \right)^2} \geq 0, \mbox{ } \forall p
+\end{align*}
+Now we consider the lower bound, $LB(p) = 2\cdot \frac{(1-v) - \frac{p}{1-p}\cdot (1-ev)}{(1-v) + (1-ev)}$.
+\begin{align*}
+LB'(p) = -\frac{2(1-ev)}{(1-p)^2((1-v)+(1-ev))} \leq 0, \mbox{ } \forall p
+\end{align*}
+\endproof
 
 Figure~\ref{fig:b_restrictions} shows the upper and lower bounds on $b$ for all valid pairs of $p$ and $v$ with $\alpha \rightarrow e$. 
 The top plot shows the lower bound on $b$ and the bottom plot depicts the upper bound. 
