@@ -1,12 +1,12 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[format=acmsmall, review=false]{acmart}
 \usepackage{acm-ec-17}
-%\linespread{1.5}
+\usepackage{subcaption, amsmath, amsfonts}
 \title{Optimal Design of Frequency Reward Program}
 \date{\today}
-
+\input{./definitions.tex}
 \begin{document}
 \maketitle
-\input{./definitions.tex}
+%\input{./definitions.tex}
 \section{Introduction}
 \label{sec:intro}
 \input{./tex/intro.tex}
@@ -21,7 +21,6 @@
 \input{./tex/conclusions.tex}
 
 \bibliographystyle{ACM-Reference-Format}
-%\setcitestyle{numbers}
 \bibliography{bibliography}
 
 \end{document}
