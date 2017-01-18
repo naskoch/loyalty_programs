@@ -1,14 +1,11 @@
-\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{Related Work}{section.1}% 2
-\BOOKMARK [2][-]{subsection.1.2}{Our Contributions}{section.1}% 3
-\BOOKMARK [3][-]{subsubsection.1.2.1}{Competitive Duopoly Setup}{subsection.1.2}% 4
-\BOOKMARK [3][-]{subsubsection.1.2.2}{Customer Parameters}{subsection.1.2}% 5
-\BOOKMARK [3][-]{subsubsection.1.2.3}{Customer Choice Dynamics}{subsection.1.2}% 6
-\BOOKMARK [3][-]{subsubsection.1.2.4}{Reward Program Design}{subsection.1.2}% 7
-\BOOKMARK [1][-]{section.2}{Model}{}% 8
-\BOOKMARK [2][-]{subsection.2.1}{Customer Behavior Model}{section.2}% 9
-\BOOKMARK [2][-]{subsection.2.2}{Merchant Objective}{section.2}% 10
-\BOOKMARK [1][-]{section.3}{Results}{}% 11
-\BOOKMARK [2][-]{subsection.3.1}{Customer Choice Dynamics}{section.3}% 12
-\BOOKMARK [2][-]{subsection.3.2}{Merchant Objective Dynamics}{section.3}% 13
-\BOOKMARK [1][-]{section.4}{Conclusions}{}% 14
+\BOOKMARK [1][-]{section.1}{1 Introduction}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{1.1 Related Work}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{1.2 Our Contributions}{section.1}% 3
+\BOOKMARK [1][-]{section.2}{2 Model}{}% 4
+\BOOKMARK [2][-]{subsection.2.1}{2.1 Customer Behavior Model}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.2}{2.2 Merchant Objective}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{3 Results}{}% 7
+\BOOKMARK [2][-]{subsection.3.1}{3.1 Customer Choice Dynamics}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.2}{3.2 Merchant Objective Dynamics}{section.3}% 9
+\BOOKMARK [1][-]{section.4}{4 Conclusions}{}% 10
+\BOOKMARK [1][-]{section*.5}{References}{}% 11
