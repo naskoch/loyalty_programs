@@ -1,25 +1,24 @@
-We make both modeling and analytical contributions along the following directions:
-
-\subsubsection{Competitive Duopoly Setup}
+\subsubsection{Model Overview}
 We model a competitive duopoly of two merchants, one of them offering a frequency reward program and the other offering traditional pricing.
 Both merchants sell an identical good at fixed precommitted prices.
 The reward program merchant sells the good at a higher price.
-Customers are drawn from a known population distribution and they measure their utilities in rational economic terms, \ie, they make their purchase decisions to maximize long term discounted rewards.
-The discount factor is the time value of money, and is constant for all customers.
-Every customer makes a purchase everyday from either of the two merchants.
-With each purchase from the reward program merchant, customer gains some fixed number of points, and on achieving the reward redemption threshold, (s)he immediately gains the reward value as a dollar cashback.
+With each purchase from the reward program merchant, a customer gains some fixed number of points, and on achieving the reward redemption threshold, (s)he immediately gains the reward value as a dollar cashback.
 
-\subsubsection{Customer Parameters}
-Each customer has two important parameters drawn from the known population distribution: first a visit probability bias with which (s)he purchases the good from the reward program merchant for reasons exogenous to utility maximization, and second a look-ahead factor that controls how far into the future the customer can perceive the rewards.
-The visit probability bias toward the reward program merchant can be attributed to \emph{excess loyalty} which has been argued as a important parameter for the success of any reward program, or it can be attributed to price insensitivity of the customer; whenever the customer is price insensitive, (s)he strictly prefers to purchase from the reward program merchant as (s)he gains points redeemable for rewards in the future.
+Customers measure their utilities in rational economic terms, \ie, they make their purchase decisions to maximize long term discounted rewards.
+The discount factor is the time value of money, and we assume it to be constant for all customers.
+We also assume that every customer makes a purchase everyday from either of the two merchants.
+We relax these two assumptions by introducing a look-ahead factor that controls how far into the future a customer can perceive the rewards. 
+This affects the customer behavior dynamics as follows: if the reward is farther than the customer's look-ahead parameter, (s)he is unable to perceive the future value of that reward and take it into consideration while maximizing long term utility.
+{\arpit This parameter, being customer specific, adds some heterogeneity to both the future discounting and purchase frequency. (Need more explanation here?)}
+We only model myopic and strategic customers, \ie, the look-ahead parameter being $0$ or a large value, and leave further parametrization for future work.
+In addition, we assume each customer has a visit probability bias with which (s)he purchases the good from the reward program merchant for reasons exogenous to utility maximization.
+This can be attributed to \emph{excess loyalty} which has been argued as a important parameter for the success of any reward program, or it can be attributed to price insensitivity of the customer; whenever the customer is price insensitive, (s)he strictly prefers to purchase from the reward program merchant as (s)he gains points redeemable for rewards in the future.
 There are many possible reasons for customers' price insensitivity: the reward program merchant could be offering some other monopoly products, or the customer might be getting reimbursed for some purchases as part of corporate perks (eg: corporate travel).
 As an effect, this visit probability bias controls how frequently the customers' points increase even when (s)he does not actively choose to make purchases from the reward program merchant.
-The look-ahead parameter affects the customer behavior dynamics as follows: if the reward is farther than the customer's look-ahead parameter, (s)he is unable to perceive the future value of that reward and take it into consideration while maximizing long term utility.
-We only model myopic and strategic customers, \ie, the look-ahead parameter being $0$ or a large value, and leave further parametrization for future work.
-Both these parameters can be attributed to bounded rationality of customers and have been argued to be important factors toward customer choice dynamics as discussed in the related work.
+Both these parameters can be attributed to bounded rationality of customers and have been argued to be important factors toward customer choice dynamics, as discussed in the related work.
 
 
-\subsubsection{Customer Choice Dynamics}
+\subsubsection{Results Overview}
 We formulate the customer choice dynamics as a dynamic program with the state being the number of points collected from the reward program merchant.
 When the customer does not make biased visits to the reward program merchant, (s)he compares the immediate utility of purchasing the good at a cheaper price with the long term utility of waiting and receiving the time discounted reward, to make a choice. 
 The solution to the customer's dynamic program gives conditions for the existence and achievability of a phase transition: a points threshold before which the customer visits the merchant offering rewards only due to the visit probability bias, and after which (s)he always visits the merchant offering rewards till receiving the reward.
@@ -40,7 +39,6 @@ We optimize over this influence zone and show that the optimal distance to the r
 
 In short, these results verify that our model is in coherence with the different psychological constructs as discussed in the related work section: purchase acceleration closer to reward redemption and a tipping point before which purchases are only due to exogenous visit bias.
 
-\subsubsection{Reward Program Design}
 After characterizing the customer behavior dynamics in our model, we optimize over the long run revenues that the reward program merchant achieves.
 We provide a framework for optimizing the parameters for the reward program merchant to maximize its revenue objective.
 We then look at a specific simplified case of proportional promotion budgeting: the reward offered by the reward program merchant is proportional to the product of the distance to the reward and the discount provided by the traditional pricing merchant.
