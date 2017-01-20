@@ -13,6 +13,19 @@ RoR_A =& \underset{\lambda, t}E\left[\frac{k-R}{i_0(t)/\lambda + k - i_0(t)}\rig
                                        =& p\cdot\frac{k-R}{\Delta}\cdot\left(1 - \frac{k-\Delta}{b\Delta}\log\left(1+\frac{b\Delta}{k-\Delta}\right)\right) + (1-p)\frac{b(k-R)}{2k}
 \end{align*}
 
+{\arpit
+\begin{align*}
+\max_{k,\alpha} \left\{\underset{\lambda}E\left[p\frac{\lambda(1-\alpha v)}{1-\theta(1-\lambda)} + (1-p)\lambda (1-\alpha v)\right]\right\}
+\end{align*}
+
+Where $\theta = \frac{\Delta}{k}$. Maximizing over $\theta$ gives maximizing $\theta$ which occurs at $k = \frac{e}{\alpha (1-\beta)}$.
+This creates $\theta = \frac{\alpha}{e}$. Substituting we get
+
+\begin{align*}
+\max_{\alpha} \left\{\underset{\lambda}E\left[p\frac{\lambda(1-\alpha v)}{1-\frac{\alpha}{e}(1-\lambda)} + (1-p)\lambda (1-\alpha v)\right]\right\}
+\end{align*}
+}
+
 \begin{align*}
 RoR_B =& \underset{\lambda, t}E\left[\frac{(i_0(t)\lambda - i_0(t))(1-v)}{i_0(t)/\lambda + k - i_0(t)}\right]\\
                                      =& \underset{\lambda}E\left[p\cdot\frac{(i_0/\lambda - i_0)(1-v)}{i_0/\lambda + k - i_0} + (1-p)\frac{(k/\lambda - k)(1-v)}{k/\lambda}\right]\\
