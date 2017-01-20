@@ -26,6 +26,17 @@ This creates $\theta = \frac{\alpha}{e}$. Substituting we get
 \end{align*}
 }
 
+{\nolan
+
+We can just write the maximization problem as:
+\begin{align*}
+&\max_{k,\alpha} \left(\int_{x_0}^{x_1} p \frac{\lambda k (1-\alpha v)}{k-(1-\lambda) \Delta} + (1-p)\lambda (1-\alpha v) d\lambda \right) \\
+&= \max_{k,\alpha} \left((1-\alpha v) \int_{x_0}^{x_1} p \frac{\lambda k}{k-(1-\lambda) \Delta} + (1-p)\lambda d\lambda \right) \\
+&= \max_{k,\alpha} h(\alpha)f(k)
+\end{align*}
+So the function is separable, and we can do the maximizations separately.
+}
+
 \begin{align*}
 RoR_B =& \underset{\lambda, t}E\left[\frac{(i_0(t)\lambda - i_0(t))(1-v)}{i_0(t)/\lambda + k - i_0(t)}\right]\\
                                      =& \underset{\lambda}E\left[p\cdot\frac{(i_0/\lambda - i_0)(1-v)}{i_0/\lambda + k - i_0} + (1-p)\frac{(k/\lambda - k)(1-v)}{k/\lambda}\right]\\
