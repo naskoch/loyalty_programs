@@ -110,14 +110,12 @@ Influence zone is minimized at $k = \frac{e}{\alpha(1-\beta)}$ under proportiona
 \end{remark}
 \proof
 As defined the influence zone is $\frac{i_0}{k} = \frac{k-\Delta}{k} = 1 -\frac{\Delta}{k}$.
-Thus minimizing the influence zone is equivalent to minimizing $\frac{k}{\Delta}$.
+Thus minimizing the influence zone is equivalent to maximizing $\frac{\Delta}{k}$.
 \begin{align*}
-\frac{k}{\Delta} = \frac{k}{\log_\beta\left(\frac{1}{\alpha k(1-\beta)}\right)} \sim \frac{k(1-\beta)}{\log (\alpha k(1-\beta))} 
+\frac{\Delta}{k} = \frac{\log_\beta\left(\frac{1}{\alpha k(1-\beta)}\right)}{k}\sim \frac{\log (\alpha k(1-\beta))} {k(1-\beta)}
 \end{align*}
-The above approximation relies on $\beta$ close to 1. Now this value is minimized at $k = \frac{e}{\alpha(1-\beta)}$. Therefore, for all $b$, the optimal value for $k$ is given by $\frac{e}{\alpha(1-\beta)}$, the value for which $\frac{k}{\Delta}$ is minimized and takes the value $\frac{e}{\alpha}$. 
+The above approximation relies on $\beta$ close to 1. Now this value is maximized at $k = \frac{e}{\alpha(1-\beta)}$. Therefore, for all $b$, the optimal value for $k$ is given by $\frac{e}{\alpha(1-\beta)}$, the value for which $\frac{k}{\Delta}$ is minimized and takes the value $\frac{e}{\alpha}$. 
 At this value the influence zone takes the value $1-\frac{\alpha}{e}$.
 \endproof
 Note that if $\alpha$ is $1$, then the value of $k$ corresponds to a cashback between $2$\% and $4$\% as $\beta$ ranges between $0.95$ and $0.9$.
 This value is realistic to what is observed in practice.
-
-

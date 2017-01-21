@@ -1,13 +1,78 @@
 \input{\texfolder/cust_behv.tex}
 
 \subsection{Merchant Objective Dynamics}
-We substitute the value of the phase transition point obtained above in the rate of revenue equations to reevaluate them. 
-And since we assume that $\lambda$ and $t$ are drawn independent of each other, we can separate the expectation terms and evaluate them sequentially, first over $t$, then over $\lambda$. This reduces the rate of revenues as follows:
+
+\begin{theorem}
+Under proportional promotion budgeting, the optimal reward distance ($k$) and the optimal budget proportion ($\alpha$) that $A$ should set follow the following relation $\alpha k = \frac{e}{(1-\beta)}$ at all values of $b$ as long as $\beta$ is close to 1.
+\end{theorem}
+\proof
+Let $\theta = \frac{\Delta}{k}$. First, we evaluate $RoR_A$.
+We substitute the value of the phase transition point obtained above in the rate of revenue equation for $A$ to reevaluate it. 
+And since we assume that $\lambda$ and $t$ are drawn independent of each other, we can separate the expectation terms and evaluate them sequentially, first over $t$, then over $\lambda$.
+\begin{align*}
+RoR_A =& \underset{\lambda, t}E\left[\frac{k-R}{i_0(t)/\lambda + k - i_0(t)}\right]\\
+                                       =& \underset{\lambda}E\left[p\cdot\frac{k-R}{i_0/\lambda + k - i_0} + (1-p)\frac{\lambda(k-R)}{k}\right]\\
+                                       =& \underset{\lambda}E\left[p\cdot\frac{\lambda(k-R)}{k\lambda + i_0(1-\lambda)} + (1-p)\frac{\lambda(k-R)}{k}\right]\\
+                                       =& \underset{\lambda}E\left[p\cdot\frac{\lambda(1-\alpha v)}{1-\theta(1-\lambda)} + (1-p)\lambda (1-\alpha v)\right]\\
+                                       =& \int_{x_0}^{x_1} \left(p\cdot\frac{\lambda(1-\alpha v)}{1-\theta(1-\lambda)} + (1-p)\lambda (1-\alpha v)\right) f(\lambda) d\lambda
+\end{align*}
+
+Observe that the term inside the integral is maximized when $\theta$ is maximized.
+Using Leibniz' Rule, we can conclude that the integral itself is maximized when $\theta$ is maximized, which as shown above, is equivalent to minimizing the influence zone.
+As shown in Remark~\ref{rem:inf_zone}, this happens at $k \alpha = \frac{e}{1-\beta}$. 
+\endproof
+
+\begin{comment}
+Recall the previous expression for $RoR_A$. Maximizing this function is equivalent to maximizing the following:
+\begin{align*}
+\underset{k}\max\{RoR_A\} \Leftrightarrow & \underset{k} \max\left\{\frac{k}{\Delta}\left(1-\frac{k-\Delta}{b\Delta}\log\left(\frac{k-\Delta(1-b)}{k-\Delta}\right)\right)\right\}
+\end{align*}
+Now let $\theta = \frac{k}{\Delta}$. Then maximizing the above function is equivalent to maximizing the following function w.r.t. $\theta$. Note that $\theta \geq 1$ because $k \geq \Delta$.
+\beq\notag
+\underset{k}\max\{RoR_A\} \Leftrightarrow \underset{\theta}\max\{f(\theta)\} \Leftrightarrow \underset{\theta}\max\left\{ \theta \left(1-\frac{\theta-1}{b}\log\left(1 + \frac{b}{\theta-1}\right)\right)\right\} 
+\eeq
+
+We will show that $f'(\theta) \leq 0$ for all $\theta$ so maximizing $f$ is equivalent to minimizing $\theta$.
+
+\begin{align*}
+f'(\theta) &= \frac{2\theta-1+b}{\theta-1+b} - \frac{2\theta-1}{b} \log \left(1+\frac{b}{\theta-1} \right) \\
+&= \frac{2\theta-1}{b}\cdot\left(\left(\frac{2\theta-1+b}{\theta-1+b}\right)\left(\frac{b}{2\theta-1} \right) - \log \left(1+\frac{b}{\theta-1} \right)\right) \\
+&= \frac{2\theta-1}{b}\cdot\left(\frac{b}{\theta-1+b}+\frac{b^2}{(2\theta-1)(\theta-1+b)} - \log \left(1+\frac{b}{\theta-1} \right)\right)
+\end{align*}
+
+Let $g(b, \theta) = \frac{b}{\theta-1+b}+\frac{b^2}{(2\theta-1)(\theta-1+b)} - \log \left(1+\frac{b}{\theta-1} \right)$. 
+In the limit of $b \to 0$, it is easy to see that $f'(\theta) = g(b, \theta) = 0$ for all $\theta$ in the domain. 
+We now show that for all $\theta$ in the domain and all $0 < b \leq 1$, $\frac{\partial g(b, \theta)}{\partial b} \leq 0$.
+
+\begin{align*}
+\frac{\partial g(b,\theta)}{\partial b} &= \frac{\theta-1}{(\theta-1+b)^2}+\frac{1}{2\theta-1}\cdot \frac{2b(\theta-1+b)-b^2}{(\theta-1+b)^2} -\frac{1}{\theta-1+b} \leq 0 \\
+&\iff \theta-1 + \frac{2b(\theta-1+b)-b^2}{2\theta-1} \leq \theta-1+b \\
+&\iff \frac{b(2\theta-2+b)}{2\theta-1} \leq b \\
+&\iff 2\theta-2+b \leq 2\theta-1 \\
+&\iff b \leq 1
+\end{align*}
+
+Thus we have shown that for all $\theta$, $g(b,\theta) = 0$ as $b \to 0$ and that for all $\theta$ and $0 < b \leq 1$, $g(b,\theta)$ is decreasing. 
+These together mean that for all $\theta$ and $b \in [0,1]$, $g(b,\theta) \leq 0$. 
+Which implies that $f'(\theta) \le 0$ for all $\theta$ in the domain.
+So to maximize $f$, we need to minimize $\theta$.
+
+Observe that minimizing $\theta = \frac{k}{\Delta}$ is equivalent to minimizing the influence zone.
+As shown in Remark~\ref{rem:inf_zone}, this happens at $k = \frac{e}{\alpha(1-\beta)}$. 
+\endproof
+
+\end{comment}
+
+{\arpit Now can we substitute the distribution to be uniform $[0,b]$. Possibly find the optimal $\alpha$ and show all the results we had before? We can leave finding optimal $\alpha$ distribution dependent (on moments of the distribution) to future.}
+
+ This reduces the rate of revenues as follows:
 
 \begin{align*}
 RoR_A =& \underset{\lambda, t}E\left[\frac{k-R}{i_0(t)/\lambda + k - i_0(t)}\right]\\
                                        =& \underset{\lambda}E\left[p\cdot\frac{k-R}{i_0/\lambda + k - i_0} + (1-p)\frac{\lambda(k-R)}{k}\right]\\
                                        =& \underset{\lambda}E\left[p\cdot\frac{\lambda(k-R)}{k\lambda + i_0(1-\lambda)} + (1-p)\frac{\lambda(k-R)}{k}\right]\\
+                                       =& \underset{\lambda}E\left[p\cdot\frac{\lambda(1-\alpha v)}{1-\theta(1-\lambda)} + (1-p)\lambda (1-\alpha v)\right]\\
+                                       =& \int_{x_0}^{x_1} \left(p\cdot\frac{\lambda(1-\alpha v)}{1-\theta(1-\lambda)} + (1-p)\lambda (1-\alpha v)\right) f(\lambda) d\lambda\\
                                        =& p\cdot\frac{k-R}{b(k-i_0)^2}\cdot\left(b(k-i_0) - i_0 \log\left(1 + \frac{b(k-i_0)}{i_0}\right)\right) + (1-p)\frac{b(k-R)}{2k}\\
                                        =& p\cdot\frac{k-R}{b\Delta^2}\cdot\left(b\Delta - (k-\Delta)\log\left(1+\frac{b\Delta}{k-\Delta}\right)\right) + (1-p)\frac{b(k-R)}{2k}\\
                                        =& p\cdot\frac{k-R}{\Delta}\cdot\left(1 - \frac{k-\Delta}{b\Delta}\log\left(1+\frac{b\Delta}{k-\Delta}\right)\right) + (1-p)\frac{b(k-R)}{2k}
@@ -50,47 +115,6 @@ The above framework can be used for optimizing for the reward parameters to maxi
 We leave the competitive study where merchant $B$ could strategize on its discount value $v$ for future work.
 And in this work we only consider proportional promotion budgeting as mentioned in Section~\ref{sec:model}, where $R = \alpha k v$ and $\alpha$ is a constant.
 
-\begin{theorem}
-Under proportional promotion budgeting, the optimal reward distance that $A$ should set is $k = \frac{e}{\alpha(1-\beta)}$ at all values of $b$ as long as $\beta$ is close to 1.
-\end{theorem}
-\proof
-Recall the previous expression for $RoR_A$. Maximizing this function is equivalent to maximizing the following:
-\begin{align*}
-\underset{k}\max\{RoR_A\} \Leftrightarrow & \underset{k} \max\left\{\frac{k}{\Delta}\left(1-\frac{k-\Delta}{b\Delta}\log\left(\frac{k-\Delta(1-b)}{k-\Delta}\right)\right)\right\}
-\end{align*}
-Now let $\theta = \frac{k}{\Delta}$. Then maximizing the above function is equivalent to maximizing the following function w.r.t. $\theta$. Note that $\theta \geq 1$ because $k \geq \Delta$.
-\beq\notag
-\underset{k}\max\{RoR_A\} \Leftrightarrow \underset{\theta}\max\{f(\theta)\} \Leftrightarrow \underset{\theta}\max\left\{ \theta \left(1-\frac{\theta-1}{b}\log\left(1 + \frac{b}{\theta-1}\right)\right)\right\} 
-\eeq
-
-We will show that $f'(\theta) \leq 0$ for all $\theta$ so maximizing $f$ is equivalent to minimizing $\theta$.
-
-\begin{align*}
-f'(\theta) &= \frac{2\theta-1+b}{\theta-1+b} - \frac{2\theta-1}{b} \log \left(1+\frac{b}{\theta-1} \right) \\
-&= \frac{2\theta-1}{b}\cdot\left(\left(\frac{2\theta-1+b}{\theta-1+b}\right)\left(\frac{b}{2\theta-1} \right) - \log \left(1+\frac{b}{\theta-1} \right)\right) \\
-&= \frac{2\theta-1}{b}\cdot\left(\frac{b}{\theta-1+b}+\frac{b^2}{(2\theta-1)(\theta-1+b)} - \log \left(1+\frac{b}{\theta-1} \right)\right)
-\end{align*}
-
-Let $g(b, \theta) = \frac{b}{\theta-1+b}+\frac{b^2}{(2\theta-1)(\theta-1+b)} - \log \left(1+\frac{b}{\theta-1} \right)$. 
-In the limit of $b \to 0$, it is easy to see that $f'(\theta) = g(b, \theta) = 0$ for all $\theta$ in the domain. 
-We now show that for all $\theta$ in the domain and all $0 < b \leq 1$, $\frac{\partial g(b, \theta)}{\partial b} \leq 0$.
-
-\begin{align*}
-\frac{\partial g(b,\theta)}{\partial b} &= \frac{\theta-1}{(\theta-1+b)^2}+\frac{1}{2\theta-1}\cdot \frac{2b(\theta-1+b)-b^2}{(\theta-1+b)^2} -\frac{1}{\theta-1+b} \leq 0 \\
-&\iff \theta-1 + \frac{2b(\theta-1+b)-b^2}{2\theta-1} \leq \theta-1+b \\
-&\iff \frac{b(2\theta-2+b)}{2\theta-1} \leq b \\
-&\iff 2\theta-2+b \leq 2\theta-1 \\
-&\iff b \leq 1
-\end{align*}
-
-Thus we have shown that for all $\theta$, $g(b,\theta) = 0$ as $b \to 0$ and that for all $\theta$ and $0 < b \leq 1$, $g(b,\theta)$ is decreasing. 
-These together mean that for all $\theta$ and $b \in [0,1]$, $g(b,\theta) \leq 0$. 
-Which implies that $f'(\theta) \le 0$ for all $\theta$ in the domain.
-So to maximize $f$, we need to minimize $\theta$.
-
-Observe that minimizing $\theta = \frac{k}{\Delta}$ is equivalent to minimizing the influence zone.
-As shown in Remark~\ref{rem:inf_zone}, this happens at $k = \frac{e}{\alpha(1-\beta)}$. 
-\endproof
 
 An interesting point to observe above is that maximizing the revenue objective is equivalent to minimizing the influence zone.
 This result matches the following intuition - the faster the merchant can get customers to adopt the reward program, the more transactions it will make in the long run - but is stronger as it actually maximizes the revenue objective as well. 
