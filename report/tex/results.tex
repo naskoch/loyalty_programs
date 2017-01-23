@@ -65,6 +65,22 @@ As shown in Remark~\ref{rem:inf_zone}, this happens at $k = \frac{e}{\alpha(1-\b
 
 \end{comment}
 
+We evaluate $RoR_A$ after substituting the above values.
+Let $\mu$ and $\sigma$ be the mean and variance of the distribution.
+We use Taylor expansion for moments of functions of random variables.
+
+\begin{align*}
+RoR_A &= \int_{x_0}^{x_1} \left(p\cdot\frac{\lambda(1-\alpha v)}{1-\frac{\alpha}{e}(1-\lambda)} + (1-p)\lambda (1-\alpha v)\right) f(\lambda) d\lambda\\
+      &= \int_{x_0}^{x_1} p(1-\alpha v)\cdot\left(\frac{e}{\alpha} - \frac{\frac{e}{\alpha }-1}{1-\frac{\alpha}{e}(1-\lambda)}\right)f(\lambda) d\lambda + (1-p)(1-\alpha v) \mu\\
+      &= \mu \cdot \left(p(1-\alpha v)\frac{e}{\alpha} + (1-p)(1-\alpha v)\right) - \int_{x_0}^{x_1} p(1-\alpha v) \frac{\frac{e}{\alpha} - 1}{1-\frac{\alpha}{e} (1-\lambda)} f(\lambda) d\lambda\\
+      &= \mu (1-\alpha v) \left( 1 + p(\frac{e}{\alpha}-1)\right) - p(1-\alpha v)\left(\frac{e}{\alpha} -1\right) \underset{\lambda}E\left[\frac{1}{1-\frac{\alpha}{e}(1-\lambda)}\right]\\
+      &= \mu \left(1-\alpha v + p\left(\frac{e}{\alpha} + \alpha v - ev - 1\right)\right) - p \left(\frac{e}{\alpha} + \alpha v - 1 - ev\right) \underset{\lambda} E\left[\frac{1}{1-\frac{\alpha}{e}(1-\lambda)}\right] \\
+      &= L(\alpha) - R(\alpha) \underset{\lambda} E[G(\alpha; \lambda)]
+\end{align*}
+
+Note that $L(\alpha)$ decreases with $\alpha$.
+$G(\alpha; \lambda)$ increases with $\alpha$.
+$R(\alpha)$ decreases with $\alpha$.
 {\arpit Now can we substitute the distribution to be uniform $[0,b]$. Possibly find the optimal $\alpha$ and show all the results we had before? We can leave finding optimal $\alpha$ distribution dependent (on moments of the distribution) to future.}
 
  This reduces the rate of revenues as follows:
@@ -133,6 +149,32 @@ First we evaluate the expected rate of revenues for both $A$ and $B$ under these
 \begin{align*}
 RoR_A =& pk\cdot\frac{1-\alpha v}{\Delta}\cdot\left(1 - \frac{k-\Delta}{b\Delta}\log\left(1+\frac{b\Delta}{k-\Delta}\right)\right) + (1-p)\frac{bk(1-\alpha v)}{2k}\\
       =& (1-\alpha v) \left(p\frac{e}{\alpha}\left(1-\frac{e-\alpha}{b\alpha}\log\left(1+\frac{b\alpha}{e-\alpha}\right)\right) + (1-p)\frac{b}{2}\right)
+\end{align*}
+
+\begin{align*}
+RoR_A =& pe \left(\frac{1}{\alpha} - v - \left(\frac{1}{\alpha} - v\right)\cdot \frac{\log(1+X))}{X}\right) + (1-\alpha v)(1-p)b/2\\
+\frac{d(RoR_A)}{d\alpha} =& pe\left(-\frac{1}{\alpha^2} + \frac{1}{\alpha^2} \frac{\log(1+X)}{X} - \left(\frac{1}{\alpha} - v\right)\frac{\frac{X}{1+X} - \log(1+X)}{X^2}\cdot \frac{be}{(e-\alpha)^2}\right) - vb(1-p)/2\\
+\end{align*}
+
+Under approximation get:
+
+\begin{align*}
+RoR_A \sim & \frac{b}{2}(1-\alpha v)\left(\frac{pe}{e-\alpha} + (1-p)\right)\\
+      \sim & \frac{b}{2}(1-\alpha v) \left(1 + \frac{p\alpha}{e-\alpha}\right)\\
+       \sim & \frac{b}{2}\left(1-\alpha v + \frac{p\alpha}{e-\alpha} - \frac{pv\alpha^2}{e-\alpha}\right)
+\end{align*}
+
+Maximizing above gives:
+
+\begin{align*}
+& -v + \frac{e}{(e-\alpha)^2} - \frac{(e-\alpha)2pv\alpha + pv\alpha^2}{(e-\alpha)^2}\\
+&= -v + \frac{e}{(e-\alpha)^2} - \frac{pv\alpha(2e-\alpha)}{(e-\alpha)^2} = 0\\
+&\implies e - 2pe\alpha v + pv\alpha^2 = v(e^2 - 2e\alpha + \alpha^2)\\
+&\implies e(1-ev) = (\alpha^2 v - 2e\alpha v)(1-p)\\
+&\implies \alpha^2 - 2e\alpha = \frac{e(1-ev)}{v(1-p)}\\
+&\implies (e-\alpha)^2 = \frac{e - e^2v + e^2 v - e^2 vp}{v(1-p)}\\
+&\implies (e-\alpha)^2 = \frac{e(1-evp)}{v(1-p)}\\
+&\implies \alpha = e - \sqrt{\frac{e(1-evp)}{v(1-p)}}
 \end{align*}
 
 \begin{align*}
