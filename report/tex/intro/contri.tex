@@ -9,10 +9,10 @@ The discount factor is the time value of money, and we assume it to be constant 
 We also assume that every customer makes a purchase everyday from either of the two merchants.
 We relax these two assumptions by introducing a look-ahead factor that controls how far into the future a customer can perceive the rewards. 
 This affects the customer behavior dynamics as follows: if the reward is farther than the customer's look-ahead parameter, (s)he is unable to perceive the future value of that reward and take it into consideration while maximizing long term utility.
-{\arpit This parameter, being customer specific, adds some heterogeneity to both the future discounting and purchase frequency. (Need more explanation here?)}
+This parameter, being customer specific, adds heterogeneity to both the future discounting and purchase frequency.
 We only model myopic and strategic customers, \ie, the look-ahead parameter being $0$ or a large value, and leave further parametrization for future work.
 In addition, we assume each customer has a visit probability bias with which (s)he purchases the good from the reward program merchant for reasons exogenous to utility maximization.
-This can be attributed to \emph{excess loyalty} which has been argued as a important parameter for the success of any reward program, or it can be attributed to price insensitivity of the customer; whenever the customer is price insensitive, (s)he strictly prefers to purchase from the reward program merchant as (s)he gains points redeemable for rewards in the future.
+This can be attributed to \emph{excess loyalty} (\cite{fader1993excess, sharp1997loyalty}) which has been argued as a important parameter for the success of any reward program, or it can be attributed to price insensitivity of customers; whenever a customer is price insensitive, (s)he strictly prefers to purchase from the reward program merchant as (s)he gains points redeemable for rewards in the future.
 There are many possible reasons for customers' price insensitivity: the reward program merchant could be offering some other monopoly products, or the customer might be getting reimbursed for some purchases as part of corporate perks (eg: corporate travel).
 As an effect, this visit probability bias controls how frequently the customers' points increase even when (s)he does not actively choose to make purchases from the reward program merchant.
 Both these parameters can be attributed to bounded rationality of customers and have been argued to be important factors toward customer choice dynamics, as discussed in the related work.
@@ -23,19 +23,10 @@ We formulate the customer choice dynamics as a dynamic program with the state be
 When the customer does not make biased visits to the reward program merchant, (s)he compares the immediate utility of purchasing the good at a cheaper price with the long term utility of waiting and receiving the time discounted reward, to make a choice. 
 The solution to the customer's dynamic program gives conditions for the existence and achievability of a phase transition: a points threshold before which the customer visits the merchant offering rewards only due to the visit probability bias, and after which (s)he always visits the merchant offering rewards till receiving the reward.
 We show that this phase transition occurs sooner for strategic customers, and with increase in the reward value offered by the reward program merchant.
-And it occurs later with increase in the points threshold required to redeem the reward, and with the increase in the price discount offered by the traditional pricing merchant.
+It occurs later with increase in the points threshold required to redeem the reward, and with the increase in the price discount offered by the traditional pricing merchant.
 With respect to the discount factor there is a unique minimizer for the phase transition point. That is, if customers are highly patient, then maximizing their long term utility leads them to redeem rewards only due to exogenous visit bias.
 And if they are very less patient, they strictly prefer immediate discount over future rewards.
 In short, these results verify that our model is in coherence with the different psychological constructs as discussed in the related work section: purchase acceleration closer to reward redemption and a tipping point before which purchases are only due to exogenous visit bias.
-
-{\arpit MIGHT NOT NEED THIS; CAN BE PUSHED TO THE RESULTS SECTION
-
-We define the ``influence zone'' as the ratio of the distance to the phase transition  point and the total distance to the reward.
-This is effectively the fraction of total purchases until reward redemption that the customer needs to make due to exogenous visit bias to adopt the reward program for future purchases.
-Merchants often give bonus miles or points to their customers, mainly to increase the switching cost of customers and push them to adopt the reward program.
-The influence zone as we defined is the point till such external promotions are required.
-We optimize over this influence zone and show that the optimal distance to the reward has a very intuitive form which corresponds closely to practically observed values for the reward distance.
-}
 
 After characterizing the customer behavior dynamics in our model, we optimize over the long run revenues that the reward program merchant achieves.
 We provide a framework for optimizing the parameters for the reward program merchant to maximize its revenue objective.
