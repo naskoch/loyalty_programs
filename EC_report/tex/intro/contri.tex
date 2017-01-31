@@ -14,13 +14,14 @@ Each customer has two important parameters drawn from the known population distr
 The visit probability bias toward the reward program merchant can be attributed to \emph{excess loyalty} which has been argued as a important parameter for the success of any reward program, or it can be attributed to price insensitivity of the customer; whenever the customer is price insensitive, (s)he strictly prefers to purchase from the reward program merchant as (s)he gains points redeemable for rewards in the future.
 There are many possible reasons for customers' price insensitivity: the reward program merchant could be offering some other monopoly products, or the customer might be getting reimbursed for some purchases as part of corporate perks (eg: corporate travel).
 As an effect, this visit probability bias controls how frequently the customers' points increase even when (s)he does not actively choose to make purchases from the reward program merchant.
-The look-ahead parameter affects the customer behavior dynamics as follows: if the reward is farther than the customer's look-ahead parameter, (s)he is unable to register the future value of that reward and take it into consideration while maximizing long term utility.
-Both these parameters can be attributed to bounded rationality of customers and have been argued to be important factors toward customer choice dynamics.
+The look-ahead parameter affects the customer behavior dynamics as follows: if the reward is farther than the customer's look-ahead parameter, (s)he is unable to perceive the future value of that reward and take it into consideration while maximizing long term utility.
+We only model myopic and strategic customers, \ie, the look-ahead parameter being $0$ or a large value, and leave further parametrization for future work.
+Both these parameters can be attributed to bounded rationality of customers and have been argued to be important factors toward customer choice dynamics as discussed in the related work.
 
 
 \subsubsection{Customer Choice Dynamics}
 We formulate the customer choice dynamics as a dynamic program with the state being the number of points collected from the reward program merchant.
-When the customer does not make biased visits to the reward program merchant, she chooses the merchant maximizing her long term utility: comparing the immediate utility by purchasing the good at cheaper price and the long term utility of waiting and receiving the time discounted reward.
+When the customer does not make biased visits to the reward program merchant, (s)he compares the immediate utility of purchasing the good at a cheaper price with the long term utility of waiting and receiving the time discounted reward, to make a choice. 
 The solution to the customer's dynamic program gives conditions for the existence and achievability of a phase transition: a points threshold before which the customer visits the merchant offering rewards only due to the visit probability bias, and after which (s)he always visits the merchant offering rewards till receiving the reward.
 We show that this phase transition point has the following dependencies:
 \begin{enumerate}
@@ -43,8 +44,8 @@ In short, these results verify that our model is in coherence with the different
 After characterizing the customer behavior dynamics in our model, we optimize over the long run revenues that the reward program merchant achieves.
 We provide a framework for optimizing the parameters for the reward program merchant to maximize its revenue objective.
 We then look at a specific simplified case of proportional promotion budgeting: the reward offered by the reward program merchant is proportional to the product of the distance to the reward and the discount provided by the traditional pricing merchant.
-We show that under proportional promotion budgeting the optimal distance to reward for maximizing the revenue objective of the reward program merchant is independent of the customer parameters and is close to the real world obtained cashback percentage amounts.
+We show that under proportional promotion budgeting, the optimal distance to reward for maximizing the revenue objective of the reward program merchant is independent of the customer parameters and is close to the real world obtained cashback percentage amounts.
 In addition, optimizing the revenue objective gives the same optimal distance to reward as optimizing the influence zone as defined above.
 Moreover, we characterize the conditions in terms of the customer parameters for when the revenue objective of the reward program merchant is better than the traditional pricing merchant and when it is better for the reward program merchant to offer a reward versus not offering any reward.
-We show that for the reward program to be effective under both the above conditions, a minimum threshold fraction of customers must be ``forward-looking''.
-And there is a range of values of the exogenous visit probability bias between $0$ and $1$ corresponding to the fraction of ``forward-looking'' customers for the reward program to be strictly better for the merchant. 
+We show that for the reward program to be effective under both the above conditions, a minimum threshold fraction of customers must be strategic.
+And there is a range of values of the exogenous visit probability bias between $0$ and $1$ corresponding to the fraction of strategic customers for the reward program to be strictly better for the merchant. 
