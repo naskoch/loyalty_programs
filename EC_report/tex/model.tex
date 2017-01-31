@@ -1,8 +1,9 @@
 We index the two competing merchants selling identical goods as $A$ and $B$.
 Without loss of generality we assume that $A$ sells the good for a price of $1$ dollar while $B$ sells it for $1-v$ dollars, \ie, $B$ offers a discount of $v$ dollars. 
 $A$ on the other hand offers a reward of value $R$ dollars to a customer after (s)he makes $k$ purchases at $A$. 
-We investigate only the case we refer to as ``proportional promotion budgeting'' wherein this reward $R$ is proportional to the product of the distance to the reward $k$ and the discount $v$ provided by $B$.
-That is $R = \alpha k v$ where $\alpha$ is assumed to be a constant.
+We only investigate the case that we refer to as ``proportional promotion budgeting'', wherein this reward $R$ is proportional to the product of the distance to the reward $k$ and the discount $v$ provided by $B$.
+That is $R = \alpha k v$.
+{\arpit The merchant optimizes over both $k$ and $\alpha$.}
 
 \subsection{Customer Behavior Model}
 We assume customers purchase the item from either $A$ or $B$ everyday, \ie, we ignore the heterogeneity in frequency of purchases among the customers in our model and leave it for future work.
@@ -12,7 +13,7 @@ All customers have the same time value of money as a discount factor of $\beta$ 
 
 We denote a customer's visit probability bias and the look-ahead parameter with $\lambda$ and $t$ respectively. 
 That is with probability $\lambda$, (s)he purchases from $A$ due to externalities and perceives a future reward only if it is within $t$ purchases away. 
-We assume $\lambda$ for a customer to be drawn from a uniform distribution between $[0,b]$, where $b$ is between $0$ and $1$.
+{\arpit This $\lambda$ for a customer is drawn from a distribution $f()$ with support between $[0,1]$.}
 And we focus on a simple threshold distribution for the look-ahead parameter $t$: 
 
 \begin{equation*}
@@ -22,7 +23,8 @@ And we focus on a simple threshold distribution for the look-ahead parameter $t$
   \end{cases}
 \end{equation*}
 
-The above distribution intuitively means that the customers are either myopic and focus only on immediate rewards, or are far-sighted enough (we assume $t_1$ is large).
+The above distribution intuitively means that the customers are either myopic and focus only on immediate rewards, or are strategic and can perceive long term utility (we assume $t_1$ is large).
+As discussed above, we leave other parametrizations of this look-ahead parameter for future work.
 We model the customer's decision problem as a dynamic problem. We index the number of purchases the customer makes from $A$ until reward by $i$, for $0 \leq i \leq k-1$, and we refer a customer to be in state $i$ after having made $i$ purchases from $A$. At state $i$, the customer has two possibilities:
 \begin{enumerate}
 \item
