@@ -19,11 +19,10 @@ RoR_A =& \underset{\lambda, t}E\left[\frac{k-R}{i_0(t)/\lambda + k - i_0(t)}\rig
 Observe that the term inside the expectation is maximized when $\theta$ is maximized.
 Using Leibniz' Rule, we can conclude that the integral itself is maximized when $\theta$ is maximized, which as shown above, is equivalent to minimizing the influence zone.
 As shown in Remark~\ref{rem:inf_zone}, this happens at $k \alpha = \frac{e}{1-\beta}$. 
+And at this point, $\theta = \frac{\Delta}{k} = \frac{\alpha}{e}$.
 \endproof
 
-{\arpit Would we need alpha constant to talk about the following, how and where to fit this exposition}
-
-An interesting point to observe above is that maximizing the revenue objective is equivalent to minimizing the influence zone.
+An interesting point to observe above is that if $\alpha$ is constant, then maximizing the revenue objective is equivalent to minimizing the influence zone.
 This result matches the following intuition - the faster the merchant can get customers to adopt the reward program, the more transactions it will make in the long run - but is stronger as it actually maximizes the revenue objective as well. 
 Although, reward point accelerations are common and effective mechanisms to get customers to adopt reward programs, we have shown that designing the reward program so that minimum number of such accelerations are required, leads to maximizing merchant's revenue. 
 The condition that $\beta$ be close to 1 is not very restrictive, as the discount factor is expected to be high in most cases. 
@@ -31,16 +30,33 @@ Note that because $k \geq \Delta$, the above also shows $\alpha \leq e$.
 Finally, observe that we need $R > \frac{(1-\lambda)v}{1-\beta}$ for $V$ to be increasing. 
 We meet this condition with proportional budgeting when $k = \frac{e}{\alpha(1-\beta)}$ as $R = \alpha k v = \frac{e v}{1-\beta} \geq \frac{v}{1-\beta} \geq \frac{(1-\lambda)v}{1-\beta}$. 
 
+The above framework can be used for optimizing for the reward parameters to maximize $A$'s rate of revenue, and correspondingly for the discount parameter for $B$, for varying distributions of the customer population.
+We leave the competitive study where merchant $B$ could strategize on its discount value $v$ for future work.
+{\arpit We show in Figure~\ref{} about numerical results on optimal alpha}
 
-{\arpit Now we evaluate $RoR_A$ after substituting the above relationships}
-
-{\arpit We assume uniform distribution, and reevaluate. We can optimize using approximation or numerically/simulation}
+Now we characterize conditions for when it is strictly better for $A$ to offer a reward program for a specific distribution of the loyalty bias paramter - when $\lambda$ for every customer is drawn uniformly at random between $(0,b]$ where $b$ is less than $1$.
+This boils down to two situations: first, the rate of revenue for $A$ should be higher than that of $B$ and second, that the rate of revenue for $A$ should be higher than it could have achieved by not offering the reward program.
+First we evaluate the expected rate of revenues for both $A$ and $B$ under these conditions of proportional budgeting and optimal relation between $k$ and $\alpha$ as shown in the above theorem.
 
 \begin{align*}
-RoR_A =& pk\cdot\frac{1-\alpha v}{\Delta}\cdot\left(1 - \frac{k-\Delta}{b\Delta}\log\left(1+\frac{b\Delta}{k-\Delta}\right)\right) + (1-p)\frac{bk(1-\alpha v)}{2k}\\
+RoR_A =& \underset{\lambda}E\left[p\cdot\frac{\lambda(1-\alpha v)}{1-\theta(1-\lambda)} + (1-p)\lambda (1-\alpha v)\right]\\
+      =& pk\cdot\frac{1-\alpha v}{\Delta}\cdot\left(1 - \frac{k-\Delta}{b\Delta}\log\left(1+\frac{b\Delta}{k-\Delta}\right)\right) + (1-p)\frac{bk(1-\alpha v)}{2k}\\
       =& (1-\alpha v) \left(p\frac{e}{\alpha}\left(1-\frac{e-\alpha}{b\alpha}\log\left(1+\frac{b\alpha}{e-\alpha}\right)\right) + (1-p)\frac{b}{2}\right)
 \end{align*}
 
+\begin{align*}
+RoR_B =& \underset{\lambda, t}E\left[\frac{(i_0(t)\lambda - i_0(t))(1-v)}{i_0(t)/\lambda + k - i_0(t)}\right]\\
+      =& \underset{\lambda}E\left[p\cdot\frac{(i_0/\lambda - i_0)(1-v)}{i_0/\lambda + k - i_0} + (1-p)\frac{(k/\lambda - k)(1-v)}{k/\lambda}\right]\\
+      =& \underset{\lambda}E\left[p\cdot\frac{i_0(1-\lambda)(1-v)}{k\lambda + i_0(1-\lambda)} + (1-p)(1-\lambda)(1-v)\right]\\
+      =& p\cdot\frac{i_0(1-v)}{b(k-i_0)^2}\left(k\log\left(1+\frac{b(k-i_0)}{i_0}\right) - b(k-i_0)\right) + (1-p)(1-\frac{b}{2})(1-v)\\
+      =& p\cdot\frac{(k-\Delta)(1-v)}{b\Delta^2}\left(k\log\left(1+\frac{b\Delta}{k-\Delta}\right) - b\Delta\right) + (1-p)(1-\frac{b}{2})(1-v)\\
+      =& p\cdot\frac{(k-\Delta)(1-v)}{\Delta}\left(\frac{k}{b\Delta}\log\left(1+\frac{b\Delta}{k-\Delta}\right) - 1\right) + (1-p)(1-\frac{b}{2})(1-v)\\
+      =& p\cdot\frac{(k-\Delta)(1-v)}{\Delta}\left(\frac{k}{b\Delta}\log\left(1+\frac{b\Delta}{k-\Delta}\right) - 1\right) + (1-p)(1-\frac{b}{2})(1-v)\\
+      =& (1-v)\left(p\cdot\frac{e-\alpha}{\alpha}\left(\frac{e}{b\alpha}\log\left(1+\frac{b\alpha}{e-\alpha}\right) - 1\right) + (1-p)(1-\frac{b}{2})\right)\\
+      =& (1-v)\left(p\frac{e}{\alpha}\left(\frac{e-\alpha}{b\alpha}\log\left(1+\frac{b\alpha}{e-\alpha}\right) - \frac{e-\alpha}{e}\right) + (1-p)(1-\frac{b}{2})\right)
+\end{align*}
+
+\begin{comment}
 Under approximation get:
 
 \begin{align*}
@@ -61,23 +77,7 @@ Maximizing above gives:
 &\implies (e-\alpha)^2 = \frac{ep(1-ev)}{v(1-p)}\\
 &\implies \alpha = e - \sqrt{\frac{ep(1-ev)}{v(1-p)}}
 \end{align*}
-
-{\arpit Evaluate $RoR_B$}
-
-\begin{align*}
-RoR_B =& p\cdot\frac{(k-\Delta)(1-v)}{\Delta}\left(\frac{k}{b\Delta}\log\left(1+\frac{b\Delta}{k-\Delta}\right) - 1\right) + (1-p)(1-\frac{b}{2})(1-v)\\
-      =& (1-v)\left(p\cdot\frac{e-\alpha}{\alpha}\left(\frac{e}{b\alpha}\log\left(1+\frac{b\alpha}{e-\alpha}\right) - 1\right)\right)\\
-      =& (1-v)\left(p\frac{e}{\alpha}\left(\frac{e-\alpha}{b\alpha}\log\left(1+\frac{b\alpha}{e-\alpha}\right) - \frac{e-\alpha}{e}\right) + (1-p)(1-\frac{b}{2})\right)
-\end{align*}
-
-
-The above framework can be used for optimizing for the reward parameters to maximize $A$'s rate of revenue, and correspondingly for the discount parameter for $B$, for varying distributions of the customer population.
-We leave the competitive study where merchant $B$ could strategize on its discount value $v$ for future work.
-And in this work we only consider proportional promotion budgeting as mentioned in Section~\ref{sec:model}, where $R = \alpha k v$ and $\alpha$ is a constant.
-
-Now we characterize conditions for when it is strictly better for $A$ to offer a reward program.
-This boils down to two situations: first, the rate of revenue for $A$ should be higher than that of $B$ and second, that the rate of revenue for $A$ should be higher than it could have achieved by not offering the reward program.
-First we evaluate the expected rate of revenues for both $A$ and $B$ under these conditions of proportional budgeting and optimal $k$.
+\end{comment}
 
 
 Observe that both the above equations have a left term and a right term. The left term is the rate of revenue obtained from strategic customers whereas the right term is from the myopic customers.
@@ -185,6 +185,8 @@ b &< \frac{2 p (1-ev)}{1-(1-p)(1-ev)} \\
 \endproof
 
 We combine the above two lemmas to get an intuitive necessary and sufficient condition on $p$ for the reward program to be ``strictly better''. 
+
+{\nolan I may rearrange some of the proof text to outside the proof - just a reminder to myself.}
 
 \begin{lemma}
 As $\alpha \rightarrow e$, for the reward program to be strictly better on some values of $b$, a necessary and sufficient condition on $p$ is:

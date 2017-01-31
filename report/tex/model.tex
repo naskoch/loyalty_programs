@@ -3,7 +3,8 @@ Without loss of generality we assume that $A$ sells the good for a price of $1$ 
 $A$ on the other hand offers a reward of value $R$ dollars to a customer after (s)he makes $k$ purchases at $A$. 
 We only investigate the case that we refer to as ``proportional promotion budgeting'', wherein this reward $R$ is proportional to the product of the distance to the reward $k$ and the discount $v$ provided by $B$.
 That is $R = \alpha k v$.
-{\arpit The merchant optimizes over both $k$ and $\alpha$.}
+The merchant optimizes over both $k$ and $\alpha$.
+This assumption imposes the constraint that the reward offered by the merchant is linearly dependent to the distance to reward.
 
 \subsection{Customer Behavior Model}
 We assume customers purchase the item from either $A$ or $B$ everyday, \ie, we ignore the heterogeneity in frequency of purchases among the customers in our model and leave it for future work.
@@ -13,7 +14,7 @@ All customers have the same time value of money as a discount factor of $\beta$ 
 
 We denote a customer's visit probability bias and the look-ahead parameter with $\lambda$ and $t$ respectively. 
 That is with probability $\lambda$, (s)he purchases from $A$ due to externalities and perceives a future reward only if it is within $t$ purchases away. 
-{\arpit This $\lambda$ for a customer is drawn from a distribution $f()$ with support between $[0,1]$.}
+This $\lambda$ for a customer is drawn from a distribution $f()$ with support between $[0,1]$.
 And we focus on a simple threshold distribution for the look-ahead parameter $t$: 
 
 \begin{equation*}
