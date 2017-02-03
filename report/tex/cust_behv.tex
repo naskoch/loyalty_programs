@@ -1,6 +1,6 @@
 \subsection{Customer Choice Dynamics}
 We first show that every customer exhibits the following behavior: until (s)he reaches the phase transition point $i_0(t)$, she purchases from $A$ only due to the exogeneity paramater, and after that (s)he always purchases from $A$ till she receives the reward.
-This behavior is cyclic, and repeats after every reward redemption.
+This behavior is cyclic, and repeats after every reward redemption. This behavior occurs because $V$ is an increasing funcion of $i$ under mild assumptions on our model parameters.
 
 \begin{lemma} $V(i)$ is an increasing function in $i$ if the following condition holds:
 \begin{equation}
@@ -13,7 +13,7 @@ V(i) = \max\left\{ \frac{\lambda \beta V(i+1)+(1-\lambda)v}{1-(1-\lambda)\beta},
 \end{lemma}
 
 \proof
-First we show that $V(i)$ is an increasing function in $i$ by induction. We first show that if the condition above is satisfied, $V(k-1) < V(k) = R$. Suppose not, so $V(i) \geq R$. Then we have:
+First we show that $V(i)$ is an increasing function in $i$ by induction. We begin by  showing that if the condition above is satisfied, $V(k-1) < V(k) = R$. Suppose not, so $V(i) \geq R$. Then we have:
 \begin{align*}
 V(k-1) &= \lambda \beta V(k) + (1-\lambda)(v+\beta V(k-1)) \\
 &= \frac{\lambda \beta R + (1-\lambda)v}{1-(1-\lambda)\beta} \\
@@ -97,27 +97,25 @@ The above dependence reduces to the following after incorporating the look-ahead
 \endproof
 
 Note that the phase transition point is independent of $\lambda$, the customer's visit probability bias toward the merchant.
-As we would expect, it increases with the look-ahead parameter, and with the price discount offered by merchant $B$.
+As we would expect, it increases with the look-ahead parameter and with the price discount offered by merchant $B$.
 Additionally, it decreases with an increase in the reward value $R$ and a decrease in the distance to reward $k$.
-The variation with the discount factor $\beta$ is interesting: we can show that for any $\frac{R}{v} \ge 1$ there exists a $\beta \in [0,1]$ that minimizes the phase transition point $i_0$ for ''forward-looking'' customers.
+The variation with the discount factor $\beta$ is interesting; we can show that for any $\frac{R}{v} \ge 1$ there exists a $\beta \in [0,1]$ that minimizes the phase transition point $i_0$ for strategic customers.
 This means that customers who are more patient have a longer time frame to transition and so do customers who are less patient than the optimal value.
-We refer to the ratio of number of visits required for a forward-looking customer to adopt a reward program and the total distance to the reward as the ``influence zone''.
-Intuitively this is the fraction of visits that the merchant wants to influence the customer by offering exogenous means of earning additional points like bonus miles in airlines, or accelerated earnings, as discussed in the introduction.
-Next we find the optimal $k$ for minimizing this influence zone.
+We refer to the ratio of the number of visits required for a strategic customer to adopt a reward program and the total distance to the reward as the ``influence zone''.
+Intuitively this is the fraction of visits that the merchant wants to influence the customer by offering exogenous means of earning additional points like bonus miles in airlines or accelerated earnings.
+Next we find the optimal $k$ for minimizing this influence zone when the proportional promotion budgeting parameter $\alpha$ is constant.
 
 \begin{remark}\label{rem:inf_zone}
-Influence zone is minimized at $k = \frac{e}{\alpha(1-\beta)}$ under proportional promotion budgeting. 
+Influence zone is minimized at $k = \frac{e}{\alpha(1-\beta)}$ under constant proportional promotion budgeting as long as $\beta$ is close to 1. 
 \end{remark}
 \proof
 As defined the influence zone is $\frac{i_0}{k} = \frac{k-\Delta}{k} = 1 -\frac{\Delta}{k}$.
-Thus minimizing the influence zone is equivalent to minimizing $\frac{k}{\Delta}$.
+Thus minimizing the influence zone is equivalent to maximizing $\frac{\Delta}{k}$.
 \begin{align*}
-\frac{k}{\Delta} = \frac{k}{\log_\beta\left(\frac{1}{\alpha k(1-\beta)}\right)} \sim \frac{k(1-\beta)}{\log (\alpha k(1-\beta))} 
+\frac{\Delta}{k} = \frac{\log_\beta\left(\frac{1}{\alpha k(1-\beta)}\right)}{k}\sim \frac{\log (\alpha k(1-\beta))} {k(1-\beta)}
 \end{align*}
-The above approximation relies on $\beta$ close to 1. Now this value is minimized at $k = \frac{e}{\alpha(1-\beta)}$. Therefore, for all $b$, the optimal value for $k$ is given by $\frac{e}{\alpha(1-\beta)}$, the value for which $\frac{k}{\Delta}$ is minimized and takes the value $\frac{e}{\alpha}$. 
+The above approximation relies on $\beta$ close to 1. Now this value is maximized at $k = \frac{e}{\alpha(1-\beta)}$. Therefore, for all $b$, the optimal value for $k$ is given by $\frac{e}{\alpha(1-\beta)}$, the value for which $\frac{\Delta}{k}$ is maximized and takes the value $\frac{\alpha}{e}$. 
 At this value the influence zone takes the value $1-\frac{\alpha}{e}$.
 \endproof
 Note that if $\alpha$ is $1$, then the value of $k$ corresponds to a cashback between $2$\% and $4$\% as $\beta$ ranges between $0.95$ and $0.9$.
 This value is realistic to what is observed in practice.
-
-

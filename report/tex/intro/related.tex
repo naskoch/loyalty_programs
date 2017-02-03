@@ -1,6 +1,7 @@
 Three popular psychological constructs have been used to explain customer choice dynamics toward reward programs -- Goal Gradient Hypothesis, Medium Maximization, and Tipping Point Dynamics.
 \cite{kivetz2006goal} conducted an empirical study observing an acceleration in the number of purchases by customers as they approached the reward, \ie, as customers accumulated reward points to reach closer to achieving the reward, their effort invested toward gaining more points increased. 
-The authors attributed this behavior to Goal Gradient Hypothesis (\cite{hull1932goal}).
+The authors attributed this behavior to Goal Gradient Hypothesis (\cite{hull1932goal}). 
+This behavior is also very prevalent in online badge systems, such as those on Stackoverflow; recently, mathematical models relying on rational user behavior have been developed that explain this phenomenon (\cite{leskovec2013steering}).
 \cite{stourm2015stockpiling, dreze2004using} observed that customers often stockpiled reward points even when there were economic incentives against collection of points. They attributed this behavior to Medium Maximization -- customers often treated collecting reward points as a goal itself just like collecting stamps as opposed to connecting reward points with economic incentives.
 \cite{gao2014influence} observed via experimentation that customers often collect reward points for exogenous reasons until they accumulate a threshold amount, after which they start investing effort toward the collection process itself.
 That is, customers build up switching costs (\cite{klemperer1995competition}) before fully adopting the reward program, and sometimes this switching cost is created due to reasons exogenous to rational economic incentives.
@@ -9,13 +10,12 @@ They referred to this behavior as the Tipping Point Effect.
 A large body of literature talks about the switching costs customers face within a competitive duopoly framework -- see \cite{villas2015short} for a short survey.
 Our model is closest in spirit to that of \cite{hartmann2008frequency} and \cite{kopalle2001economic}.
 Both papers, though empirical in nature, model a competitive duopoly and customers maximizing their long term discounted utility.
-\cite{hartmann2008frequency} argue that less frequent buyers face higher switching costs as they are more likely to be affected by reward redemption deadlines, whereas frequent buyers redeem rewards easily, and not face substantial switching costs. 
+\cite{hartmann2008frequency} argue that less frequent buyers face higher switching costs as they are more likely to be affected by reward redemption deadlines, whereas frequent buyers redeem rewards easily and do not face substantial switching costs. 
 They do not model how customers build up switching costs, but only argue what happens when customers are close to achieving a reward.
-\cite{kopalle2001economic} discuss dynamic competition between two merchants deciding on offering a reward program or traditional pricing and model this decision problem as a two stage game: first merchants decide whether to offer a reward program or traditional pricing and then they decide their prices. 
+\cite{kopalle2001economic} discuss dynamic competition between two merchants deciding whether to offer a reward program or traditional pricing and model this decision problem as a two stage game: first merchants decide whether to offer a reward program or traditional pricing and then they decide their prices. 
 Using simulations, depending on customer parameters in the model, they characterize the conditions for when it is better to offer a reward program versus traditional pricing.
-They use customer's uncertainity about future preferences as a key component in their model attributing it to bounded rationality.
 We on the other hand model a multi-period problem where the customer behavior is characterized using a complete dynamic program and mathematically analyze the model.
 We make two modeling assumptions: first is an exogenous visit probability bias toward the reward program merchant which can be attributed to \emph{excess loyalty} -- customers often build up higher brand preference toward the merchant offering a reward program (\cite{fader1993excess, sharp1997loyalty}); 
-and second, customer myopicity, which indicates how far into the future customers can perceive the rewards (\cite{liu2007long,lewis2004influence}).
+and second, a look-ahead factor for customers, which indicates how far into the future customers can perceive the rewards (\cite{liu2007long,lewis2004influence}).
 Our results on customer choice dynamics intuitively look similar to some of those obtained in this body of literature.
 But more importantly, we model and optimize the revenue objective of the merchant, characterizing an optimal reward program setting for maximizing expected revenue.
