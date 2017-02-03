@@ -2,6 +2,10 @@
 
 \subsection{Merchant Objective Dynamics}
 
+\subsubsection{Optimizing Reward Parameters}
+
+So far we have characterized the consumer behavior within the duopoly without concern about the particular reward parameters. In this section, we derive optimal parameters for these parameters with respect to the revenue of the reward merchant. Interestingly, we see that maximizing revenue corresponds to minimizing the influence zone.
+
 \begin{theorem}
 Under proportional promotion budgeting, the optimal reward distance ($k$) and the optimal budget proportion ($\alpha$) that $A$ should set follow the following relation $\alpha k = \frac{e}{(1-\beta)}$ at all values of $b$ as long as $\beta$ is close to 1.
 \end{theorem}
@@ -24,19 +28,21 @@ And at this point, $\theta = \frac{\Delta}{k} = \frac{\alpha}{e}$.
 
 An interesting point to observe above is that if $\alpha$ is constant, then maximizing the revenue objective is equivalent to minimizing the influence zone.
 This result matches the following intuition - the faster the merchant can get customers to adopt the reward program, the more transactions it will make in the long run - but is stronger as it actually maximizes the revenue objective as well. 
-Although, reward point accelerations are common and effective mechanisms to get customers to adopt reward programs, we have shown that designing the reward program so that minimum number of such accelerations are required, leads to maximizing merchant's revenue. 
+Although, reward point accelerations are common and effective mechanisms to get customers to adopt reward programs, we have shown that designing the reward program so that a minimum number of such accelerations is required, leads to maximizing merchant's revenue. 
 The condition that $\beta$ be close to 1 is not very restrictive, as the discount factor is expected to be high in most cases. 
 Note that because $k \geq \Delta$, the above also shows $\alpha \leq e$. 
 Finally, observe that we need $R > \frac{(1-\lambda)v}{1-\beta}$ for $V$ to be increasing. 
 We meet this condition with proportional budgeting when $k = \frac{e}{\alpha(1-\beta)}$ as $R = \alpha k v = \frac{e v}{1-\beta} \geq \frac{v}{1-\beta} \geq \frac{(1-\lambda)v}{1-\beta}$. 
 
-The above framework can be used for optimizing for the reward parameters to maximize $A$'s rate of revenue, and correspondingly for the discount parameter for $B$, for varying distributions of the customer population.
+The above framework can be used for optimizing for the reward parameters to maximize $A$'s rate of revenue, for varying distributions of the customer population.
+That is, if a merchant has a good estimate of its customer population's distribution, it can easily utilize the above theorem to optimize its reward scheme.
 We leave the competitive study where merchant $B$ could strategize on its discount value $v$ for future work.
-{\arpit We show in Figure~\ref{} about numerical results on optimal alpha}
 
-Now we characterize conditions for when it is strictly better for $A$ to offer a reward program for a specific distribution of the loyalty bias paramter - when $\lambda$ for every customer is drawn uniformly at random between $(0,b]$ where $b$ is less than $1$.
-This boils down to two situations: first, the rate of revenue for $A$ should be higher than that of $B$ and second, that the rate of revenue for $A$ should be higher than it could have achieved by not offering the reward program.
-First we evaluate the expected rate of revenues for both $A$ and $B$ under these conditions of proportional budgeting and optimal relation between $k$ and $\alpha$ as shown in the above theorem.
+\subsubsection{Revenue Comparisons}
+
+Now we characterize conditions for when it is strictly better for $A$ to offer a reward program for a specific distribution of the loyalty bias paramter - when $\lambda$ for every customer is drawn uniformly at random between $(0,b]$ where $b$ is less than $1$. We will assume this distribution for the remainder of the section.
+This condition boils down to two situations: first, the rate of revenue for $A$ should be higher than that of $B$ and second, that the rate of revenue for $A$ should be higher than it could have achieved by not offering the reward program at the same fixed price.
+First we evaluate the expected rates of revenue for both $A$ and $B$ under these conditions of proportional budgeting and the optimal relation between $k$ and $\alpha$ as shown in the previous theorem with $\lambda$ drawn from a uniform distribution.
 
 \begin{align*}
 RoR_A =& \underset{\lambda}E\left[p\cdot\frac{\lambda(1-\alpha v)}{1-\theta(1-\lambda)} + (1-p)\lambda (1-\alpha v)\right]\\
@@ -79,17 +85,15 @@ Maximizing above gives:
 \end{align*}
 \end{comment}
 
-
-Observe that both the above equations have a left term and a right term. The left term is the rate of revenue obtained from strategic customers whereas the right term is from the myopic customers.
+Observe that both the above equations have a left term and a right term. The left term is the rate of revenue obtained from strategic customers whereas the right term is that obtained from the myopic customers.
 As $\alpha$ ranges between $0$ and $e$, the value on the left term increases from $0$ for $RoR_A$ and decreases to $0$ for $RoR_B$.
-That is by controlling the reward budget ratio, $A$ is able to gain the entire strategic customer base.
-But now observe how $RoR_A$ varies with $\alpha$.
-The marginal revenue term $(1-\alpha v)$ decreases with $\alpha$ as the merchant is giving higher rewards to customers, whereas the market share term increases as $A$ gains more strategic customers with increase in reward budget.
+That is, by controlling the reward budget ratio, $A$ is able to gain the entire strategic customer base.
+But now observe how $RoR_A$ varies with $\alpha$:
+the marginal revenue term $(1-\alpha v)$ decreases with $\alpha$ as the merchant gives higher rewards to customers, but the market share term increases as $A$ gains more strategic customer revenue by decreasing the tipping point time with an increase in the reward budget.
 As $\alpha \to 0$, $RoR_A \to b/2$, \ie, the revenue earned is only due to visit probability bias, and is equivalent to the reveue earned by $A$ when not running any reward program.
 
 Figure~\ref{fig:offer_reward_or_not} illustrates the region in terms of the customer parameters $(b,p)$ where it is better for $A$ to offer a reward program, \ie, $RoR_A > RoR_B$ (indicated in blue) and $RoR_A > \frac{b}{2}$ (indicated in yellow) for different values of $\alpha$, keeping $v = 0.05$ and $\beta = 0.95$ fixed.
-The blue region shows that there is a clear threshold of $b$ and $p$ beyond which $RoR_A > RoR_B$.
-This is explained by the increasing nature of the revenue gap $(RoR_A - RoR_B)$ with $b$ and $p$.
+The blue region shows that there is a clear threshold of $b$ and $p$ values beyond which $RoR_A > RoR_B$.
 But more interestingly, the threshold value of $b$ and $p$ decreases as $\alpha$ is increased toward $e$.
 Whereas the yellow region shows that if the fraction of strategic customers is not too small, the firm should choose to run a reward program most of the time except for when $b$ is large; larger $b$ values mean that customers make more exogenous visits, so a reward program is no longer needed to entice visits, but only decreases the profits of the reward program merchant.
 The intersection of two regions, \ie, the region in green, indicates that the range of values of $b$ for which the reward program is strictly profitable increases as $p$ increases.
@@ -121,13 +125,13 @@ We formally show this result next.
 \caption{$\alpha = 2.5$}
 \end{subfigure}
 
-\caption{{Regions where $RoR_A > RoR_B$ (blue), where $RoR_A > \frac{b}{2}$ (yellow) and where both are true (green) for different values of $\alpha$. In all cases, $\beta = 0.95$ and $v = 0.05$.}}
+\caption{{Regions where $RoR_A > RoR_B$ (blue), where $RoR_A > \frac{b}{2}$ (yellow) and where both are true (green) for different values of $\alpha$. In all cases, $\beta = 0.95$, $v = 0.05$ and $\lambda$ drawn uniformly on $(0,b]$.}}
 \label{fig:offer_reward_or_not}
 \end{figure*}
 
 \begin{figure*}[t]
 \centering
-\includegraphics[scale = 0.6]{./figures/b_region_v2.png}
+\includegraphics[scale = 0.4]{./figures/b_region_v2.png}
 \caption{The upper and lower bounds on $b$ as a function of $p$. Here $v = 0.05$ and $\alpha \rightarrow e$.}
 \label{fig:b_region}
 \end{figure*}
@@ -143,7 +147,7 @@ b > 2\cdot \frac{(1-v) - \frac{p}{1-p}\cdot (1-ev)}{(1-v) + (1-ev)}
 \proof
 First we compute the following quantity.
 \begin{equation*}
-\lim_{\alpha \to e} \frac{e-\alpha}{b\alpha}\log{1+\frac{b\alpha}{e-\alpha}}
+\lim_{\alpha \to e} \frac{e-\alpha}{b\alpha}\log\left(1+\frac{b\alpha}{e-\alpha}\right)
 \end{equation*}
 Let $\frac{e-\alpha}{b\alpha} = x$, then it is easy to see that the above limit is equivalent to $\lim_{x\to \infty} \frac{\log(1+x)}{x} = 0$. Then as $\alpha \rightarrow e$, we have the following expressions for $RoR_A$ and $RoR_B$.
 \begin{equation*}
@@ -184,9 +188,7 @@ b &< \frac{2 p (1-ev)}{1-(1-p)(1-ev)} \\
 \end{align*}
 \endproof
 
-We combine the above two lemmas to get an intuitive necessary and sufficient condition on $p$ for the reward program to be ``strictly better''. 
-
-{\nolan I may rearrange some of the proof text to outside the proof - just a reminder to myself.}
+The previous two lemmas provide lower and upper bounds on $b$ for $RoR_A > RoR_B$ and $RoR_A > \frac{b}{2}$, respectively. For the reward program to be strictly better than all alternatives, both of these conditions must be met. We combine them to get an intuitive necessary and sufficient condition on $p$ for the reward program to be ``strictly better''. 
 
 \begin{lemma}
 As $\alpha \rightarrow e$, for the reward program to be strictly better on some values of $b$, a necessary and sufficient condition on $p$ is:
@@ -197,7 +199,7 @@ p > 1 - \frac{1-ev}{1-ev^2}
 \end{lemma}
 
 \proof
-The previous two lemmas provide lower and upper bounds on $b$ for $RoR_A > RoR_B$ and $RoR_A > \frac{b}{2}$, respectively. For the reward program to be strictly better than all alternatives, both of these conditions must be met. The values of $b$ for which both are met is given by:
+ The values of $b$ for which both previous lemmas are met is given by:
 \begin{align*}
 2\cdot \frac{(1-v) - \frac{p}{1-p}\cdot (1-ev)}{(1-v) + (1-ev)} < b < \frac{2p}{p+\frac{ev}{1-ev}}
 \end{align*}
@@ -247,7 +249,7 @@ We combine all the above observations into the following theorem.
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[scale = 0.75]{./figures/b_bounds.png}
+\includegraphics[scale = 0.55]{./figures/b_bounds.png}
 \caption{Bounds on $b$ for various values of $p$ and $v$ at $\alpha \rightarrow e$. Top shows lower bounds on $b$ for $RoR_A \geq RoR_B$ and bottom shows upper bounds of $b$ for $RoR_A \geq \frac{b}{2}$.}
 \label{fig:b_restrictions}
 \end{centering}
@@ -276,7 +278,7 @@ g(b; \alpha) \geq h(p, v; \alpha)
 where we have defined functions $g(b)$ and $h(p,v)$ for fixed $\alpha$ for the above inequalities. 
 
 \begin{proposition}
-For a fixed $\alpha$, $g(b)$ is non-increasing for all $b \in [0,1]$. 
+For a fixed $\alpha$, $g(b)$ is non-increasing for all $b \in (0,1)$. 
 \end{proposition}
 
 \proof
@@ -334,27 +336,27 @@ Fix $\alpha \in (0, e)$. For any $(p,v)$ pair, there exists some lower bound $b_
 \end{lemma}
 
 \proof
-Let $\frac{b\alpha}{e-\alpha} = X$. Then $RoR_A > RoR_B$ can be evaluated as follows:
+Let $\frac{b\alpha}{e-\alpha} = x$. Then $RoR_A > RoR_B$ can be evaluated as follows:
 
 \begin{eqnarray}
-& p\frac{e}{\alpha}\left(1-\frac{\log(1+X)}{X}\right)(1-\alpha v + 1 - v) - p(1-v) + (1-p)\frac{b}{2}\left(1-\alpha v + 1-v\right) + p(1-v) > 1-v\notag\\
-& \implies p\left(1 - \frac{\log(1+X)}{X}\right) + (1-p)\frac{b\alpha}{2e} > \frac{\alpha}{e} \cdot \frac{1-v}{1-\alpha v + 1 - v}\label{eq:ra>rb}
+& p\frac{e}{\alpha}\left(1-\frac{\log(1+x)}{x}\right)(1-\alpha v + 1 - v) - p(1-v) + (1-p)\frac{b}{2}\left(1-\alpha v + 1-v\right) + p(1-v) > 1-v\notag\\
+& \implies p\left(1 - \frac{\log(1+x)}{x}\right) + (1-p)\frac{b\alpha}{2e} > \frac{\alpha}{e} \cdot \frac{1-v}{1-\alpha v + 1 - v}\label{eq:ra>rb}
 \end{eqnarray}
 
 Since $\alpha$ is a constant, the LHS above is a function of $b$ and $p$. 
 Let the LHS above be $L(b,p)$.
-We first show that in the range of $b\in [0,1]$, $1 - \frac{\log(1+X)}{X} > \frac{b\alpha}{2e}$ which shows that $L(b,p)$ is increasing in $p$.
+We first show that in the range of $b\in [0,1]$, $1 - \frac{\log(1+x)}{x} > \frac{b\alpha}{2e}$ which shows that $L(b,p)$ is increasing in $p$.
 
 \begin{align*}
-& 1-\frac{\log(1+X)}{X} > \frac{b\alpha}{2e}\\
-\Leftrightarrow & X - \log(1+X) > \frac{b^2\alpha^2}{2e(e-\alpha)}
+& 1-\frac{\log(1+x)}{x} > \frac{b\alpha}{2e}\\
+\Leftrightarrow & x - \log(1+x) > \frac{b^2\alpha^2}{2e(e-\alpha)}
 \end{align*}
 Observe that LHS is equal to RHS when $b\rightarrow 0$. 
 All we show is that LHS increases faster than RHS in the range of $b\in [0,1]$. 
 
 \begin{align*}
-\Leftrightarrow & \left(1 - \frac{1}{1+X}\right) \frac{\alpha}{e-\alpha} > \frac{b\alpha^2}{e(e-\alpha)}\\
-\Leftrightarrow & \frac{1}{1+X} > \frac{e-\alpha}{e}\\
+\Leftrightarrow & \left(1 - \frac{1}{1+x}\right) \frac{\alpha}{e-\alpha} > \frac{b\alpha^2}{e(e-\alpha)}\\
+\Leftrightarrow & \frac{1}{1+x} > \frac{e-\alpha}{e}\\
 \Leftrightarrow & \frac{e}{e-\alpha} > 1 + \frac{b\alpha}{e-\alpha}
 \end{align*}
 And the last equation is true in the range of $b\in [0,1]$. Hence $L(b,p)$ increases with $p$.
@@ -362,21 +364,21 @@ And the last equation is true in the range of $b\in [0,1]$. Hence $L(b,p)$ incre
 Now we show that $L(b,p)$ increases with $b$ as well. First observe:
 
 \beq
-\frac{\partial L(b,p)}{\partial b} = p\left(\frac{\log(1+X) - \frac{X}{1+X}}{X^2}\right)\frac{\alpha}{e-\alpha} + (1-p)\frac{\alpha}{2e}
+\frac{\partial L(b,p)}{\partial b} = p\left(\frac{\log(1+x) - \frac{x}{1+x}}{x^2}\right)\frac{\alpha}{e-\alpha} + (1-p)\frac{\alpha}{2e}
 \notag
 \eeq
 
 Thus $\frac{\partial L(b,p)}{\partial b} > 0$ implies:
 
 \begin{align*}
-& (1-p)\frac{\alpha}{2e} > p\left(\frac{\frac{X}{1+X} - \log(1+X)}{X^2}\right)\frac{\alpha}{e-\alpha}\\
-\Leftrightarrow & (1-p)\frac{b^2\alpha^2}{2e(e-\alpha)} > p \left(1 - \frac{1}{1+X} - \log(1+X)\right)
+& (1-p)\frac{\alpha}{2e} > p\left(\frac{\frac{x}{1+x} - \log(1+x)}{x^2}\right)\frac{\alpha}{e-\alpha}\\
+\Leftrightarrow & (1-p)\frac{b^2\alpha^2}{2e(e-\alpha)} > p \left(1 - \frac{1}{1+x} - \log(1+x)\right)
 \end{align*}
 
 Again the LHS and RHS are equal as $b\rightarrow 0$. All we show again is that LHS increases faster as compared to RHS.
 
 \begin{align*}
-\Leftrightarrow (1-p)\frac{b\alpha^2}{e(e-\alpha)} > p\left(\frac{1}{(1+X)^2} - \frac{1}{1+X} \right)\frac{\alpha}{e-\alpha}\\
+\Leftrightarrow (1-p)\frac{b\alpha^2}{e(e-\alpha)} > p\left(\frac{1}{(1+x)^2} - \frac{1}{1+x} \right)\frac{\alpha}{e-\alpha}\\
 \end{align*}
 Clearly RHS is negative when $b\in (0,1]$ and LHS is positive. Hence proved.
 
@@ -392,4 +394,4 @@ Fix $\alpha \in (0, e)$.
 For any value of $v$, there exists a lowerbound $p_0$ such that for any $p$ greater than $p_0$, there exists a range $(b_0, b_1)$ between $0$ and $1$ such that for all $b$ lying between $b_0$ and $b_1$, offering the reward program is strictly better for $A$. 
 \end{theorem}
 
-The above results can be extremely helpful in the following way: if a merchant has good estimates of its target customer population, \ie, $b$ and $p$ values, it can find the appropriate reward budget ratios $\alpha$, which could make running a reward program strictly better against a traditional pricing competitor.
+The above results can be extremely helpful in the following way: if a merchant believes excess loyalty is uniform and has good estimates of its target customer population, \ie, $b$ and $p$ values, it can find the appropriate reward budget ratios $\alpha$, which could make running a reward program strictly better against a traditional pricing competitor. Most importantly, these results show that under mild assumptions on the customer poplation parameters, reward programs can be beneficial in our duopoly model.

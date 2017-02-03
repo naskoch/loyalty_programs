@@ -4,7 +4,7 @@ Merchant $A$ additionally offers a reward of value $R$ dollars to a customer aft
 We only investigate the case that we refer to as ``proportional promotion budgeting'', wherein this reward $R$ is proportional to the product of the distance to the reward $k$ and the discount $v$ provided by $B$;
 that is, $R = \alpha k v$.
 The merchant optimizes over both $k$ and $\alpha$.
-This assumption imposes the constraint that the reward offered by the merchant is linearly dependent to the distance to reward.
+This assumption imposes the constraint that the reward offered by the merchant is linearly dependent to the distance to reward. {\nolan Add justification for proportional budgeting here - linear reward scheme source.}
 
 \subsection{Customer Behavior Model}
 We assume customers purchase the item from either $A$ or $B$ everyday, \ie, we ignore the heterogeneity in frequency of purchases among the customers in our model and leave it for future work.
@@ -57,14 +57,14 @@ In this cycle the number of visits that the customer makes to $A$ is $k$, and to
 The revenue that $A$ earns in one such cycle is $k-R$ and the revenue that $B$ earns is $(1-v)(\tau(t,\lambda) - i_0(t))$.
 Thus the rate of revenues for $A$ and $B$ from the customer $c$ are as follows:
 \beq
-RoR_A(c) = \underset{\tau}E\left[\frac{k-R}{\tau(t,\lambda) + k - i_0(t)}\right]\notag
+RoR_A(c) = \underset{\tau, t, \lambda}E\left[\frac{k-R}{\tau(t,\lambda) + k - i_0(t)}\right]\notag
 \eeq
 \beq
-RoR_B(c) = \underset{\tau}E\left[\frac{(\tau(t,\lambda) - i_0(t))(1-v)}{\tau(t,\lambda) + k - i_0(t)}\right]\notag
+RoR_B(c) = \underset{\tau, t, \lambda}E\left[\frac{(\tau(t,\lambda) - i_0(t))(1-v)}{\tau(t,\lambda) + k - i_0(t)}\right]\notag
 \eeq
 
 Since the process for a single customer is regenerative, using the reward renewal theorem (\cite{10.2307/1426216}), we can take the expectation over the cycle length inside the numerator and denominator respectively.
-Note that $\underset{\tau}E[\tau(t,\lambda)] = \frac{i_0(t)}{\lambda}$ as before reaching the phase transition point, with probability $\lambda$, the number of purchases by the customer from $A$ increases by $1$ and with probability $1-\lambda$ it stays constant.
+Note that $\underset{\tau, t, \lambda}E[\tau(t,\lambda)] = \frac{i_0(t)}{\lambda}$ as before reaching the phase transition point, with probability $\lambda$, the number of purchases by the customer from $A$ increases by $1$ and with probability $1-\lambda$ it stays constant.
 Then taking the expectation over the customer population the overall rate of revenues for both $A$ and $B$ are as follows:
 
 \beq
