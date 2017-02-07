@@ -1,5 +1,5 @@
 v = 0.1;
-p = 0.5;
+p = 0.9;
 beta = 0.9;
 
 comp_delta = @(k, alpha) max(0,-log(alpha*k*(1-beta))/log(beta));
@@ -35,10 +35,10 @@ for kk = 1:trials,
     rev_avgs(kk) = rev_tot/n;
 end
 
-p = 0.9;
-comp_delta = @(k, alpha) max(0,-log(alpha*k*(1-beta))/log(beta));
+% p = 0.9;
+% comp_delta = @(k, alpha) max(0,-log(alpha*k*(1-beta))/log(beta));
+% comp_rev = @(delta, l, k, alpha) (1-alpha*v)*(p*k*l/(k-(1-l)*delta)+(1-p)*l);
 
-comp_rev = @(delta, l, k, alpha) (1-alpha*v)*(p*k*l/(k-(1-l)*delta)+(1-p)*l);
 figure()
 plot(alpha_range, rev_avgs)
 hold on
@@ -46,11 +46,11 @@ hold on
 for kk = 1:trials,
     alpha = alpha_range(kk);
     
-    x = randn(n,1);
-    lam = exp(x)./(1+exp(x));
+%     x = randn(n,1);
+%     lam = exp(x)./(1+exp(x));
  
-%     b = 1;
-%     lam = b*rand(n,1);
+    b = 1;
+    lam = b*rand(n,1);
 
     k = exp(1)/(alpha*(1-beta));
     
@@ -64,8 +64,8 @@ for kk = 1:trials,
     rev_avgs(kk) = rev_tot/n;
 end
 
-plot(alpha_range, rev_avgs, 'r')
+%plot(alpha_range, rev_avgs, 'r')
 ylabel('RoR_A')
 xlabel('alpha')
-legend('p = 0.5', 'p = 0.9')
-title('v = 0.1, p = 0.8, logit-normal distribution')
+%legend('b = 0.5', 'b = 1')
+title('v = 0.1, p = 0.5')
