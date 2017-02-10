@@ -4,10 +4,12 @@
 
 \subsubsection{Optimizing Reward Parameters}
 
-So far we have characterized the consumer behavior within the duopoly without concern about the particular reward parameters. In this section, we derive optimal parameters for these parameters with respect to the revenue of the reward merchant. Interestingly, we see that maximizing revenue corresponds to minimizing the influence zone.
+So far we have characterized the customer behavior within the duopoly without concern about the particular reward design parameters. 
+In this section, we derive optimal parameters for the reward program design with the objective of maximizing the revenue of the reward program merchant. 
+Interestingly, we see that maximizing revenue corresponds to minimizing the influence zone, as illustrated above.
 
 \begin{theorem}
-Under proportional promotion budgeting, the optimal reward distance ($k$) and the optimal budget proportion ($\alpha$) that $A$ should set follow the following relation $\alpha k = \frac{e}{(1-\beta)}$ at all values of $b$ as long as $\beta$ is close to 1.
+Under proportional promotion budgeting, the optimal reward distance ($k$) and the optimal budget proportion ($\alpha$) for merchat $A$ follow the relation $\alpha k = \frac{e}{(1-\beta)}$ at all values of $b$ as long as $\beta$ is close to 1.
 \end{theorem}
 \proof
 Let $\theta = \frac{\Delta}{k}$. First, we evaluate $RoR_A$.
@@ -38,11 +40,15 @@ The above framework can be used for optimizing for the reward parameters to maxi
 That is, if a merchant has a good estimate of its customer population's distribution, it can easily utilize the above theorem to optimize its reward scheme.
 We leave the competitive study where merchant $B$ could strategize on its discount value $v$ for future work.
 
+{\arpit I feel like something is missing here.. along the lines of finding optimal $\alpha$. I will play around with your code and plots to fit in some exposition.}
+
+{\arpit Also; what's up with this random spacing? I couldn't find}
+
 \subsubsection{Revenue Comparisons}
 
-Now we characterize conditions for when it is strictly better for $A$ to offer a reward program for a specific distribution of the loyalty bias paramter - when $\lambda$ for every customer is drawn uniformly at random between $(0,b]$ where $b$ is less than $1$. We will assume this distribution for the remainder of the section.
+Now we characterize conditions for when it is strictly better for $A$ to offer a reward program for a specific distribution of the loyalty bias parameter - when $\lambda$ for every customer is drawn uniformly at random between $(0,b]$ where $b$ is less than $1$. We will assume this distribution for the remainder of the section.
 This condition boils down to two situations: first, the rate of revenue for $A$ should be higher than that of $B$ and second, that the rate of revenue for $A$ should be higher than it could have achieved by not offering the reward program at the same fixed price.
-First we evaluate the expected rates of revenue for both $A$ and $B$ under these conditions of proportional budgeting and the optimal relation between $k$ and $\alpha$ as shown in the previous theorem with $\lambda$ drawn from a uniform distribution.
+First, we evaluate the expected rates of revenue for both $A$ and $B$ under the optimality relation between $k$ and $\alpha$ mentioned above with $\lambda$ being drawn from a uniform distribution.
 
 \begin{align*}
 RoR_A =& \underset{\lambda}E\left[p\cdot\frac{\lambda(1-\alpha v)}{1-\theta(1-\lambda)} + (1-p)\lambda (1-\alpha v)\right]\\
