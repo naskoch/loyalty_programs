@@ -18,7 +18,6 @@ def sample_logit_norm(n):
 def sample_normal(n):
     mu, sigma = 0.5, 0.1 # mean and standard deviation
     s = np.random.normal(mu, sigma, n)
-    return s
     '''
     abs(mu - np.mean(s)) < 0.01
     abs(sigma - np.std(s, ddof=1)) < 0.01
@@ -28,6 +27,28 @@ def sample_normal(n):
             linewidth=2, color='r')
     plt.show()
     '''
+    return s
+
+def get_plot_unif(beta = 0.9, p = 0.9, n = 10000):
+    alphas = np.linspace(0,math.e, 250)
+    t = len(alphas)
+    rev_avgs = np.zeros((t,1))
+    br = [0.5]
+    vr = [0.1, 0.2, 0.3]
+    legend_list = []
+    for b in br:
+        for v in vr:
+            for j in range(t):
+                lambdas = sample_unif(b, n)
+                alpha = alphas[j]
+                k = math.e/(alpha*(1.-beta))
+                rev_avgs[j] = sum([comp_rev(k, alpha, v, lam, p, beta) for lam in lambdas])/n
+            plt.plot(alphas, rev_avgs)
+            legend_list.append("b={0}, v={1}".format(b, v))
+    plt.xlabel("Proportionality Constant Value")
+    plt.ylabel("Rate of Revenue of A")
+    plt.legend(legend_list, loc='upper left')
+    plt.show()
 
 def get_alpha_dist(b, p, v, beta, n, dist):
     alphas = np.linspace(0,math.e, 250)
