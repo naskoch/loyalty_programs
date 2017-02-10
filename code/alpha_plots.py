@@ -33,7 +33,7 @@ def get_plot_dist(beta = 0.9, p = 0.9, n = 10000, dist = 'unif'):
     alphas = np.linspace(0,math.e, 250)
     t = len(alphas)
     rev_avgs = np.zeros((t,1))
-    br = [0.5]
+    br = [0.9]
     vr = [0.1, 0.2, 0.3]
     legend_list = []
     for b in br:
