@@ -7,7 +7,7 @@ def comp_rev(k, alpha, v, lam, p, beta):
     return (1.-alpha*v)*(p*lam/(1-(alpha/math.e)*(1.-lam))+(1.-p)*lam)
 
 def sample_unif(b, n):
-    lambdas = np.random.uniform(0.,b,n)
+    lambdas = np.random.uniform(b,b,n)
     return lambdas
 
 def sample_logit_norm(n):
@@ -78,14 +78,3 @@ def run_main(b = 0.5, p = 0.9, v = 0.1, beta = 0.9, n = 10000, dist="unif"):
     plt.legend(["Uniform Distribution","Logit Normal Distribution", 
         "Normal Distribution"], loc='upper left')
     plt.show()
-
-'''
-b = 0.5
-p = 0.9
-v = 0.1
-beta = 0.9
-n = 10000
-
-plot_alpha_dist(p, v, beta, n, dist="logit")
-plot_alpha_dist(p, v, beta, n, dist="unif")
-'''
