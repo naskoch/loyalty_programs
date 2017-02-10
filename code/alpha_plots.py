@@ -44,10 +44,10 @@ def plot_alpha_logit(p, v, beta, n):
     plt.plot(alphas, rev_avgs)
     plt.show()
 
-b = 0.5
+b = 1.
 p = 0.9
-v = 0.1
+v = 0.18
 beta = 0.9
 n = 10000
 
-plot_alpha_logit(p, v, beta, n)
+plot_alpha_unif(b, p, v, beta, n)
