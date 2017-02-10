@@ -29,7 +29,7 @@ def sample_normal(n):
     '''
     return s
 
-def get_plot_unif(beta = 0.9, p = 0.9, n = 10000):
+def get_plot_dist(beta = 0.9, p = 0.9, n = 10000, dist = 'unif'):
     alphas = np.linspace(0,math.e, 250)
     t = len(alphas)
     rev_avgs = np.zeros((t,1))
@@ -39,12 +39,20 @@ def get_plot_unif(beta = 0.9, p = 0.9, n = 10000):
     for b in br:
         for v in vr:
             for j in range(t):
-                lambdas = sample_unif(b, n)
+                if dist == "unif":
+                    lambdas = sample_unif(b, n)
+                elif dist == "logit":
+                    lambdas = sample_logit_norm(n)
+                elif dist == "normal":
+                    lambdas = sample_normal(n)
                 alpha = alphas[j]
                 k = math.e/(alpha*(1.-beta))
                 rev_avgs[j] = sum([comp_rev(k, alpha, v, lam, p, beta) for lam in lambdas])/n
             plt.plot(alphas, rev_avgs)
-            legend_list.append("b={0}, v={1}".format(b, v))
+            if dist == 'unif':
+                legend_list.append("b={0}, v={1}".format(b, v))
+            else:
+                legend_list.append("v={0}".format(v))
     plt.xlabel("Proportionality Constant Value")
     plt.ylabel("Rate of Revenue of A")
     plt.legend(legend_list, loc='upper left')
