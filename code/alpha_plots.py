@@ -7,7 +7,7 @@ def comp_rev(k, alpha, v, lam, p, beta):
     return (1.-alpha*v)*(p*lam/(1-(alpha/math.e)*(1.-lam))+(1.-p)*lam)
 
 def sample_unif(b, n):
-    lambdas = np.random.uniform(b,b,n)
+    lambdas = np.random.uniform(0,b,n)
     return lambdas
 
 def sample_logit_norm(n):
