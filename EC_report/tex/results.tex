@@ -42,7 +42,29 @@ We leave the competitive study where merchant $B$ could strategize on its discou
 
 {\arpit I feel like something is missing here.. along the lines of finding optimal $\alpha$. I will play around with your code and plots to fit in some exposition.}
 
-{\arpit Also; what's up with this random spacing? I couldn't find}
+\begin{figure*}[t!]
+\centering
+\begin{subfigure}[t]{0.3\textwidth}
+\centering
+\includegraphics[height=2in]{./figures/rora_alpha_unif_v2.png}
+\caption{Uniform distribution.}
+\end{subfigure}%
+~ 
+\begin{subfigure}[t]{0.3\textwidth}
+\centering
+\includegraphics[height=2in]{./figures/rora_alpha_normal_v2.png}
+\caption{Normal distribution.}
+\end{subfigure}
+~
+\begin{subfigure}[t]{0.3\textwidth}
+\centering
+\includegraphics[height=2in]{./figures/rora_alpha_logit_v2.png}
+\caption{Logit-normal distribution.}
+\end{subfigure}%
+
+\caption{{Rate of revenue for reward merchant as a function of $\alpha$ (with $k = \frac{e}{\alpha(1-\beta)}$) for different distributions. For all distributions, $\beta = 0.9$, $p = 0.9$ and $v$ varies as labeled. The uniform distribution is on $(0,b)$ with $b = 0.9$; the normal distribution has $\mu = 0.5$ and $\sigma = 0.1$; and the logit-normal distribution is the standard on $[0,1]$.}}
+\label{fig:alpha_max}
+\end{figure*}
 
 \subsubsection{Revenue Comparisons}
 

@@ -30,6 +30,10 @@ def sample_normal(n):
     return s
 
 def get_plot_dist(beta = 0.9, p = 0.9, n = 10000, dist = 'unif'):
+    plt.rc('text', usetex=True)
+    plt.rc('font', family='serif')
+    plt.rcParams['text.latex.preamble']=[r"\usepackage{amsmath}"]
+
     alphas = np.linspace(0,math.e, 250)
     t = len(alphas)
     rev_avgs = np.zeros((t,1))
@@ -53,8 +57,8 @@ def get_plot_dist(beta = 0.9, p = 0.9, n = 10000, dist = 'unif'):
                 legend_list.append("b={0}, v={1}".format(b, v))
             else:
                 legend_list.append("v={0}".format(v))
-    plt.xlabel("Proportionality Constant Value")
-    plt.ylabel("Rate of Revenue of A")
+    plt.xlabel(r'$\boldsymbol{\alpha}$')
+    plt.ylabel(r'$\boldsymbol{RoR_A}$')
     plt.legend(legend_list, loc='upper left')
     plt.show()
 
