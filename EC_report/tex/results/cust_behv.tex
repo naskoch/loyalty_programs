@@ -1,5 +1,5 @@
 \subsection{Customer Choice Dynamics}
-We first show that every customer exhibits the following behavior: until (s)he reaches the phase transition point $i_0(t)$, she purchases from $A$ only due to the exogeneity paramater, and after that (s)he always purchases from $A$ till she receives the reward.
+We first show that every customer exhibits the following behavior: until (s)he reaches the phase transition point $i_0(t)$, she purchases from $A$ only due to the exogeneity parameter, and after that (s)he always purchases from $A$ till she receives the reward.
 This behavior is cyclic, and repeats after every reward redemption.
 
 \begin{lemma} $V(i)$ is an increasing function in $i$ if the following condition holds:
@@ -13,7 +13,7 @@ V(i) = \max\left\{ \frac{\lambda \beta V(i+1)+(1-\lambda)v}{1-(1-\lambda)\beta},
 \end{lemma}
 
 \begin{proof}
-First we show that $V(i)$ is an increasing function in $i$ by induction. We first show that if the condition above is satisfied, $V(k-1) < V(k) = R$. Suppose not, so $V(i) \geq R$. Then we have:
+First we show that $V(i)$ is an increasing function in $i$ by induction. We first show that if the condition above is satisfied, $V(k-1) < V(k) = R$. Suppose not, so $V(k-1) \geq R$. Then from Eq.~\ref{eq:dp_form}, we have:
 \begin{align*}
 V(k-1) &= \lambda \beta V(k) + (1-\lambda)(v+\beta V(k-1)) \\
 &= \frac{\lambda \beta R + (1-\lambda)v}{1-(1-\lambda)\beta} \\
