@@ -8,9 +8,9 @@ Customers measure their utilities in rational economic terms, \ie, they make the
 The discount factor is the time value of money, and we assume it to be constant for all customers.
 We also assume that every customer makes a purchase everyday from either of the two merchants.
 We relax these two assumptions by introducing a look-ahead factor that controls how far into the future a customer can perceive the rewards. 
-This affects the customer behavior dynamics as follows: if the reward is farther than the customer's look-ahead parameter, (s)he is unable to perceive the future value of that reward and take it into consideration while maximizing long term utility.
-This parameter, being customer specific, adds heterogeneity to both the future discounting and purchase frequency.
-We only model myopic and strategic customers, \ie, the look-ahead parameter being $0$ or a large value, and leave further parametrization for future work. But importantly, the framework we develop may be applied and modiefied to more complex look-ahead distributions.
+This affects the customer behavior dynamics as follows: if the reward redemption threshold is farther than the customer's look-ahead parameter, (s)he is unable to perceive the future value of that reward and take it into consideration while maximizing long term utility.
+This parameter, being customer specific, adds heterogeneity to both the future discounting and purchase frequency -- customers having high purchase frequency might be able to perceive rewards with higher redemption thresholds.
+We only model myopic and strategic customers, \ie, the look-ahead parameter being $0$ or a large value, and leave further parametrization for future work. But importantly, the framework we develop, could be applied and modiefied to more complex look-ahead distributions.
 
 In addition, we assume each customer has a visit probability bias with which (s)he purchases the good from the reward program merchant for reasons exogenous to utility maximization.
 This behavior may be attributed to \emph{excess loyalty} (\cite{fader1993excess, sharp1997loyalty}) which has been argued as a important parameter for the success of any reward program, or it may be attributed to price insensitivity of customers; whenever a customer is price insensitive, (s)he strictly prefers to purchase from the reward program merchant as (s)he gains points redeemable for rewards in the future.
@@ -30,7 +30,7 @@ In short, these results verify that our model is in coherence with the different
 After characterizing the customer behavior dynamics in our model, we optimize over the long run revenues that the reward program merchant achieves.
 We model a specific case of proportional promotion budgeting: the reward offered by the reward program merchant is proportional to the product of the distance to the reward and the discount provided by the traditional pricing merchant, with the proportionality constant being another parameter in the design of the reward program.
 We show that under proportional promotion budgeting, the optimal distance to reward and the proportionality budgeting constant follow an intuitive product relationship which is independent of the customer population parameters,
-and these values correspond closely to real world observed cashback percentage amounts.
+and these values correspond closely to real world observed cashback percentage values.
 In addition, optimizing the revenue objective gives the same optimal distance to reward as minimizing the phase transition point as defined above.
 Moreover, we characterize the conditions in terms of the customer parameters for when the revenue objective of the reward program merchant is better than the traditional pricing merchant and when it is better for the reward program merchant to offer a reward versus not offering any reward, for a specific choice of loyalty bias distribution.
 We show that for the reward program to be effective under both the above conditions, a minimum fraction of customer population must be strategic.
