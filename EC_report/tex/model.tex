@@ -16,7 +16,6 @@ We denote a customer's visit probability bias and the look-ahead parameter with 
 That is with probability $\lambda$, (s)he purchases from $A$ due to externalities and perceives a future reward only if it is within $t$ purchases away. 
 This $\lambda$ for a customer is drawn from a distribution $f$ with support between $[0,1]$.
 In this paper, we focus on a simple threshold distribution for the look-ahead parameter $t$: 
-
 \begin{equation*}
   t=\begin{cases}
     t_1, & \text{wp } p,\\
@@ -29,7 +28,7 @@ We leave other parametrizations of this look-ahead parameter for future work.
 We model the customer's decision problem as a dynamic problem. We index the number of purchases the customer makes from $A$ until the reward by $i$, for $0 \leq i \leq k-1$, and we refer a customer to be in state $i$ after having made $i$ purchases from $A$. At state $i$, the customer has two possibilities:
 \begin{enumerate}
 \item
-With probability $\lambda$, the customer must visit $A$, and she is now in state $i+1$.
+With probability $\lambda$, the customer must visit $A$, and (s)he is now in state $i+1$.
 \item
 With probability $1-\lambda$, the customer may purchase from $B$ for an immediate utility $v$ and remain in state $i$ or purchase from $A$ for no immediate utility but move to state $i+1$.
 \end{enumerate}
@@ -52,7 +51,7 @@ As described above, a customer's dynamics are cyclic after each reward cycle.
 Thus the lifetime dynamics of customer behavior is a regenerative process with independent and identically distributed reward cycle lengths.
 Let $RoR_A(c)$ and $RoR_B(c)$ denote the expected rate of revenues for $A$ and $B$ respectively from a customer $c$'s lifetime.
 Let $\tau(t, \lambda)$ denote the total number of purchases the customer makes before reaching the phase transition point $i_0(t)$.
-Then the length of the reward cycle (or total number of purchases the customer makes before receiving the reward) is $\tau(t, \lambda) + k - i_0(t)$, because after the phase transition (s)he makes all purchases from $A$ only until hitting the reward.
+Then the length of the reward cycle (or total number of purchases the customer makes before receiving the reward) is $\tau(t, \lambda) + k - i_0(t)$, because after the phase transition (s)he makes all purchases from $A$ until hitting the reward.
 In this cycle the number of visits that the customer makes to $A$ is $k$, and to $B$ is $\tau(t,\lambda) - i_0(t)$.
 The revenue that $A$ earns in one such cycle is $k-R$ and the revenue that $B$ earns is $(1-v)(\tau(t,\lambda) - i_0(t))$.
 Thus the rate of revenues for $A$ and $B$ from the customer $c$ are as follows:

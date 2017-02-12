@@ -63,7 +63,7 @@ Note that the exact values of $v$ for which these behaviors occur depend also on
 \caption{Logit-normal distribution.}
 \end{subfigure}
 
-\caption{{Rate of revenue for reward merchant as a function of $\alpha$ (with $k = \frac{e}{\alpha(1-\beta)}$) for different distributions. For all distributions, $\beta = 0.9$, $p = 0.9$ and $v$ varies as labeled. The uniform distribution is on $(0,b)$ with $b = 0.9$; the normal distribution has $\mu = 0.5$ and $\sigma = 0.1$; and the logit-normal distribution is the standard on $[0,1]$.}}
+\caption{{Rate of revenue for reward merchant as a function of $\alpha$ (with $k = \frac{e}{\alpha(1-\beta)}$) for different distributions. For all distributions, $\beta = 0.9$, $p = 0.9$ and $v$ varies as labeled. The uniform distribution is on $(0,b]$ with $b = 0.9$; the normal distribution has $\mu = 0.5$ and $\sigma = 0.1$; and the logit-normal distribution is the standard on $[0,1]$.}}
 \label{fig:alpha_max}
 \end{figure*}
 
@@ -247,7 +247,7 @@ The above inequality is only valid when the lower bound is less than the upper b
 \endproof
 
 Thus, for any choice of $v$, and $p$ obeying the above condition, the combination of the above lemmas gives an interval of $b$ values for which the reward program is the most profitable choice for the merchant. 
-Figure~\ref{fig:b_region} shows the bounds on $b$ for varying values of $p$, keeping $v = 0.05$ fixed, and restricting the range of $b$ values in $[0,1]$. 
+Figure~\ref{fig:b_region} shows the bounds on $b$ for varying values of $p$, keeping $v = 0.05$ fixed, and restricting the range of $b$ values in $(0,1)$. 
 Notice that the upper bound on $b$ increases as a function of $p$ while the lower bound decreases with $p$, so the interval of $b$ values where the reward program is strictly better increases with $p$. 
 We formalize this observation in the next lemma. 
 
