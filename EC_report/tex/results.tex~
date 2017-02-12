@@ -1,4 +1,4 @@
-\input{\texfolder/cust_behv.tex}
+\input{./tex/results/cust_behv.tex}
 
 \subsection{Merchant Objective Dynamics}
 
@@ -37,10 +37,8 @@ We meet this condition with proportional budgeting when $k = \frac{e}{\alpha(1-\
 The above framework can be used for optimizing for the reward parameters to maximize $A$'s rate of revenue, for varying distributions of the customer population.
 That is, if a merchant has a good estimate of its customer population's distribution, it can easily utilize the above theorem to optimize its reward scheme.
 We leave the competitive study where merchant $B$ could strategize on its discount value $v$ for future work.
-{\arpit We show in Figure~\ref{} about numerical results on optimal alpha}{\nolan I will look into this and if we do find something, we can expand above paragraph a little.}
 
 \subsubsection{Revenue Comparisons}
-{\nolan maybe need to rethink titles of sections, but using these as placeholders.}
 
 Now we characterize conditions for when it is strictly better for $A$ to offer a reward program for a specific distribution of the loyalty bias paramter - when $\lambda$ for every customer is drawn uniformly at random between $(0,b]$ where $b$ is less than $1$. We will assume this distribution for the remainder of the section.
 This condition boils down to two situations: first, the rate of revenue for $A$ should be higher than that of $B$ and second, that the rate of revenue for $A$ should be higher than it could have achieved by not offering the reward program at the same fixed price.
@@ -105,25 +103,25 @@ We formally show this result next.
 \centering
 \begin{subfigure}[t]{0.5\textwidth}
 \centering
-\includegraphics[height=2in]{\figurefolder/bp_pair_both_al0p5.png}
+\includegraphics[height=2in]{./figures/bp_pair_both_al0p5.png}
 \caption{$\alpha = 0.5$}
 \end{subfigure}%
 ~ 
 \begin{subfigure}[t]{0.5\textwidth}
 \centering
-\includegraphics[height=2in]{\figurefolder/bp_pair_both_al1p0.png}
+\includegraphics[height=2in]{./figures/bp_pair_both_al1p0.png}
 \caption{$\alpha = 1$}
 \end{subfigure}
 \centering
 \begin{subfigure}[t]{0.5\textwidth}
 \centering
-\includegraphics[height=2in]{\figurefolder/bp_pair_both_al2p0.png}
+\includegraphics[height=2in]{./figures/bp_pair_both_al2p0.png}
 \caption{$\alpha = 2$}
 \end{subfigure}%
 ~ 
 \begin{subfigure}[t]{0.5\textwidth}
 \centering
-\includegraphics[height=2in]{\figurefolder/bp_pair_both_al2p5.png}
+\includegraphics[height=2in]{./figures/bp_pair_both_al2p5.png}
 \caption{$\alpha = 2.5$}
 \end{subfigure}
 
@@ -133,7 +131,7 @@ We formally show this result next.
 
 \begin{figure*}[t]
 \centering
-\includegraphics[scale = 0.6]{\figurefolder/b_region_v2.png}
+\includegraphics[scale = 0.6]{./figures/b_region_v2.png}
 \caption{The upper and lower bounds on $b$ as a function of $p$. Here $v = 0.05$ and $\alpha \rightarrow e$.}
 \label{fig:b_region}
 \end{figure*}
@@ -251,7 +249,7 @@ We combine all the above observations into the following theorem.
 
 \begin{figure}[h!]
 \begin{centering}
-\includegraphics[scale = 0.75]{\figurefolder/b_bounds.png}
+\includegraphics[scale = 0.75]{./figures/b_bounds.png}
 \caption{Bounds on $b$ for various values of $p$ and $v$ at $\alpha \rightarrow e$. Top shows lower bounds on $b$ for $RoR_A \geq RoR_B$ and bottom shows upper bounds of $b$ for $RoR_A \geq \frac{b}{2}$.}
 \label{fig:b_restrictions}
 \end{centering}
@@ -290,8 +288,8 @@ g'(b) &= \frac{2(e-\alpha)}{b^3 \alpha} \log\left(1+\frac{b\alpha}{e-\alpha} \ri
 &\iff \frac{2(e-\alpha)}{b \alpha} \log\left(1+\frac{b\alpha}{e-\alpha} \right) \leq 1+\frac{1}{1+\frac{b\alpha}{e-\alpha}} \\
 &\iff \frac{2\log(1+x)}{x} \leq 1+\frac{1}{1+x}
 \end{align*}
-where $x = \frac{b\alpha}{e-\alpha}$, and as $b \in (0,1)$, $x \in (0, \frac{\alpha}{e-\alpha})$. We can see that as $x \rightarrow 0$, the above inequality is an equality. 
-We represent the LHS of the above equation as $L(x)$ and RHS as $R(x)$. Next we show that $L(x)$ decreases more quickly than $R(x)$ does for positive $x$, thereby proving the proposition.
+where $x = \frac{b\alpha}{e-\alpha}$, and as $b \in [0,1]$, $x \in [0, \frac{\alpha}{e-\alpha}]$. We can see that as $x \rightarrow 0$, the above inequality is an equality. 
+We represent the LHS of the above equation as $L(x)$ and RHS as $R(x)$. Next we show that $L(x)$ increses slowly as compared to $R(x)$ thereby proving the proposition.
 First show that in the range of $x$ the following holds true:
 
 \beq
@@ -302,18 +300,18 @@ To show the above observe that at $x\rightarrow 0$ both the LHS and RHS are equa
 \begin{align*}
 & (1+x) + \frac{1}{1+x} \ge 2\\
 \implies & 2 - \frac{1}{1+x} \le 1 + x\\
-\implies & \left(2-\frac{1}{1+x}\right)\cdot \frac{1}{1+x} \le 1\\
-\implies & 2\cdot \left(2-\frac{1}{1+x}\right)\cdot \left(\frac{1}{1+x}\right)^2 \le \frac{2}{1+x}
+\implies & (2-\frac{1}{1+x})\cdot \frac{1}{1+x} \le 1\\
+\implies & 2\cdot(2-\frac{1}{1+x})\cdot (\frac{1}{1+x})^2 \le \frac{2}{1+x}
 \end{align*}
 The left hand side is the derivative of the above LHS and right hand side is the derivative of the above RHS.
 
 Now we can rearrange Eq.~\ref{eq:eq00} as follows:
 \begin{align*}
 & \left(2-\frac{1}{1+x}\right)^2 \le 2\log(1+x) + 1\\
-\implies & \left(1 + \frac{x}{1+x}\right)^2 \le 2\log(1+x) + 1\\
-\implies & \left(\frac{x}{1+x}\right)^2 + \frac{2x}{1+x} \le 2\log(1+x)\\
-\implies & 2\left(\frac{x}{1+x} - \log(1+x)\right) \le - \left(\frac{x}{1+x}\right)^2\\
-\implies & \frac{2\left(\frac{x}{1+x} - \log(1+x)\right)}{x^2} \le - \left(\frac{1}{1+x}\right)^2
+\implies & (1 + \frac{x}{1+x})^2 \le 2\log(1+x) + 1\\
+\implies & (\frac{x}{1+x})^2 + \frac{2x}{1+x} \le 2\log(1+x)\\
+\implies & 2\left(\frac{x}{1+x} - \log(1+x)\right) \le - (\frac{x}{1+x})^2\\
+\implies & \frac{2\left(\frac{x}{1+x} - \log(1+x)\right)}{x^2} \le - (\frac{1}{1+x})^2
 \end{align*}
 The left hand side of above is $L'(x)$ and right hand side is $R'(x)$.
 
@@ -396,4 +394,4 @@ Fix $\alpha \in (0, e)$.
 For any value of $v$, there exists a lowerbound $p_0$ such that for any $p$ greater than $p_0$, there exists a range $(b_0, b_1)$ between $0$ and $1$ such that for all $b$ lying between $b_0$ and $b_1$, offering the reward program is strictly better for $A$. 
 \end{theorem}
 
-The above results can be extremely helpful in the following way: if a merchant believes excess loyalty is uniform and has good estimates of its target customer population, \ie, $b$ and $p$ values, it can find the appropriate reward budget ratios $\alpha$, which could make running a reward program strictly better against a traditional pricing competitor. Most importantly, these results show that under mild assumptions on the customer poplation parameters, reward programs can be beneficial in our duopoly model. {\nolan Maybe make this last statement stronger? Or expand on it?}  
+The above results can be extremely helpful in the following way: if a merchant believes excess loyalty is uniform and has good estimates of its target customer population, \ie, $b$ and $p$ values, it can find the appropriate reward budget ratios $\alpha$, which could make running a reward program strictly better against a traditional pricing competitor. Most importantly, these results show that under mild assumptions on the customer poplation parameters, reward programs can be beneficial in our duopoly model.
