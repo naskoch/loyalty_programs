@@ -289,133 +289,20 @@ We combine all the above observations into the following theorem.
 Under proportional budgeting, as $\alpha\rightarrow e$, a necessary and sufficient condition for the reward program to be strictly better is a lowerbound on $p$ which increases with $v$.  
 And as $p$ increases beyond the lowerbound, the region of allowable $b$ for which the reward program is strictly better becomes larger. 
 \end{theorem}
-%\proof
-%\endproof
 
-Now we generalize the above result for all values of $\alpha$. The conditions are more complex but the results and intuitions are similar. 
+Now we generalize the above result for all values of $\alpha$. The conditions are more complex but the results and intuitions are similar. The proofs are technical, and we leave them to the appendix. 
 
 \begin{lemma}
+\label{lem:lower_b}
 Fix $\alpha \in (0, e)$. For any $(p,v)$ pair, there exists some upper bound $b_1 \in [0,1]$ such that for all $b \leq b_1$, $RoR_A \geq \frac{b}{2}$.
 \end{lemma}
 
-\proof
-We delay the proof of this lemma to first prove a helpful proposition. It is a straightforward computation to see that the condition of $RoR_A \geq \frac{b}{2}$ is equivalent to:
-\begin{gather*}
-\frac{1}{b}\left(1-\frac{e-\alpha}{b\alpha}\log \left(1+\frac{b\alpha}{e-\alpha} \right) \right) \geq \frac{\alpha(1-(1-p)(1-\alpha v))}{2pe(1-\alpha v)} \\
-\iff
-g(b; \alpha) \geq h(p, v; \alpha)
-\end{gather*}
-where we have defined functions $g(b)$ and $h(p,v)$ for fixed $\alpha$ for the above inequalities. 
 
-\begin{proposition}
-For a fixed $\alpha$, $g(b)$ is non-increasing for all $b \in (0,1)$. 
-\end{proposition}
-
-\proof
-We take the derivative of $g$:
-\begin{align*}
-g'(b) &= \frac{2(e-\alpha)}{b^3 \alpha} \log\left(1+\frac{b\alpha}{e-\alpha} \right) - \frac{1}{b^2}-\frac{1}{b^2\left(1+\frac{b\alpha}{e-\alpha}\right)} \leq 0 \\
-&\iff \frac{2(e-\alpha)}{b \alpha} \log\left(1+\frac{b\alpha}{e-\alpha} \right) \leq 1+\frac{1}{1+\frac{b\alpha}{e-\alpha}} \\
-&\iff \frac{2\log(1+x)}{x} \leq 1+\frac{1}{1+x}
-\end{align*}
-where $x = \frac{b\alpha}{e-\alpha}$, and as $b \in (0,1)$, $x \in (0, \frac{\alpha}{e-\alpha})$. We can see that as $x \rightarrow 0$, the above inequality is an equality. 
-We represent the LHS of the above equation as $L(x)$ and RHS as $R(x)$. Next we show that $L(x)$ decreases more quickly than $R(x)$ does for positive $x$, thereby proving the proposition.
-First show that in the range of $x$ the following holds true:
-
-\beq
-\label{eq:eq00}
-\left(2-\frac{1}{1+x}\right)^2 \le 2\log(1+x) + 1
-\eeq
-To show the above observe that at $x\rightarrow 0$ both the LHS and RHS are equal. And it is easy to show that the derivative of LHS is lower than the derivative of RHS for all $x\ge 0$ as shown.
-\begin{align*}
-& (1+x) + \frac{1}{1+x} \ge 2\\
-\implies & 2 - \frac{1}{1+x} \le 1 + x\\
-\implies & \left(2-\frac{1}{1+x}\right)\cdot \frac{1}{1+x} \le 1\\
-\implies & 2\cdot \left(2-\frac{1}{1+x}\right)\cdot \left(\frac{1}{1+x}\right)^2 \le \frac{2}{1+x}
-\end{align*}
-The left hand side is the derivative of the above LHS and right hand side is the derivative of the above RHS.
-
-Now we can rearrange Eq.~\ref{eq:eq00} as follows:
-\begin{align*}
-& \left(2-\frac{1}{1+x}\right)^2 \le 2\log(1+x) + 1\\
-\implies & \left(1 + \frac{x}{1+x}\right)^2 \le 2\log(1+x) + 1\\
-\implies & \left(\frac{x}{1+x}\right)^2 + \frac{2x}{1+x} \le 2\log(1+x)\\
-\implies & 2\left(\frac{x}{1+x} - \log(1+x)\right) \le - \left(\frac{x}{1+x}\right)^2\\
-\implies & \frac{2\left(\frac{x}{1+x} - \log(1+x)\right)}{x^2} \le - \left(\frac{1}{1+x}\right)^2
-\end{align*}
-The left hand side of above is $L'(x)$ and right hand side is $R'(x)$.
-
-\endproof
-
-Thus, $g(b)$ is decreasing in $b$, so for any $(p,v)$ pair, we may compute $h(p, v; \alpha)$, which will then fall into one of the following three cases.
-\begin{itemize}
-\item
-$h(p,v;\alpha) \geq g(0)$. So no value of $b$ makes the reward program profitable.
-\item
-$h(p,v;\alpha) \leq g(1)$. So any value of $b$ makes the reward program profitable.
-\item
-$h(p,v;\alpha) = g(b_0)$ for some $b_0 \in (0,1)$. So the reward program is profitable for all $b \leq b_0$ and not otherwise.
-\end{itemize}
-
-The above proposition and discussion proves our lemma: for fixed $\alpha$ and any $(p,v)$ pair, there is some upperbound on $b$ s.t. $RoR_A > \frac{b}{2}$. 
-\endproof
-
-Now we again look at the conditions for $RoR_A > RoR_B$ to get a lower bound on $b$.  
 \begin{lemma}
+\label{lem:upper_b}
 Fix $\alpha \in (0, e)$. For any $(p,v)$ pair, there exists some lower bound $b_0 \in [0,1]$ such that for all $b \geq b_0$, $RoR_A > RoR_B$.
 \end{lemma}
 
-\proof
-Let $\frac{b\alpha}{e-\alpha} = x$. Then $RoR_A > RoR_B$ can be evaluated as follows:
-
-\begin{eqnarray}
-& p\frac{e}{\alpha}\left(1-\frac{\log(1+x)}{x}\right)(1-\alpha v + 1 - v) - p(1-v) + (1-p)\frac{b}{2}\left(1-\alpha v + 1-v\right) + p(1-v) > 1-v\notag\\
-& \implies p\left(1 - \frac{\log(1+x)}{x}\right) + (1-p)\frac{b\alpha}{2e} > \frac{\alpha}{e} \cdot \frac{1-v}{1-\alpha v + 1 - v}\label{eq:ra>rb}
-\end{eqnarray}
-
-Since $\alpha$ is a constant, the LHS above is a function of $b$ and $p$. 
-Let the LHS above be $L(b,p)$.
-We first show that in the range of $b\in [0,1]$, $1 - \frac{\log(1+x)}{x} > \frac{b\alpha}{2e}$ which shows that $L(b,p)$ is increasing in $p$.
-
-\begin{align*}
-& 1-\frac{\log(1+x)}{x} > \frac{b\alpha}{2e}\\
-\Leftrightarrow & x - \log(1+x) > \frac{b^2\alpha^2}{2e(e-\alpha)}
-\end{align*}
-Observe that LHS is equal to RHS when $b\rightarrow 0$. 
-All we show is that LHS increases faster than RHS in the range of $b\in [0,1]$. 
-
-\begin{align*}
-\Leftrightarrow & \left(1 - \frac{1}{1+x}\right) \frac{\alpha}{e-\alpha} > \frac{b\alpha^2}{e(e-\alpha)}\\
-\Leftrightarrow & \frac{1}{1+x} > \frac{e-\alpha}{e}\\
-\Leftrightarrow & \frac{e}{e-\alpha} > 1 + \frac{b\alpha}{e-\alpha}
-\end{align*}
-And the last equation is true in the range of $b\in [0,1]$. Hence $L(b,p)$ increases with $p$.
-
-Now we show that $L(b,p)$ increases with $b$ as well. First observe:
-
-\beq
-\frac{\partial L(b,p)}{\partial b} = p\left(\frac{\log(1+x) - \frac{x}{1+x}}{x^2}\right)\frac{\alpha}{e-\alpha} + (1-p)\frac{\alpha}{2e}
-\notag
-\eeq
-
-Thus $\frac{\partial L(b,p)}{\partial b} > 0$ implies:
-
-\begin{align*}
-& (1-p)\frac{\alpha}{2e} > p\left(\frac{\frac{x}{1+x} - \log(1+x)}{x^2}\right)\frac{\alpha}{e-\alpha}\\
-\Leftrightarrow & (1-p)\frac{b^2\alpha^2}{2e(e-\alpha)} > p \left(1 - \frac{1}{1+x} - \log(1+x)\right)
-\end{align*}
-
-Again the LHS and RHS are equal as $b\rightarrow 0$. All we show again is that LHS increases faster as compared to RHS.
-
-\begin{align*}
-\Leftrightarrow (1-p)\frac{b\alpha^2}{e(e-\alpha)} > p\left(\frac{1}{(1+x)^2} - \frac{1}{1+x} \right)\frac{\alpha}{e-\alpha}\\
-\end{align*}
-Clearly RHS is negative when $b\in (0,1]$ and LHS is positive. Hence proved.
-
-Thus $L(b,p)$ is increasing in both $b$ and $p$. And the condition required is $L(b,p)$ is greater than some constant value which depends on $v$.
-Hence for any $v$ there exists a smooth $(b_0,p_0)$ curve such that for all $b\ge b_0$ and $p\ge p_0$ revenue rate of reward program merchant is larger.
-
-\endproof
 
 We combine the above two lemmas as before to get the following theorem.
 
@@ -424,4 +311,5 @@ Fix $\alpha \in (0, e)$.
 For any value of $v$, there exists a lowerbound $p_0$ such that for any $p$ greater than $p_0$, there exists a range $(b_0, b_1)$ between $0$ and $1$ such that for all $b$ lying between $b_0$ and $b_1$, offering the reward program is strictly better for $A$. 
 \end{theorem}
 
-The above results can be extremely helpful in the following way: if a merchant believes excess loyalty is uniform and has good estimates of its target customer population, \ie, $b$ and $p$ values, it can find the appropriate reward budget ratios $\alpha$, which could make running a reward program strictly better against a traditional pricing competitor. Most importantly, these results show that under mild assumptions on the customer poplation parameters, reward programs can be beneficial in our duopoly model.
+The above results can be extremely helpful in the following way: if a merchant estimates that the loyalty bias parameter is drawn from a uniform distribution and has good estimates of its target customer population, \ie, $b$ and $p$ values, it can find the appropriate reward budget ratios $\alpha$, which could make running a reward program strictly better against a traditional pricing competitor. 
+More importantly, these results show that under mild assumptions on the customer poplation parameters, reward programs can be beneficial in the competitive duopoly model.
