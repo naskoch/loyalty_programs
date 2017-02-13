@@ -7,7 +7,7 @@ In this section, we derive optimal parameters for the reward program design with
 Interestingly, we see that maximizing revenue corresponds to minimizing the influence zone, as illustrated above.
 
 \begin{theorem}
-Under proportional promotion budgeting, the optimal reward distance ($k$) and the optimal budget proportion ($\alpha$) for merchat $A$ follow the relation $\alpha k = \frac{e}{(1-\beta)}$ at all values of $b$ as long as $\beta$ is close to 1.
+Under proportional promotion budgeting, the optimal reward distance ($k$) and the optimal budget proportion ($\alpha$) for merchat $A$ follow the relation $\alpha k = \frac{e}{(1-\beta)}$ for all distributions of $\lambda$ as long as $\beta$ is close to 1.
 \end{theorem}
 \proof
 Let $\theta = \frac{\Delta}{k}$. First, we evaluate $RoR_A$.
@@ -20,7 +20,7 @@ RoR_A =& \underset{\lambda, t}E\left[\frac{k-R}{i_0(t)/\lambda + k - i_0(t)}\rig
                                        =& \underset{\lambda}E\left[p\cdot\frac{\lambda(1-\alpha v)}{1-\theta(1-\lambda)} + (1-p)\lambda (1-\alpha v)\right]\\
 \end{align*}
 
-Observe that the term inside the expectation is maximized when $\theta$ is maximized.
+Observe that the term inside the expectation is maximized when $\theta$ is maximized for all values of $\lambda \in (0,1)$.
 Using Leibniz' Rule, we can conclude that the integral itself is maximized when $\theta$ is maximized, which as shown above, is equivalent to minimizing the influence zone.
 As shown in Remark~\ref{rem:inf_zone}, this happens at $\alpha k = \frac{e}{1-\beta}$. 
 And at this point, $\theta = \frac{\Delta}{k} = \frac{\alpha}{e}$.
@@ -28,7 +28,7 @@ And at this point, $\theta = \frac{\Delta}{k} = \frac{\alpha}{e}$.
 
 An interesting point to observe above is that if $\alpha$ is constant, then maximizing the revenue objective is equivalent to minimizing the influence zone.
 This result matches the following intuition - the faster the merchant can get customers to adopt the reward program, the more purchases they will make with the merchant in the long run - but is stronger as it actually maximizes the revenue objective as well. 
-Although, reward point accelerations are common and effective mechanisms to get customers to adopt reward programs, we have shown that designing the reward program so that a minimum number of such accelerations is required, leads to maximizing merchant's revenue. 
+Although, reward point accelerations are common and effective mechanisms to get customers to adopt reward programs, we have shown that designing the reward program so that a minimum number of such accelerations is required leads to maximizing merchant's revenue. 
 The condition that $\beta$ be close to 1 is not very restrictive, as the discount factor is expected to be high in most cases. 
 Note that because $k \geq \Delta$, the above also shows $\alpha \leq e$. 
 Finally, observe that we need $R > \frac{(1-\lambda)v}{1-\beta}$ for $V$ to be increasing. 
