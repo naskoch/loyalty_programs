@@ -159,13 +159,6 @@ We formally show this result next.
 \label{fig:offer_reward_or_not}
 \end{figure*}
 
-\begin{figure*}[t]
-\centering
-\includegraphics[scale = 0.4]{./figures/b_region_v2.png}
-\caption{The upper and lower bounds on $b$ as a function of $p$. Here $v = 0.05$ and $\alpha \rightarrow e$.}
-\label{fig:b_region}
-\end{figure*}
-
 For any fixed $\alpha$, the exact conditions on $p$, $b$ and $v$ for $RoR_A > RoR_B$ and $RoR_A > \frac{b}{2}$ are rather complex. We will first focus on one particular simple case: $\alpha \rightarrow e$. 
 
 \begin{lemma}
@@ -246,6 +239,13 @@ The above inequality is only valid when the lower bound is less than the upper b
 1-\frac{1-ev}{1-ev^2} &< p
 \end{align*}
 \endproof
+
+\begin{figure*}[t]
+\centering
+\includegraphics[scale = 0.4]{./figures/b_region_v2.png}
+\caption{The upper and lower bounds on $b$ as a function of $p$. Here $v = 0.05$ and $\alpha \rightarrow e$.}
+\label{fig:b_region}
+\end{figure*}
 
 Thus, for any choice of $v$, and $p$ obeying the above condition, the combination of the above lemmas gives an interval of $b$ values for which the reward program is the most profitable choice for the merchant. 
 Figure~\ref{fig:b_region} shows the bounds on $b$ for varying values of $p$, keeping $v = 0.05$ fixed, and restricting the range of $b$ values in $(0,1)$. 
