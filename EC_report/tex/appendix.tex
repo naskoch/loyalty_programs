@@ -48,7 +48,18 @@ Now we can rearrange Eq.~\ref{eq:eq00} as follows:
 \implies & \frac{2\left(\frac{x}{1+x} - \log(1+x)\right)}{x^2} \le - \left(\frac{1}{1+x}\right)^2
 \end{align*}
 The left hand side of above is $L'(x)$ and right hand side is $R'(x)$.
+\endproof
+Thus, $g(b)$ is decreasing in $b$, so for any $(p,v)$ pair, we may compute $h(p, v; \alpha)$, which will then fall into one of the following three cases.
+\begin{itemize}
+\item
+$h(p,v;\alpha) \geq g(0)$. So no value of $b$ makes the reward program profitable.
+\item
+$h(p,v;\alpha) \leq g(1)$. So any value of $b$ makes the reward program profitable.
+\item
+$h(p,v;\alpha) = g(b_0)$ for some $b_0 \in (0,1)$. So the reward program is profitable for all $b \leq b_0$ and not otherwise.
+\end{itemize}
 
+The above proposition and discussion proves our lemma: for fixed $\alpha$ and any $(p,v)$ pair, there is some upperbound on $b$ s.t. $RoR_A > \frac{b}{2}$. 
 \endproof
 
 \subsection{Proof of Lemma~\ref{lem:upper_b}}
