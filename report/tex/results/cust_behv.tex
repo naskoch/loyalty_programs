@@ -12,7 +12,7 @@ V(i) = \max\left\{ \frac{\lambda \beta V(i+1)+(1-\lambda)v}{1-(1-\lambda)\beta},
 \end{equation}
 \end{lemma}
 
-\begin{proof}
+\proof{Proof.}
 First we show that $V(i)$ is an increasing function in $i$ by induction. We first show that if the condition above is satisfied, $V(k-1) < V(k) = R$. Suppose not, so $V(k-1) \geq R$. Then from Eq.~\ref{eq:dp_form}, we have:
 \begin{align*}
 V(k-1) &= \lambda \beta V(k) + (1-\lambda)(v+\beta V(k-1)) \\
@@ -46,7 +46,7 @@ V(i) = \lambda \beta V(i+1) + (1-\lambda)(v+\beta V(i)) \\
 V(i) = \frac{\lambda \beta V(i+1) + (1-\lambda)v}{1-(1-\lambda)\beta}
 \end{gather*}
 And we get our claim.
-\end{proof}
+\endproof
 
 Now if the expected reward of the customer increases with the number of purchases made from $A$, we expect that at some number of purchases it becomes profitable for the customer to choose to purchase from $A$ as opposed to $B$.
 We characterize this phase transition point in the following theorem.
@@ -64,7 +64,7 @@ with
 \end{align}
 \end{theorem}
 
-\begin{proof}
+\proof{Proof.}
 First we solve for the condition on $V(i+1)$ for us to choose firm $A$ over $B$ willingly.
 \begin{gather*}
 \beta V(i+1) > \frac{\lambda \beta V(i+1) + (1-\lambda)v}{1-(1-\lambda)\beta} \\
@@ -94,7 +94,7 @@ If $t \geq \Delta$, the customer perceives the reward prior to this tipping poin
     k, & \text{wp } 1-p.
   \end{cases}
 \end{equation*}
-\end{proof}
+\endproof
 
 Note that the phase transition point is independent of $\lambda$, the customer's visit probability bias toward the merchant.
 As we would expect, it increases with the look-ahead parameter, and with the price discount offered by merchant $B$.
@@ -107,7 +107,7 @@ Next we find the optimal $k$ for minimizing this influence zone if $\alpha$ is c
 \begin{remark}\label{rem:inf_zone}
 Influence zone is minimized at $k = \frac{e}{\alpha(1-\beta)}$ under proportional promotion budgeting, as long as $\beta$ is close to 1. 
 \end{remark}
-\begin{proof}
+\proof{Proof.}
 As defined the influence zone is $\frac{i_0}{k} = \frac{k-\Delta}{k} = 1 -\frac{\Delta}{k}$.
 Thus minimizing the influence zone is equivalent to minimizing $\frac{k}{\Delta}$.
 \begin{align*}
@@ -115,7 +115,7 @@ Thus minimizing the influence zone is equivalent to minimizing $\frac{k}{\Delta}
 \end{align*}
 The above approximation relies on $\beta$ close to 1. Now this value is minimized at $k = \frac{e}{\alpha(1-\beta)}$. Therefore, for all distributions of excess loyalty, the optimal value for $k$ is given by $\frac{e}{\alpha(1-\beta)}$, the value for which $\frac{k}{\Delta}$ is minimized and takes the value $\frac{e}{\alpha}$. 
 At this value the influence zone takes the value $1-\frac{\alpha}{e}$.
-\end{proof}
+\endproof
 Note that if $\alpha$ is $1$, then the value of $k$ corresponds to a cashback between $2$\% and $4$\% as $\beta$ ranges between $0.95$ and $0.9$.
 This value is realistic to what is observed in practice.
 
